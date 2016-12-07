@@ -1,0 +1,73 @@
+README
+
+1) Perform schema migration
+
+geonode@lipad-fmctst /opt/geonode $ workon geonode
+
+(geonode)geonode@lipad-fmctst /opt/geonode $ python manage.py schemamigration --auto cephgeo
+ + Added model cephgeo.RIDF
+ + Added model cephgeo.MissionGridRef
+ + Added model cephgeo.SucToLayer
+ ? The field 'UserJurisdiction.jurisdiction_shapefile' does not have a default specified, yet is NOT NULL.
+ ? Since you are making this field nullable, you MUST specify a default
+ ? value to use for existing rows. Would you like to:
+ ?  1. Quit now.
+ ?  2. Specify a one-off value to use for existing columns now
+ ?  3. Disable the backwards migration by raising an exception; you can edit the migration to fix it later
+ ? Please select a choice: 3
+ ~ Changed field jurisdiction_shapefile on cephgeo.UserJurisdiction
+Created 0008_auto__add_ridf__add_missiongridref__add_suctolayer__chg_field_userjuri.py. You can now apply this migration with: ./manage.py migrate cephgeo
+
+(geonode)geonode@lipad-fmctst /opt/geonode $ python manage.py migrate cephgeo
+Running migrations for cephgeo:
+ - Migrating forwards to 0008_auto__add_ridf__add_missiongridref__add_suctolayer__chg_field_userjuri.
+ > cephgeo:0008_auto__add_ridf__add_missiongridref__add_suctolayer__chg_field_userjuri
+ - Loading initial data for cephgeo.
+Installed 0 object(s) from 0 fixture(s)
+
+2) Login to postgis db
+
+(geonode)geonode@lipad-fmctst /opt/geonode $ python manage.py dbshell
+Password for user geonode: 
+psql (9.3.15, server 9.3.6)
+Type "help" for help.
+
+geonode=> \d+ cephgeo_ridf
+                                                      Table "public.cephgeo_ridf"
+  Column   |          Type          |                         Modifiers                         | Storage  | Stats target | Description 
+-----------+------------------------+-----------------------------------------------------------+----------+--------------+-------------
+ id        | integer                | not null default nextval('cephgeo_ridf_id_seq'::regclass) | plain    |              | 
+ prov_code | character varying(11)  | not null                                                  | extended |              | 
+ prov_name | character varying(50)  | not null                                                  | extended |              | 
+ muni_code | character varying(11)  | not null                                                  | extended |              | 
+ muni_name | character varying(50)  | not null                                                  | extended |              | 
+ iscity    | boolean                | not null                                                  | plain    |              | 
+ _5yr      | numeric(7,3)           |                                                           | main     |              | 
+ _25yr     | numeric(7,3)           |                                                           | main     |              | 
+ _100yr    | numeric(7,3)           |                                                           | main     |              | 
+ rbs_raw   | character varying(100) |                                                           | extended |              | 
+Indexes:
+    "cephgeo_ridf_pkey" PRIMARY KEY, btree (id)
+Has OIDs: no
+
+### MAKE SURE THE TABLE IS EMPTY!!! ###
+
+geonode=> \i scripts/utils/RIDF_PSAcode/cephgeo_ridf.sql 
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+ setval 
+--------
+   3296
+(1 row)
+
+geonode=> SELECT COUNT(*) FROM cephgeo_ridf;
+ count 
+-------
+  1648
+(1 row)
+

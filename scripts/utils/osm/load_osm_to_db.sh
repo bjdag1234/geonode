@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 set -e
 
@@ -118,3 +118,6 @@ cd ..
 
 echo Run updatelayers on workspace...
 python ../../../manage.py updatelayers -w $WORKSPACE
+
+echo Apply proper permissions to osm layers...
+python osm_permissions.py
