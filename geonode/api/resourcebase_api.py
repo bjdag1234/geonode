@@ -23,6 +23,8 @@ from geonode.base.models import ResourceBase
 
 from .authorization import GeoNodeAuthorization
 
+from geonode.reports.models import DownloadCount
+
 from .api import TagResource, RegionResource, ProfileResource, \
     TopicCategoryResource, \
     FILTER_TYPES
@@ -523,3 +525,12 @@ class DocumentResource(CommonModelApi):
         if settings.RESOURCE_PUBLISHING:
             queryset = queryset.filter(is_published=True)
         resource_name = 'documents'
+
+class DownloadCountResource(ModelResource):
+
+    """Report DownloadCount api"""
+
+
+    class Meta(CommonMetaApi):
+        queryset = DownloadCount.objects.all().order_by('-date')
+        resource_name = 'download_count'

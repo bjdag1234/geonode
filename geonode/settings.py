@@ -258,7 +258,8 @@ GEONODE_APPS = (
     # Data Requests Management App
     'geonode.datarequests',
 
-
+    # Reports
+    'geonode.reports',
 )
 
 INSTALLED_APPS = (
@@ -804,7 +805,7 @@ LEAFLET_CONFIG = {
         # http://leaflet-extras.github.io/leaflet-providers/preview/
 
         # Stamen toner lite.
-        
+
     ],
     'PLUGINS': {
         'esri-leaflet': {
