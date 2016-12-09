@@ -128,8 +128,9 @@ def seed_layers(keyword):
 
 @task(name='geonode.tasks.update.update_fhm_metadata_task', queue='update')
 def update_fhm_metadata_task(flood_years=(5, 25, 100)):
-    for year in flood_years:
-        fhm_year_metadata(year)
+    # for year in flood_years:
+    #     fhm_year_metadata(year)
+    fhm_year_metadata(100)
 
 
 @task(name='geonode.tasks.update.sar_metadata_update', queue='update')
