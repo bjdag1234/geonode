@@ -530,7 +530,6 @@ class DownloadCountResource(ModelResource):
 
     """Report DownloadCount api"""
 
-
-    class Meta(CommonMetaApi):
+    class Meta:
         queryset = DownloadCount.objects.all().order_by('-date')
         resource_name = 'download_count'
