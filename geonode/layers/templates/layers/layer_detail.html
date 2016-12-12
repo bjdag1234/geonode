@@ -167,21 +167,21 @@
                   {% if "PhilLiDAR2" in resource.keyword_list %}
                   <tr>
                     <td>{% trans link.link_type %}</td>
-                    <td><a href="{{ link | get_layer_download_url }}&format_options=layout:phillidar2">{% trans link.name %}</a></td>
-                    <td><a href="{{ link | get_layer_download_url }}&format_options=layout:phillidar2">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&format_options=layout:phillidar2">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&format_options=layout:phillidar2">{% trans link.name %}</a></td>
                   </tr>
                   {% else %}
                   <tr>
                     <td>{% trans link.link_type %}</td>
-                    <td><a href="{{ link | get_layer_download_url }}&format_options=layout:phillidar1">{% trans link.name %}</a></td>
-                    <td><a href="{{ link | get_layer_download_url }}&format_options=layout:phillidar1">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&format_options=layout:phillidar1">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&format_options=layout:phillidar1">{% trans link.name %}</a></td>
                   </tr>
                   {% endif %}
                 {% else %}
                   <tr>
                     <td>{% trans link.link_type %}</td>
-                    <td><a href="{{ link | get_layer_download_url }}&srsName=EPSG:32651">{% trans link.name %}</a></td>
-                    <td><a href="{{ link | get_layer_download_url }}&srsName=EPSG:4683">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&srsName=EPSG:32651">{% trans link.name %}</a></td>
+                    <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}&srsName=EPSG:4683">{% trans link.name %}</a></td>
                   </tr>
                 {% endif %}
               {% endfor %}
@@ -434,6 +434,17 @@
         createMapThumbnail();
         $('#edit-layer').modal('toggle');
       });
+
+    </script>
+    <script type="text/javascript">
+    $('.Downloadlink').click(function(){
+      $.ajax({
+        url: window.location.pathname + "/layer_tracker/",
+        type:"POST",
+        success: function(){
+        }
+      });
+    });
     </script>
     {% if GEONODE_SECURITY_ENABLED %}
     {% include "_permissions_form_js.html" %}
