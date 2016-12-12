@@ -63,6 +63,7 @@ def image_basemap(link, epsg, filetype):
                   username=settings.OGC_SERVER['default']['USER'],
                   password=settings.OGC_SERVER['default']['PASSWORD'])
     baseURL = settings.OGC_SERVER['default']['PUBLIC_LOCATION']
+    localURL = settings.OGC_SERVER['default']['LOCATION']
 
     # get layer name
     layer, isPhilLidar1, isPhilLidar2 = analyze_link(link)
@@ -106,16 +107,16 @@ def image_basemap(link, epsg, filetype):
         jsontext['outputFormat'] = filetype
         jsontext['outputFilename'] = layer.title.replace(',','')
         # jsontext['layers'][0]['baseURL'] = settings.OGC_SERVER['default']['LOCATION'] + 'wms?SERVICE=WMS&'
-        jsontext['layers'][0]['baseURL'] = baseURL + \
+        jsontext['layers'][0]['baseURL'] = localURL + \
             'wms?SERVICE=WMS&'  # baseURL for local
-        jsontext['layers'][1]['baseURL'] = baseURL + \
+        jsontext['layers'][1]['baseURL'] = localURL + \
             'wms?SERVICE=WMS&'  # baseURL for local
 
         # jsontext['layers'][0]['layers'] = [str(layer.typename)]
         jsontext['layers'][1]['layers'] = [str(layer.typename)]
         jsontext['pages'][0]['bbox'] = bbox
 
-        legendurl = baseURL + 'wms?request=GetLegendGraphic&format=image/png&LAYER=' + str(layer.typename)
+        legendurl = localURL + 'wms?request=GetLegendGraphic&format=image/png&LAYER=' + str(layer.typename)
         jsontext['legends'][0]['classes'][0]['icons'][0] = legendurl
         jsontext['isPhilLidar1'] = isPhilLidar1
         jsontext['isPhilLidar2'] = isPhilLidar2
