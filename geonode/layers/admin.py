@@ -37,12 +37,18 @@ class LayerAdmin(MediaTranslationAdmin):
         'typename',
         'service_type',
         'title',
+        'Floodplains',
+        'SUC',
         'date',
         'category')
     list_display_links = ('id',)
     list_editable = ('title', 'category')
     list_filter = ('owner', 'category',
                    'restriction_code_type__identifier', 'date', 'date_type')
+    def Floodplains(self, obj):
+        return u", ".join(o.name for o in obj.floodplain_tag.all())
+    def SUC(self, obj):
+        return u", ".join(o.name for o in obj.SUC_tag.all())
     search_fields = ('typename', 'title', 'abstract', 'purpose',)
     filter_horizontal = ('contacts',)
     date_hierarchy = 'date'
