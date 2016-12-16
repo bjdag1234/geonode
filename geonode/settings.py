@@ -766,19 +766,19 @@ DOWNLOAD_FORMATS_METADATA = [
     'Atom', 'DIF', 'Dublin Core', 'ebRIM', 'FGDC', 'ISO',
 ]
 DOWNLOAD_FORMATS_VECTOR = [
-    'JPEG', 'PNG', 'Zipped Shapefile',
+    'JPEG', 'PNG', 'PDF', 'Zipped Shapefile',
     #'PDF', 'GML 2.0', 'GML 3.1.1', 'CSV',
     #'Excel', 'GeoJSON', 'KML', 'View in Google Earth', 'Tiles',
 ]
 DOWNLOAD_FORMATS_RASTER = [
     'JPEG',
-    #'PDF',
     'PNG',
-    'ArcGrid',
+    'PDF',
+    # 'ArcGrid',
     'GeoTIFF',
     #'Gtopo30',
     #'ImageMosaic',
-    'KML',
+    # 'KML',
     'View in Google Earth',
     #'Tiles',
 ]
@@ -933,3 +933,6 @@ if 'geonode.geoserver' in GEONODE_APPS:
     MAP_BASELAYERS.extend(baselayers)
 
 PH_BBOX= [116.22307468566594, 4.27103012208686, 127.09228398538997, 21.2510169394873 ]
+
+FP_DELINEATION_PL1 = 'fp_252_20161026v2'
+RB_DELINEATION_DREAM = 'DREAM_RB'

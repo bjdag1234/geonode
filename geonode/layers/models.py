@@ -35,6 +35,9 @@ from geonode.people.utils import get_valid_user
 from agon_ratings.models import OverallRating
 from geonode.utils import check_shp_columnnames
 
+from taggit.managers import TaggableManager
+from taggit.models import GenericTaggedItemBase, TagBase
+
 logger = logging.getLogger("geonode.layers.models")
 
 shp_exts = ['.shp', ]
@@ -43,6 +46,21 @@ kml_exts = ['.kml']
 vec_exts = shp_exts + csv_exts + kml_exts
 
 cov_exts = ['.tif', '.tiff', '.geotiff', '.geotif']
+
+class SUCTag (TagBase):
+    pass
+
+
+class SUCTaggedItem (GenericTaggedItemBase):
+    tag = models.ForeignKey(SUCTag, related_name='SUC_tag')
+
+
+class FloodplainTag (TagBase):
+    pass
+
+
+class FloodplainTaggedItem (GenericTaggedItemBase):
+    tag = models.ForeignKey(FloodplainTag,related_name='floodplain_tag')
 
 class Style(models.Model):
 
@@ -226,6 +244,13 @@ class Layer(ResourceBase):
     def maps(self):
         from geonode.maps.models import MapLayer
         return MapLayer.objects.filter(name=self.typename)
+
+    # SUC tagging
+    SUC_tag = TaggableManager(verbose_name='SUC Tags',
+                              through=SUCTaggedItem, blank=True)
+    # riverbasin tagging
+    floodplain_tag = TaggableManager(
+        verbose_name='Floodplain Tags', through=FloodplainTaggedItem, blank=True)
 
     @property
     def class_name(self):
