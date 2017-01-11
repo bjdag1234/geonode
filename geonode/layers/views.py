@@ -621,7 +621,7 @@ def layer_download(request, layername):
                         'PUBLIC_LOCATION'], "/".join(splits[4:]))
     return HttpResponseRedirect(redir_url)
 
-def layer_tracker(request, layername):
+def layer_tracker(request, layername, dl_type):
     layer = _resolve_layer(
         request,
         layername,
@@ -633,7 +633,8 @@ def layer_tracker(request, layername):
         DownloadTracker(actor=Profile.objects.get(username=request.user),
                         title=str(layername),
                         resource_type=str(ResourceBase.objects.get(layer__typename=layername).csw_type),
-                        keywords=Layer.objects.get(typename=layername).keywords.slugs()
+                        keywords=Layer.objects.get(typename=layername).keywords.slugs(),
+                        dl_type=dl_type
                         ).save()
         pprint('Download Tracked')
     return HttpResponse(status=200)
