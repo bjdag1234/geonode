@@ -2,7 +2,7 @@ from geonode.settings import GEONODE_APPS
 import geonode.settings as settings
 from actstream.models import Action
 from geonode.eula.models import AnonDownloader
-from geonode.reports.models import DownloadCount, SUCLuzViMin
+from geonode.reports.models import DownloadCount, SUCLuzViMin, DownloadTracker
 from datetime import datetime, timedelta
 from geonode.layers.models import Layer
 
@@ -74,9 +74,9 @@ for m in range(365):
         if datetoappend == datetime.strptime(auth.timestamp.strftime('%d-%m-%Y'),'%d-%m-%Y') and not auth.resource_type == 'document':#if datenow is timestamp
             luzvimin = get_luzvimin({
                 "timestamp": auth.timestamp,
-                "typename": auth.action_object.typename,
+                "typename": auth.title,
                 })
-            add_to_count(luzvimin, auth.action_object.typename)
+            add_to_count(luzvimin, auth.title)
     anon_list = AnonDownloader.objects.all().order_by('date')
     for anon in anon_list:
         if datetoappend == datetime.strptime(anon.date.strftime('%d-%m-%Y'),'%d-%m-%Y') and not anon.anon_document:#if datenow is timestamp
