@@ -436,7 +436,7 @@ AUTHENTICATION_BACKENDS = (#'django_auth_ldap.backend.LDAPBackend',
                            #'geonode.security.auth.GranularBackend',
                            'django.contrib.auth.backends.ModelBackend',
                            'guardian.backends.ObjectPermissionBackend',
-                           'django_cas_ng.backends.CASBackend',))
+                           'django_cas_ng.backends.CASBackend',)
 
 
 ANONYMOUS_USER_ID = -1
