@@ -327,6 +327,9 @@ INSTALLED_APPS = (
     'corsheaders',
     'captcha',
 
+    #Single sign-on client
+    'django_cas_ng',
+
 ) + GEONODE_APPS
 
 LOGGING = {
@@ -429,10 +432,11 @@ MIDDLEWARE_CLASSES = (
 #   'django.contrib.auth.backends.ModelBackend',
 #    'guardian.backends.ObjectPermissionBackend',
 #)
-AUTHENTICATION_BACKENDS = ('django_auth_ldap.backend.LDAPBackend',
+AUTHENTICATION_BACKENDS = (#'django_auth_ldap.backend.LDAPBackend',
                            #'geonode.security.auth.GranularBackend',
                            'django.contrib.auth.backends.ModelBackend',
-                           'guardian.backends.ObjectPermissionBackend',)
+                           'guardian.backends.ObjectPermissionBackend',
+                           'django_cas_ng.backends.CASBackend',)
 
 
 ANONYMOUS_USER_ID = -1
@@ -933,6 +937,8 @@ if 'geonode.geoserver' in GEONODE_APPS:
     MAP_BASELAYERS.extend(baselayers)
 
 PH_BBOX= [116.22307468566594, 4.27103012208686, 127.09228398538997, 21.2510169394873 ]
+
+CAS_VERSION = 3
 
 FP_DELINEATION_PL1 = 'fp_252_20161026v2'
 RB_DELINEATION_DREAM = 'DREAM_RB'

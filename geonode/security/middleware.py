@@ -13,6 +13,7 @@ class LoginRequiredMiddleware(object):
 
     white_list_paths = (
         reverse('account_login'),
+        reverse('cas_ng_login'),
         reverse('forgot_username'),
         reverse('help'),
         reverse('jscat'),
@@ -33,7 +34,7 @@ class LoginRequiredMiddleware(object):
             settings,
             "AUTH_EXEMPT_URLS",
             ()))
-    redirect_to = reverse('account_login')
+    redirect_to = reverse('cas_ng_login')
 
     def process_request(self, request):
         if not request.user.is_authenticated(
