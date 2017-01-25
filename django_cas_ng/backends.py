@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
 from django.conf import settings
+from django.dispatch import receiver
 
 from django_cas_ng.signals import cas_user_authenticated
 from .utils import get_cas_client
@@ -20,6 +21,7 @@ class CASBackend(ModelBackend):
 
     def authenticate(self, ticket, service, request):
         """Verifies CAS ticket and gets or creates User object"""
+        user = None
         client = get_cas_client(service_url=service)
         username, attributes, pgtiou = client.verify_ticket(ticket)
         if attributes:
@@ -46,15 +48,6 @@ class CASBackend(ModelBackend):
             user.save()
             created = True
         
-        if attributes and user:
-            setattr(user, "email", attributes["email"])
-            setattr(user, "first_name",attributes["first_name"])
-            setattr(user, "last_name", attributes["last_name"])
-            setattr(user,"is_active",attributes["is_active"])
-            setattr(user,"is_superuser", attributes["is_superuser"])
-            setattr(user,"is_staff", attributes["is_staff"])
-            user.save()
-
         if pgtiou and settings.CAS_PROXY_CALLBACK:
             request.session['pgtiou'] = pgtiou
 
@@ -76,3 +69,10 @@ class CASBackend(ModelBackend):
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
+
+@receiver(cas_user_authenticated)
+def handle_user_authenticated(sender, **kwargs):
+    user = kwargs.get("user")
+    attributes = kwargs.get("attributes")
+    pprint('User.is_superuser:'+ str(user.is_superuser))
+    pprint("atrributes: "+str(attributes))

@@ -61,7 +61,10 @@ def login(request, next_page=None, required=False):
                             service=service_url,
                             request=request)
         pgtiou = request.session.get("pgtiou")
+        if user.is_superuser:
+            pprint("User is a superuser")
         pprint("user should be authenticated by now")
+        
         if user is not None:
             auth_login(request, user)
             if not request.session.exists(request.session.session_key):
@@ -85,6 +88,19 @@ def login(request, next_page=None, required=False):
                     pgt.save()
                 except ProxyGrantingTicket.DoesNotExist:
                     pass
+            attributes = request.session['attributes']
+            user.email = attributes["email"]
+            user.first_name = attributes["first_name"]
+            user.last_name = attributes["last_name"]
+            if attributes["is_active"] is True:
+                user.is_active = attributes["is_active"]
+            if attributes["is_staff"] is True:
+                user.is_staff = attributes["is_staff"]
+            if attributes["is_superuser"] is True:
+                pprint("user.is_superuser:"+str(attributes["is_superuser"]))
+                user.is_superuser = attributes["is_superuser"]
+            user.save()
+            #pprint('Superuser? '+str(user.is_superuser))
 
             if settings.CAS_LOGIN_MSG is not None:
                 name = user.get_username()
