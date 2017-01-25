@@ -229,7 +229,7 @@
             </ul>
           </div>
           <div class="modal-footer">
-            <form action="{% url "account_logout" %}" id="logout_form" method="post">
+            <form action="{% url "cas_ng_logout" %}" id="logout_form" method="post">
               {% csrf_token %}
               <a class="btn btn-warning btn-block" href="javascript:{}" onclick="document.getElementById('logout_form').submit();">{% trans "Log out" %}</a>
             </form>
