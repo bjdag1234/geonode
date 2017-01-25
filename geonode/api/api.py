@@ -28,7 +28,6 @@ from tastypie.utils import trailing_slash
 
 from .authorization import GeoNodeAuthorization, DataRequestAuthorization
 
-
 FILTER_TYPES = {
     'layer': Layer,
     'map': Map,
