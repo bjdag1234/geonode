@@ -72,6 +72,9 @@ from geonode.eula.models import AnonDownloader
 from django.utils import timezone
 from geonode.people.models import Profile
 
+from geonode.reports.models import DownloadTracker
+from geonode.base.models import ResourceBase
+
 CONTEXT_LOG_FILE = None
 
 if 'geonode.geoserver' in settings.INSTALLED_APPS:
@@ -604,12 +607,38 @@ def layer_download(request, layername):
         layername,
         'base.view_resourcebase',
         _PERMISSION_MSG_VIEW)
-    if request.user.is_authenticated():
-        action.send(request.user, verb='downloaded', action_object=layer)
+    pprint(request.user.is_authenticated)
+    # if request.user.is_authenticated():
+    #     action.send(request.user, verb='downloaded', action_object=layer)
+    #     DownloadTracker(actor=Profile.objects.get(username=request.user),
+    #                     title=str(layername),
+    #                     resource_type=str(ResourceBase.objects.get(layer__typename=layername).csw_type),
+    #                     keywords=Layer.objects.get(typename=layername).keywords.slugs()
+    #                     ).save()
+    #     pprint('Download Tracked') #Download tracking moved to layer_tracker
 
     splits = request.get_full_path().split("/")
-    redir_url = urljoin(settings.OGC_SERVER['default']['PUBLIC_LOCATION'], "/".join(splits[4:]))
+    redir_url = urljoin(settings.OGC_SERVER['default'][
+                        'PUBLIC_LOCATION'], "/".join(splits[4:]))
     return HttpResponseRedirect(redir_url)
+
+def layer_tracker(request, layername, dl_type):
+    layer = _resolve_layer(
+        request,
+        layername,
+        'base.view_resourcebase',
+        _PERMISSION_MSG_VIEW)
+    pprint(request.user.is_authenticated)
+    if request.user.is_authenticated():
+        action.send(request.user, verb='downloaded', action_object=layer)
+        DownloadTracker(actor=Profile.objects.get(username=request.user),
+                        title=str(layername),
+                        resource_type=str(ResourceBase.objects.get(layer__typename=layername).csw_type),
+                        keywords=Layer.objects.get(typename=layername).keywords.slugs(),
+                        dl_type=dl_type
+                        ).save()
+        pprint('Download Tracked')
+    return HttpResponse(status=200)
 
 @login_required
 def layer_download_csv(request):
@@ -617,24 +646,24 @@ def layer_download_csv(request):
         return HttpResponseRedirect("/forbidden/")
     response = HttpResponse(content_type='text/csv')
     datetoday = timezone.now()
-    response['Content-Disposition'] = 'attachment; filename="layerdownloads-"'+str(datetoday.month)+str(datetoday.day)+str(datetoday.year)+'.csv"'
+    response['Content-Disposition'] = 'attachment; filename="layerdownloads-"' + \
+        str(datetoday.month) + str(datetoday.day) + \
+        str(datetoday.year) + '.csv"'
     listtowrite = []
     writer = csv.writer(response)
 
     orgtypelist = ['Phil-LiDAR 1 SUC',
-    'Phil-LiDAR 2 SUC',
-    'Government Agency',
-    'Academe',
-    'International NGO',
-    'Local NGO',
-    'Private Insitution',
-    'Other']
+                   'Phil-LiDAR 2 SUC',
+                   'Government Agency',
+                   'Academe',
+                   'International NGO',
+                   'Local NGO',
+                   'Private Insitution',
+                   'Other']
 
-    auth_list = Action.objects.filter(verb='downloaded').order_by('timestamp')
+    auth_list = DownloadTracker.objects.order_by('timestamp')
     writer.writerow(['username', 'lastname', 'firstname', 'email', 'organization',
                      'organization type', 'purpose', 'layer name', 'date downloaded','area','size_in_bytes'])
-
-    pprint("writing authenticated downloads list")
     for auth in auth_list:
         username = auth.actor
         getprofile = Profile.objects.get(username=username)
@@ -646,9 +675,9 @@ def layer_download_csv(request):
         #area = get_area_coverage(auth.action_object.typename)
         area = 0
         # pprint(dir(getprofile))
-        if auth.action_object.csw_type != 'document':
+        if auth.resource_type != 'document':
             listtowrite.append([username, lastname, firstname, email, organization, orgtype,
-                                "", auth.action_object.typename, auth.timestamp.strftime('%Y/%m/%d'),area,''])
+                                "", auth.title, auth.timestamp.strftime('%Y/%m/%d'),area,''])
 
     # writer.writerow(['\n'])
     anon_list = AnonDownloader.objects.all().order_by('date')
