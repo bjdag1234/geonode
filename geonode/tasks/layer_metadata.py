@@ -95,8 +95,8 @@ def fhm_year_metadata(flood_year):
     logger.info("Updating metadata of [{0}] Flood Hazard Maps for Flood Year [{1}]".format(
         total_layers, flood_year))
 
-    # for layer in layer_list:
-    #     _update(layer, flood_year, flood_year_probability)
+    for layer in layer_list:
+        _update(layer, flood_year, flood_year_probability)
 
-    jobs = group(_update(layer, flood_year, flood_year_probability) for layer in layer_list)
-    result = jobs.apply_async()
+    #jobs = group(_update(layer, flood_year, flood_year_probability) for layer in layer_list)
+    #result = jobs.apply_async()
