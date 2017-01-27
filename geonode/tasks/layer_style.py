@@ -10,25 +10,22 @@ def style_update(layer, style_template):
     cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
                   username=settings.OGC_SERVER['default']['USER'],
                   password=settings.OGC_SERVER['default']['PASSWORD'])
-    try:
-        layer_attrib = layer.attributes[0].attribute.encode("utf-8")
-    except Exception as e:
-        logger.exception("No layer attribute!")
-        return
+    gs_layer = cat.get_layer(layer.name)
+    logger.info("GS LAYER: %s ", gs_layer.name)
 
+    attributes = [a.attribute for a in layer.attributes]
     style = None
-    if 'fh' in layer.name:        
-        if layer_attrib == "Var":
+    if 'fh' in layer.name:
+        if 'Var' in attributes:
             style = cat.get_style(style_template)
-        else:
+        elif 'Merge' in attributes:
             style = cat.get_style("fhm_merge")
     else:
         style = cat.get_style(style_template)
 
     if style is not None:
         try:
-            gs_layer = cat.get_layer(layer.name)
-            logger.info("GS LAYER: %s ", gs_layer.name)
+
             gs_layer._set_default_style(style)
             cat.save(gs_layer)
             gs_style = cat.get_style(layer.name)
