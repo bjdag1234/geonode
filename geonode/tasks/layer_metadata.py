@@ -1,6 +1,6 @@
 from celery import task, group
 from celery.utils.log import get_task_logger
-from datetime import datetime
+import datetime
 from django.db.models import Q
 from geonode.base.models import TopicCategory
 from geonode.cephgeo.models import RIDF
@@ -9,6 +9,7 @@ from layer_permission import fhm_perms_update
 from layer_style import style_update
 import subprocess
 import getpass
+import multiprocessing
 logger = get_task_logger("geonode.tasks.update")
 
 
@@ -22,11 +23,15 @@ def own_thumbnail(uuid):
     subprocess.call(command_array)
 
 
-@task(name='geonode.tasks.update.update_fhm_metadata_task._update', queue='update')
-def _update(layer, flood_year, flood_year_probability):
+# @task(name='geonode.tasks.update.update_fhm_metadata_task._update', queue='update')
+# def _update(layer, flood_year, flood_year_probability):
+def _update(layer_list):
+    layer, flood_year, flood_year_probability = layer_list
     try:
-        logger.info('\n\n' + '#' * 80 + '\n')
-        logger.info("Layer: %s", layer.name)
+        # logger.info('\n\n' + '#' * 80 + '\n')
+        print '\n\n' + '#' * 80 + '\n'
+        # logger.info("Layer: %s", layer.name)
+        print 'Layer:', layer.name
         style_update(layer, 'fhm')
         own_thumbnail(layer.uuid)
         fhm_perms_update(layer)
@@ -46,10 +51,12 @@ def _update(layer, flood_year, flood_year_probability):
 
         # Use nscb for layer title
         muni_code = layer.name.split('_fh')[0]
-        logger.info('muni_code: {0}'.format(muni_code))
+        # logger.info('muni_code: {0}'.format(muni_code))
+        'muni_code: {0}'.format(muni_code)
         ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
         ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
-        logger.info('ridf: %s', ridf)
+        # logger.info('ridf: %s', ridf)
+        print 'ridf: ', ridf
 
         muni = ridf_obj.muni_name
         prov = ridf_obj.prov_name
@@ -57,7 +64,8 @@ def _update(layer, flood_year, flood_year_probability):
             muni, prov, flood_year).replace("_", " ").title()
         if ridf_obj.iscity:
             layer.title = 'City of ' + layer.title
-        logger.info('layer.title: %s', layer.title)
+        print 'layer.title: ', layer.title
+        # logger.info('layer.title: %s', layer.title)
 
         layer.abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
 
@@ -84,32 +92,40 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year, flood_year
             identifier="geoscientificInformation")
         layer.save()
         # ctr += 1
-        logger.info(
-            "[{0} YEAR FH METADATA] {1}".format(flood_year, layer.title))
+        # logger.info(
+        # "[{0} YEAR FH METADATA] {1}".format(flood_year, layer.title))
+        "[{0} YEAR FH METADATA] {1}".format(flood_year, layer.title)
 
     except Exception:
-        logger.exception("Error setting FHM metadata!")
+        # logger.exception("Error setting FHM metadata!")
+        print "Error setting FHM metadata!"
         # pass
 
 
 def fhm_year_metadata(flood_year):
     flood_year_probability = int(100 / flood_year)
     layer_list = []
-    _date = datetime.now()
-    year = _date.year
-    month = _date.month
-    day = _date.day
+
     # layer_list = Layer.objects.filter(Q(
     #     name__iregex=r'^ph[0-9]+_fh' + str(flood_year)) & Q(upload_session__date__month=month) & Q(
     #     upload_session__date__day=day) & Q(upload_session__date__year=year))
-    layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh' + str(flood_year)))
-    total_layers = len(layer_list)
-    logger.info("Updating metadata of [{0}] Flood Hazard Maps for Flood Year [{1}]".format(
-        total_layers, flood_year))
+    layer_list = []
+    lastweek = datetime.datetime.now() - datetime.timedelta(days=7)
+    layers = Layer.objects.filter(
+        Q(name__iregex=r'^ph[0-9]+_fh' + str(flood_year)) &
+        Q(upload_session__date__gte=lastweek))
+    total_layers = len(layers)
+    # logger.info("Updating metadata of [{0}] Flood Hazard Maps for Flood Year [{1}]".format(
+    #     total_layers, flood_year))
+    "Updating metadata of [{0}] Flood Hazard Maps for Flood Year [{1}]".format(
+        total_layers, flood_year)
 
-    for layer in layer_list:
-        _update(layer, flood_year, flood_year_probability)
+    for layer in layers:
+        layer_list.append((layer, flood_year, flood_year_probability))
+    pool = multiprocessing.Pool()
+    pool.map_async(_update, layer_list)
+    pool.close()
+    pool.join()
 
     #jobs = group(_update(layer, flood_year, flood_year_probability) for layer in layer_list)
     #result = jobs.apply_async()

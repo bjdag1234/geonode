@@ -461,7 +461,7 @@ def management(request):
 @user_passes_test(lambda u: u.is_superuser)
 def update_fhm_metadata(request):
     # fhm_metadata_update.delay()
-    update_fhm_metadata_task.delay()
+    update_fhm_metadata_task()
     messages.error(request, "Updating Flood Hazard Map metadata")
     return HttpResponseRedirect(reverse('data_management'))
 
