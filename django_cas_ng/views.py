@@ -18,6 +18,8 @@ from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.http import require_http_methods
 
+from geonode.groups.models import GroupProfile
+
 from importlib import import_module
 from pprint import pprint
 
@@ -100,6 +102,7 @@ def login(request, next_page=None, required=False):
                 pprint("user.is_superuser:"+str(attributes["is_superuser"]))
                 user.is_superuser = attributes["is_superuser"]
             user.save()
+                    
             #pprint('Superuser? '+str(user.is_superuser))
 
             if settings.CAS_LOGIN_MSG is not None:
