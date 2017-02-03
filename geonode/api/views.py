@@ -61,7 +61,7 @@ def api_autocomplete(request):
     current_url = request.build_absolute_uri()
     apiquery = '?'.join(current_url.split('?')[1:])
     local_url = urljoin(current_url,'../')
-    urls_to_visit = [local_url,'https://lipad-fmc.dream.upd.edu.ph/']
+    urls_to_visit = [local_url,'https://lipad.dream.upd.edu.ph/']
     output = ''
 
     # output = []
