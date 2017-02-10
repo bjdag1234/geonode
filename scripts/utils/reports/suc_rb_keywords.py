@@ -133,35 +133,35 @@ WHERE ST_Intersects(d.the_geom, l.the_geom);''')
             if hc:
                 has_changes = True
 
-        else:
+#         else:
 
-            if mode == 'pl1':
+#             if mode == 'pl1':
 
-                # Get nearest boundary
-                query_near = (query + '''
-ORDER BY ST_Distance(d.the_geom, l.the_geom)
-LIMIT 1;''')
+#                 # Get nearest boundary
+#                 query_near = (query + '''
+# ORDER BY ST_Distance(d.the_geom, l.the_geom)
+# LIMIT 1;''')
 
-                # Execute query
-                try:
-                    _logger.info('%s query_near: %s', layer.name, query_near)
-                    cur.execute(query_near)
-                except Exception:
-                    _logger.exception(
-                        '%s: Error executing query_near!', layer.name)
-                    conn.rollback()
-                    # Skip layer
-                    continue
+#                 # Execute query
+#                 try:
+#                     _logger.info('%s query_near: %s', layer.name, query_near)
+#                     cur.execute(query_near)
+#                 except Exception:
+#                     _logger.exception(
+#                         '%s: Error executing query_near!', layer.name)
+#                     conn.rollback()
+#                     # Skip layer
+#                     continue
 
-                # Get all results
-                results = cur.fetchall()
-                _logger.info('%s: results: %s', layer.name, results)
+#                 # Get all results
+#                 results = cur.fetchall()
+#                 _logger.info('%s: results: %s', layer.name, results)
 
-                # Get no. of results
-                if len(results) >= 1:
-                    hc = assign_tags(mode, results, layer)
-                    if hc:
-                        has_changes = True
+#                 # Get no. of results
+#                 if len(results) >= 1:
+#                     hc = assign_tags(mode, results, layer)
+#                     if hc:
+#                         has_changes = True
 
     if has_changes:
         try:
