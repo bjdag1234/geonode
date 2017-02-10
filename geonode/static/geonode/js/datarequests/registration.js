@@ -1,44 +1,55 @@
 $(function() {
 
     var $intended_use = $("#id_intended_use_of_dataset");
-    var $org_type = $("#id_organization_type")
+    var $org_type = $("#id_org_type")
+    // var $org_type = $('input[name="organization_type"]');
+    // var $org_type_checked = $('input[name="organization_type"]:checked');
     var $form = $intended_use.closest('form');
     var $noncommercial = $form.find('fieldset.noncommercial-fieldset');
     var $academe = $form.find('fieldset.academe-fieldset');
 
     // Initial values
-    if ($intended_use.val() == 'commercial'){
-        $noncommercial.toggle(false);
-        $academe.toggle(false);
-    } else {
-        if ($org_type.val() != '3') {
-            $academe.toggle(false);
-        } else {
-            $academe.toggle(true);
-        }
+    $academe.toggle(false);
+    $other.toggle(false);
+    if ($org_type.val().indexOf("Academe")>=0) {
+      $academe.toggle(true);
+    }else if ($org_type.val() == 'Others') {
+      $other.toggle(true);
     }
-    
-    $intended_use.on('change', function() {
-
-        if ($(this).val() == 'noncommercial'){
-            $noncommercial.slideDown();
-            if ($org_type.val() == '3') {
-                $academe.slideDown();
-            }
+    $org_type.change( function() {
+        // if ($(this).val() == '3'){
+        if ($(this).val().indexOf("Academe")>=0){
+            $academe.slideDown();
         } else {
             $noncommercial.slideUp();
             $academe.slideUp();
         }
-    });
-
-    $org_type.on('change', function() {
-
-        if ($(this).val() == '3' && $intended_use.val() == 'noncommercial'){
-            $academe.slideDown();
+        if ($(this).val() == 'Others'){
+            $other.slideDown();
         } else {
             $academe.slideUp();
         }
     });
+    // Radio button
+    // if ($org_type_checked.val() == '3') {
+    //   $academe.toggle(true);
+    // }else if ($org_type_checked.val() == '7') {
+    //   $other.toggle(true);
+    // }
+    // // $org_type.on('change', function() {
+    // $org_type.change( function() {
+    //     // if ($(this).val() == '3'){
+    //     if ($(this).is(':checked') && $(this).val() == '3'){
+    //         $academe.slideDown();
+    //     } else {
+    //         $academe.slideUp();
+    //     }
+    //     if ($(this).is(':checked') && $(this).val() == '7'){
+    //         $other.slideDown();
+    //     } else {
+    //         $other.slideUp();
+    //     }
+    // });
 
     // Data Set
     var $data_set = $("#id_data_set")

@@ -37,6 +37,13 @@ import geonode.settings as local_settings
 
 from .utils import create_login_credentials, create_ad_account, add_to_ad_group
 
+class LipadOrgType(models.Model):
+    val = models.CharField(_('Value'), max_length=100)
+    display_val = models.CharField(_('Display'), max_length=100)
+
+    def __unicode__(self):
+        return (_('{}').format(self.val,))
+
 class DataRequestProfile(TimeStampedModel):
 
     # Choices that will be used for fields
@@ -44,7 +51,6 @@ class DataRequestProfile(TimeStampedModel):
         ('local', _('Local')),
         ('foreign', _('Foreign')),
     )
-
     DATA_TYPE_CHOICES = Choices(
         ('interpreted', _('Interpreted')),
         ('raw', _('Raw')),
@@ -162,7 +168,18 @@ class DataRequestProfile(TimeStampedModel):
     )
     organization_type = enum.EnumField(
         OrganizationType,
-        default=OrganizationType.OTHER,
+        default = "",
+        # default=OrganizationType.OTHER,
+        # default="Undefined", #I assigned random default to get rid of --------- as one of the choices
+        blank=True,
+        null=True,
+        help_text=_('Organization type based on Phil-LiDAR1 Data Distribution Policy')
+    )
+    org_type = models.CharField(
+        _('Organization Type'),
+        max_length=255,
+        blank=False,
+        default="Others",
         help_text=_('Organization type based on Phil-LiDAR1 Data Distribution Policy')
     )
     request_level = models.CharField(
@@ -726,8 +743,8 @@ class DataRequestProfile(TimeStampedModel):
                     out.append(str(date_of_action.month)+"/"+str(date_of_action.day)+"/"+str(date_of_action.year))
                 else:
                     out.append('')
-            elif f is 'organization_type':
-                out.append(OrganizationType.get(getattr(self,'organization_type')))
+            elif f is 'org_type':
+                out.append(OrganizationType.get(getattr(self,'org_type')))
             elif f is 'has_letter':
                 if self.request_letter:
                     out.append('yes')
