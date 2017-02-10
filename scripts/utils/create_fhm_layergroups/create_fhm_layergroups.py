@@ -47,6 +47,11 @@ fhm_merge_style_json = {
     'href': 'http:\/\/localhost\/geoserver\/rest\/styles\/fhm_merge.json'
 }
 
+fhm_uvar_style_json = {
+    'name': 'fhm_uvar',
+    'href': 'http:\/\/localhost\/geoserver\/rest\/styles\/fhm_uvar.json'
+}
+
 parser = argparse.ArgumentParser()
 parser.add_argument('yr', choices=['5', '25', '100'])
 args = parser.parse_args()
@@ -86,6 +91,9 @@ with open('error_layers_' + yr + '.log', 'w') as error_layers:
                     # styles.append('fhm_merge')
                     json_data['layerGroup']['styles'][
                         'style'].append(fhm_merge_style_json)
+                elif 'UVar' in layer.resource.attributes:
+                    json_data['layerGroup']['styles'][
+                        'style'].append(fhm_uvar_style_json)
                 else:
                     # styles.append('fhm')
                     json_data['layerGroup']['styles'][
