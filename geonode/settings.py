@@ -327,6 +327,9 @@ INSTALLED_APPS = (
     'corsheaders',
     'captcha',
 
+    #CAS client,
+    'django_cas_ng',
+    
 ) + GEONODE_APPS
 
 LOGGING = {
@@ -429,10 +432,11 @@ MIDDLEWARE_CLASSES = (
 #   'django.contrib.auth.backends.ModelBackend',
 #    'guardian.backends.ObjectPermissionBackend',
 #)
-AUTHENTICATION_BACKENDS = ('django_auth_ldap.backend.LDAPBackend',
+AUTHENTICATION_BACKENDS = (#'django_auth_ldap.backend.LDAPBackend',
                            #'geonode.security.auth.GranularBackend',
                            'django.contrib.auth.backends.ModelBackend',
-                           'guardian.backends.ObjectPermissionBackend',)
+                           'guardian.backends.ObjectPermissionBackend',
+                            'django_cas_ng.backends.CASBackend',)
 
 
 ANONYMOUS_USER_ID = -1
@@ -866,7 +870,8 @@ CELERY_IMPORTS = (
     'geonode.tasks.ceph_update',
     'geonode.tasks.email',
     'geonode.tasks.ftp',
-    'geonode.tasks.mk_folder'
+    'geonode.tasks.mk_folder',
+    'geonode.tasks.users',
 )
 
 
@@ -878,6 +883,7 @@ CELERY_QUEUES = [
     Queue('email', routing_key='email'),
     Queue('ftp', routing_key='ftp'),
     Queue('mk_folder', routing_key='mk_folder')
+    Queue('users', routing_key='users')
 ]
 
 import djcelery
