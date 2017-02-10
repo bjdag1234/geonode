@@ -17,7 +17,7 @@ from geonode.documents.models import Document
 from geonode.documents.forms import DocumentCreateForm
 from geonode.people.models import OrganizationType, Profile
 
-from .models import DataRequestProfile, RequestRejectionReason
+from .models import DataRequestProfile, RequestRejectionReason, LipadOrgType
 
 from pprint import pprint
 
@@ -32,11 +32,64 @@ class DataRequestProfileForm(forms.ModelForm):
             'middle_name',
             'last_name',
             'organization',
+            # Non-commercial requester field
+            'org_type',
+            'organization_other',
+            # Academe requester fields
+            'request_level',
+            'funding_source',
+            'is_consultant',
+
             'location',
             'email',
             'contact_number',
             'captcha'
         )
+
+    ORG_TYPE_CHOICES = LipadOrgType.objects.values_list('val', 'display_val')
+    # Choices that will be used for fields
+    LOCATION_CHOICES = Choices(
+        ('local', _('Local')),
+        ('foreign', _('Foreign')),
+    )
+
+    # ORGANIZATION_TYPE_CHOICES = Choices(
+    #     (0, _('Phil-LiDAR 1 SUC')),
+    #     (1, _('Phil-LiDAR 2 SUC' )),
+    #     (2, _( 'Government Agency')),
+    #     (3, _('Academe')),
+    #     (4, _( 'International NGO')),
+    #     (5, _('Local NGO')),
+    #     (6, _('Private Insitution' )),
+    #     (7, _('Other' )),
+    # )
+
+    REQUEST_LEVEL_CHOICES = Choices(
+        ('institution', _('Academic/ Research Institution')),
+        ('faculty', _('Faculty')),
+        ('student', _('Student')),
+    )
+
+    org_type = forms.ChoiceField(
+        choices = ORG_TYPE_CHOICES,
+        initial = "Others",
+        required = True
+    )
+
+    # request_level = forms.CharField(
+    #     label=_('Level of the Request'),
+    #     required = False
+    # )
+
+    # funding_source = forms.CharField(
+    #     label = _('Source of Funding'),
+    #     max_length=255,
+    #     required=False
+    # )
+    #
+    # is_consultant = forms.BooleanField(
+    #     required=False
+    # )
 
     def __init__(self, *args, **kwargs):
 
@@ -64,6 +117,28 @@ class DataRequestProfileForm(forms.ModelForm):
                     Field('organization', css_class='form-control'),
                     css_class='form-group'
                 ),
+                Div(
+                    Field('org_type', css_class='form-control'),
+                    css_class='form-group'
+                ),
+                Fieldset('Academe',
+                    Div(
+                        Field('request_level', css_class='form-control'),
+                        css_class='form-group'
+                    ),
+                    Div(
+                        Field('funding_source', css_class='form-control'),
+                        css_class='form-group'
+                    ),
+                    Field('is_consultant'),
+                    css_class='academe-fieldset',
+                ),
+
+                    Div(
+                        Field('organization_other', css_class='form-control'),
+                        css_class='form-group'
+                    ),
+
                 Div(
                     Field('location', css_class='form-control'),
                     css_class='form-group'
@@ -102,6 +177,24 @@ class DataRequestProfileForm(forms.ModelForm):
                 
         return organization
 
+    def clean_funding_source(self):
+        funding_source = self.cleaned_data.get('funding_source')
+        org_type = self.cleaned_data.get('org_type')
+        #intended_use_of_dataset = self.cleaned_data.get('intended_use_of_dataset')
+        if (#intended_use_of_dataset == 'noncommercial' and
+                "Academe" in org_type and
+                not funding_source):
+            raise forms.ValidationError(
+                'This field is required.')
+        return funding_source
+    def clean_organization_other(self):
+        organization_other = self.cleaned_data.get('organization_other')
+        org_type = self.cleaned_data.get('org_type')
+        if (org_type == "Others" and
+                not organization_other):
+            raise forms.ValidationError(
+                'This field is required.')
+        return organization_other
     #def clean_letter_file(self):
     #    letter_file = self.cleaned_data.get('letter_file')
     #    split_filename =  os.path.splitext(str(letter_file.name))
