@@ -296,6 +296,30 @@ class ProfileResource(ModelResource):
             'username': ALL,
         }
 
+        serializer = CountJSONSerializer()
+
+
+class OwnersResource(TypeFilteredResource):
+    """Owners api, lighter and faster version of the profiles api"""
+
+    def serialize(self, request, data, format, options={}):
+        options['count_type'] = 'owner'
+
+        return super(OwnersResource, self).serialize(request, data, format, options)
+
+    class Meta:
+        queryset = get_user_model().objects.exclude(username='AnonymousUser')
+        resource_name = 'owners'
+        allowed_methods = ['get']
+        ordering = ['username', 'date_joined']
+        excludes = ['is_staff', 'password', 'is_superuser',
+                    'is_active', 'last_login']
+
+        filtering = {
+            'username': ALL,
+        }
+        serializer = CountJSONSerializer()
+
 REQUESTER_TYPES = {
     'commercial': 'commercial',
     'noncommercial': 'noncommercial',
@@ -335,7 +359,7 @@ class DataRequestProfileResource(ModelResource):
         return bundle.obj.get_absolute_url()
 
     def dehydrate_org_type(self, bundle):
-        return bundle.obj.get_organization_type_display()
+        return bundle.obj.get_org_type_display()
 
     def dehydrate_rejection_reason(self, bundle):
         return bundle.obj.rejection_reason
