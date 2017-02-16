@@ -26,7 +26,7 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 import geonode.proxy.urls
-import geonode.cephgeo.urls
+#import geonode.cephgeo.urls
 
 from geonode.api.urls import api
 
