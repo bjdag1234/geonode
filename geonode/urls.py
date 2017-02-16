@@ -110,7 +110,7 @@ urlpatterns = patterns('',
                        # url(r'^captcha/', include('captcha.urls')),
 
 					   # CephGeo
-					   url(r'^ceph/', include("geonode.cephgeo.urls")),
+					   #url(r'^ceph/', include("geonode.cephgeo.urls")),
 
 					   #MapTiles
 					   url(r'^maptiles/',include("geonode.maptiles.urls")),
