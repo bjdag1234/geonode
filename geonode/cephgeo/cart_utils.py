@@ -1,6 +1,5 @@
-from changuito import CartProxy
 from changuito import models as cartmodels
-from changuito.proxy import ItemDoesNotExist
+from changuito.proxy import ItemDoesNotExist, CartProxy
 from geonode.cephgeo.models import CephDataObject, DataClassification
 from django.contrib import messages
 import utils

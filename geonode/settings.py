@@ -803,6 +803,7 @@ CLIENT_RESULTS_LIMIT = 100
 
 # Number of items returned by the apis 0 equals no limit
 API_LIMIT_PER_PAGE = 0
+API_INCLUDE_REGIONS_COUNT = False
 
 LEAFLET_CONFIG = {
     'TILES': [
