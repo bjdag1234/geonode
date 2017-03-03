@@ -1,26 +1,109 @@
-from celery import task, group
-from celery.utils.log import get_task_logger
+from geonode.settings import GEONODE_APPS
+import geonode.settings as settings
+import os
+
 from datetime import datetime, timedelta
+from django.contrib.auth.models import Group
 from django.db.models import Q
 from geonode.base.models import TopicCategory
 from geonode.cephgeo.models import RIDF
-from geonode.layers.models import Layer
-from layer_permission import fhm_perms_update
-from layer_style import style_update
-import subprocess
-import getpass
+from geonode.layers.models import Layer, Style
+from geoserver.catalog import Catalog
+from guardian.shortcuts import assign_perm, get_anonymous_user
+from pprint import pprint
+from threading import Thread
 import multiprocessing
+import subprocess
 import traceback
-logger = get_task_logger("geonode.tasks.update")
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
 
-def own_thumbnail(layer):
-    print 'USER', getpass.getuser()
+def update_style(layer, style_template):
+
+    # Get geoserver catalog
+    cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
+                  username=settings.OGC_SERVER['default']['USER'],
+                  password=settings.OGC_SERVER['default']['PASSWORD'])
+
+    # Get equivalent geoserver layer
+    gs_layer = cat.get_layer(layer.name)
+    print layer.name, ': gs_layer:', gs_layer.name
+
+    # Get current style
+    # pprint(dir(gs_layer))
+    cur_def_gs_style = gs_layer._get_default_style()
+    # pprint(dir(cur_def_gs_style))
+    if cur_def_gs_style is not None:
+        print layer.name, ': cur_def_gs_style.name:', cur_def_gs_style.name
+
+    # Get proper style
+    attributes = [a.attribute for a in layer.attributes]
+    gs_style = None
+    if '_fh' in layer.name:
+        if 'Var' in attributes:
+            gs_style = cat.get_style(style_template)
+        elif 'Merge' in attributes:
+            gs_style = cat.get_style("fhm_merge")
+        elif 'UVar' in attributes:
+            gs_style = cat.get_style('fhm_uvar')
+    else:
+        gs_style = cat.get_style(style_template)
+
+    # has_layer_changes = False
+    try:
+        if gs_style is not None:
+            print layer.name, ': gs_style.name:', gs_style.name
+
+            if cur_def_gs_style and cur_def_gs_style.name != gs_style.name:
+
+                print layer.name, ': Setting default style...'
+                gs_layer._set_default_style(gs_style)
+                cat.save(gs_layer)
+
+                print layer.name, ': Deleting old default style from geoserver...'
+                cat.delete(cur_def_gs_style)
+
+                print layer.name, ': Deleting old default style from geonode...'
+                gn_style = Style.objects.get(name=layer.name)
+                gn_style.delete()
+
+    except Exception:
+        print layer.name, ': Error setting style!'
+        traceback.print_exc()
+        raise
+
+    # return has_layer_changes
+
+
+def update_thumb_perms(layer):
+
     print layer.name, ': Setting thumbnail permissions...'
     thumbnail_str = 'layer-' + str(layer.uuid) + '-thumb.png'
     thumb_url = '/var/www/geonode/uploaded/thumbs/' + thumbnail_str
     subprocess.call(['sudo', '/bin/chown', 'www-data:www-data', thumb_url])
     subprocess.call(['sudo', '/bin/chmod', '666', thumb_url])
+
+
+def update_layer_perms(layer):
+
+    try:
+
+        print layer.name, ': Updating layer permissions...'
+        layer.remove_all_permissions()
+        anon_group = Group.objects.get(name='anonymous')
+        assign_perm('view_resourcebase', anon_group, layer.get_self_resource())
+        assign_perm('download_resourcebase', anon_group,
+                    layer.get_self_resource())
+        assign_perm('view_resourcebase', get_anonymous_user(),
+                    layer.get_self_resource())
+        assign_perm('download_resourcebase', get_anonymous_user(),
+                    layer.get_self_resource())
+
+    except Exception:
+        print layer.name, ': Error updating layer permissions!'
+        traceback.print_exc()
+        # raise
 
 
 def update_fhm(layer):
@@ -114,15 +197,26 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
             identifier="geoscientificInformation")
 
     # Update style
-    style_update(layer, 'fhm')
+    update_style(layer, 'fhm')
 
     # Update thumbnail permissions
-    own_thumbnail(layer)
+    update_thumb_perms(layer)
 
     # Update layer permissions
-    fhm_perms_update(layer)
+    update_layer_perms(layer)
+
+    # update_layer_perms_thread = Thread(target=update_layer_perms,
+    #                                    args=(layer,))
+    # update_layer_perms_thread.start()
+
+    # pool.apply_async(update_layer_perms, (layer,))
 
     return has_layer_changes
+
+
+def save_layer(layer):
+    print layer.name, ': Saving layer...'
+    layer.save()
 
 
 def update_metadata(layer):
@@ -156,8 +250,11 @@ def update_metadata(layer):
 
     return has_layer_changes
 
-def fhm_year_metadata(flood_year):
-    # layer_list = []
+
+if __name__ == "__main__":
+
+    # Get FHM layers uploaded within the past week
+    #lastweek = datetime.now() - timedelta(days=7)
 
     # Get FHM layers uploaded within the past 2 days
     lastday = datetime.now() - timedelta(days=2)
@@ -167,6 +264,9 @@ def fhm_year_metadata(flood_year):
 
     total = len(layers)
     print 'Updating', total, 'layers!'
+
+    # Initialize pool
+    # pool = multiprocessing.Pool(2)
 
     # Update metadata
     counter = 0
@@ -181,10 +281,11 @@ def fhm_year_metadata(flood_year):
         total_time = duration.total_seconds() * total / float(counter)
         print counter, '/', total, 'ETA:', start_time + timedelta(seconds=total_time)
 
+    # if haschanges:
+    #     print 'Has changes! Breaking...'
+    # break
 
-    # for layer in layers:
-    #     layer_list.append((layer, flood_year, flood_year_probability))
-    # pool = multiprocessing.Pool()
-    # pool.map_async(_update, layer_list)
+    # Update metadata in parallel
+    # pool.map_async(update_metadata, layers)
     # pool.close()
     # pool.join()
