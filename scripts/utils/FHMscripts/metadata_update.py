@@ -68,23 +68,6 @@ def update_style(layer, style_template):
                 gn_style = Style.objects.get(name=layer.name)
                 gn_style.delete()
 
-            # set_style = False
-            # try:
-            #     if layer.sld_body != gs_style.sld_body:
-            #         set_style = True
-            #         print layer.name, ': layer.sld_body:'
-            #         pprint(layer.sld_body)
-            #         print layer.name, ': gs_style.sld_body:'
-            #         pprint(gs_style.sld_body)
-            # except AttributeError:
-            #     print layer.name, ': AttributeError!'
-            #     set_style = True
-
-            # if set_style:
-            #     print layer.name, ': Setting layer.sld_body...'
-            #     has_layer_changes = True
-            #     layer.sld_body = gs_style.sld_body
-
     except Exception:
         print layer.name, ': Error setting style!'
         traceback.print_exc()
@@ -272,6 +255,7 @@ if __name__ == "__main__":
 
     # Get FHM layers uploaded within the past week
     #lastweek = datetime.now() - timedelta(days=7)
+
     # Get FHM layers uploaded within the past 2 days
     lastday = datetime.now() - timedelta(days=2)
     layers = Layer.objects.filter(
