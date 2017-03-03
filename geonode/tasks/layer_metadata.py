@@ -163,6 +163,7 @@ def fhm_year_metadata(flood_year):
     lastday = datetime.now() - timedelta(days=2)
     layers = Layer.objects.filter(
         Q(name__iregex=r'^ph[0-9]+_fh') &
+        Q(name__icontains=flood_year) &
         Q(upload_session__date__gte=lastday))
 
     total = len(layers)
