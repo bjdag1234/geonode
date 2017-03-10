@@ -133,59 +133,67 @@ def update_metadata(layer):
     # FHM
     #
     try:
-        has_layer_changes = False
-        if '_fh' in layer.name:
-            has_layer_changes = update_fhm(layer)
+        # # checks if layer has changes
+        # has_layer_changes = False
+        # if '_fh' in layer.name:
+        #     has_layer_changes = update_fhm(layer)
 
-        # Save layer if there are changes
-        if has_layer_changes:
-            print layer.name, ': Saving layer...'
-            layer.save()
+        # # Save layer if there are changes
+        # if has_layer_changes:
+        #     print layer.name, ': Saving layer...'
+        #     layer.save()
 
-            # save_layer_thread = Thread(target=save_layer, args=(layer,))
-            # save_layer_thread.start()
+        #     # save_layer_thread = Thread(target=save_layer, args=(layer,))
+        #     # save_layer_thread.start()
 
-            # pool.apply_async(save_layer, (layer,))
-        else:
-            print layer.name, ': No changes to layer. Skipping...'
+        #     # pool.apply_async(save_layer, (layer,))
+        # else:
+        # #     print layer.name, ': No changes to layer. Skipping...'
+
+        update_fhm(layer)
+        print layer.name, ': Saving layer...'
+        layer.save()
 
     except Exception:
         print layer.name, ': Error updating metadata!'
         traceback.print_exc()
         # raise
 
-    return has_layer_changes
+    # return has_layer_changes
 
-def fhm_year_metadata(flood_year):
+
+def fhm_year_metadata(layer):
     # layer_list = []
 
     # Get FHM layers uploaded within the past 2 days
-    lastday = datetime.now() - timedelta(days=2)
-    layers = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh') &
-        Q(name__icontains=flood_year) &
-        Q(upload_session__date__gte=lastday))
+    # lastday = datetime.now() - timedelta(days=2)
+    # layers = Layer.objects.filter(
+    #     Q(name__iregex=r'^ph[0-9]+_fh') &
+    #     Q(name__icontains=flood_year) &
+    #     Q(upload_session__date__gte=lastday))
 
-    total = len(layers)
-    print 'Updating', total, 'layers!'
+    # total = len(layers)
+    # print 'Updating', total, 'layers!'
 
-    # Update metadata
-    counter = 0
-    start_time = datetime.now()
-    for layer in layers:
-        print '#' * 40
-
-        update_metadata(layer)
-
-        counter += 1
-        duration = datetime.now() - start_time
-        total_time = duration.total_seconds() * total / float(counter)
-        print counter, '/', total, 'ETA:', start_time + timedelta(seconds=total_time)
-
-
+    # # Update metadata
+    # counter = 0
+    # start_time = datetime.now()
     # for layer in layers:
-    #     layer_list.append((layer, flood_year, flood_year_probability))
+    #     print '#' * 40
+
+    #     update_metadata(layer)
+
+    #     counter += 1
+    #     duration = datetime.now() - start_time
+    #     total_time = duration.total_seconds() * total / float(counter)
+    # print counter, '/', total, 'ETA:', start_time +
+    # # timedelta(seconds=total_time)
+
     # pool = multiprocessing.Pool()
     # pool.map_async(_update, layer_list)
     # pool.close()
     # pool.join()
+    update_metadata(layer)
+    # duration = datetime.now() - start_time
+    # total_time = duration.total_seconds() * total / float(counter)
+    # print 'LAYER ', layer.name, counter, '/', total, 'ETA:', start_time + timedelta(seconds=total_time)

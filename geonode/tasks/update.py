@@ -19,13 +19,14 @@ from osgeo import ogr
 from pprint import pprint
 from pwd import getpwnam
 from string import Template
+from datetime import datetime
 import datetime
 import logging
 import os
 import psycopg2
 import subprocess
 import sys
-import time
+# import time
 import traceback
 
 logger = get_task_logger("geonode.tasks.update")
@@ -126,11 +127,32 @@ def seed_layers(keyword):
             print 'e.output:', e.output
 
 
-@task(name='geonode.tasks.update.update_fhm_metadata_task', queue='update')
-def update_fhm_metadata_task(flood_years=(5, 25, 100)):
-    for year in flood_years:
-        fhm_year_metadata(year)
+# @task(name='geonode.tasks.update.update_fhm_metadata_task', queue='update')
+# def update_fhm_metadata_task(layer, counter, total, start_time):
+#     fhm_year_metadata(layer, counter, total, start_time)
     # fhm_year_metadata()
+
+
+# @task(name='geonode.tasks.fhm_metadata.update_fhm_metadata_task', queue='fhm_metadata')
+# def update_fhm_metadata_task(pk):
+#     layer = Layer.objects.get(pk=pk)
+#     fhm_year_metadata(layer)
+
+@task(name='geonode.tasks.update.job_result_task', queue='update')
+def job_result_task(job_result, start_time):
+    try:
+        results = job_result.get(propagate=False)
+        task_count = job_result.completed_count()
+        print 'COMPLETED TASKS/LAYER COUNT', task_count
+    except Exception:
+        pass
+    finally:
+        finish_time = datetime.now()
+        print 'Start time %s ' % start_time
+        print 'Finish time %s ' % finish_time
+        elapsed_time_secs = datetime.now() - start_time
+        print "Execution of {0} FHM Metadata Update took {1} secs".format(
+            task_count, elapsed_time_secs)
 
 
 @task(name='geonode.tasks.update.sar_metadata_update', queue='update')
