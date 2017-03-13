@@ -317,7 +317,7 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
             out['success'] = True
             pprint(form.cleaned_data)
             anondownload = form.save()
-            anondownload.anon_layer = Layer.objects.get(typename = layername)
+            anondownload.anon_layer = Layer.objects.get(typename=layername).typename
             anondownload.save()
         else:
             errormsgs = []
@@ -691,7 +691,7 @@ def layer_download_csv(request):
         purpose = anon.anon_purpose
         if layername:
             listtowrite.append(["", lastname, firstname, email, organization, orgtype,
-                                purpose, layername.typename, anon.date.strftime('%Y/%m/%d')])
+                                purpose, layername, anon.date.strftime('%Y/%m/%d'),area,''])
     listtowrite.sort(key=lambda x: datetime.datetime.strptime(
         x[8], '%Y/%m/%d'), reverse=True)
     for eachtowrite in listtowrite:
