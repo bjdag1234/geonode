@@ -11,6 +11,7 @@ try:
     User = settings.AUTH_USER_MODEL
 except ImportError:
     from django.contrib.auth.models import User
+from geonode.datarequests.models import LipadOrgType
 
 # Create your models here.
 class EULALayerDownload(models.Model):
@@ -22,37 +23,26 @@ class EULALayerDownload(models.Model):
         return "{0}:{1}".format(self.user.username, self.layer.title)
 
 class AnonDownloader(models.Model):
-    PHIL_LIDAR_1 = "Phil-LiDAR 1 SUC"
-    PHIL_LIDAR_2 = "Phil-LiDAR 2 SUC"
-    GOVERNMENT_AGENCY = "Government Agency"
-    ACADEME = "Academe"
-    NGO_INTERNATIONAL = "International NGO"
-    NGO_LOCAL = "Local NGO"
-    PRIVATE = "Private Insitution"
-    OTHER = "Other"
-    OrganizationType_Choices = (
-        (PHIL_LIDAR_1, 'Phil-LiDAR 1 SUC'),
-        (PHIL_LIDAR_2, 'Phil-LiDAR 2 SUC'),
-        (GOVERNMENT_AGENCY, 'Government Agency'),
-        (ACADEME, 'Academe'),
-        (NGO_INTERNATIONAL, 'International NGO'),
-        (NGO_LOCAL, 'Local NGO'),
-        (PRIVATE, 'Private Insitution'),
-        (OTHER, 'Other'),
-    )
-    date = models.DateTimeField(auto_now=True)
+    ORG_TYPE_CHOICES = LipadOrgType.objects.values_list('val', 'display_val')
+    date = models.DateTimeField()
     anon_first_name = models.CharField(_('First Name'), max_length=100)
     anon_last_name = models.CharField(_('Last Name'), max_length=100)
     anon_email = models.EmailField(_('Email'), max_length=50)
     anon_organization = models.CharField(_('Organization'), max_length=100)
     anon_purpose = models.CharField(_('Purpose'), max_length=100)
-    anon_layer = models.ForeignKey(Layer, null=True, blank=True, related_name='anon_layer')
+    anon_layer = models.CharField(_('Layer Name'), max_length=100, null=True, blank=True,)
     anon_orgtype = models.CharField(
         _('Organization Type'),
         max_length=100,
-        choices=OrganizationType_Choices,
-        default=OTHER,
+        choices=ORG_TYPE_CHOICES,
+        default="Other",
         help_text='Organization type based on Phil-LiDAR1 Data Distribution Policy'
     )
+    anon_orgother = models.CharField(
+        _('If Other, please specify'),
+        max_length=255,
+        blank=True,
+        null=True,
+    )
     # anon_resourcebase = models.ForeignKey(ResourceBase, null=True, blank=True, related_name='anon_resourcebase')
-    anon_document = models.ForeignKey(Document,null=True,blank=True)
+    anon_document = models.CharField(_('Document Name'), max_length=100, null=True, blank=True,)

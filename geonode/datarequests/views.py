@@ -79,6 +79,8 @@ def registration_part_one(request):
                 middle_name = request.user.middle_name,
                 last_name = request.user.last_name,
                 organization = request.user.organization,
+                org_type = request.user.org_type,
+                organization_other = request.user.organization_other,
                 email = request.user.email,
                 contact_number = request.user.voice,
                 request_status = 'pending'
@@ -96,7 +98,9 @@ def registration_part_one(request):
                     'first_name': request_object.first_name,
                     'middle_name': request_object.middle_name,
                     'last_name': request_object.last_name,
-                    'organization': request_object.last_name,
+                    'organization': request_object.organization,
+                    'org_type': request_object.org_type,
+                    'organization_other': request_object.organization_other,
                     'email': request_object.email,
                     'contact_number': request_object.contact_number,
                     'location': request_object.location
@@ -401,7 +405,7 @@ def data_request_csv(request):
     response['Content-Disposition'] = 'attachment; filename="datarequests-"'+str(datetoday.month)+str(datetoday.day)+str(datetoday.year)+'.csv"'
 
     writer = csv.writer(response)
-    fields = ['id','name','email','contact_number', 'organization', 'organization_type','has_letter','has_shapefile','project_summary', 'created','request_status', 'date of action','rejection_reason','juris_data_size','area_coverage']
+    fields = ['id','name','email','contact_number', 'organization', 'org_type','organization_other','has_letter','has_shapefile','project_summary', 'created','request_status', 'date of action','rejection_reason','juris_data_size','area_coverage']
     writer.writerow( fields)
 
     objects = DataRequestProfile.objects.all().order_by('pk')
@@ -653,6 +657,9 @@ def data_request_profile_approve(request, pk):
         if not result:
             messages.error (request, _(message))
         else:
+            request_profile.profile.org_type = request_profile.org_type
+            request_profile.profile.organization_other = request_profile.organization_other
+            request_profile.profile.save()
             if request_profile.jurisdiction_shapefile:
                 request_profile.assign_jurisdiction() #assigns/creates jurisdiction object
             else:
@@ -696,6 +703,61 @@ def data_request_profile_recreate_dir(request, pk):
 
         request_profile.create_directory()
         return HttpResponseRedirect(request_profile.get_absolute_url())
+
+def data_request_compute_size(request):
+    if request.user.is_superuser:
+        data_requests = DataRequestProfile.objects.exclude(jurisdiction_shapefile=None)
+        compute_size_update.delay(data_requests)
+        messages.info(request, "The estimated data size area coverage of the requests are currently being computed")
+        return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
+    else:
+        return HttpResponseRedirect('/forbidden/')
+
+
+def data_request_profile_compute_size(request, pk):
+    if request.user.is_superuser and request.method == 'POST':
+        if DataRequestProfile.objects.get(pk=pk).jurisdiction_shapefile:
+            data_requests = DataRequestProfile.objects.filter(pk=pk)
+            compute_size_update.delay(data_requests)
+            messages.info(request, "The estimated data size area coverage of the request is currently being computed")
+        else:
+            messages.info(request, "This request does not have a shape file")
+
+        return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
+    else:
+        return HttpResponseRedirect('/forbidden/')
+
+def data_request_reverse_geocode(request):
+    if request.user.is_superuser:
+        data_requests = DataRequestProfile.objects.exclude(jurisdiction_shapefile=None)
+        place_name_update.delay(data_requests)
+        messages.info(request,"Retrieving approximated place names of data requests")
+        return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
+    else:
+        return HttpResponseRedirect('/forbidden/')
+
+def data_request_profile_reverse_geocode(request, pk):
+    if request.user.is_superuser and request.method == 'POST':
+        if DataRequestProfile.objects.get(pk=pk).jurisdiction_shapefile:
+            data_requests = DataRequestProfile.objects.filter(pk=pk)
+            place_name_update.delay(data_requests)
+            messages.info(request, "Retrieving approximated place names of data request")
+        else:
+            messages.info(request, "This request does not have a shape file")
+
+        return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
+    else:
+        return HttpResponseRedirect('/forbidden/')
+
+def data_request_assign_gridrefs(request):
+    if request.user.is_superuser:
+        assign_grid_refs_all.delay()
+        messages.info(request, "Now processing jurisdictions. Please wait for a few minutes for them to finish")
+        return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
+
+    else:
+        return HttpResponseRedirect('/forbidden/')
+
 
 def data_request_facet_count(request):
     if not request.user.is_superuser:
