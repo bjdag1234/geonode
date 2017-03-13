@@ -2,31 +2,18 @@ import geonode.settings as settings
 
 from celery.task import task
 from celery.utils.log import get_task_logger
+from datetime import datetime
 from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
-from geonode.base.models import TopicCategory
 from geonode.documents.models import Document
 from geonode.geoserver.helpers import gs_slurp
 from geonode.geoserver.helpers import http_client
 from geonode.geoserver.helpers import ogc_server_settings
 from geonode.layers.models import Layer
-from geonode.layers.utils import create_thumbnail
-from geonode.security.models import PermissionLevelMixin
 from geoserver.catalog import Catalog
-from layer_metadata import fhm_year_metadata
 from layer_style import style_update
-from osgeo import ogr
-from pprint import pprint
-from pwd import getpwnam
 from string import Template
-from datetime import datetime
-import datetime
 import logging
-import os
-import psycopg2
 import subprocess
-import sys
-# import time
 import traceback
 
 logger = get_task_logger("geonode.tasks.update")
@@ -127,20 +114,11 @@ def seed_layers(keyword):
             print 'e.output:', e.output
 
 
-# @task(name='geonode.tasks.update.update_fhm_metadata_task', queue='update')
-# def update_fhm_metadata_task(layer, counter, total, start_time):
-#     fhm_year_metadata(layer, counter, total, start_time)
-    # fhm_year_metadata()
-
-
-# @task(name='geonode.tasks.fhm_metadata.update_fhm_metadata_task', queue='fhm_metadata')
-# def update_fhm_metadata_task(pk):
-#     layer = Layer.objects.get(pk=pk)
-#     fhm_year_metadata(layer)
-
 @task(name='geonode.tasks.update.job_result_task', queue='update')
 def job_result_task(job_result, start_time):
     try:
+        # wait for workers to finish all tasks
+        #  Never call result.get() within a task! Exception in Celery3.2
         results = job_result.get(propagate=False)
         task_count = job_result.completed_count()
         print 'COMPLETED TASKS/LAYER COUNT', task_count
