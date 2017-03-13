@@ -40,6 +40,7 @@ from .utils import create_login_credentials, create_ad_account, add_to_ad_group
 class LipadOrgType(models.Model):
     val = models.CharField(_('Value'), max_length=100)
     display_val = models.CharField(_('Display'), max_length=100)
+    category = models.CharField(_('Sub'), max_length=100, null=True)
 
     def __unicode__(self):
         return (_('{}').format(self.val,))
