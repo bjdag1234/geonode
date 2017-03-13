@@ -470,7 +470,7 @@ def update_fhm_metadata(request):
 
     layer_list = []
     layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+        Q(name__iregex=r'^ph[0-9]+_fh') & Q(upload_session__date__gte=lastday)).order_by('-upload_session')
     # get latest 10 layers
     # layer_list = Layer.objects.filter(
     #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')[:10]
