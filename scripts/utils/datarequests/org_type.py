@@ -1,7 +1,7 @@
 from geonode.settings import GEONODE_APPS
 import geonode.settings as settings
 import codecs
-from geonode.datarequests.models.base_request import LipadOrgType
+from geonode.datarequests.models import LipadOrgType
 import re
 import os
 import traceback
