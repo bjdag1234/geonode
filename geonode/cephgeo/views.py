@@ -27,7 +27,7 @@ import time
 import operator
 import json
 from geonode.cephgeo.utils import get_cart_datasize
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.core.urlresolvers import reverse
 from geonode.maptiles.models import SRS
 from django.utils.text import slugify
@@ -467,13 +467,12 @@ def management(request):
 @user_passes_test(lambda u: u.is_superuser)
 def update_fhm_metadata(request):
     # fhm_metadata_update.delay()
-
+    lastday = datetime.now() - timedelta(days=2)
     layer_list = []
-    layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh') & Q(upload_session__date__gte=lastday)).order_by('-upload_session')
-    # get latest 10 layers
     # layer_list = Layer.objects.filter(
-    #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')[:10]
+    #     Q(name__iregex=r'^ph[0-9]+_fh') & Q(upload_session__date__gte=lastday)).order_by('-upload_session')
+    layer_list = Layer.objects.filter(
+        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
 
     # compute start time of update
     start_time = datetime.now()
