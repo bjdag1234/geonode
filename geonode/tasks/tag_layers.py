@@ -129,7 +129,7 @@ where "Floodplain"='%s' ''' % rb_name
         return []
 
 
-def update_tags(layers, mode):
+def update_tags(layer, mode):
     # Connect to database
     conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
                              (settings.DATABASE_HOST,
@@ -145,47 +145,47 @@ def update_tags(layers, mode):
     #                    ('fhm', settings.FHM_COVERAGE)]:
     if mode == 'dem':
         results = {}
-        for layer in layers:
-            has_changes = False
-            has_results = False
-            hc = False
-            rb_name = layer.name.split('_calibrated')[0].split('dem_')[
-                1].replace('_', ' ')
-            # if '/' in rb_name:
-            #     temp = rb_name.split('/')
-            #     for t in temp:
-            #         results['rb_name'] = t
-            #         assign_tags(keyword_filter, results, layer)
-            if 'cdo iponan' in rb_name.lower():
-                temp = ['Cagayan de Oro', 'Iponan']
-                for t in temp:
-                    suc_result = fhm_suc(t, cur, conn)
-                    if len(suc_result) > 0:
-                        results['SUC'] = suc_result
-                    results['rb_name'] = t
-                    print 'taglayer RESULTS ', results
-                    hc = assign_tags(mode, [results], layer)
-            elif 'ilog hilabangan' in rb_name.lower():
-                results['rb_name'] = 'Ilog-Hilabangan'
+        # for layer in layers:
+        has_changes = False
+        has_results = False
+        hc = False
+        rb_name = layer.name.split('_calibrated')[0].split('dem_')[
+            1].replace('_', ' ')
+        # if '/' in rb_name:
+        #     temp = rb_name.split('/')
+        #     for t in temp:
+        #         results['rb_name'] = t
+        #         assign_tags(keyword_filter, results, layer)
+        if 'cdo iponan' in rb_name.lower():
+            temp = ['Cagayan de Oro', 'Iponan']
+            for t in temp:
                 suc_result = fhm_suc(t, cur, conn)
                 if len(suc_result) > 0:
                     results['SUC'] = suc_result
+                results['rb_name'] = t
                 print 'taglayer RESULTS ', results
                 hc = assign_tags(mode, [results], layer)
-            elif 'magasawang tubig' in rb_name.lower():
-                results['rb_name'] = 'Mag-Asawang Tubig'
-                suc_result = fhm_suc(t, cur, conn)
-                if len(suc_result) > 0:
-                    results['SUC'] = suc_result
-                print 'taglayer RESULTS ', results
-                hc = assign_tags(mode, [results], layer)
-            else:
-                results['rb_name'] = rb_name.title()
-                suc_result = fhm_suc(results['rb_name'], cur, conn)
-                if len(suc_result) > 0:
-                    results['SUC'] = suc_result
-                print 'taglayer RESULTS ', results
-                hc = assign_tags(mode, [results], layer)
+        elif 'ilog hilabangan' in rb_name.lower():
+            results['rb_name'] = 'Ilog-Hilabangan'
+            suc_result = fhm_suc(t, cur, conn)
+            if len(suc_result) > 0:
+                results['SUC'] = suc_result
+            print 'taglayer RESULTS ', results
+            hc = assign_tags(mode, [results], layer)
+        elif 'magasawang tubig' in rb_name.lower():
+            results['rb_name'] = 'Mag-Asawang Tubig'
+            suc_result = fhm_suc(t, cur, conn)
+            if len(suc_result) > 0:
+                results['SUC'] = suc_result
+            print 'taglayer RESULTS ', results
+            hc = assign_tags(mode, [results], layer)
+        else:
+            results['rb_name'] = rb_name.title()
+            suc_result = fhm_suc(results['rb_name'], cur, conn)
+            if len(suc_result) > 0:
+                results['SUC'] = suc_result
+            print 'taglayer RESULTS ', results
+            hc = assign_tags(mode, [results], layer)
 
             if hc:
                 try:
@@ -195,70 +195,70 @@ def update_tags(layers, mode):
                     logger.exception('%s: ERROR SAVING LAYER', layer.name)
     # if sar or fhm
     else:
-        for layer in layers:
-            has_changes = False
-            has_results = False
-            hc = False
-            logger.info('Layer name: %s', layer.name)
+        # for layer in layers:
+        has_changes = False
+        has_results = False
+        hc = False
+        logger.info('Layer name: %s', layer.name)
 
-            # Construct query
-            query = '''
-    WITH l AS (
-        SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
-        FROM ''' + layer.name + ''' AS f
-    )'''
+        # Construct query
+        query = '''
+WITH l AS (
+    SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+    FROM ''' + layer.name + ''' AS f
+)'''
 
-    #         if mode == 'dem':
-    #             deln = settings.RB_DELINEATION_DREAM
-    #             query += '''
-    # SELECT d.rb_name FROM ''' + deln + ''' AS d, l '''
+#         if mode == 'dem':
+#             deln = settings.RB_DELINEATION_DREAM
+#             query += '''
+# SELECT d.rb_name FROM ''' + deln + ''' AS d, l '''
+        if mode == 'sar':
+            deln = settings.PL1_SUC_MUNIS
+            query += '''
+SELECT DISTINCT d."SUC" FROM ''' + deln + ''' AS d, l'''
+        elif mode == 'fhm':
+            deln = settings.FHM_COVERAGE
+            query += '''
+SELECT d."Floodplain", d."SUC" FROM ''' + deln + ''' AS d, l'''
+#         query += '''
+# FROM ''' + deln + ''' AS d, l'''
+
+        logger.info('%s: mode: %s deln: %s', layer.name, mode, deln)
+        # Get intersect
+        query_int = (query + '''
+ WHERE ST_Intersects(d.the_geom, l.the_geom);''')
+
+        # Execute query
+        try:
+            logger.info('%s query_int: %s', layer.name, query_int)
+            cur.execute(query_int)
+        except Exception:
+            logger.exception('%s: Error executing query_int!', layer.name)
+            conn.rollback()
+            # Skip layer
+            continue
+
+        # Get all results
+        results = cur.fetchall()
+        logger.info('%s: results: %s', layer.name, results)
+
+        # Get no. of results
+        if len(results) >= 1:
+            has_results = True
             if mode == 'sar':
-                deln = settings.PL1_SUC_MUNIS
-                query += '''
-    SELECT DISTINCT d."SUC" FROM ''' + deln + ''' AS d, l'''
-            elif mode == 'fhm':
-                deln = settings.FHM_COVERAGE
-                query += '''
-    SELECT d."Floodplain", d."SUC" FROM ''' + deln + ''' AS d, l'''
-    #         query += '''
-    # FROM ''' + deln + ''' AS d, l'''
-
-            logger.info('%s: mode: %s deln: %s', layer.name, mode, deln)
-            # Get intersect
-            query_int = (query + '''
-     WHERE ST_Intersects(d.the_geom, l.the_geom);''')
-
-            # Execute query
-            try:
-                logger.info('%s query_int: %s', layer.name, query_int)
-                cur.execute(query_int)
-            except Exception:
-                logger.exception('%s: Error executing query_int!', layer.name)
-                conn.rollback()
-                # Skip layer
-                continue
-
-            # Get all results
-            results = cur.fetchall()
-            logger.info('%s: results: %s', layer.name, results)
-
-            # Get no. of results
-            if len(results) >= 1:
-                has_results = True
-                if mode == 'sar':
-                    # tag SAR DEMs
-                    rem_extents = layer.name.split('_extents')[0]
-                    sar_layer = Layer.objects.get(name=rem_extents)
-                    if sar_layer is not None:
-                        hc = assign_tags(mode, results, sar_layer)
-                    else:
-                        logger.info('DOES NOT EXIST %s', sar_layer.name)
-                    # tag SAR extents
-                    hc = assign_tags(mode, results, layer)
+                # tag SAR DEMs
+                rem_extents = layer.name.split('_extents')[0]
+                sar_layer = Layer.objects.get(name=rem_extents)
+                if sar_layer is not None:
+                    hc = assign_tags(mode, results, sar_layer)
                 else:
-                    hc = assign_tags(mode, results, layer)
-                # if hc:
-                #     has_changes = True
+                    logger.info('DOES NOT EXIST %s', sar_layer.name)
+                # tag SAR extents
+                hc = assign_tags(mode, results, layer)
+            else:
+                hc = assign_tags(mode, results, layer)
+            # if hc:
+            #     has_changes = True
 
             if not has_results:
                 logger.info('NO INTERSECTION %s', layer.name)
