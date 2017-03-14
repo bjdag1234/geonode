@@ -3,6 +3,7 @@ from celery.utils.log import get_task_logger
 from geonode.layers.models import Layer
 import logging
 import psycopg2
+import psycopg2.extras
 
 logger = get_task_logger("geonode.tasks.update")
 logger.setLevel(logging.INFO)
