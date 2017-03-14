@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^datamanager/input/$', views.data_input ),
     url(r'^datamanager/remove_ceph_objects/$', views.data_remove ),
     url(r'^datamanager/update_fhm_metadata/$', views.update_fhm_metadata ),
+    url(r'^datamanager/tag_fhm/$', views.tag_fhm ),
     url(r'^datamanager/update_pl2_metadata/$', views.update_pl2_metadata ),
     url(r'^datamanager/update_sar_metadata/$', views.update_sar_metadata ),
     url(r'^datamanager/seed_fhm_layers/$', views.seed_fhm_layers ),
@@ -35,5 +36,5 @@ urlpatterns = patterns('',
     url(r'^datamanager/list/(?P<sort>[A-Za-z]+)/(?P<grid_ref>[A-Za-z0-9]+)/$', views.file_list_geonode ),
     url(r'^datamanager/list_ceph/$', views.file_list_ceph ),
     url(r'^datamanager/list_ceph/(?P<sort>[A-Za-z]+)/$', views.file_list_ceph ),
-    
+
 )
