@@ -8,8 +8,10 @@ from pprint import pprint
 import getpass
 import subprocess
 import traceback
+import logging
 
-logger = get_task_logger("geonode.tasks.update")
+logger = get_task_logger("geonode.tasks.fhm_metadata")
+logger.setLevel(logging.INFO)
 
 
 def own_thumbnail(layer):
