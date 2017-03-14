@@ -120,6 +120,7 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
     # Update thumbnail permissions
     own_thumbnail(layer)
 
+    # seed layers in epsg:900913
     seed_layers(layer)
 
     # Update layer permissions
