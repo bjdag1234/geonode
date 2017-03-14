@@ -236,7 +236,7 @@ SELECT d."Floodplain", d."SUC" FROM ''' + deln + ''' AS d, l'''
             logger.exception('%s: Error executing query_int!', layer.name)
             conn.rollback()
             # Skip layer
-            continue
+            # continue
 
         # Get all results
         results = cur.fetchall()
