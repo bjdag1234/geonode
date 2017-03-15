@@ -33,7 +33,8 @@
         }).addTo(map).bringToFront();
 
         // apply local osm group as overlay
-        var local_osm = L.tileLayer.wms('{{ siteurl }}', {
+        siteurl_ows = '{{ siteurl }}' + 'geoserver/ows?'
+        var local_osm = L.tileLayer.wms(siteurl_ows, {
             ptype: 'gxp_wmsgetfeatureinfo',
             type: 'map',
             // ext: 'jpg',
