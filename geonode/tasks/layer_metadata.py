@@ -4,6 +4,7 @@ from geonode.base.models import TopicCategory
 from geonode.cephgeo.models import RIDF
 from layer_permission import fhm_perms_update
 from layer_style import style_update
+from layer_seed import seed_layers
 from pprint import pprint
 import getpass
 import subprocess
@@ -119,6 +120,8 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
     # Update thumbnail permissions
     own_thumbnail(layer)
 
+    seed_layers(layer)
+
     # Update layer permissions
     fhm_perms_update(layer)
 
@@ -148,7 +151,7 @@ def update_metadata(layer):
         # # auto updates all FHM in PSA code format
         # update_fhm(layer)
         # print layer.name, ': Saving layer...'
-        #layer.save()
+        # layer.save()
 
     except Exception:
         print layer.name, ': Error updating metadata!'

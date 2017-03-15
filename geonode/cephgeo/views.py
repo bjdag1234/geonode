@@ -105,7 +105,8 @@ def file_list_geonode(request, sort=None, grid_ref=None):
         # 1 Grid Ref or Grid Ref Range
         if utils.is_valid_grid_ref(grid_ref):
             # Query files with same grid reference
-            #object_list = CephDataObject.objects.filter(name__startswith=grid_ref)
+            # object_list =
+            # CephDataObject.objects.filter(name__startswith=grid_ref)
             object_list = CephDataObject.objects.filter(grid_ref=grid_ref)
 
         else:
@@ -468,11 +469,11 @@ def management(request):
 def update_fhm_metadata(request):
     lastday = datetime.now() - timedelta(days=2)
     layer_list = []
+    layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') & Q(
+        upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
+        .order_by('-upload_session')
     # layer_list = Layer.objects.filter(
-    # Q(name__iregex=r'^ph[0-9]+_fh') &
-    # Q(upload_session__date__gte=lastday)).order_by('-upload_session')
-    layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+    #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
     layer_count = len(layer_list)
     # compute start time of update
     start_time = datetime.now()
@@ -493,7 +494,8 @@ def update_fhm_metadata(request):
 def tag_fhm(request):
     layer_list = []
     layer_list = Layer.objects.filter(Q(workspace='geonode') & Q(
-        name__icontains='_fh')).exclude(owner__username='dataRegistrationUploader')
+        name__icontains='_fh')).exclude(owner__username='dataRegistrationUploader') \
+        .order_by('-upload_session')[:10]
     layer_count = len(layer_list)
     # compute start time of update
     start_time = datetime.now()

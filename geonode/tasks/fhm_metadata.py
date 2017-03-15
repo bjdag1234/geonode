@@ -10,6 +10,8 @@ from tag_layers import update_tags
 def update_fhm_metadata_task(pk):
     layer = Layer.objects.get(pk=pk)
     update_metadata(layer)
+    mode = 'fhm'
+    update_tags(layer, mode)
 
 
 @task(name='geonode.tasks.fhm_metadata.tag_fhm_task', queue='fhm_metadata')
@@ -17,3 +19,4 @@ def tag_fhm_task(pk):
     layer = Layer.objects.get(pk=pk)
     mode = 'fhm'
     update_tags(layer, mode)
+
