@@ -8,7 +8,7 @@ if [[ "$#" -ne 1 ]]; then
 fi
 
 DBHOST=$1
-BINARIES=(wget psql osm2pgsql shp2pgsql)
+BINARIES=(wget psql osm2pgsql shp2pgsql unzip)
 DBNAME="osm"
 WORKSPACE="osm"
 DATASTORE="osm"
@@ -22,62 +22,62 @@ for bin in ${BINARIES[@]}; do
 done
 echo All required binaries are in path\!
 
-if [[ ! -f philippines-latest.osm.pbf ]]; then
-    echo Download the OpenStreetMap subset definition file for the Philippines...
-    wget -c http://download.geofabrik.de/asia/philippines-latest.osm.pbf
-fi
+# if [[ ! -f philippines-latest.osm.pbf ]]; then
+#     echo Download the OpenStreetMap subset definition file for the Philippines...
+#     wget -c http://download.geofabrik.de/asia/philippines-latest.osm.pbf
+# fi
 
-echo Create osm database if it doesn\'t exist...
-echo Enter postgres db user password if asked...
-psql $PCONN -tc "SELECT 1 FROM pg_database WHERE datname = '$DBNAME'" | grep -q 1 || psql $PCONN -c "CREATE DATABASE $DBNAME"
+# echo Create osm database if it doesn\'t exist...
+# echo Enter postgres db user password if asked...
+# psql $PCONN -tc "SELECT 1 FROM pg_database WHERE datname = '$DBNAME'" | grep -q 1 || psql $PCONN -c "CREATE DATABASE $DBNAME"
 
-echo Create extensions if they don\'t exist...
-psql $PCONN -d $DBNAME -c "CREATE EXTENSION IF NOT EXISTS postgis"
-psql $PCONN -d $DBNAME -c "CREATE EXTENSION IF NOT EXISTS hstore"
+# echo Create extensions if they don\'t exist...
+# psql $PCONN -d $DBNAME -c "CREATE EXTENSION IF NOT EXISTS postgis"
+# psql $PCONN -d $DBNAME -c "CREATE EXTENSION IF NOT EXISTS hstore"
 
-echo Grant all privileges on database osm to geonode user...
-psql $PCONN -c "GRANT ALL PRIVILEGES ON DATABASE $DBNAME TO geonode"
+# echo Grant all privileges on database osm to geonode user...
+# psql $PCONN -c "GRANT ALL PRIVILEGES ON DATABASE $DBNAME TO geonode"
 
-echo Enter geonode db user password if asked...
-echo Import OSM to PostGIS...
-osm2pgsql -cks -C 512 -H $DBHOST -U geonode -W -d $DBNAME philippines-latest.osm.pbf
+# echo Enter geonode db user password if asked...
+# echo Import OSM to PostGIS...
+# osm2pgsql -cks -C 512 -H $DBHOST -U geonode -W -d $DBNAME philippines-latest.osm.pbf
 
-if [[ ! -d ne_10m_admin_0_boundary_lines_land ]]; then
-    echo Download ne_10m_admin_0_boundary_lines_land...
-    wget -c http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_boundary_lines_land.zip
-    unzip -o ne_10m_admin_0_boundary_lines_land.zip -d ne_10m_admin_0_boundary_lines_land
-fi
+# if [[ ! -d ne_10m_admin_0_boundary_lines_land ]]; then
+#     echo Download ne_10m_admin_0_boundary_lines_land...
+#     wget -c http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_boundary_lines_land.zip
+#     unzip -o ne_10m_admin_0_boundary_lines_land.zip -d ne_10m_admin_0_boundary_lines_land
+# fi
 
-if [[ ! -d ne_10m_admin_1_states_provinces_lines ]]; then
-    echo Download ne_10m_admin_1_states_provinces_lines...
-    wget -c http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces_lines.zip
-    unzip -o ne_10m_admin_1_states_provinces_lines.zip -d ne_10m_admin_1_states_provinces_lines
-fi
+# if [[ ! -d ne_10m_admin_1_states_provinces_lines ]]; then
+#     echo Download ne_10m_admin_1_states_provinces_lines...
+#     wget -c http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces_lines.zip
+#     unzip -o ne_10m_admin_1_states_provinces_lines.zip -d ne_10m_admin_1_states_provinces_lines
+# fi
 
-echo Load boundary shapefiles to database...
-shp2pgsql -g geom -s 4326 -I -D ne_10m_admin_0_boundary_lines_land/ne_10m_admin_0_boundary_lines_land.shp admin0 | psql $GCONN
-shp2pgsql -g geom -s 4326 -I -D ne_10m_admin_1_states_provinces_lines/ne_10m_admin_1_states_provinces_lines.shp admin1 | psql $GCONN
+# echo Load boundary shapefiles to database...
+# shp2pgsql -g geom -s 4326 -I -D ne_10m_admin_0_boundary_lines_land/ne_10m_admin_0_boundary_lines_land.shp admin0 | psql $GCONN
+# shp2pgsql -g geom -s 4326 -I -D ne_10m_admin_1_states_provinces_lines/ne_10m_admin_1_states_provinces_lines.shp admin1 | psql $GCONN
 
-echo Transform boundary layers from 4326 to 900913...
-psql $GCONN -c "ALTER TABLE admin0 ALTER COLUMN geom TYPE geometry(MULTILINESTRING,900913) USING st_transform(geom,900913)"
-psql $GCONN -c "ALTER TABLE admin1 ALTER COLUMN geom TYPE geometry(MULTILINESTRING,900913) USING st_transform(geom,900913)"
+# echo Transform boundary layers from 4326 to 900913...
+# psql $GCONN -c "ALTER TABLE admin0 ALTER COLUMN geom TYPE geometry(MULTILINESTRING,900913) USING st_transform(geom,900913)"
+# psql $GCONN -c "ALTER TABLE admin1 ALTER COLUMN geom TYPE geometry(MULTILINESTRING,900913) USING st_transform(geom,900913)"
 
-if [[ ! -d water-polygons-split-3857 ]]; then
-    echo Download oceans shapefile...
-    wget -c http://data.openstreetmapdata.com/water-polygons-split-3857.zip
-    unzip -o water-polygons-split-3857.zip
-fi
+# if [[ ! -d water-polygons-split-3857 ]]; then
+#     echo Download oceans shapefile...
+#     wget -c http://data.openstreetmapdata.com/water-polygons-split-3857.zip
+#     unzip -o water-polygons-split-3857.zip
+# fi
 
-echo Load oceans shapefile to database...
-shp2pgsql -g geom -s 900913 -I -D ./water-polygons-split-3857/water_polygons.shp ocean | psql $GCONN
+# echo Load oceans shapefile to database...
+# shp2pgsql -g geom -s 900913 -I -D ./water-polygons-split-3857/water_polygons.shp ocean | psql $GCONN
 
-if [[ ! -f createDBObjects.sql ]]; then
-    echo Download createDBobjects.sql...
-    wget -c https://raw.githubusercontent.com/boundlessgeo/OSM/master/createDBobjects.sql
-fi
+# if [[ ! -f createDBObjects.sql ]]; then
+#     echo Download createDBobjects.sql...
+#     wget -c https://raw.githubusercontent.com/boundlessgeo/OSM/master/createDBobjects.sql
+# fi
 
-echo Create database objects...
-psql $GCONN -f createDBobjects.sql
+# echo Create database objects...
+# psql $GCONN -f createDBobjects.sql
 
 echo Get geoserver settings...
 SETTINGS=$( python get_geoserver_settings.py | tail -1 )
@@ -118,9 +118,6 @@ cd ..
 
 echo Run updatelayers on workspace...
 python ../../../manage.py updatelayers -w $WORKSPACE
-<<<<<<< HEAD
 
 echo Apply proper permissions to osm layers...
 python osm_permissions.py
-=======
->>>>>>> master
