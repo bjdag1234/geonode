@@ -78,7 +78,7 @@ def _resolve_layer(request, typename, permission='base.view_resourcebase',
                               **kwargs)
 
 
-def philgrid(request,template='index.html'):
+def philgrid(request, template='index.html'):
     layername = "geonode:philgrid"
 
     layer = _resolve_layer(
@@ -124,7 +124,6 @@ def philgrid(request,template='index.html'):
             ows_url=layer.ows_url,
             layer_params=json.dumps(config))
 
-
     map_obj = GXPMap(projection="EPSG:900913")
     NON_WMS_BASE_LAYERS = [
         la for la in default_map_config()[1] if la.ows_url is None]
@@ -139,7 +138,8 @@ def philgrid(request,template='index.html'):
         "metadata": metadata,
         "is_layer": True,
         "wps_enabled": settings.OGC_SERVER['default']['WPS_ENABLED'],
-        "siteurl": settings.SITEURL, # for local osm layergroup
+        # "siteurl": settings.SITEURL, # for local osm layergroup
+        "siteurl": settings.OGC_SERVER['default']['LOCATION'] # FOR LOCAL ONLY
     }
 
     context_dict["viewer"] = json.dumps(
@@ -217,7 +217,8 @@ def ajax_lookup(request):
         'count': users.count(),
     }
 
-    json_dict['groups'] = [({'name': g.slug, 'title': g.title}) for g in groups]
+    json_dict['groups'] = [({'name': g.slug, 'title': g.title})
+                           for g in groups]
     return HttpResponse(
         content=json.dumps(json_dict),
         mimetype='text/plain'
@@ -232,6 +233,7 @@ def err403(request):
             request.get_full_path())
     else:
         return TemplateResponse(request, '401.html', {}, status=401).render()
+
 
 def forbidden(request):
     return TemplateResponse(request, '401.html', {}, status=401).render()

@@ -324,7 +324,7 @@ INSTALLED_APPS = (
     'south',
     'corsheaders',
     'captcha',
-    
+
     #CAS client
     'django_cas_ng',
 
@@ -497,7 +497,8 @@ FTP_SUPPORT_MAIL = 'lipad@dream.upd.edu.ph'
 FTP_AUTOMAIL = 'automailer@dream.upd.edu.ph'
 
 #get data coverage layer name
-PHILGRID_NAME = "philgrid_20160301"
+
+PHILGRID_NAME = "philgrid"
 #
 # Test Settings
 #
@@ -934,7 +935,7 @@ djcelery.setup_loader()
 
 #TILED_SHAPEFILE = "geonode:cut_phl_001k_grid_utm_z51n"
 # TILED_SHAPEFILE = "geonode:index"
-TILED_SHAPEFILE = "geonode:philgrid_20160301"
+TILED_SHAPEFILE = "geonode:philgrid"
 TILED_SHAPEFILE_TEST = "geonode:index"
 EULA_URL = '/eula/eula_form/'
 SELECTION_LIMIT=209715200
