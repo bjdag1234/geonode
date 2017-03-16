@@ -780,16 +780,22 @@ function setMapSize(){
   document.getElementById('floating-legend').style.top = navheight+15 +"px";
 }
 
-// sld_philgrid = '{{ siteurl }}' + 'geoserver/rest/styles/philgrid.xml'
-// sld_philgrid = 'http://localhost:8080/geoserver/rest/workspaces/osm/styles/admin0.sld'
+console.log('1',siteurl)
+console.log('1',{{siteurl}})
+sld_philgrid = '{{ siteurl }}' + 'geoserver/rest/styles/Boundary.sld'
+// sld_philgrid = 'http://localhost:8080/geoserver/rest/styles/Boundary.sld'
 // sld_philgrid = 'http://localhost:8080/geoserver/wms?Boundary.html'
-sld_philgrid = 'geonode:Boundary'
+// sld_philgrid = 'geonode:Boundary'
 
-console.log('SLD OF PHILGRID ',sld_philgrid)
+console.log('SLD OF PHILGRID ',sld_philgrid);
 function changeSLD(){
   console.log('Change sld')
-  tile_layer.mergeNewParams({sld: sld_philgrid, styles: sld_philgrid});
-  console.log(tile_layer)
+  tile_layer.mergeNewParams({
+    SLD: encodeURI(sld_philgrid),
+    STYLES: null
+  });
+
+  console.log(tile_layer);
 
   // tile_layer.mergeNewParams({sld: 'https://lipad-stg.dream.upd.edu.ph/geoserver/rest/styles/philgrid.sld', STYLES: null});
   // tile_layer.redraw();
