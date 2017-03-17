@@ -542,7 +542,6 @@ var map_options = grid_args["map"];
 var grid_layer_name = "geonode:{{  feature_tiled }}";
 var stored_layer = map_options["layers"].filter(function(l){ return l["name"] == grid_layer_name })[0];
 var tile_layer = new OpenLayers.Layer.WMS(
-    // grid_layer_name + "- Tiled", geoserver+"geonode/wms",
     grid_layer_name + "- Tiled", geoserver+"geonode/wms",
     {
         LAYERS: stored_layer["name"],
@@ -610,7 +609,7 @@ Ext.onReady(function (){
     // );
 
     // apply local osm layer group
-    siteurl_osm = 'localhost:8080/geoserver/osm/wms?'
+    siteurl_osm = '{{ siteurl }}' +  '/geoserver/osm/wms?';
     var local_osm = new OpenLayers.Layer.WMS(
         "WMS OSM Layer",
         siteurl_osm,
@@ -781,23 +780,39 @@ function setMapSize(){
   document.getElementById('floating-legend').style.top = navheight+15 +"px";
 }
 
-sld_philgrid = '{{ siteurl }}' + 'geoserver/rest/styles/Boundary.sld'
-// sld_philgrid = 'http://localhost:8080/geoserver/rest/styles/Boundary.sld'
-// sld_philgrid = 'http://localhost:8080/geoserver/wms?Boundary.html'
-// sld_philgrid = 'geonode:Boundary'
-
-console.log('SLD OF PHILGRID ',sld_philgrid);
 function changeSLD(){
-  console.log('Change sld')
-  tile_layer.mergeNewParams({
-    SLD: encodeURI(sld_philgrid),
-    STYLES: null
-  });
+  console.log('Change sld');
+  if($("input:checked").val()=="dtm"){
+    console.log('############# Change SLD TO DTM');
+    tile_layer.mergeNewParams({
+      styles: 'dtm_test',
+    });
+  }
+  else if ($("input:checked").val()=="ortho"){
+    console.log('############# Change SLD TO ORTHO');
+    tile_layer.mergeNewParams({
+      styles: 'ortho_test',
+    });
+  }
+  else if ($("input:checked").val()=="laz"){
+    console.log('############# Change SLD TO LAZ');
+    tile_layer.mergeNewParams({
+      styles: 'laz_test',
+    });
+  }
+  else if ($("input:checked").val()=="dsm"){
+    console.log('############# Change SLD TO DSM');
+    tile_layer.mergeNewParams({
+      styles: 'dsm_test',
+    });
+  }
+  else if ($("input:checked").val()=="all"){
+    console.log('&&&&&&&&&&&&&&&& ALL {{ settings.philgrid_sld }}');
+    tile_layer.mergeNewParams({
+      styles: '{{ philgrid_sld }}',
+    });
+  }
 
-  console.log(tile_layer);
-
-  // tile_layer.mergeNewParams({sld: 'https://lipad-stg.dream.upd.edu.ph/geoserver/rest/styles/philgrid.sld', STYLES: null});
-  // tile_layer.redraw();
 }
 
 $(window).resize(function() {
