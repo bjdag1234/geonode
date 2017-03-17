@@ -856,9 +856,9 @@ NOTIFICATION_QUEUE_ALL = False
 BROKER_URL = "django://"
 CELERY_ALWAYS_EAGER = False
 CELERY_EAGER_PROPAGATES_EXCEPTIONS = True
-CELERY_IGNORE_RESULT = True
+CELERY_IGNORE_RESULT = False
 CELERY_SEND_EVENTS = False
-CELERY_RESULT_BACKEND = None
+CELERY_RESULT_BACKEND = "djcelery.backends.database:DatabaseBackend"
 CELERY_TASK_RESULT_EXPIRES = 18000
 CELERY_DISABLE_RATE_LIMITS = True
 CELERY_DEFAULT_QUEUE = "default"
@@ -874,6 +874,7 @@ CELERY_IMPORTS = (
     'geonode.tasks.ftp',
     'geonode.tasks.mk_folder',
     'geonode.tasks.users',
+    'geonode.tasks.fhm_metadata',
 )
 
 
@@ -885,7 +886,8 @@ CELERY_QUEUES = [
     Queue('email', routing_key='email'),
     Queue('ftp', routing_key='ftp'),
     Queue('mk_folder', routing_key='mk_folder'),
-    Queue('users', routing_key='users')
+    Queue('users', routing_key='users'),
+    Queue('fhm_metadata', routing_key='fhm_metadata')
 ]
 
 import djcelery

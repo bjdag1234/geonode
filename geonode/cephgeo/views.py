@@ -27,16 +27,22 @@ import time
 import operator
 import json
 from geonode.cephgeo.utils import get_cart_datasize
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.core.urlresolvers import reverse
 from geonode.maptiles.models import SRS
 from django.utils.text import slugify
 
-from geonode.tasks.update import update_fhm_metadata_task, style_update, seed_layers, pl2_metadata_update, sar_metadata_update, layer_default_style
+from geonode.tasks.update import seed_layers, pl2_metadata_update
+from geonode.tasks.update import sar_metadata_update, layer_default_style, job_result_task
+from geonode.tasks.fhm_metadata import update_fhm_metadata_task, tag_fhm_task
 from geonode.base.enumerations import CHARSETS
 
 from geonode import settings
 from geonode.layers.models import Layer
+
+# celery  multiprocessing
+from celery import group
+from django.db.models import Q
 
 # Create your views here.
 
@@ -99,7 +105,8 @@ def file_list_geonode(request, sort=None, grid_ref=None):
         # 1 Grid Ref or Grid Ref Range
         if utils.is_valid_grid_ref(grid_ref):
             # Query files with same grid reference
-            #object_list = CephDataObject.objects.filter(name__startswith=grid_ref)
+            # object_list =
+            # CephDataObject.objects.filter(name__startswith=grid_ref)
             object_list = CephDataObject.objects.filter(grid_ref=grid_ref)
 
         else:
@@ -459,10 +466,48 @@ def management(request):
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
+# metadata update, seeding, SUC/FP tagging
 def update_fhm_metadata(request):
-    # fhm_metadata_update.delay()
-    update_fhm_metadata_task()
-    messages.error(request, "Updating Flood Hazard Map metadata")
+    lastday = datetime.now() - timedelta(days=2)
+    layer_list = []
+    layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') & Q(
+        upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
+        .order_by('-upload_session')
+    # layer_list = Layer.objects.filter(
+    #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+    layer_count = len(layer_list)
+    # compute start time of update
+    start_time = datetime.now()
+
+    # get primary key of layer to pass in the task
+    jobs = group(update_fhm_metadata_task.s(layer.pk)
+                 for layer in layer_list).apply_async()
+    job_result_task.delay(jobs, start_time)
+
+    messages.error(
+        request, "Updating Metadata of {0} FHMs. See logging in /var/log/celeryd.log "
+        .format(layer_count))
+    return HttpResponseRedirect(reverse('data_management'))
+
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def tag_fhm(request):
+    layer_list = []
+    layer_list = Layer.objects.filter(Q(workspace='geonode') & Q(
+        name__icontains='_fh')).exclude(owner__username='dataRegistrationUploader') \
+        .order_by('-upload_session')[:10]
+    layer_count = len(layer_list)
+    # compute start time of update
+    start_time = datetime.now()
+
+    jobs = group(tag_fhm_task.s(layer.pk)
+                 for layer in layer_list).apply_async()
+    job_result_task.delay(jobs, start_time)
+
+    messages.error(
+        request, "Tagging {0} FHMs. See logging in /var/log/celeryd.log "
+        .format(layer_count))
     return HttpResponseRedirect(reverse('data_management'))
 
 
