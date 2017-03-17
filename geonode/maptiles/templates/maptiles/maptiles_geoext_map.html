@@ -542,6 +542,7 @@ var map_options = grid_args["map"];
 var grid_layer_name = "geonode:{{  feature_tiled }}";
 var stored_layer = map_options["layers"].filter(function(l){ return l["name"] == grid_layer_name })[0];
 var tile_layer = new OpenLayers.Layer.WMS(
+    // grid_layer_name + "- Tiled", geoserver+"geonode/wms",
     grid_layer_name + "- Tiled", geoserver+"geonode/wms",
     {
         LAYERS: stored_layer["name"],
@@ -609,7 +610,7 @@ Ext.onReady(function (){
     // );
 
     // apply local osm layer group
-    siteurl_osm = '{{ siteurl }}' +  '/geoserver/osm/wms?'
+    siteurl_osm = 'localhost:8080/geoserver/osm/wms?'
     var local_osm = new OpenLayers.Layer.WMS(
         "WMS OSM Layer",
         siteurl_osm,
@@ -780,8 +781,6 @@ function setMapSize(){
   document.getElementById('floating-legend').style.top = navheight+15 +"px";
 }
 
-console.log('1',siteurl)
-console.log('1',{{siteurl}})
 sld_philgrid = '{{ siteurl }}' + 'geoserver/rest/styles/Boundary.sld'
 // sld_philgrid = 'http://localhost:8080/geoserver/rest/styles/Boundary.sld'
 // sld_philgrid = 'http://localhost:8080/geoserver/wms?Boundary.html'

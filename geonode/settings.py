@@ -328,8 +328,7 @@ INSTALLED_APPS = (
     #CAS client
     'django_cas_ng',
 
-    #CAS client
-    'django_cas_ng',
+    'httpproxy',
 ) + GEONODE_APPS
 
 LOGGING = {

@@ -176,3 +176,9 @@ urlpatterns += patterns('',
                         (r'^featured/(?P<site>[A-Za-z0-9_\-]+)/$', 'geonode.maps.views.featured_map'),
                         (r'^featured/(?P<site>[A-Za-z0-9_\-]+)/info$', 'geonode.maps.views.featured_map_info'),
                         )
+
+from httpproxy.views import HttpProxy
+urlpatterns += patterns('',
+    (r'^geoserver/(?P<url>.*)$',
+    HttpProxy.as_view(base_url='http://localhost:8080/geoserver/')),
+)
