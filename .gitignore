@@ -3,7 +3,7 @@
 .pydevproject
 .settings
 
-# 
+#
 build artifacts
 *.pyc
 *.egg-info
@@ -121,3 +121,5 @@ docs/_build
 #bootstrap.min.css
 
 .Flood-Hazard-Error-Log.txt
+
+scripts/utils/osm/
