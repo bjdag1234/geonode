@@ -8,6 +8,10 @@ from geonode.layers.models import Layer
 from geonode.cephgeo.models import FTPRequest, FTPRequestToObjectIndex, DataClassification
 from geonode.people.models import Profile
 
+import sys
+
+timedeltadays = int(sys.argv[1])
+
 layer_count = {}
 
 def get_luzvimin(iterate):
@@ -74,7 +78,7 @@ def add_to_monthlyc(category):
         }
     layer_count[category]['Document'] += 1
 
-datetoappend = datetime.strptime((datetime.now()-timedelta(days=1)).strftime('%d-%m-%Y'),'%d-%m-%Y') #timedelta to start week count days from sunday; days=3 meaning week count if from wednesday to tuesday
+datetoappend = datetime.strptime((datetime.now()-timedelta(days=timedeltadays)).strftime('%d-%m-%Y'),'%d-%m-%Y') #timedelta to start week count days from sunday; days=3 meaning week count if from wednesday to tuesday
 # auth_list = Action.objects.filter(verb='downloaded').order_by('timestamp')
 auth_list = DownloadTracker.objects.order_by('timestamp')
 for auth in auth_list:
@@ -97,10 +101,10 @@ for anon in anon_list:
         if not anon.anon_document:#if datenow is timestamp
             luzvimin = get_luzvimin({
                 "timestamp": anon.date,
-                "typename": anon.anon_layer,
+                "typename": anon.anon_layer.typename,
                 })
-            add_to_count(luzvimin, anon.anon_layer)
-            add_to_count('monthly', anon.anon_layer)
+            add_to_count(luzvimin, anon.anon_layer.typename)
+            add_to_count('monthly', anon.anon_layer.typename)
         elif anon.anon_document:#if datenow is timestamp
             add_to_monthlyc('monthly')
 ftp_list = FTPRequest.objects.all().order_by('date_time')
