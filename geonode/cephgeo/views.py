@@ -41,8 +41,19 @@ from geonode.base.enumerations import CHARSETS
 from django.conf import settings
 from geonode.layers.models import Layer
 
+# from geonode.automation.models import AutomationJob
+from geonode.automation.views import trigger_input
+
 # Create your views here.
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def automation_trigger(request):
+    # _sam = trigger_input(request)
+    # print 'something'
+    messages.error(request, "SOMETHING")
+    # return HttpResponse(json.dumps(_sam), status=200)
+    return HttpResponseRedirect(reverse('data_management'))
 
 @login_required
 def tile_check(request):
@@ -64,7 +75,6 @@ def tile_check(request):
             valid_tiles.append(x)
 
     return HttpResponse(json.dumps(valid_tiles), status=200)
-
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
