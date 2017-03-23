@@ -20,7 +20,6 @@
 
 from django.shortcuts import (
     redirect, get_object_or_404, render, render_to_response)
-from django.core.urlresolvers import resolve
 from django.http import HttpResponse, HttpResponseRedirect
 
 import urllib2
