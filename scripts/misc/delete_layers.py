@@ -8,11 +8,17 @@ from geonode.layers.models import Style
 from geoserver.catalog import Catalog
 import argparse
 import os
+import psycopg2
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
 
 def delete_layer(keyword, layer_list):
+    conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
+                             (settings.DATABASE_HOST, settings.DATASTORE_DB,
+                              settings.DATABASE_USER, settings.DATABASE_PASSWORD)))
+    cur = conn.cursor()
+
     if layer_list is None:
         layers = ''
         layers = Layer.objects.filter(name__icontains=keyword)
@@ -29,8 +35,10 @@ def delete_layer(keyword, layer_list):
     total = len(layers)
     print 'TOTAL', total
     count = 1
+    layername = ''
     for layer in layers:
         print 'LAYER ', layer.name
+        layername = layer.name
         print '#' * 40
         '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
         try:
@@ -56,8 +64,20 @@ def delete_layer(keyword, layer_list):
         except Exception:
             print 'Cannot delete geonode layer'
             pass
+        if layername != '':
+            query = 'DROP TABLE IF EXISTS ' + layername + ' CASCADE;'
+            print 'QUERY:', query
+            try:
+                cur.execute(query)
+                conn.commit()
+                print 'Deleted ' + layername + ' in pgsql database'
+            except Exception:
+                print layername + ' Not in pgsql database'
+                conn.rollback()
         count += 1
-        # break
+    cur.close()
+    conn.close()
+    # break
 
 
 def parse_arguments():
