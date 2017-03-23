@@ -20,6 +20,7 @@
 
 from django.shortcuts import (
     redirect, get_object_or_404, render, render_to_response)
+from django.core.urlresolvers import resolve
 from django.http import HttpResponse, HttpResponseRedirect
 
 import urllib2
@@ -32,7 +33,8 @@ def api_combined(request, apiname):
     current_url = request.build_absolute_uri()
     tostrip = 'limit='+str(request.GET.get('limit'))+'&offset='+str(request.GET.get('offset'))
     apiquery = '?'.join(current_url.split('?')[1:]).replace(tostrip,'').rstrip('&').lstrip('&')
-    local_url = urljoin(current_url,'../')
+    #local_url = urljoin(current_url,'../')
+    local_url = 'https://'+request.META['HTTP_HOST']+'/'
     urls_to_visit = [local_url,'https://lipad.dream.upd.edu.ph/']
     output = {}
     # output = []
@@ -60,7 +62,8 @@ def api_combined(request, apiname):
 def api_autocomplete(request):
     current_url = request.build_absolute_uri()
     apiquery = '?'.join(current_url.split('?')[1:])
-    local_url = urljoin(current_url,'../')
+    #local_url = urljoin(current_url,'../')
+    local_url = 'https://'+request.META['HTTP_HOST']+'/'
     urls_to_visit = [local_url,'https://lipad.dream.upd.edu.ph/']
     output = ''
 
