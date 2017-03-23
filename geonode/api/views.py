@@ -33,7 +33,7 @@ def api_combined(request, apiname):
     tostrip = 'limit='+str(request.GET.get('limit'))+'&offset='+str(request.GET.get('offset'))
     apiquery = '?'.join(current_url.split('?')[1:]).replace(tostrip,'').rstrip('&').lstrip('&')
     #local_url = urljoin(current_url,'../')
-    local_url = 'https://'+request.META['HTTP_HOST']+'/'
+    local_url = 'https://'+request.META['HTTP_HOST']+'/' if '.dmz' not in request.META['HTTP_HOST'] else urljoin(current_url,'../')
     urls_to_visit = [local_url,'https://lipad.dream.upd.edu.ph/']
     output = {}
     # output = []
@@ -62,7 +62,7 @@ def api_autocomplete(request):
     current_url = request.build_absolute_uri()
     apiquery = '?'.join(current_url.split('?')[1:])
     #local_url = urljoin(current_url,'../')
-    local_url = 'https://'+request.META['HTTP_HOST']+'/'
+    local_url = 'https://'+request.META['HTTP_HOST']+'/' if '.dmz' not in request.META['HTTP_HOST'] else urljoin(current_url,'../')
     urls_to_visit = [local_url,'https://lipad.dream.upd.edu.ph/']
     output = ''
 
