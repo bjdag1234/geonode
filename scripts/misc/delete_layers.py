@@ -12,12 +12,20 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
 
-def delete_layer(keyword):
+def delete_layer(keyword, layer_list):
+    if layer_list is None:
+        layers = ''
+        layers = Layer.objects.filter(name__icontains=keyword)
+    else:
+        layers = []
+        for l in layer_list:
+            layers.append(Layer.objects.get(name=l))
+    print 'LAYERS ', layers
+
     cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
                   username=settings.OGC_SERVER['default']['USER'],
                   password=settings.OGC_SERVER['default']['PASSWORD'])
 
-    layers = Layer.objects.filter(name__icontains=keyword)
     total = len(layers)
     print 'TOTAL', total
     count = 1
@@ -60,8 +68,8 @@ def parse_arguments():
         'type', choices=['sar', 'dem', 'fhm', 'all'], action='append',
         help='Delete all layers in a specific layer type \
                         or delete all 3 layer type')
-    # parser.add_argument('-l', '--layer', action='append',
-    #                     help='delete a specific layer')
+    parser.add_argument('-l', '--layer', action='append',
+                        help='delete a specific layer')
     args = parser.parse_args()
     return args
 
@@ -70,12 +78,12 @@ args = parse_arguments()
 for argType in args.type:
     if argType == 'fhm':
         keyword = '_fh'
-        delete_layer(keyword)
+        delete_layer(keyword, args.layer)
     elif argType == 'sar':
         keyword = 'sar_'
-        delete_layer(keyword)
+        delete_layer(keyword, args.layer)
     elif argType == 'dem':
         keyword = 'dem_'
-        delete_layer(keyword)
+        delete_layer(keyword, args.layer)
     else:
         print 'NO KEYWORD SUPPLIED. EXITING...'
