@@ -234,6 +234,16 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
         layername,
         'base.view_resourcebase',
         _PERMISSION_MSG_VIEW)
+
+    # check if problematic in geoserver
+    cat = gs_catalog
+    try:
+        gs_layer = cat.get_layer(layername)
+        gs_layer.resource.latlon_bbox
+    except:
+        print 'GEOSERVER LAYER ERROR'
+        return HttpResponse(loader.render_to_string('layers/layer_error.html', RequestContext(request, {'error_message': _("Error in layer.")})), status=404)
+
     # assert False, str(layer_bbox)
     config = layer.attribute_config()
     #print layername
