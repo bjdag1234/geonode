@@ -126,6 +126,7 @@ development.db
 master
 slave
 
+
 #CSV files
 *.csv
 
