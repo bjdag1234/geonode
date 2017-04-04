@@ -14,10 +14,10 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
 
 def delete_layer(keyword, layer_list):
-    conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
-                             (settings.DATABASE_HOST, settings.DATASTORE_DB,
-                              settings.DATABASE_USER, settings.DATABASE_PASSWORD)))
-    cur = conn.cursor()
+    # conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
+    #                          (settings.DATABASE_HOST, settings.DATASTORE_DB,
+    #                           settings.DATABASE_USER, settings.DATABASE_PASSWORD)))
+    # cur = conn.cursor()
 
     if layer_list is None:
         layers = ''
@@ -25,12 +25,15 @@ def delete_layer(keyword, layer_list):
     else:
         layers = []
         for l in layer_list:
-            layers.append(Layer.objects.get(name=l))
+            try:
+                layers.append(Layer.objects.get(name=l))
+            except:
+                print 'NO LAYER ', l
     print 'LAYERS ', layers
 
-    cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
-                  username=settings.OGC_SERVER['default']['USER'],
-                  password=settings.OGC_SERVER['default']['PASSWORD'])
+    # cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
+    #               username=settings.OGC_SERVER['default']['USER'],
+    #               password=settings.OGC_SERVER['default']['PASSWORD'])
 
     total = len(layers)
     print 'TOTAL', total
@@ -40,43 +43,43 @@ def delete_layer(keyword, layer_list):
         print 'LAYER ', layer.name
         layername = layer.name
         print '#' * 40
-        '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
-        try:
-            gs_style = cat.get_style(layer.name)
-            cat.delete(gs_style)
-        except Exception:
-            print 'No geoserver style'
-            pass
-        try:
-            gs_layer = cat.get_layer(layer.name)
-            cat.delete(gs_layer)
-        except Exception:
-            print 'No geoserver layer'
-            pass
-        try:
-            def_style = Style.objects.get(name=layer.name)
-            def_style.delete()
-        except Exception:
-            print 'No geonode style'
-            pass
+        # '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
+        # try:
+        #     gs_style = cat.get_style(layer.name)
+        #     cat.delete(gs_style)
+        # except Exception:
+        #     print 'No geoserver style'
+        #     pass
+        # try:
+        #     gs_layer = cat.get_layer(layer.name)
+        #     cat.delete(gs_layer)
+        # except Exception:
+        #     print 'No geoserver layer'
+        #     pass
+        # try:
+        #     def_style = Style.objects.get(name=layer.name)
+        #     def_style.delete()
+        # except Exception:
+        #     print 'No geonode style'
+        #     pass
         try:
             layer.delete()
         except Exception:
             print 'Cannot delete geonode layer'
             pass
-        if layername != '':
-            query = 'DROP TABLE IF EXISTS ' + layername + ' CASCADE;'
-            print 'QUERY:', query
-            try:
-                cur.execute(query)
-                conn.commit()
-                print 'Deleted ' + layername + ' in pgsql database'
-            except Exception:
-                print layername + ' Not in pgsql database'
-                conn.rollback()
-        count += 1
-    cur.close()
-    conn.close()
+    #     if layername != '':
+    #         query = 'DROP TABLE IF EXISTS ' + layername + ' CASCADE;'
+    #         print 'QUERY:', query
+    #         try:
+    #             cur.execute(query)
+    #             conn.commit()
+    #             print 'Deleted ' + layername + ' in pgsql database'
+    #         except Exception:
+    #             print layername + ' Not in pgsql database'
+    #             conn.rollback()
+    #     count += 1
+    # cur.close()
+    # conn.close()
     # break
 
 
@@ -88,8 +91,8 @@ def parse_arguments():
         'type', choices=['sar', 'dem', 'fhm', 'all'], action='append',
         help='Delete all layers in a specific layer type \
                         or delete all 3 layer type')
-    parser.add_argument('-l', '--layer', action='append',
-                        help='delete a specific layer')
+    parser.add_argument('--layer', nargs='+',
+                        help='delete a specific layer or list of layers')
     args = parser.parse_args()
     return args
 
@@ -107,3 +110,4 @@ for argType in args.type:
         delete_layer(keyword, args.layer)
     else:
         print 'NO KEYWORD SUPPLIED. EXITING...'
+
