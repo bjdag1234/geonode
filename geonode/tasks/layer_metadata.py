@@ -8,8 +8,10 @@ from pprint import pprint
 import getpass
 import subprocess
 import traceback
+import logging
 
-logger = get_task_logger("geonode.tasks.update")
+logger = get_task_logger("geonode.tasks.fhm_metadata")
+logger.setLevel(logging.INFO)
 
 
 def own_thumbnail(layer):
@@ -116,6 +118,9 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
 
     # Update thumbnail permissions
     own_thumbnail(layer)
+
+    # seed layers in epsg:900913
+    seed_layers(layer)
 
     # Update layer permissions
     fhm_perms_update(layer)

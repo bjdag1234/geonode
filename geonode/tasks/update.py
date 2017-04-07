@@ -129,7 +129,7 @@ def job_result_task(job_result, start_time):
         print 'Start time %s ' % start_time
         print 'Finish time %s ' % finish_time
         elapsed_time_secs = datetime.now() - start_time
-        print "Execution of {0} FHM Metadata Update took {1} secs".format(
+        print "Execution of Tagging {0} FHM took {1} secs".format(
             task_count, elapsed_time_secs)
 
 
