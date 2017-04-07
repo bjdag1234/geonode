@@ -9,6 +9,7 @@ import getpass
 import subprocess
 import traceback
 import logging
+from layer_seed import seed_layers
 
 logger = get_task_logger("geonode.tasks.fhm_metadata")
 logger.setLevel(logging.INFO)
