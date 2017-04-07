@@ -32,7 +32,8 @@ from django.core.urlresolvers import reverse
 from geonode.maptiles.models import SRS
 from django.utils.text import slugify
 
-from geonode.tasks.update import style_update, seed_layers, pl2_metadata_update, sar_metadata_update, layer_default_style, job_result_task
+from geonode.tasks.update import seed_layers, pl2_metadata_update
+from geonode.tasks.update import sar_metadata_update, layer_default_style, job_result_task
 from geonode.tasks.fhm_metadata import update_fhm_metadata_task
 from geonode.base.enumerations import CHARSETS
 
@@ -466,23 +467,20 @@ def management(request):
 @user_passes_test(lambda u: u.is_superuser)
 def update_fhm_metadata(request):
     # fhm_metadata_update.delay()
+    lastday = datetime.now() - timedelta(days=2)
     layer_list = []
     # layer_list = Layer.objects.filter(
-    #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+    #     Q(name__iregex=r'^ph[0-9]+_fh') & Q(upload_session__date__gte=lastday)).order_by('-upload_session')
     layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')[:10]
+        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
 
     # compute start time of update
     start_time = datetime.now()
 
     # get primary key of layer to pass in the task
-    jobs = group(update_fhm_metadata_task.s(l.pk) for l in layer_list).apply_async()
-    job_result = jobs.apply_async()
-
-    # mali to
-    # job_result_task.delay(job_result, start_time)
-
-    # result = chord(update_fhm_metadata_task.s(l.pk) for l in layer_list)(job_result_task.s())
+    jobs = group(update_fhm_metadata_task.s(l.pk)
+                 for l in layer_list).apply_async()
+    job_result_task.delay(jobs, start_time)
 
     messages.error(request, "Updating FHM Metadata")
     return HttpResponseRedirect(reverse('data_management'))
