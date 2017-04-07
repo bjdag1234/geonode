@@ -469,11 +469,12 @@ def management(request):
 def update_fhm_metadata(request):
     lastday = datetime.now() - timedelta(days=2)
     layer_list = []
-    # layer_list = Layer.objects.filter(
-    # Q(name__iregex=r'^ph[0-9]+_fh') &
-    # Q(upload_session__date__gte=lastday)).order_by('-upload_session')
     layer_list = Layer.objects.filter(
-        Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+    Q(name__icontainsr'_fh') &
+    Q(upload_session__date__gte=lastday)).order_by('-upload_session')
+    #layer_list = Layer.objects.filter(
+    #    Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+    #layer_list = Layer.objects.filter(Q(name__icontains='_fh')).order_by('-upload_session')
     layer_count = len(layer_list)
     # compute start time of update
     start_time = datetime.now()
