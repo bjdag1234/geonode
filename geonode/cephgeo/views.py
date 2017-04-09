@@ -467,7 +467,7 @@ def management(request):
 @user_passes_test(lambda u: u.is_superuser)
 # metadata update, seeding, SUC/FP tagging
 def update_fhm_metadata(request):
-    lastday = datetime.now() - timedelta(days=2)
+    lastday = datetime.now() - timedelta(days=3)
     layer_list = []
     layer_list = Layer.objects.filter(
     Q(name__icontains='_fh') &

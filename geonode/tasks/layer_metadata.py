@@ -48,26 +48,45 @@ def update_fhm(layer):
     muni_code = layer.name.split('_fh')[0]
     print layer.name, ': muni_code:', muni_code
 
-    # Get ridf
-    ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
-    ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
-    print layer.name, ': ridf: ', ridf
-
-    # Get proper layer properties
     # Title
     layer_title = ''
-    muni = ridf_obj.muni_name
-    prov = ridf_obj.prov_name
-    layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
-        muni, prov, flood_year).replace("_", " ").title()
-    if ridf_obj.iscity:
-        layer_title = 'City of ' + layer_title
+
+    # Get ridf
+    ridf = ''
+    try:
+        ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
+        ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
+        print layer.name, ': ridf: ', ridf
+
+        # Get proper layer properties
+        muni = ridf_obj.muni_name
+        prov = ridf_obj.prov_name
+
+        # Set layer title
+        layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
+            muni, prov, flood_year).replace("_", " ").title()
+
+        # Check if municipality is city
+        if ridf_obj.iscity:
+            layer_title = 'City of ' + layer_title
+
+    except Exception:
+        print 'No RIDF match for', muni_code
+
+        # Set layer title
+        str_end = 'Year Flood Hazard Map'
+        layer_title = '{0} {1} {2}'.format(muni_code, flood_year, str_end) \
+            .replace('_', ' ').title()
+
     print layer.name, ': layer_title:', layer_title
 
     # Abstract
     layer_abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
 
-Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year. The Rainfall Intesity Duration Frequency is {5}mm.
+Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year. """.format(map_resolution, flood_year, flood_year,flood_year_probability, flood_year)
+    if ridf!='':
+        layer_abstract+="The Rainfall Intesity Duration Frequency is {0}mm.".format(ridf)
+    layer_abstract+="""
 
 3 levels of hazard:
 Low Hazard (YELLOW)
@@ -77,8 +96,7 @@ Medium Hazard (ORANGE)
 Height: 0.5m-1.5m
 
 High Hazard (RED)
-Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
-                              flood_year_probability, flood_year, ridf)
+Height: beyond 1.5m"""
     print layer.name, ': layer_abstract:', layer_abstract
 
     # Purpose
@@ -152,7 +170,7 @@ def update_metadata(layer):
         # # auto updates all FHM in PSA code format
         # update_fhm(layer)
         # print layer.name, ': Saving layer...'
-        #layer.save()
+        # layer.save()
 
     except Exception:
         print layer.name, ': Error updating metadata!'
