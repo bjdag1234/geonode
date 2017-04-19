@@ -159,6 +159,47 @@ class TileDataClassAdmin(admin.ModelAdmin):
     )
 
 
+class LidarCoverageBlockAdmin(admin.ModelAdmin):
+    model = LidarCoverageBlock
+    list_display_links = ('uid', 'block_name',)
+    list_display = (
+        'uid',
+        'block_name',
+        'adjusted_l',
+        'sensor',
+        'processor',
+        'flight_num',
+        'mission_na',
+        'date_flown',
+        # 'x_shift_m',
+        # 'y_shift_m',
+        # 'z_shift_m',
+        # 'height_dif',
+        # 'rmse_val_m',
+        # 'cal_ref_pt',
+        # 'val_ref_pt',
+        'floodplain',
+        'pl1_suc',
+        'pl2_suc',
+    )
+    list_filter = ('sensor', 'pl1_suc', 'pl2_suc')
+    search_fields = ('uid', 'block_name', 'sensor', 'processor',
+                     'flight_num', 'mission_na', 'date_flown', 'floodplain', 'pl1_suc', 'pl2_suc')
+
+
+class MetadataStoreAdmin(admin.ModelAdmin):
+    model = MetadataStore
+    list_display_links = ('id',)
+    list_display = (
+        'id',
+        'ceph_object',
+        'grid_ref',
+        'block_uid',
+        'block_name',
+    )
+    search_fields = ('ceph_object', 'grid_ref',
+                     'block_uid', 'block_name', 'ceph_object__data_class')
+
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(CephDataObject, CephDataObjectAdmin)
@@ -170,3 +211,5 @@ admin.site.register(SucToLayer, SucToLayerAdmin)
 admin.site.register(RIDF, RIDFAdmin)
 admin.site.register(UserTiles, UserTilesAdmin)
 admin.site.register(TileDataClass, TileDataClassAdmin)
+admin.site.register(LidarCoverageBlock, LidarCoverageBlockAdmin)
+admin.site.register(MetadataStore,MetadataStoreAdmin)

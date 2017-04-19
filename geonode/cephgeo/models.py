@@ -65,7 +65,7 @@ class TileDataClass(models.Model):
     short_name = models.CharField(max_length=15)
     full_name = models.CharField(max_length=50)
     description=models.CharField(max_length=300)
-    
+
     def __unicode__(self):
         return "{0}:{1}".format(self.short_name, self.full_name)
 
@@ -117,7 +117,7 @@ class UserJurisdiction(models.Model):
 
     def get_user_name(self):
         return self.user.username
-        
+
 class UserTiles(models.Model):
     user = models.ForeignKey(Profile, null=False, blank=False, unique=True)
     gridref_list = models.TextField(null=False, blank=False)
@@ -167,3 +167,51 @@ class RIDF(models.Model):
 
     def __unicode__(self):
         return "{0}:{1}".format(self.prov_name, self.muni_name)
+
+class LidarCoverageBlock(models.Model):
+    uid = models.IntegerField(primary_key=True)
+    block_name = models.CharField(max_length=255,unique=True)
+    adjusted_l = models.TextField(blank=True)
+    sensor = models.TextField(blank=True)
+    processor = models.TextField(blank=True)
+    flight_num = models.TextField(blank=True)
+    mission_na = models.TextField(blank=True)
+    date_flown = models.DateField(blank=True, null=True)
+    x_shift_m = models.TextField(blank=True)
+    y_shift_m = models.TextField(blank=True)
+    z_shift_m = models.TextField(blank=True)
+    height_dif = models.TextField(blank=True)
+    rmse_val_m = models.TextField(blank=True)
+    cal_ref_pt = models.TextField(blank=True)
+    val_ref_pt = models.TextField(blank=True)
+    floodplain = models.TextField(blank=True)
+    pl1_suc = models.TextField(blank=True)
+    pl2_suc = models.TextField(blank=True)
+
+    def __unicode__(self):
+        return "{0}:{1}".format(self.uid,self.block_name)
+
+    class Meta:
+        verbose_name_plural = 'Lidar Coverage Blocks'
+
+class MetadataStore(models.Model):
+    ceph_object = models.ForeignKey(CephDataObject, null=False, blank=False)
+    grid_ref = models.CharField(max_length=10)
+    block_uid = models.ForeignKey(LidarCoverageBlock, null=False, blank=False)
+    # block_name
+    def block_name(self):
+        return self.block_uid.block_name
+
+    # def ceph_object_name(self):
+    #     return self.ceph_object.name
+
+    # def data_class(self):
+    #     return self.ceph_object.data_class
+
+    # def size_in_bytes(self):
+    #     return self.ceph_object.size_in_bytes
+
+
+    # def __unicode__(self):
+    #     return "{}".
+
