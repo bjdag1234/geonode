@@ -29,22 +29,6 @@ class ItemAdmin(admin.ModelAdmin):
         'object_id',)
 
 
-class CephDataObjectAdmin(admin.ModelAdmin):
-    model = CephDataObject
-    list_display_links = ('id',)
-    list_display = (
-        'id',
-        'name',
-        'file_hash',
-        'last_modified',
-        'content_type',
-        'data_class',
-        'grid_ref',
-        'size_in_bytes',)
-    list_filter = ('data_class', 'content_type')
-    search_fields = ('name', 'data_class', 'content_type', 'grid_ref',)
-
-
 class FTPRequestAdmin(admin.ModelAdmin):
     model = FTPRequest
     list_display_links = ('id', 'name')
@@ -187,18 +171,24 @@ class LidarCoverageBlockAdmin(admin.ModelAdmin):
                      'flight_num', 'mission_na', 'date_flown', 'floodplain', 'pl1_suc', 'pl2_suc')
 
 
-class MetadataStoreAdmin(admin.ModelAdmin):
-    model = MetadataStore
+class CephDataObjectAdmin(admin.ModelAdmin):
+    model = CephDataObject
     list_display_links = ('id',)
     list_display = (
         'id',
-        'ceph_object',
-        'grid_ref',
+        'name',
         'block_uid',
         'block_name',
-    )
-    search_fields = ('ceph_object', 'grid_ref',
-                     'block_uid', 'block_name', 'ceph_object__data_class')
+        'file_hash',
+        'last_modified',
+        'content_type',
+        'data_class',
+        'grid_ref',
+        'size_in_bytes',)
+    list_filter = ('data_class', 'content_type')
+    search_fields = ('name', 'data_class', 'content_type',
+                     'grid_ref', 'block_uid', 'block_name')
+
 
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Item, ItemAdmin)
@@ -212,4 +202,3 @@ admin.site.register(RIDF, RIDFAdmin)
 admin.site.register(UserTiles, UserTilesAdmin)
 admin.site.register(TileDataClass, TileDataClassAdmin)
 admin.site.register(LidarCoverageBlock, LidarCoverageBlockAdmin)
-admin.site.register(MetadataStore,MetadataStoreAdmin)

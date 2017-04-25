@@ -16,6 +16,7 @@ from shapely.geometry import Polygon
 from datetime import datetime, timedelta
 from unidecode import unidecode
 import traceback
+from geonode.cephgeo import client
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
@@ -109,133 +110,34 @@ def lidar_coverage_data():
 # lidar_coverage_data()
 # print 'Finished all blocks'
 
-# Find block name in coverage
-# return block uid
-def get_block_pk(blk_path):
-    # path format <riverbasin_folder>/Block_name_date/LAS_FILES/
-    block_folder_name = blk_path.split('/')[-1]
-    if block_folder_name == '':
-        block_folder_name = blk_path.split('/')[-2]
+def existence_in_cephstorage(renamed_block_path=None):
+    # input folder is parent folder
+    # walk through renamed laz files
+    # delete files with overlap in ceph storage , lipad
+    if inDir is None:
+        inDir = '/home/geonode/Work/Data/Renamed/Agno_Blk5C/'
 
-    print 'Block Folder Name:', block_folder_name
-    temp = block_folder_name.split()
-    block_name = ''
-    if 'Blk' in block_folder_name
-        block_name = block_folder_name.split('_Blk')[0]
-    elif 'blk' in block_folder_name
-        block_name = block_folder_name.split('_blk')[0]
+    cephclient = client.CephStorageClient(settings.CEPH_OGW['default']['USER'],
+                                          settings.CEPH_OGW['default']['KEY'],
+                                          settings.CEPH_OGW['default']['LOCATION'])
 
-    return block_name
+    # check same filename
+    for path, dirs, files in os.walk(inDir, topdown=False):
+        for laz in files:
+            if cephclient.does_exist(laz):
+                # delete ceph storage object
 
-# Apply rename laz script in cephgeo/utils
-# Renaming runs in salad
-# NEEDS TRIGGER SCRIPT FOR THIS
-def rename_laz(path):
-    pass
+                # delete ceph data object
+                try:
+                    ceph_obj = CephDataObject.objects.get(name=laz)
+                    print 'Deleting ceph data object',  ceph_obj.name
+                    # ceph_obj.delete()
+                except Exception:
+                    print 'No Ceph Data Object in Model', ceph_obj.name
 
-def get_gridref(renamed):
-    pass
+            else:
+                print 'Uploading to Ceph Storage', laz
+                cephclient.bulk_upload_nonthreaded(laz)
 
-def ceph_object_pk(objs):
-    pass
-
-def laz_metadata():
-    # Parent folder of laz tiles with right block name dir
-    # folder_path = '/media/drleviste/MULTIBOOT/DATA/Copied_blocks/Agno/Agno_Blk5C_20130418/'
-    folder_path = 'Desktop/Work/DATA/Adjusted_LAZ_Tiles/DREAM/Agno/Agno5C_20130418/'
-    renamed_laz = rename_laz(folder_path)
-
-    # Input is parent dir of renamed tiles
-    get_gridref(renamed_laz)
-
-
-    block_pk(folder_path)
-
-    # idk how to get ceph_objs after uploading to lipad
-    ceph_objs = ''
-    ceph_object_pk(ceph_objs)
-# def permute_blk_name(blk_name, rb):
-#     # return base case no permutation
-#     # add block name
-#     strings = blk_name.split('_')
-#     print 'Separation:', strings
-#     # rb always in foldername
-#     get_rb, extra_str = strings[0].split(rb)
-#     match = False
-#     ind = 0
-#     # while match is False or ind < len(blk_name):
-#     try:
-#         blk_name_match = LidarCoverageBlock.objects.get(block_name=get_rb)
-#     except:
-#         # no match
-#         print 'No match for', get_rb
-
-
-# def get_block_uid(blk_name, rb):
-#     # extract rb from blk_name
-#     # match rb first to lidarcoverage blk
-#     # must be exact match
-#     # append 'blk' to first instance of underscore
-#     # join next string before next underscore
-#     # check with lidarcoverageblock block_name
-#     # join until theres a match
-#     right_blk_name = 'Agno_Blk10A'
-#     block = LidarCoverageBlock.objects.get(block_name=right_blk_name)
-#     return block.uid
-
-
-# def get_ceph_object(dest):
-#     try:
-#         ceph_obj = CephDataObject.objects.get(name=dest)
-#     except Exception:
-#         return 0
-#     return ceph_obj.id
-# def populate_metadata_store():
-#     csv_path = settings.LAZ_RENAMING_LOGS
-#     print 'LAZ Log Path:', csv_path
-
-#     print 'Parsing CSV'
-#     if not os.path.isfile(csv_path):
-#         print '{0} file not found! Exiting.'.format(csv_path)
-#         exit(1)
-
-#     with open(csv_path, 'r') as open_file:
-#         print 'Opening File'
-#         first_line = True
-#         counter = 1
-#         for line in open_file:
-
-#             print '#' * 80
-
-#             if first_line:
-#                 first_line = False
-#                 continue
-
-#             tokens = line.strip().split(',')
-#             print 'T:', tokens
-
-#             if len(tokens) <= 1:
-#                 continue
-
-#             try:
-#                 rb = tokens[0].strip()
-#                 src = tokens[1].strip()
-#                 dest = tokens[2].strip()
-#                 date_ = tokens[3].strip()
-
-#                 blk_name = src.split('\')[0]
-#                 grid_ref = dest.split('_')
-#                 block_uid = get_block_uid(blk_name)
-#                 ceph_object = get_ceph_object(dest)
-
-#                 if ceph_object == 0 or block_uid == 0:
-#                     print 'No ceph object found for', blk_name
-#                     continue
-#                 else:
-#                     # create object
-#                     MetadataStore.objects.create(
-#                         ceph_object=ceph_object, grid_ref=grid_ref, block_uid=block_uid)
-#             except Exception:
-#                 traceback.print_exc()
-
-# TODO
+                print 'Creating Ceph Data Object for', laz
+                CephDataObject.objects.create()

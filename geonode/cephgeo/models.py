@@ -69,19 +69,7 @@ class TileDataClass(models.Model):
     def __unicode__(self):
         return "{0}:{1}".format(self.short_name, self.full_name)
 
-class CephDataObject(models.Model):
-    size_in_bytes = models.IntegerField()
-    file_hash = models.CharField(max_length=40)
-    name = models.CharField(max_length=100)
-    last_modified = models.DateTimeField()
-    content_type = models.CharField(max_length=20)
-    #geo_type        = models.CharField(max_length=20)
-    data_class = enum.EnumField(
-        DataClassification, default=DataClassification.UNKNOWN)
-    grid_ref = models.CharField(max_length=10)
 
-    def __unicode__(self):
-        return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])
 
 
 class FTPRequest(models.Model):
@@ -194,24 +182,21 @@ class LidarCoverageBlock(models.Model):
     class Meta:
         verbose_name_plural = 'Lidar Coverage Blocks'
 
-class MetadataStore(models.Model):
-    ceph_object = models.ForeignKey(CephDataObject, null=False, blank=False)
+
+class CephDataObject(models.Model):
+    size_in_bytes = models.IntegerField()
+    file_hash = models.CharField(max_length=40)
+    name = models.CharField(max_length=100)
+    last_modified = models.DateTimeField()
+    content_type = models.CharField(max_length=20)
+    #geo_type        = models.CharField(max_length=20)
+    data_class = enum.EnumField(
+        DataClassification, default=DataClassification.UNKNOWN)
     grid_ref = models.CharField(max_length=10)
     block_uid = models.ForeignKey(LidarCoverageBlock, null=False, blank=False)
-    # block_name
+
     def block_name(self):
         return self.block_uid.block_name
 
-    # def ceph_object_name(self):
-    #     return self.ceph_object.name
-
-    # def data_class(self):
-    #     return self.ceph_object.data_class
-
-    # def size_in_bytes(self):
-    #     return self.ceph_object.size_in_bytes
-
-
-    # def __unicode__(self):
-    #     return "{}".
-
+    def __unicode__(self):
+        return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])
