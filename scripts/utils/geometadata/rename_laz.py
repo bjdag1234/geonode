@@ -32,8 +32,8 @@ def get_cwd():
         return cur_path.rpartition(os.path.sep)[0] + os.path.sep
 
 
-def rename_laz(inDir, outDir, processor):
-    # inDir = assume Block folder
+def rename_laz(inDir, outDir):
+
     if not os.path.exists(outDir):
         os.makedirs(outDir)
 
@@ -95,15 +95,14 @@ def find_in_coverage(block_name):
     try:
         block = LidarCoverageBlock.objects.get(block_name=block_name)
         print 'Block in Lidar Coverage'
-        print 'Block UID:', block.uid
+        print 'Block UID:',block.uid
         return block.uid
     except Exception:
         print 'Block not in Lidar Coverage', block_name
         return 0
 
-
 def get_ceph_object():
-    pass
+
 
 if __name__ == '__main__':
     block_name = ''
@@ -124,10 +123,7 @@ if __name__ == '__main__':
     if not os.path.isdir(inDir):
         print 'Input directory error!'
 
-    # data processor is DREAM or Phil-lidar
-    processor = 'DRM' #,'PL1'
     # walk through all .laz
-    rename_laz(inDir, outDir, processor)
 
     for path, dirs, files in os.walk(inDir, topdown=False):
         block_name = block_name(path)
@@ -144,3 +140,4 @@ if __name__ == '__main__':
         else:
             # write in logfile
             print 'Write ' + block_name + ' in log file'
+
