@@ -33,12 +33,16 @@ def add_company_organization(dn, company = None, org = None, initial_company=Non
             )
         else:
             mod_attrs.append(
-                (ldap.MOD_ADD, 'company', company)
+                (ldap.MOD_REPLACE, 'company', company)
             )
     if org:
         if not initial_org or len(initial_org) < 1:
             mod_attrs.append(
                 (ldap.MOD_ADD, 'o', org)
+            )
+        else:
+            mod_attrs.append(
+                (ldap.MOD_REPLACE, 'o', org)
             )
     try:
         con = ldap.initialize(settings.AUTH_LDAP_SERVER_URI)
@@ -60,7 +64,8 @@ def test():
         pprint(add_company_organization(dn,company="Other",org="test",initial_company=company, initial_org = organization))
     
 def live():
-    for r in ProfileRequest.objects.exclude(profile=None):
+    for r in ProfileRequest.objects.filter(status="approved").exclude(profile=None):
         uname = r.profile.username
         dn, organization, company = search_dn(uname)
-        pprint(add_company_organization(dn,company=unidecode(r.org_type),initial_company=company, org=unidecode(r.organization),initial_org = organization))
+        if not dn or len(dn)==0:
+            pprint(add_company_organization(dn,company=unidecode(r.org_type),initial_company=company, org=unidecode(r.organization),initial_org = organization))
