@@ -1,7 +1,8 @@
-from django.conf.urls import url, patterns
-import geonode.cephgeo.views as cephgeo_views
+from django.conf.urls import url, patterns, include
+import views
 
-urlpatterns = [  # patterns('',
-    url(r'^datamanager/automation/$',
-        cephgeo_views.automation_trigger),
-]  # )
+urlpatterns = patterns('',
+                       url(r'^input/$', views.metadata_job,
+                           name='metadata_job'),
+                       url(r'^/', include('geonode.cephgeo.urls')),
+                       )

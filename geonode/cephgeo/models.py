@@ -61,15 +61,14 @@ class FTPStatus(enum.Enum):
         ERROR:   'Error',
         DUPLICATE: 'Duplicate', }
 
+
 class TileDataClass(models.Model):
     short_name = models.CharField(max_length=15)
     full_name = models.CharField(max_length=50)
-    description=models.CharField(max_length=300)
+    description = models.CharField(max_length=300)
 
     def __unicode__(self):
         return "{0}:{1}".format(self.short_name, self.full_name)
-
-
 
 
 class FTPRequest(models.Model):
@@ -89,13 +88,6 @@ class EULA(models.Model):
     document = models.FileField(upload_to=settings.MEDIA_ROOT)
 
 
-class FTPRequestToObjectIndex(models.Model):
-    # FTPRequest
-    ftprequest = models.ForeignKey(FTPRequest, null=False, blank=False)
-    # CephObject
-    cephobject = models.ForeignKey(CephDataObject, null=False, blank=False)
-
-
 class UserJurisdiction(models.Model):
     user = models.ForeignKey(Profile, null=False, blank=False)
     jurisdiction_shapefile = models.ForeignKey(Layer, null=True, blank=True)
@@ -106,13 +98,14 @@ class UserJurisdiction(models.Model):
     def get_user_name(self):
         return self.user.username
 
+
 class UserTiles(models.Model):
     user = models.ForeignKey(Profile, null=False, blank=False, unique=True)
     gridref_list = models.TextField(null=False, blank=False)
+
     @property
     def num_tiles(self):
-        return self.gridref_list.count(',')+1
-
+        return self.gridref_list.count(',') + 1
 
 
 class MissionGridRef(models.Model):
@@ -156,9 +149,10 @@ class RIDF(models.Model):
     def __unicode__(self):
         return "{0}:{1}".format(self.prov_name, self.muni_name)
 
+
 class LidarCoverageBlock(models.Model):
     uid = models.IntegerField(primary_key=True)
-    block_name = models.CharField(max_length=255,unique=True)
+    block_name = models.CharField(max_length=255, unique=True)
     adjusted_l = models.TextField(blank=True)
     sensor = models.TextField(blank=True)
     processor = models.TextField(blank=True)
@@ -177,7 +171,7 @@ class LidarCoverageBlock(models.Model):
     pl2_suc = models.TextField(blank=True)
 
     def __unicode__(self):
-        return "{0}:{1}".format(self.uid,self.block_name)
+        return "{0}:{1}".format(self.uid, self.block_name)
 
     class Meta:
         verbose_name_plural = 'Lidar Coverage Blocks'
@@ -193,10 +187,20 @@ class CephDataObject(models.Model):
     data_class = enum.EnumField(
         DataClassification, default=DataClassification.UNKNOWN)
     grid_ref = models.CharField(max_length=10)
-    block_uid = models.ForeignKey(LidarCoverageBlock, null=False, blank=False)
+    block_uid = models.ForeignKey(LidarCoverageBlock, null=True, blank=True)
+
+    def uid(self):
+        return self.block_uid.uid
 
     def block_name(self):
         return self.block_uid.block_name
 
     def __unicode__(self):
         return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])
+
+
+class FTPRequestToObjectIndex(models.Model):
+    # FTPRequest
+    ftprequest = models.ForeignKey(FTPRequest, null=False, blank=False)
+    # CephObject
+    cephobject = models.ForeignKey(CephDataObject, null=False, blank=False)
