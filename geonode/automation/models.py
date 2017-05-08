@@ -10,7 +10,8 @@ class AutomationJob(models.Model):
         ('LAZ', _('LAZ')),
         ('Ortho', _('ORTHO')),
         ('DTM', _('DTM')),
-        ('DSM', _('DSM'))
+        ('DSM', _('DSM')),
+        ('Others', _('Others'))
     )
 
     PROCESSOR_CHOICES = Choices(
@@ -21,10 +22,15 @@ class AutomationJob(models.Model):
 
     STATUS_CHOICES = Choices(
         (0, 'pending', _('Pending Job')),
-        (1, 'alpha_processing', _('Processing in Salad')),
-        (2, 'beta_processing', _('Processing in Ceph')),
-        (4, 'done', _('Uploaded in LiPAD')),
+        (1, 'in_salad', _('Processing in Salad')),
+        (2, 'in_ceph', _('Processing in Ceph')),
+        (3, 'done', _('Uploaded in LiPAD')),
         # (-1, 'error', _('Error')),
+    )
+
+    OS_CHOICES = Choices(
+        (0, 'linux', _('Process in Linux')),
+        (1, 'windows', _('Process in Windows')),
     )
 
     datatype = models.CharField(
@@ -62,11 +68,16 @@ class AutomationJob(models.Model):
         help_text=_('The date which the job is submitted in LiPAD')
     )
 
-    status = models.CharField(
+    status = models.IntegerField(
         _('Job status'),
         choices=STATUS_CHOICES,
         default=STATUS_CHOICES.pending,
-        max_length=10,
+    )
+
+    target_os = models.IntegerField(
+        _('OS to Process Job'),
+        choices=OS_CHOICES,
+        default=OS_CHOICES.linux,
     )
 
     log = models.TextField(null=False, blank=True)

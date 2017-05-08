@@ -16,5 +16,6 @@ class AutomationJobAdmin(admin.ModelAdmin):
         'status',
     )
     search_fields = ('datatype', 'status', 'input_dir', 'processor')
+    list_filter = ('datatype', 'status', 'processor', 'target_os')
 
 admin.site.register(AutomationJob, AutomationJobAdmin)
