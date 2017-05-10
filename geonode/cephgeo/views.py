@@ -209,6 +209,7 @@ def data_input(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # pprint(request.POST)
+        print 'REQUEST POST', request.POST
         form = DataInputForm(request.POST)
         # check whether it's valid:
         if form.is_valid():

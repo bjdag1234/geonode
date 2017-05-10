@@ -79,7 +79,7 @@ class AutomationJob(models.Model):
         blank=True,
         null=True,
         help_text=_('The date when the status was updated'),
-        default=datetime.now
+        default=datetime.now()
     )
 
     target_os = models.CharField(
