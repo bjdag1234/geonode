@@ -14,6 +14,7 @@ class AutomationJobAdmin(admin.ModelAdmin):
         'processor',
         'date_submitted',
         'status',
+        'status_timestamp'
     )
     search_fields = ('datatype', 'status', 'input_dir', 'processor')
     list_filter = ('datatype', 'status', 'processor', 'target_os')

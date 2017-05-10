@@ -78,7 +78,8 @@ class AutomationJob(models.Model):
     status_timestamp = models.DateTimeField(
         blank=True,
         null=True,
-        help_text=_('The date when the status was updated')
+        help_text=_('The date when the status was updated'),
+        default=datetime.now
     )
 
     target_os = models.CharField(
