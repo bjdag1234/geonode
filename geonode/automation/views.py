@@ -1,22 +1,41 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse_lazy
+from pprint import pprint
+from geonode.base.enumerations import CHARSETS
+from django.utils.encoding import smart_str
+from .forms import MetaDataJobForm
+from .models import AutomationJob
 # Create your views here.
+
 
 def create_obj():
     pass
 
-def trigger_input(request):
-    print 'REQUEST POST IS', request.POST
-    print 'SSSSSSSSSSOMETHING'
-    # sample = {'datatype': 'something'}
-    params = {}
-    # sample data
-    folder_list = ['DTM_1','DTM_2']
-    input_datatype = request.POST['datatype']
-    turnover_id = 'TOID1'
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def metadata_job(request):
+    print 'METHOD IS ', request.method
+    if request.method == 'POST':
+        print 'Method: ', str(request.method)
+        form = MetaDataJobForm(request.POST)
+        if form.is_valid():
+            print 'Valid'
+            print 'Input Directory', smart_str(form.cleaned_data['input_dir'])
+            print 'Processor', smart_str(form.cleaned_data['processor'])
+            print 'Datatype', smart_str(form.cleaned_data['datatype'])
+            # print request
+            # output_dir, date_submitted, status, log,
+            print 'Saving...'
+            form.save()
+            return render(request, "update_task.html")
 
-    return sample
+    else:
+        # for any other method, create a blank form
+        print 'Method:', str(request.method)
+        form = MetaDataJobForm()
+
+    return render(request, 'input_job.html', {'input_job_form': form})

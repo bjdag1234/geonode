@@ -10,11 +10,13 @@ class AutomationJobAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'datatype',
-        'turnover_id',
-        'pathname',
+        'input_dir',
+        'processor',
         'date_submitted',
         'status',
+        'status_timestamp'
     )
-    search_fields = ('datatype', 'status', 'turnover_id', 'pathname')
+    search_fields = ('datatype', 'status', 'input_dir', 'processor')
+    list_filter = ('datatype', 'status', 'processor', 'target_os')
 
 admin.site.register(AutomationJob, AutomationJobAdmin)

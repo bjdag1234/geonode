@@ -41,19 +41,8 @@ from geonode.base.enumerations import CHARSETS
 from django.conf import settings
 from geonode.layers.models import Layer
 
-# from geonode.automation.models import AutomationJob
-from geonode.automation.views import trigger_input
-
 # Create your views here.
 
-@login_required
-@user_passes_test(lambda u: u.is_superuser)
-def automation_trigger(request):
-    # _sam = trigger_input(request)
-    # print 'something'
-    messages.error(request, "SOMETHING")
-    # return HttpResponse(json.dumps(_sam), status=200)
-    return HttpResponseRedirect(reverse('data_management'))
 
 @login_required
 def tile_check(request):
@@ -626,3 +615,5 @@ def update_floodplain_keywords(request):
     floodplain_keywords.delay()
     messages.error(request, "Inserting FP/RB SUC keywords on layers")
     return HttpResponseRedirect(reverse('data_management'))
+
+
