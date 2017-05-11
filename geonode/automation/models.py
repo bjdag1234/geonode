@@ -21,9 +21,10 @@ class AutomationJob(models.Model):
     )
 
     STATUS_CHOICES = Choices(
-        ('pending', _('Pending Job')),
-        ('in_salad', _('Processing in Salad')),
-        ('in_ceph', _('Uploading in Ceph')),
+        ('pending_process', _('Pending Job')),
+        ('done_process', _('Processing Job')),
+        ('pending_ceph', _('Uploading in Ceph')),
+        ('done_ceph', _('Uploaded in Ceph')),
         ('done', _('Uploaded in LiPAD')),
         # (-1, 'error', _('Error')),
     )
@@ -39,17 +40,15 @@ class AutomationJob(models.Model):
         help_text=_('Datatype of input'),
     )
 
-    input_dir = models.CharField(
+    input_dir = models.TextField(
         _('Input Directory'),
-        max_length=255,
         blank=False,
         null=False,
         help_text=_('Full path of directory location in server')
     )
 
-    output_dir = models.CharField(
+    output_dir = models.TextField(
         _('Output Directory'),
-        max_length=255,
         blank=False,
         null=False,
         help_text=_('Folder location in server')
@@ -71,7 +70,7 @@ class AutomationJob(models.Model):
     status = models.CharField(
         _('Job status'),
         choices=STATUS_CHOICES,
-        default=STATUS_CHOICES.pending,
+        default=STATUS_CHOICES.pending_process,
         max_length=20
     )
 

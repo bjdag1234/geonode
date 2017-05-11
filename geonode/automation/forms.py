@@ -14,7 +14,7 @@ class MetaDataJobForm(forms.ModelForm):
 
     class Meta:
         model = AutomationJob
-        fields = ['input_dir', 'datatype', 'processor', 'target_os']
+        fields = ['input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
 
     # datatype = forms.ModelChoiceField(
     #    queryset=AutomationJob.objects.all()
@@ -29,6 +29,7 @@ class MetaDataJobForm(forms.ModelForm):
             Fieldset('',
                      Div(
                          Field('input_dir', css_class='form-control'),
+                         Field('output_dir', css_class='form-control'),
 
                      ),
                      Div(
