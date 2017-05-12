@@ -27,7 +27,7 @@ class DownloadCount(models.Model):
     category = models.CharField(_('Category'), max_length=100)
     chart_group = models.CharField(_('Chart Group'), max_length=100)
     download_type = models.CharField(_('Type'), max_length=100)
-    count = models.IntegerField(_('Count'))
+    count = models.BigIntegerField(_('Count'))
 
 class SUCLuzViMin(models.Model):
     province =  models.CharField(_('Province'), max_length=100)
