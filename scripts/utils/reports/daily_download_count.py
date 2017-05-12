@@ -36,7 +36,7 @@ def get_area(typename):
         area = 0
         for eachshp in shp_list:
             area += eachshp.area
-        return area
+        return area/1000000
 
 def get_SUC_using_gridref(abscissa, ordinate, _TILE_SIZE = 1000):
     data = source.ExecuteSQL("select * from "+settings.PL1_SUC_MUNIS)
