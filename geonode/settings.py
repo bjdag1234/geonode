@@ -244,6 +244,9 @@ GEONODE_APPS = (
 
     # Reports
     'geonode.reports',
+    
+    # Reports
+    'geonode.automation',
 )
 
 GEONODE_CONTRIB_APPS = (
