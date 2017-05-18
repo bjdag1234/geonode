@@ -261,7 +261,59 @@ SELECT d."Floodplain", d."SUC" FROM ''' + deln + ''' AS d, l'''
             #     has_changes = True
 
             if not has_results:
-                logger.info('NO INTERSECTION %s', layer.name)
+                logger.info('NO INTERSECTION %s IN %s', layer.name, deln)
+                logger.info('INTERSECTING WITH MUNICIPAL DELINEATION ...')
+                deln = settings.PL1_SUC_MUNIS
+                query = '''
+WITH l AS (
+    SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+    FROM ''' + layer.name + ''' AS f
+)
+'''             if mode == 'sar':
+                    deln = settings.PL1_SUC_MUNIS
+                    query += '''
+        SELECT DISTINCT d."SUC" FROM ''' + deln + ''' AS d, l'''
+                elif mode == 'fhm':
+                    deln = settings.FHM_COVERAGE
+                    query += '''
+        SELECT d."Floodplain", d."SUC" FROM ''' + deln + ''' AS d, l'''
+                logger.info('%s: mode: %s deln: %s', layer.name, mode, deln)
+        # Get intersect
+                query_int = (query + '''
+         WHERE ST_Intersects(d.the_geom, l.the_geom);''')
+
+                # Execute query
+                try:
+                    logger.info('%s query_int: %s', layer.name, query_int)
+                    cur.execute(query_int)
+                except Exception:
+                    logger.exception(
+                        '%s: Error executing query_int!', layer.name)
+                    conn.rollback()
+                    # Skip layer
+                    # continue
+
+                # Get all results
+                results = cur.fetchall()
+                logger.info('%s: results: %s', layer.name, results)
+                if len(results) >= 1:
+                    has_results = True
+                    if mode == 'sar':
+                        # tag SAR DEMs
+                        rem_extents = layer.name.split('_extents')[0]
+                        sar_layer = Layer.objects.get(name=rem_extents)
+                        if sar_layer is not None:
+                            hc = assign_tags(mode, results, sar_layer)
+                        else:
+                            logger.info('DOES NOT EXIST %s', sar_layer.name)
+                        # tag SAR extents
+                        hc = assign_tags(mode, results, layer)
+                    else:
+                        hc = assign_tags(mode, results, layer)
+
+                if not has_results:
+                    logger.info(
+                        'NO INTERSECTION AT ALL WITH MUNICIPAL DELINEATION %s to %s', layer.name, deln)
 
             if hc:
                 try:
