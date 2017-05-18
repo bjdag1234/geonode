@@ -146,11 +146,7 @@
       {% if resource.storeType != "remoteStore" %}
         <li class="list-group-item">
         {% if links %}
-            {% if phillidar2keyword in resource.keyword_list %}
-              {% include "layers/layer_eula_nested_dialog_phillidar2.html" %}
-            {% else %}
-              {% include "layers/layer_eula_nested_dialog.html" %}
-            {% endif %}
+            {% include "layers/layer_eula_nested_dialog.html" %}
             <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#eula-nested-dialog">{% trans "Download Layer" %}</button>
         {% else %}
           {% if request.user.is_authenticated %}
@@ -186,7 +182,7 @@
                     <td><a class='Downloadlink' href="{{ link | get_layer_download_url }}" data-type="{% trans link.name %}">{% trans link.name %}</a></td>
                     <td><a class='Downloadlink' href="{{ link | get_prs92_download_url }}" data-type="{% trans link.name %}">{% trans link.name %}</a></td>
                   </tr>
-                
+
               {% endfor %}
             </table>
             {% endif %}
@@ -203,7 +199,7 @@
       {% get_obj_perms request.user for resource.layer as "layer_perms" %}
     {% endif %}
     {% if "change_resourcebase_metadata" in perms_list or "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_style" in layer_perms %}
-    <li class="list-group-item"> 
+    <li class="list-group-item">
       <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-layer">{% trans "Edit Layer" %}</button>
     </li>
     <div class="modal fade" id="edit-layer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
