@@ -5,6 +5,7 @@ from model_utils import Choices
 # Create your models here.
 
 
+
 class AutomationJob(models.Model):
     DATATYPE_CHOICES = Choices(
         ('LAZ', _('LAZ')),
