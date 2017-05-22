@@ -12,6 +12,7 @@ from osgeo import ogr, gdal
 from shapely.geometry import Polygon
 from shapely.wkb import loads
 from shapely.ops import cascaded_union
+import ast
 
 gdal.UseExceptions()
 global layer_count, source
@@ -62,7 +63,7 @@ def get_luzvimin(data):
     else:
         luzvimin = "Luzvimin_others"
         if data['keywords']:
-            keyword_list = data['keywords']
+            keyword_list = ast.literal_eval(data['keywords'])
         else:
             try:
                 layer_query = Layer.objects.get(typename=data['typename'])
@@ -72,7 +73,7 @@ def get_luzvimin(data):
             keyword_list = layer_query.keywords.names()
         for eachkeyword in keyword_list:
             try:
-                query = SUCLuzViMin.objects.filter(suc=eachkeyword)[0].luzvimin
+                query = SUCLuzViMin.objects.filter(suc__iexact=eachkeyword)[0].luzvimin
                 luzvimin = eachkeyword
                 break
             except Exception as e:
