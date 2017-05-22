@@ -45,16 +45,26 @@ class LayerAdmin(MediaTranslationAdmin):
     list_editable = ('title', 'category')
     list_filter = ('owner', 'category',
                    'restriction_code_type__identifier', 'date', 'date_type')
-    def Floodplains(self, obj):
-        return u", ".join(o.name for o in obj.floodplain_tag.all())
-    def SUC(self, obj):
-        return u", ".join(o.name for o in obj.SUC_tag.all())
-    search_fields = ('typename', 'title', 'abstract', 'purpose',)
+    search_fields = ('typename', 'title', 'abstract', 'purpose',
+                     'keywords__name',)
     filter_horizontal = ('contacts',)
     date_hierarchy = 'date'
     readonly_fields = ('uuid', 'typename', 'workspace')
     inlines = [AttributeInline]
     form = autocomplete_light.modelform_factory(Layer)
+
+
+    # def floodplain_queryset(self, request):
+    #     return super(LayerAdmin, self).get_queryset(request).prefetch_related('floodplain_tag')
+
+    # def suc_queryset(self, request):
+    #     return super(LayerAdmin, self).get_queryset(request).prefetch_related('SUC_tag')
+
+    def Floodplains(self, obj):
+        return u", ".join(o.name for o in obj.floodplain_tag.all())
+
+    def SUC(self, obj):
+        return u", ".join(o.name for o in obj.SUC_tag.all())
 
 
 class AttributeAdmin(admin.ModelAdmin):

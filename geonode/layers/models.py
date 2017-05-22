@@ -52,7 +52,7 @@ class SUCTag (TagBase):
 
 
 class SUCTaggedItem (GenericTaggedItemBase):
-    tag = models.ForeignKey(SUCTag, related_name='SUC_tag')
+    tag = models.ForeignKey(SUCTag, related_name="%(class)s")
 
 
 class FloodplainTag (TagBase):
@@ -60,7 +60,7 @@ class FloodplainTag (TagBase):
 
 
 class FloodplainTaggedItem (GenericTaggedItemBase):
-    tag = models.ForeignKey(FloodplainTag,related_name='floodplain_tag')
+    tag = models.ForeignKey(FloodplainTag,related_name="%(class)s")
 
 class Style(models.Model):
 
@@ -251,6 +251,7 @@ class Layer(ResourceBase):
     # riverbasin tagging
     floodplain_tag = TaggableManager(
         verbose_name='Floodplain Tags', through=FloodplainTaggedItem, blank=True)
+
 
     @property
     def class_name(self):

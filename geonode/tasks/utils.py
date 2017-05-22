@@ -41,15 +41,15 @@ def check_floodplain_names(fp_name):
     return fp_name
 
 
-def assign_rb(keywords, rb_name, layer):
+def assign_keyword(keywords, rb_name, layer):
     if len(keywords) == 0 or rb_name not in keywords:
-        logger.debug('%s: Adding keyword: %s', layer.name, rb_name)
-        layer.keywords.add(rb_name)
+        logger.info('[Comment] %s: Adding keyword: %s', layer.name, rb_name)
+        # layer.keywords.add(rb_name)
         return True
     return False
 
 
-def assign_tags(mode, results, layer):
+def check_keyword(mode, results, layer):
 
     has_changes = False
     keywords = layer.keywords.names()
@@ -63,12 +63,12 @@ def assign_tags(mode, results, layer):
         if mode == 'dem':
             # Riverbasin
             if 'rb_name' in r:
-                hc1 = assign_rb(keywords, r['rb_name'], layer)
-                hc2 = assign_rb(fp_tags, r['rb_name'], layer)
+                hc1 = assign_keyword(keywords, r['rb_name'], layer)
+                hc2 = assign_keyword(fp_tags, r['rb_name'], layer)
                 has_changes = has_changes or hc1 or hc2
             if 'SUC' in r:
-                hc1 = assign_rb(keywords, r['SUC'], layer)
-                hc2 = assign_rb(suc_tags, r['SUC'], layer)
+                hc1 = assign_keyword(keywords, r['SUC'], layer)
+                hc2 = assign_keyword(suc_tags, r['SUC'], layer)
                 has_changes = has_changes or hc1 or hc2
         elif mode == 'fhm':
             # Floodplain - SUC
@@ -76,20 +76,20 @@ def assign_tags(mode, results, layer):
                 temp_fp = check_floodplain_names(r['RBFP_name'])
                 # print 'TEMP FP is: ', temp_fp
                 for t in temp_fp:
-                    hc1 = assign_rb(keywords, t, layer)
-                    hc2 = assign_rb(fp_tags, t, layer)
+                    hc1 = assign_keyword(keywords, t, layer)
+                    hc2 = assign_keyword(fp_tags, t, layer)
                     has_changes = has_changes or hc1 or hc2
         if 'SUC' in r:
             if r['SUC'] == 'UPMin':
                 r['SUC'] = 'UPM'
-            hc1 = assign_rb(keywords, r['SUC'], layer)
-            hc2 = assign_rb(suc_tags, r['SUC'], layer)
+            hc1 = assign_keyword(keywords, r['SUC'], layer)
+            hc2 = assign_keyword(suc_tags, r['SUC'], layer)
             has_changes = has_changes or hc1 or hc2
 
     logger.debug('%s: Keywords: %s', layer.name, layer.keywords.names())
-    logger.info('%s: Floodplain Tags: %s', layer.name,
+    logger.debug('%s: Floodplain Tags: %s', layer.name,
                 layer.floodplain_tag.names())
-    logger.info('%s: SUC Tags: %s', layer.name, layer.SUC_tag.names())
+    logger.debug('%s: SUC Tags: %s', layer.name, layer.SUC_tag.names())
 
     return has_changes
 
@@ -105,7 +105,7 @@ def dem_rb_name(t, cur, conn, results):
 def form_query(layer_name, mode):
     query = '''
 WITH l AS (
-    SELECT ST_Multi(ST_Union(ST_MakeValid(f.the_geom))) AS the_geom
+    SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
     FROM ''' + layer_name + ''' AS f
 )'''
 
@@ -151,29 +151,29 @@ def dem_mode(layer, cur, conn, mode):
     #     temp = rb_name.split('/')
     #     for t in temp:
     #         results['rb_name'] = t
-    #         assign_tags(keyword_filter, results, layer)
+    #         assign_keywords(keyword_filter, results, layer)
     if 'cdo iponan' in rb_name.lower():
         temp = ['Cagayan de Oro', 'Iponan']
         for t in temp:
             dem_rb_name(t, cur, conn, results)
-            hc = assign_tags(mode, [results], layer)
+            hc = assign_keyword(mode, [results], layer)
     elif 'ilog hilabangan' in rb_name.lower():
         results['rb_name'] = 'Ilog-Hilabangan'
         dem_rb_name(results['rb_name'], cur, conn, results)
-        hc = assign_tags(mode, [results], layer)
+        hc = assign_keyword(mode, [results], layer)
     elif 'magasawang tubig' in rb_name.lower():
         results['rb_name'] = 'Mag-Asawang Tubig'
         dem_rb_name(results['rb_name'], cur, conn, results)
-        hc = assign_tags(mode, [results], layer)
+        hc = assign_keyword(mode, [results], layer)
     else:
         results['rb_name'] = rb_name.title()
         dem_rb_name(results['rb_name'], cur, conn, results)
-        hc = assign_tags(mode, [results], layer)
+        hc = assign_keyword(mode, [results], layer)
 
     if hc:
         try:
-            logger.debug('%s: Saving layer...', layer.name)
-            layer.save()
+            logger.info('[Comment] %s: Saving layer...', layer.name)
+            # layer.save()
         except Exception:
             logger.exception('%s: ERROR SAVING LAYER', layer.name)
 
@@ -182,7 +182,7 @@ def sar_mode(layer, mode, results):
     rem_extents = layer.name.split('_extents')[0]
     sar_layer = Layer.objects.get(name=rem_extents)
     if sar_layer:
-        hc = assign_tags(mode, results, sar_layer)
+        hc = assign_keyword(mode, results, sar_layer)
         return True
     else:
         logger.info('DOES NOT EXIST %s', sar_layer.name)

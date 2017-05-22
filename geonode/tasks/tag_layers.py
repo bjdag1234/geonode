@@ -4,7 +4,7 @@ from geonode.layers.models import Layer
 import logging
 import psycopg2
 import psycopg2.extras
-from utils import fhm_suc, check_floodplain_names, assign_rb, assign_tags, dem_rb_name
+from utils import fhm_suc, check_floodplain_names, assign_keyword, check_keyword, dem_rb_name
 from utils import form_query, execute_query, dem_mode, sar_mode
 
 logger = get_task_logger("geonode.tasks.update")
@@ -36,13 +36,13 @@ def update_tags(layer, mode):
             hc1 = False
             if mode == 'sar':
                 hc1 = sar_mode(layer, mode, results)
-            hc2 = assign_tags(mode, results, layer)
+            hc2 = check_keyword(mode, results, layer)
             has_changes = has_changes or hc1 or hc2
 
             if has_changes:
                 try:
-                    logger.info('%s: Saving layer...', layer.name)
-                    layer.save()
+                    logger.info('[Comment] %s: Saving layer...', layer.name)
+                    # layer.save()
                 except Exception:
                     logger.exception('%s: ERROR SAVING LAYER', layer.name)
         else:
@@ -52,10 +52,10 @@ def update_tags(layer, mode):
             if not results:
                 logger.info('NO INTERSECTION %s IN %s', layer.name, deln)
             else:
-                has_changes = assign_tags(mode, results, layer)
+                has_changes = check_keyword(mode, results, layer)
                 if has_changes:
                     try:
-                        logger.info('%s: Saving layer...', layer.name)
-                        layer.save()
+                        logger.info('[Comment] %s: Muni intersected. Saving layer...', layer.name)
+                        # layer.save()
                     except Exception:
                         logger.exception('%s: ERROR SAVING LAYER', layer.name)
