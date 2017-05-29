@@ -126,11 +126,7 @@ development.db
 master
 slave
 
-<<<<<<< HEAD
-
-=======
 scripts/utils/osm
->>>>>>> test
 #CSV files
 *.csv
 
