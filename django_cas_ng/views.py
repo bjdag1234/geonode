@@ -64,7 +64,7 @@ def login(request, next_page=None, required=False):
                             service=service_url,
                             request=request)
         pgtiou = request.session.get("pgtiou")
-        if user.is_superuser:
+        if (user is not None) and (user.is_superuser):
             pprint("User is a superuser")
         pprint("user should be authenticated by now")
         
