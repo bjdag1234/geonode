@@ -11,6 +11,7 @@ except ImportError:
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
 from django.utils.http import urlquote
 
 __all__ = ['login_required', 'permission_required', 'user_passes_test']
