@@ -5,7 +5,6 @@ from model_utils import Choices
 # Create your models here.
 
 
-
 class AutomationJob(models.Model):
     DATATYPE_CHOICES = Choices(
         ('LAZ', _('LAZ')),
@@ -94,3 +93,16 @@ class AutomationJob(models.Model):
     def __unicode__(self):
         return "{0} {1} {2}". \
             format(self.datatype, self.date_submitted, self.status)
+
+class DemDataStore(models.Model):
+    demid   = models.IntegerField(primary_key=True)
+    name    = models.CharField(max_length=20)
+    suc     = models.CharField(max_length=5)
+    type    = models.CharField(max_length=5)
+    shifting_val_x = models.FloatField() 
+    shifting_val_y = models.FloatField() 
+    shifting_val_z = models.FloatField()
+    height_diff    = models.FloatField()
+    rmse           = models.FloatField()
+    dem_file_path  = models.TextField(null=False)
+    block_name_list = models.TextField(null=False)

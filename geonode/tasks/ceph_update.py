@@ -8,6 +8,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from celery.utils.log import get_task_logger
 import geonode.settings as settings
 from geonode.cephgeo.utils import get_data_class_from_filename
+from geonode.cephgeo import ceph_client
+from swiftclient.exceptions import ClientException
 logger = get_task_logger("geonode.tasks.ceph_update")
 
 
@@ -90,21 +92,26 @@ def ceph_metadata_update(uploaded_objects_list, update_grid=True):
 
 
 @task(name='geonode.tasks.ceph_update.ceph_metadata_remove', queue='update')
-def ceph_metadata_remove(uploaded_objects_list, update_grid=True):
+def ceph_metadata_remove(uploaded_objects_list, update_grid=True, delete_from_ceph=False):
     """
         Remove ceph metadata objects and clear philgrid feature for specified georefs
     """
     # Pop first line containing header
     uploaded_objects_list.pop(0)
     """NAME,LAST_MODIFIED,SIZE_IN_BYTES,CONTENT_TYPE,GEO_TYPE,FILE_HASH GRID_REF"""
+    print "Update grid: ["+str(update_grid)+"] Delete Ceph Objects: ["+str(delete_from_ceph)+"]"
 
     # Loop through each metadata element
-    csv_delimiter = ','
-    objects_deleted = 0
-    objects_not_found = 0
-    gridref_dict_by_data_class = dict()
-    logger.info("Encoding {0} ceph data objects".format(
-        len(uploaded_objects_list)))
+    csv_delimiter=','
+    objects_deleted=0
+    objects_not_found=0
+    gridref_dict_by_data_class=dict()
+    logger.info("Removing {0} ceph data objects".format(len(uploaded_objects_list)))
+    
+    # Create ceph connection
+    cephclient = ceph_client.CephStorageClient(settings.CEPH_OGW['default']['USER'], settings.CEPH_OGW[
+                                          'default']['KEY'], settings.CEPH_OGW['default']['LOCATION'])
+    
     for ceph_obj_metadata in uploaded_objects_list:
         metadata_list = ceph_obj_metadata.split(csv_delimiter)
         logger.info("-> {0}".format(ceph_obj_metadata))

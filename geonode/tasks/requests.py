@@ -5,15 +5,15 @@ from celery.task import task
 from django.core.mail import send_mail
 
 import psycopg2
-import sys
 import psycopg2.extras
+import sys
 
 import geonode.settings as settings
 from geonode.datarequests.models import (
     ProfileRequest, DataRequest, DataRequestProfile, SUC_Contact)
 
 @task(name="geonode.tasks.requests.set_status_for_multiple_requests",queue='requests')
-def set_status_for_multiple_requests(requests, status, administrator=None):
+def set_status_for_multiple_requests(requests, statusf, administrator=None):
     for r in requests:
         r.set_status(status, administrator)
     
@@ -42,6 +42,8 @@ def tag_request_suc(data_requests):
     subject = "SUC tagging done"
     recipient = [settings.LIPAD_SUPPORT_MAIL]
     send_mail(subject, message, settings.LIPAD_SUPPORT_MAIL, recipient, fail_silently= False)
+
+####utility functions
 
 def get_sucs(layer, sucs_layer=settings.PL1_SUC_MUNIS, proj=32651):
     conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
