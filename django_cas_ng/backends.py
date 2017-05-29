@@ -68,7 +68,6 @@ class CASBackend(ModelBackend):
             # and push the responsibility to the CAS provider or remove
             # them from the dictionary entirely instead. Handling these
             # is a little ambiguous.
-            print "USER MODEL FIELDS"
             user_model_fields = UserModel._meta.fields
             for field in user_model_fields:
                 if not field.null:
