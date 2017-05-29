@@ -32,7 +32,7 @@ class CASBackend(ModelBackend):
             request.session['attributes'] = attributes
 
         if not username:
-            pprint("no username found")
+            pprint("SSO: No username found for this login!")
             return None
         user = None
         username = self.clean_username(username)
@@ -68,6 +68,7 @@ class CASBackend(ModelBackend):
             # and push the responsibility to the CAS provider or remove
             # them from the dictionary entirely instead. Handling these
             # is a little ambiguous.
+            print "USER MODEL FIELDS"
             user_model_fields = UserModel._meta.fields
             for field in user_model_fields:
                 if not field.null:
@@ -76,6 +77,12 @@ class CASBackend(ModelBackend):
                             attributes[field.name] = ''
                     except KeyError:
                         continue
+
+            # Handle boolean attributes
+            attributes["is_active"] = (attributes["is_active"].lower() == "true")
+            attributes["is_staff"] = (attributes["is_staff"].lower() == "true")
+            attributes["is_superuser"] = (attributes["is_superuser"].lower() == "true")
+            #pprint(attributes)
 
             user.__dict__.update(attributes)
 
@@ -151,7 +158,7 @@ def handle_user_authenticated(sender, **kwargs):
         #    join_user_to_groups(user, group_diff)
             
         group_diff = list(set(groups_list) - set(l1))
-        pprint(group_diff)
+        #pprint(group_diff)
         if len(group_diff) > 0:
             join_user_to_groups.delay(user, group_diff)
             
