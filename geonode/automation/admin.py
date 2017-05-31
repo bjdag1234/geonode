@@ -19,4 +19,19 @@ class AutomationJobAdmin(admin.ModelAdmin):
     search_fields = ('datatype', 'status', 'input_dir', 'processor')
     list_filter = ('datatype', 'status', 'processor', 'target_os')
 
+class DemDataStoreAdmin(admin.ModelAdmin):
+    model = DemDataStore
+    list_display_links = ('demid',)
+    list_display = (
+        'demid',
+        'name',
+        'suc',
+        'type',
+        'dem_file_path',
+    )
+    search_fields = ('demid', 'name', 'suc', 'type', 'dem_file_path')
+    list_filter = ('demid', 'suc', 'type',)
+
 admin.site.register(AutomationJob, AutomationJobAdmin)
+admin.site.register(DemDataStore, DemDataStoreAdmin)
+
