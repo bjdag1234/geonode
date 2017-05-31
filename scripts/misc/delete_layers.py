@@ -20,8 +20,7 @@ def delete_layer(keyword, layer_list):
     # cur = conn.cursor()
 
     if layer_list is None:
-        layers = ''
-        layers = Layer.objects.filter(name__icontains=keyword)
+        layers = [layer for layer in Layer.objects.filter(name__icontains=keyword)]
     else:
         layers = []
         for l in layer_list:
@@ -43,25 +42,25 @@ def delete_layer(keyword, layer_list):
         print 'LAYER ', layer.name
         layername = layer.name
         print '#' * 40
-        # '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
-        # try:
-        #     gs_style = cat.get_style(layer.name)
-        #     cat.delete(gs_style)
-        # except Exception:
-        #     print 'No geoserver style'
-        #     pass
+        '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
+        try:
+            gs_style = cat.get_style(layer.name)
+            cat.delete(gs_style)
+        except Exception:
+            print 'No geoserver style'
+            pass
         # try:
         #     gs_layer = cat.get_layer(layer.name)
         #     cat.delete(gs_layer)
         # except Exception:
         #     print 'No geoserver layer'
         #     pass
-        # try:
-        #     def_style = Style.objects.get(name=layer.name)
-        #     def_style.delete()
-        # except Exception:
-        #     print 'No geonode style'
-        #     pass
+        try:
+            def_style = Style.objects.get(name=layer.name)
+            def_style.delete()
+        except Exception:
+            print 'No geonode style'
+            pass
         try:
             layer.delete()
         except Exception:

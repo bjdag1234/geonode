@@ -28,13 +28,13 @@ def delete_(layer):
     except Exception:
         print 'No geoserver style'
         pass
-    try:
-        gs_layer = cat.get_layer(layer.name)
-        print '[Geoserver] Deleting Layer ...'
-        cat.delete(gs_layer)
-    except Exception:
-        print 'No geoserver layer'
-        pass
+    # try:
+    #     gs_layer = cat.get_layer(layer.name)
+    #     print '[Geoserver] Deleting Layer ...'
+    #     cat.delete(gs_layer)
+    # except Exception:
+    #     print 'No geoserver layer'
+    #     pass
     try:
         def_style = Style.objects.get(name=layer.name)
         print '[Geonode] Deleting default style ...'

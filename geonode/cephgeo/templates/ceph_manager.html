@@ -20,10 +20,41 @@
                 <h4><a href="{% url 'cephgeo.views.data_input' %}" class="toggle toggle-nav"><i class="fa fa-file-code-o"></i>Metadata Input</a></h4>
                 <h4><a data-toggle="modal" data-target="#modal-metadata" href="" class="toggle toggle-nav"><i class="fa fa-file-text-o"></i>Metadata Update</a></h4>
                 <h4><a data-toggle="modal" data-target="#modal-seed" href="" class="toggle toggle-nav"><i class="fa fa-leaf"></i>Seed Layers</a></h4>
-
+                <h4><a data-toggle="modal" data-target="#modal-delete" href="" class="toggle toggle-nav"><i class="fa fa-leaf"></i>DELETE ALL FHM</a></h4>
             </nav>
         </div>
     </div>
+
+<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">{% trans "DELETE ALL FHM" %}</h4>
+      </div>
+      <form >
+          <div class="modal-body" >
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="delete" value="yes">
+                YES
+              </label>
+
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="delete" value="no">
+                NO
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="delete-fhm" class="btn btn-default" data-dismiss="modal">{% trans "Submit" %}</button>
+          </div>
+       </form>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="modal-metadata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -37,7 +68,7 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="sample" value="fhm">
-                Update Flood Hazard Map Metadata
+                Update Flood Hazard Map Metadata + SUC/FP Tag
               </label>
 
             </div>
@@ -131,6 +162,17 @@
 <!-- <div id="log"></div> -->
 
 {% block extra_script %}
+
+<script type="text/javascript">
+$( "#delete-fhm" ).click(function() {
+    if ($( "input:checked" ).val() == "yes"){
+            window.location = "{% url 'cephgeo.views.delete_all_fhm' %}";
+    }
+    else if ($( "input:checked" ).val() == "no"){
+    }
+});
+</script>
+
 <script type="text/javascript">
 $( "#update-metadata" ).click(function() {
     if ($( "input:checked" ).val() == "fhm"){
