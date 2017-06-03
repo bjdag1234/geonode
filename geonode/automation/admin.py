@@ -19,4 +19,20 @@ class AutomationJobAdmin(admin.ModelAdmin):
     search_fields = ('datatype', 'status', 'input_dir', 'processor')
     list_filter = ('datatype', 'status', 'processor', 'target_os')
 
+class CephDataObjectResourceBaseAdmin(admin.ModelAdmin):
+    model = CephDataObjectResourceBase
+    list_display_links = ('id',)
+    list_display = (
+        'id',
+        'size_in_bytes',
+        'file_hash',
+        'name',
+        'last_modified',
+        'content_type',
+        'data_class',
+        'grid_ref',
+        'block_uid'
+    )
+    search_fields = ('name')
+
 admin.site.register(AutomationJob, AutomationJobAdmin)
