@@ -484,7 +484,7 @@ def delete_all_fhm(request):
 @user_passes_test(lambda u: u.is_superuser)
 # metadata update, seeding, SUC/FP tagging
 def update_fhm_metadata(request):
-    lastday = datetime.now() - timedelta(days=2)
+    lastday = datetime.now() - timedelta(days=10)
     layer_list = []
     layer_list = Layer.objects.filter(Q(name__iregex='_fh') & Q(
         upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
