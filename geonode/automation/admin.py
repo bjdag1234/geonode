@@ -33,6 +33,6 @@ class CephDataObjectResourceBaseAdmin(admin.ModelAdmin):
         'grid_ref',
         'block_uid'
     )
-    search_fields = ('name')
 
 admin.site.register(AutomationJob, AutomationJobAdmin)
+admin.site.register(CephDataObjectResourceBase, CephDataObjectResourceBaseAdmin)
