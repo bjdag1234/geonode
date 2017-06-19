@@ -25,12 +25,11 @@ class DemDataStoreAdmin(admin.ModelAdmin):
     list_display = (
         'demid',
         'name',
-        'suc',
         'type',
         'dem_file_path',
     )
-    search_fields = ('demid', 'name', 'suc', 'type', 'dem_file_path')
-    list_filter = ('demid', 'suc', 'type',)
+    search_fields = ('demid', 'name', 'type', 'dem_file_path')
+    list_filter = ('type',)
 
 admin.site.register(AutomationJob, AutomationJobAdmin)
 admin.site.register(DemDataStore, DemDataStoreAdmin)

@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from model_utils import Choices
-from geonode.cephgeo.models import CephDataObject
+from geonode.cephgeo.models import CephDataObject, LidarCoverageBlock
 # Create your models here.
 
 
@@ -123,7 +123,7 @@ class DemDataStore(models.Model):
     type = models.CharField(max_length=5)
     dem_file_path = models.TextField(null=False)
     cephdataobject = models.ForeignKey(CephDataObject, null=False, blank=False)
-    lidar_block = models.ForeignKey(CephDataObject, null=False, blank=False)
+    lidar_block = models.ForeignKey(LidarCoverageBlock, null=False, blank=False)
 
 class DemTileMap(models.Model):
     ceph_tile = models.ForeignKey(CephDataObject)
