@@ -228,3 +228,11 @@ class FTPRequestToObjectIndex(models.Model):
     ftprequest = models.ForeignKey(FTPRequest, null=False, blank=False)
     # CephObject
     cephobject = models.ForeignKey(CephDataObject, null=False, blank=False)
+
+class DemDataStore():
+    demid = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    type = models.CharField(max_length=5)
+    dem_file_path = models.TextField(null=False)
+    cephdataobject = models.ForeignKey(CephDataObject, null=False, blank=False)
+    lidar_block = models.ForeignKey(CephDataObject, null=False, blank=False)
