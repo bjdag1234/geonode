@@ -122,8 +122,8 @@ class DemDataStore(models.Model):
     name = models.CharField(max_length=20)
     type = models.CharField(max_length=5)
     dem_file_path = models.TextField(null=False)
-    cephdataobject = models.ForeignKey(CephDataObject, null=False, blank=False)
-    lidar_block = models.ForeignKey(LidarCoverageBlock, null=False, blank=False)
+    cephdataobject = models.ForeignKey(CephDataObject)
+    lidar_block = models.ForeignKey(LidarCoverageBlock)
 
 class DemTileMap(models.Model):
     ceph_tile = models.ForeignKey(CephDataObject)
