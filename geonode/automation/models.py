@@ -118,18 +118,12 @@ class DemDataStore(models.Model):
      'Y_Shift_m',
      'Adjusted_L']
     """
-    demid   = models.IntegerField(primary_key=True)
-    dem_file_path  = models.TextField(null=False)
-    block_name_list = models.TextField(null=False)
-    name    = models.CharField(max_length=20)
-
-    suc     = models.CharField(max_length=5)
-    type    = models.CharField(max_length=5)
-    shifting_val_x = models.FloatField() 
-    shifting_val_y = models.FloatField() 
-    shifting_val_z = models.FloatField()
-    height_diff    = models.FloatField()
-    rmse           = models.FloatField()
+    demid = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=20)
+    type = models.CharField(max_length=5)
+    dem_file_path = models.TextField(null=False)
+    cephdataobject = models.ForeignKey(CephDataObject, null=False, blank=False)
+    lidar_block = models.ForeignKey(CephDataObject, null=False, blank=False)
 
 class DemTileMap(models.Model):
     ceph_tile = models.ForeignKey(CephDataObject)
