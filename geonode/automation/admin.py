@@ -33,14 +33,30 @@ class DemDataStoreAdmin(admin.ModelAdmin):
 
 class DemCephObjectMapAdmin(admin.ModelAdmin):
     model = DemDataStore
+    
+    def get_demdatastore_name(self, obj):
+        return obj.demdatastore.name
+    get_demdatastore_name.short_description = 'DEM Name'
+    get_demdatastore_name.admin_order_field = 'demdatastore__name'
+    
+    def get_cephdataobject_name(self, obj):
+        return obj.cephdataobject.name
+    get_cephdataobject_name.short_description = 'Ceph Data Object Name'
+    get_cephdataobject_name.admin_order_field = 'cephdataobject__name'
+    
+    def get_lidar_block_name(self, obj):
+        return obj.lidar_block.Block_Name
+    get_lidar_block_name.short_description = 'Ceph Data Object Name'
+    get_lidar_block_name.admin_order_field = 'lidar_block__Block_Name'
+    
     list_display_links = ('demid',)
     list_display = (
         'id',
-        'demdatastore__name',
-        'cephdataobject__name',
+        'get_demdatastore_name',
+        'get_cephdataobject_name',
         'lidar_block__Block_Name',
     )
-    search_fields = ('demdatastore__name', 'cephdataobject__name', 'lidar_block__Block_Name','demdatastore__demid', 'cephdataobject__id', 'lidar_block__uid',)
+    search_fields = ('demdatastore__name', 'cephdataobject__name', 'lidar_block__Block_Name',)
     list_filter = ('demdatastore__type',)
 
 
