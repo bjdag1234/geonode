@@ -31,6 +31,19 @@ class DemDataStoreAdmin(admin.ModelAdmin):
     search_fields = ('demid', 'name', 'type', 'dem_file_path')
     list_filter = ('type',)
 
+class DemCephObjectMapAdmin(admin.ModelAdmin):
+    model = DemDataStore
+    list_display_links = ('demid',)
+    list_display = (
+        'id',
+        'demdatastore__name',
+        'cephdataobject__name',
+        'lidar_block__Block_Name',
+    )
+    search_fields = ('demdatastore__name', 'cephdataobject__name', 'lidar_block__Block_Name','demdatastore__demid', 'cephdataobject__id', 'lidar_block__uid',)
+    list_filter = ('demdatastore__type',)
+
+
 admin.site.register(AutomationJob, AutomationJobAdmin)
 admin.site.register(DemDataStore, DemDataStoreAdmin)
-
+admin.site.register(DemCephObjectMap, DemCephObjectMapAdmin)
