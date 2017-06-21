@@ -123,8 +123,8 @@ class DemDataStore(models.Model):
     type = models.CharField(max_length=5)
     dem_file_path = models.TextField(null=False)
     upload_date = models.DateTimeField(
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
         help_text=_('The date when the DEM was uploaded'),
         default=datetime.now()
     )
