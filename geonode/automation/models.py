@@ -118,10 +118,13 @@ class DemDataStore(models.Model):
      'Y_Shift_m',
      'Adjusted_L']
     """
-    demid = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=20)
+    demid = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
     type = models.CharField(max_length=5)
     dem_file_path = models.TextField(null=False)
+    
+class DemCephObjectMap(models.Model):
+    demdatastore = models.ForeignKey(DemDataStore)
     cephdataobject = models.ForeignKey(CephDataObject)
     lidar_block = models.ForeignKey(LidarCoverageBlock)
 
