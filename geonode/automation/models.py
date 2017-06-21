@@ -122,12 +122,14 @@ class DemDataStore(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=5)
     dem_file_path = models.TextField(null=False)
+    upload_date = models.DateTimeField(
+        blank=True,
+        null=True,
+        help_text=_('The date when the DEM was uploaded'),
+        default=datetime.now()
+    )
     
 class DemCephObjectMap(models.Model):
     demdatastore = models.ForeignKey(DemDataStore)
     cephdataobject = models.ForeignKey(CephDataObject)
     lidar_block = models.ForeignKey(LidarCoverageBlock)
-
-class DemTileMap(models.Model):
-    ceph_tile = models.ForeignKey(CephDataObject)
-    dem_meta = models.ForeignKey(DemDataStore) 
