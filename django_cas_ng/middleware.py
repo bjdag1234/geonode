@@ -6,10 +6,12 @@ from __future__ import unicode_literals
 from django.utils.six.moves import urllib_parse
 
 from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import login, logout
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from .views import login as cas_login, logout as cas_logout
 
