@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from model_utils import Choices
+from geonode.cephgeo.models import CephDataObject, LidarCoverageBlock
 # Create your models here.
 
 
@@ -95,14 +96,40 @@ class AutomationJob(models.Model):
             format(self.datatype, self.date_submitted, self.status)
 
 class DemDataStore(models.Model):
-    demid   = models.IntegerField(primary_key=True)
-    name    = models.CharField(max_length=20)
-    suc     = models.CharField(max_length=5)
-    type    = models.CharField(max_length=5)
-    shifting_val_x = models.FloatField() 
-    shifting_val_y = models.FloatField() 
-    shifting_val_z = models.FloatField()
-    height_diff    = models.FloatField()
-    rmse           = models.FloatField()
-    dem_file_path  = models.TextField(null=False)
-    block_name_list = models.TextField(null=False)
+    """
+    ['Val_Ref_Pt',
+     'Area_sqkm',
+     'Base_Used',
+     'UID',
+     'X_Shift_m',
+     'Flight_Num',
+     'Mission_Na',
+     'RMSE_Val_m',
+     'Z_Shift_m',
+     'Floodplain',
+     'PL1_SUC',
+     'Block_Name',
+     'PL2_SUC',
+     'Date_Flown',
+     'Cal_Ref_Pt',
+     'Height_dif',
+     'Sensor',
+     'Processor',
+     'Y_Shift_m',
+     'Adjusted_L']
+    """
+    demid = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=5)
+    dem_file_path = models.TextField(null=False)
+    upload_date = models.DateTimeField(
+        blank=False,
+        null=False,
+        help_text=_('The date when the DEM was uploaded'),
+        default=datetime.now()
+    )
+    
+class DemCephObjectMap(models.Model):
+    demdatastore = models.ForeignKey(DemDataStore)
+    cephdataobject = models.ForeignKey(CephDataObject)
+    lidar_block = models.ForeignKey(LidarCoverageBlock)
