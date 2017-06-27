@@ -49,3 +49,43 @@ class MetaDataJobForm(forms.ModelForm):
 # datatype
 # input directory
 # processor
+
+class DemJobForm(forms.ModelForm):
+
+    class Meta:
+        model = AutomationJob
+        fields = ['dem_name', 'lidar_blocks', 'input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
+        
+    dem_name        = forms.TextInput()
+    lidar_blocks    = forms.Textarea()
+    
+    # datatype = forms.ModelChoiceField(
+    #    queryset=AutomationJob.objects.all()
+    # )
+
+    def __init__(self, *args, **kwargs):
+        super(MetaDataJobForm, self).__init__(*args, **kwargs)
+        self.helper = helper()
+        self.helper.form_method = 'post'
+        self.helper.field_class = 'col-md-6 col-md-offset-1'
+        self.helper.layout = Layout(
+            Fieldset('',
+                     Div(
+                         Field('dem_name', css_class='form-control'),
+                         Field('lidar_blocks', css_class='form-control'),
+                         Field('input_dir', css_class='form-control'),
+                         Field('output_dir', css_class='form-control'),
+
+                     ),
+                     Div(
+
+                         Field('datatype'),
+                         Field('processor'),
+                         Field('target_os'),
+                     ),
+                     ),
+            ButtonHolder(
+                Submit('submit', 'Submit')
+            )
+        )
+        # self.helper.add_input(Submit('submit', 'Submit'))

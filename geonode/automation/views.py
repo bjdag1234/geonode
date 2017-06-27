@@ -39,3 +39,26 @@ def metadata_job(request):
         form = MetaDataJobForm()
 
     return render(request, 'input_job.html', {'input_job_form': form})
+
+def dem_metadata_job(request):
+    print 'METHOD IS ', request.method
+    if request.method == 'POST':
+        print 'Method: ', str(request.method)
+        form = MetaDataJobForm(request.POST)
+        if form.is_valid():
+            print 'Valid'
+            print 'Input Directory', smart_str(form.cleaned_data['input_dir'])
+            print 'Processor', smart_str(form.cleaned_data['processor'])
+            print 'Datatype', smart_str(form.cleaned_data['datatype'])
+            # print request
+            # output_dir, date_submitted, status, log,
+            print 'Saving...'
+            form.save()
+            return render(request, "update_task.html")
+
+    else:
+        # for any other method, create a blank form
+        print 'Method:', str(request.method)
+        form = MetaDataJobForm()
+
+    return render(request, 'input_job.html', {'input_job_form': form})
