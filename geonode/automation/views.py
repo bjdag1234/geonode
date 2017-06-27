@@ -61,4 +61,4 @@ def dem_metadata_job(request):
         print 'Method:', str(request.method)
         form = MetaDataJobForm()
 
-    return render(request, 'input_job.html', {'input_job_form': form})
+    return render(request, 'dem_job.html', {'dem_job_form': form})
