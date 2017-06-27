@@ -56,8 +56,8 @@ class DemJobForm(forms.ModelForm):
         model = AutomationJob
         fields = ['dem_name', 'lidar_blocks', 'input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
         
-    dem_name        = forms.TextInput()
-    lidar_blocks    = forms.Textarea()
+    dem_name        = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:60%;', 'wrap' : 'virtual'}))
+    lidar_blocks    = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:60%;', 'wrap' : 'virtual'}))
     
     # datatype = forms.ModelChoiceField(
     #    queryset=AutomationJob.objects.all()
