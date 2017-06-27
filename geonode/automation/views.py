@@ -57,9 +57,11 @@ def dem_metadata_job(request):
 
             """
             print 'Saving...'
+            
+            lidar_block_name_list = smart_str(form.cleaned_data['lidar_blocks']).replace(' \t\n\r', '').split(',')
             dem_input_dict = {'dem_name': smart_str(form.cleaned_data['dem_name']),
                               'dem_file_path': smart_str(form.cleaned_data['input_dir']),
-                              'blocks' : smart_str(form.cleaned_data['lidar_blocks']),
+                              'blocks' : lidar_block_name_list,
                                                          }
             
             dem_job = AutomationJob(datatype=smart_str(form.cleaned_data['datatype']),
