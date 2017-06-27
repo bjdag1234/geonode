@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from django.utils.six.moves import urllib_parse
 from django.conf import settings
 from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
@@ -43,6 +44,11 @@ def login(request, next_page=None, required=False):
     service_url = get_service_url(request, next_page)
     client = get_cas_client(service_url=service_url)
     pprint("service url: "+service_url)
+ 
+    if not next_page and settings.CAS_STORE_NEXT and 'CASNEXT' in request.session:
+        next_page = request.session['CASNEXT']
+        del request.session['CASNEXT']
+
     if not next_page:
         next_page = get_redirect_url(request)
 
@@ -69,9 +75,9 @@ def login(request, next_page=None, required=False):
         pprint("user should be authenticated by now")
         
         if user is not None:
-            auth_login(request, user)
             if not request.session.exists(request.session.session_key):
                 request.session.create()
+            auth_login(request, user)
             SessionTicket.objects.create(
                 session_key=request.session.session_key,
                 ticket=ticket
@@ -91,6 +97,7 @@ def login(request, next_page=None, required=False):
                     pgt.save()
                 except ProxyGrantingTicket.DoesNotExist:
                     pass
+            """
             attributes = request.session['attributes']
             pprint(attributes)
             user.email = attributes["email"]
@@ -109,6 +116,7 @@ def login(request, next_page=None, required=False):
             user.save()
                     
             #pprint('Superuser? '+str(user.is_superuser))
+            """
 
             if settings.CAS_LOGIN_MSG is not None:
                 name = user.get_username()
@@ -122,6 +130,8 @@ def login(request, next_page=None, required=False):
             error = "<h1>{0}</h1><p>{1}</p>".format(_('Forbidden'), _('Login failed.'))
             return HttpResponseForbidden(error)
     else:
+        if settings.CAS_STORE_NEXT:
+            request.session['CASNEXT'] = next_page
         return HttpResponseRedirect(client.get_login_url())
 
 
