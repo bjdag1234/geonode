@@ -15,6 +15,7 @@ import json
 from shapely.geometry import Polygon
 import datetime
 from unidecode import unidecode
+from django.db.models.fields import AutoField
 
 _TILE_SIZE = 1000
 ### For additional functions/definitions which may be needed by views
@@ -315,3 +316,12 @@ def get_bytes_by_type(ftp_request, data_type):
 #     for v in value:
 #         obj = SucToLayer.objects.create(suc=riverbasin.GetFieldAsString("SUC"),block_name=str(v))
 #         obj.save()
+def copy_model_instance(obj):  
+        """
+        Create a copy of a model instance. 
+        M2M relationships are currently not handled, i.e. they are not copied. (Fortunately, you don't have any in this case)
+        See also Django #4027. From http://blog.elsdoerfer.name/2008/09/09/making-a-copy-of-a-model-instance/
+        """  
+        initial = dict([(f.name, getattr(obj, f.name)) for f in obj._meta.fields if not isinstance(f, AutoField) and not f in obj._meta.parents.values()])  
+        return obj.__class__(**initial)      
+    

@@ -8,6 +8,7 @@ from model_utils import Choices
 from django.utils.translation import ugettext_lazy as _
 from geonode.cephgeo.models import DataClassification
 from django_enumfield import enum
+from geonode.cephgeo.utils import copy_model_instance
 
 
 class MetaDataJobForm(forms.ModelForm):
@@ -92,4 +93,22 @@ class DemJobForm(forms.ModelForm):
                 Submit('submit', 'Submit')
             )
         )
+    
+    def save(self, commit=True, *args, **kwargs):
+        m = super(DemJobForm, self).save(commit=False, *args, **kwargs)
+        
+        """
+        results = []
+        for cr in self.callResult:
+            for c in self.campain:
+                for ct in self.callType:
+                    m_new = copy_model_instance(m)
+                    m_new.callResult = cr
+                    m_new.campaign = c
+                    m_new.calltype = ct
+                    if commit:
+                        m_new.save()
+                    results.append(m_new)
+        return results
         # self.helper.add_input(Submit('submit', 'Submit'))
+        """
