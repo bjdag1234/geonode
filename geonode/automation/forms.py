@@ -62,7 +62,8 @@ class DemJobForm(forms.ModelForm):
                                                              help_text='Official name for the DEM')
     lidar_blocks    = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:20%;', 'wrap' : 'virtual'}),
                                                              label='LiDAR Blocks for this DEM',
-                                                             help_text='Comma separated values of the LiDAR Block Names contained in this DEM')
+                                                             help_text='Comma separated values of the LiDAR Block Names contained in this DEM.\
+                                                             NOTE: DO NOT include spaces within names, they will be edited out. Use underscores instead.')
     
     # datatype = forms.ModelChoiceField(
     #    queryset=AutomationJob.objects.all()
