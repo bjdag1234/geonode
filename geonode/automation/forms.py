@@ -56,15 +56,19 @@ class DemJobForm(forms.ModelForm):
         model = AutomationJob
         fields = ['dem_name', 'lidar_blocks', 'input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
         
-    dem_name        = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:60%;', 'wrap' : 'virtual'}))
-    lidar_blocks    = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:60%;', 'wrap' : 'virtual'}))
+    dem_name        = forms.CharField(widget=forms.TextInput(attrs={'style' : 'resize:none; size:40;', 'wrap' : 'virtual'}),
+                                                             label='DEM Name',
+                                                             help_text='Official name for the DEM')
+    lidar_blocks    = forms.CharField(widget=forms.Textarea(attrs={'style' : 'resize:none; width:100%; height:20%;', 'wrap' : 'virtual'}),
+                                                             label='LiDAR Blocks for this DEM',
+                                                             help_text='Comma separated values of the LiDAR Block Names contained in this DEM')
     
     # datatype = forms.ModelChoiceField(
     #    queryset=AutomationJob.objects.all()
     # )
 
     def __init__(self, *args, **kwargs):
-        super(MetaDataJobForm, self).__init__(*args, **kwargs)
+        super(DemJobForm, self).__init__(*args, **kwargs)
         self.helper = helper()
         self.helper.form_method = 'post'
         self.helper.field_class = 'col-md-6 col-md-offset-1'

@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from pprint import pprint
 from geonode.base.enumerations import CHARSETS
 from django.utils.encoding import smart_str
-from .forms import MetaDataJobForm
+from .forms import *
 from .models import AutomationJob
 # Create your views here.
 
@@ -44,7 +44,7 @@ def dem_metadata_job(request):
     print 'METHOD IS ', request.method
     if request.method == 'POST':
         print 'Method: ', str(request.method)
-        form = MetaDataJobForm(request.POST)
+        form = DemJobForm(request.POST)
         if form.is_valid():
             print 'Valid'
             print 'Input Directory', smart_str(form.cleaned_data['input_dir'])
@@ -59,6 +59,6 @@ def dem_metadata_job(request):
     else:
         # for any other method, create a blank form
         print 'Method:', str(request.method)
-        form = MetaDataJobForm()
+        form = DemJobForm()
 
     return render(request, 'dem_job.html', {'dem_job_form': form})
