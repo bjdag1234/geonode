@@ -71,6 +71,9 @@ from geonode.datarequests.utils import (
 
 @login_required
 def requests_landing(request):
+    """
+        This function displays the requests home page
+    """
     if request.user.is_superuser:
         return TemplateResponse(request, 'datarequests/requests_landing.html',{}, status=200).render()
     else:
@@ -78,6 +81,9 @@ def requests_landing(request):
 
 @login_required
 def requests_csv(request):
+    """
+        This function produces the CSV file download of all profile and data requests when the Download CSV button in the requests landing page has been clicked.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
     else:
@@ -111,6 +117,9 @@ class DataRequestProfileList(LoginRequiredMixin, TemplateView):
     
 @login_required
 def old_requests_csv(request):
+    """
+        This function produces a CSV file download of the deprecated data request profile.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
     
@@ -130,6 +139,11 @@ def old_requests_csv(request):
 
 @login_required
 def old_request_detail(request, pk,template="datarequests/old_request_detail.html"):
+    """
+        This function provides a detailed view of a data request profile. 
+        pk is the primary key of the data request profile. 
+        template indicates the template file to be used for displaying the data request profile
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
         
@@ -213,6 +227,9 @@ def old_request_detail(request, pk,template="datarequests/old_request_detail.htm
 
 @login_required
 def old_request_migration(request, pk):
+    """
+        This function triggers the migration process for the data request profile with primary key pk.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
     
@@ -241,6 +258,9 @@ def old_request_migration(request, pk):
 
 @login_required
 def old_request_migration_all(request):
+    """
+        This function triggers the migration process for all the data request profile objects.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
         
@@ -250,6 +270,9 @@ def old_request_migration_all(request):
 
 
 def old_request_facet_count(request):
+    """
+        This function responds with the number of requests per possible request status in JSON format.
+    """
     if not request.user.is_superuser:
         raise PermissionDenied
 

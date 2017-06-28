@@ -37,6 +37,9 @@ import csv
 
 @login_required
 def data_requests_csv(request):
+    """
+        This view function produces the list of profile requests in CSV format.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
 
@@ -56,16 +59,26 @@ def data_requests_csv(request):
     return response
 
 class DataRequestList(LoginRequiredMixin, TemplateView):
+    """
+        Handles the viewing of the DataRequestList
+    """
     template_name = 'datarequests/data_request_list.html'
     raise_exception = True
 
 @login_required
 def user_data_request_list(request):
+    """
+        Displays list of data requests for the current logged in user
+        Currently does nothing
+    """
     data_requests = DataRequest.objects.filter(profile=request.user)
 
     return None
 
 def data_request_detail(request, pk, template='datarequests/data_detail.html'):
+    """
+        Handles viewing of a data request’s details
+    """
 
     data_request = get_object_or_404(DataRequest, pk=pk)
 
@@ -156,6 +169,9 @@ def data_request_detail(request, pk, template='datarequests/data_detail.html'):
     
 @login_required
 def data_request_edit(request, pk, template ='datarequests/data_detail_edit.html'):
+    """
+        Handles the editing page of a data request
+    """
     data_request = get_object_or_404(DataRequest, pk=pk)
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
@@ -196,6 +212,9 @@ def data_request_edit(request, pk, template ='datarequests/data_detail_edit.html
         return HttpResponseRedirect(data_request.get_absolute_url())
 
 def data_request_cancel(request, pk):
+    """
+        Handles the cancellation of a data request
+    """
     data_request = get_object_or_404(DataRequest, pk=pk)
     if not request.user.is_superuser and not data_request.profile == request.user:
         return HttpResponseRedirect('/forbidden')
@@ -226,6 +245,11 @@ def data_request_cancel(request, pk):
     )
 
 def data_request_approve(request, pk):
+    """
+        Handles the cancellation of a data request. Upon approval, the user jurisdiction 
+        and grid refs are automatically assigned, if the data request has a shapefile. 
+        Previous user jurisdiction and assigned grid refs will be overwritten.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
     if not request.method == 'POST':
@@ -265,6 +289,9 @@ def data_request_approve(request, pk):
         return HttpResponseRedirect("/forbidden/")
 
 def data_request_reject(request, pk):
+    """
+        Handles the rejection of a data request
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden/')
 
@@ -295,6 +322,9 @@ def data_request_reject(request, pk):
     )
 
 def data_request_compute_size_all(request):
+    """
+        Triggers the size computation (data size and area coverage) in the background for all submitted data request.
+    """
     if request.user.is_superuser:
         data_requests = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         compute_size_update.delay(data_requests)
@@ -305,6 +335,9 @@ def data_request_compute_size_all(request):
 
 
 def data_request_compute_size(request, pk):
+    """
+        Triggers the size computation (data size and area coverage) in the background for the data request with primary key pk
+    """
     if request.user.is_superuser and request.method == 'POST':
         if DataRequest.objects.get(pk=pk).jurisdiction_shapefile:
             data_requests = DataRequest.objects.filter(pk=pk)
@@ -318,6 +351,9 @@ def data_request_compute_size(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc_all(request):
+    """
+        Triggers tagging of all data requests by SUC/HEI
+    """
     if request.user.is_superuser:
         drs = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         if drs.count()>0:
@@ -331,6 +367,9 @@ def data_request_tag_suc_all(request):
         return  HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc(request,pk):
+    """
+        Triggers tagging by SUC/HEI of data request with primary key pk
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         if dr.jurisdiction_shapefile:
@@ -344,6 +383,10 @@ def data_request_tag_suc(request,pk):
         return  HttpResponseRedirect('/forbidden/')
         
 def data_request_notify_suc(request,pk):
+    """
+        Triggers notification of SUC via email regarding request forwarding. 
+        Requires an approved data request. If multiple SUCs/HEIs are tagged, notification will be sent to UPD
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         if dr.juris_data_size > settings.MAX_FTP_SIZE:
@@ -357,6 +400,10 @@ def data_request_notify_suc(request,pk):
         return HttpResponseRedirect('/forbidden/')
         
 def data_request_notify_requester(request,pk):
+    """
+        Triggers notification of data requester via email regarding request forwarding. 
+        Requires an approved data request
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         dr.notify_user_preforward()
@@ -366,6 +413,11 @@ def data_request_notify_requester(request,pk):
         return HttpResponseRedirect('/forbidden/')
         
 def data_request_forward_request(request,pk):
+    """
+        Triggers forwarding of data request’s shapefile to the tagged SUC/HEI. 
+        If multiple SUCs/HEIs are tagged, forwarding will be sent to UPD. 
+        Requires an approved data request and notified parties.
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         dr.send_jurisdiction()
@@ -376,6 +428,9 @@ def data_request_forward_request(request,pk):
             
 
 def data_request_reverse_geocode_all(request):
+    """
+        Triggers reverse geocoding for all data requests with a shapefile.
+    """
     if request.user.is_superuser:
         data_requests = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         place_name_update.delay(data_requests)
@@ -385,6 +440,9 @@ def data_request_reverse_geocode_all(request):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_reverse_geocode(request, pk):
+    """
+        Triggers reverse geocoding for a single data request with a shapefile
+    """
     if request.user.is_superuser and request.method == 'POST':
         if DataRequest.objects.get(pk=pk).jurisdiction_shapefile:
             data_requests = DataRequest.objects.filter(pk=pk)
@@ -398,6 +456,9 @@ def data_request_reverse_geocode(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_assign_gridrefs(request):
+    """
+        Handle assignment of grid refs to users with approved data requests. Doing so will overwrite all existing grid refs assignment
+    """
     if request.user.is_superuser:
         assign_grid_refs_all.delay()
         messages.info(request, "Now processing jurisdictions. Please wait for a few minutes for them to finish")
@@ -407,6 +468,9 @@ def data_request_assign_gridrefs(request):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_facet_count(request):
+    """
+        Responds with a JSON dictionary of data requests count by status
+    """
     #if not request.user.is_superuser:
     #    return HttpResponseRedirect('/forbidden')
 

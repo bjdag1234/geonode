@@ -44,10 +44,17 @@ from pprint import pprint
 from unidecode import unidecode
 
 def register(request):
+    """
+        This function is for handling /register URL. It simply redirects to the profile request URL.
+    """
     return HttpResponseRedirect(
         reverse('datarequests:profile_request_form'))
 
 def profile_request_view(request):
+    """
+        This function displays the profile request form if the user is not authenticated. 
+        Otherwise, it redirects to the data request form.
+    """
     profile_request_obj = request.session.get('profile_request_obj', None)
     data_request_session=request.session.get('data_request_session', None)
 
@@ -106,6 +113,12 @@ def profile_request_view(request):
         )        
 
 def data_request_view(request):
+    """
+        This function displays the data request form. If the user is authenticated, 
+        it redirects to the home page on successful submission of the form. 
+        If the user is not authenticated, this function redirects the user to the notice of email verification.
+        If the data request has a shapefile, it triggers the compute size and SUC tagging tasks in the background.
+    """
     profile_request_obj = request.session.get('profile_request_obj', None)
     if not profile_request_obj:
         pprint("no profile request object found")
@@ -306,7 +319,9 @@ def data_request_view(request):
         })
 
 def email_verification_send(request):
-
+    """
+        This function displays a notice about the verification email.
+    """
     if request.user.is_authenticated():
         return HttpResponseRedirect(reverse('home'))
 
@@ -320,6 +335,9 @@ def email_verification_send(request):
     )
 
 def email_verification_confirm(request):
+    """
+        This function displays the page for confirmed email addresses.
+    """
     key = request.GET.get('key', None)
     email = request.GET.get('email', None)
 
@@ -365,6 +383,12 @@ def email_verification_confirm(request):
     )
 
 def create_letter_document(request_letter, profile=None, profile_request=None):
+    """
+        This is a utility function used to create the document object to be saved in the database 
+        should a user decide to include a request letter in his/her data request. 
+        The request letter is mapped to a profile or a profile request. 
+        If both are absent, PermissionDenied is raised.
+    """
     if not profile and not profile_request:
         raise PermissionDenied
         

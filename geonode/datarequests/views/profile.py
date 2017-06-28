@@ -26,11 +26,17 @@ from urlparse import parse_qs
 import csv
 
 class ProfileRequestList(LoginRequiredMixin, TemplateView):
+    """
+        This class is a TemplateView used to display the list of submitted profile requests. 
+    """
     template_name = 'datarequests/profile_request_list.html'
     raise_exception = True
 
 @login_required
 def profile_request_detail(request, pk, template='datarequests/profile_detail.html'):
+    """
+        This function is for displaying the details of a profile request with primary key pk on the specified template.
+    """
 
     profile_request = get_object_or_404(ProfileRequest, pk=pk)
 
@@ -50,6 +56,11 @@ def profile_request_detail(request, pk, template='datarequests/profile_detail.ht
 
 @login_required
 def profile_request_edit(request, pk, template ='datarequests/profile_detail_edit.html'):
+    """
+        This function is for displaying the form for editing the profile request with primary key pk. 
+        Only admin accounts are allowed to edit it. 
+        Additionally, editing the email address will cause the profile request to be reset to unconfirmed.
+    """
     profile_request = get_object_or_404(ProfileRequest, pk=pk)
     if not  request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
@@ -80,6 +91,12 @@ def profile_request_edit(request, pk, template ='datarequests/profile_detail_edi
         return HttpResponseRedirect(profile_request.get_absolute_url())
 
 def profile_request_approve(request, pk):
+    """
+        This is the view function for handling the approval of a profile request. 
+        Only requests with status pending can be approved this way. Upon approval, an AD account 
+        and a corresponding FTP directory should be created for the user. 
+        The user is then sent an email for him/her to reset his/her password.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
     if not request.method == 'POST':
@@ -131,6 +148,9 @@ def profile_request_approve(request, pk):
         return HttpResponseRedirect("/forbidden/")
 
 def profile_request_reject(request, pk):
+    """
+        This is the view function for handling the rejection of a profile request. 
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden/')
 
@@ -161,6 +181,9 @@ def profile_request_reject(request, pk):
     )
 
 def profile_request_reconfirm(request, pk):
+    """
+        This is the view function which handles the resending of a confirmation email to a profile request’s email address.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
 
@@ -176,6 +199,9 @@ def profile_request_reconfirm(request, pk):
         return HttpResponseRedirect(profile_request.get_absolute_url())
 
 def profile_request_recreate_dir(request, pk):
+    """
+        This function which executes the creation of an approved account’s FTP folder should it fail.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
 
@@ -191,6 +217,9 @@ def profile_request_recreate_dir(request, pk):
         return HttpResponseRedirect(profile_request.get_absolute_url())
 
 def profile_request_cancel(request,pk):
+    """
+        This function handles the cancellation of a profile request.
+    """
     profile_request = get_object_or_404(ProfileRequest, pk=pk)
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
@@ -221,6 +250,9 @@ def profile_request_cancel(request,pk):
 
 @login_required
 def profile_requests_csv(request):
+    """
+        This view function produces the list of profile requests in CSV format.
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect("/forbidden")
     else:
@@ -240,7 +272,9 @@ def profile_requests_csv(request):
         return response
 
 def profile_request_facet_count(request):
-
+    """
+        This view function returns the number of profile requests per status.
+    """
     facets_count = {
         'pending': ProfileRequest.objects.filter(
             status='pending').count(),
