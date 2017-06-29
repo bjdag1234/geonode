@@ -16,6 +16,9 @@ from django_enumfield import enum
 from django.core import validators
 
 class SUC_Contact(models.Model):
+    """
+        Model for enumerating SUC contacts to forward Data Requests to.
+    """
     institution_abrv = models.CharField(_('Institution Name(abbrev.)'), max_length=50, null=False, blank = False )
     institution_full = models.CharField(_('Institution Name(full)'), max_length=100, null=False, blank = False )
     name = models.CharField(_('Full name of contact person'),max_length = 100)

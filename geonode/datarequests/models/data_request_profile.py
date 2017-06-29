@@ -37,8 +37,10 @@ from .data_request import DataRequest
 from .profile_request import ProfileRequest
 
 class DataRequestProfile(TimeStampedModel):
-
-    # Choices that will be used for fields
+    """
+        This class is used to display the list of the deprecated data request profiles.
+        This class was split into Profile Request and Data Request models
+    """
     LOCATION_CHOICES = Choices(
         ('local', _('Local')),
         ('foreign', _('Foreign')),

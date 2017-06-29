@@ -34,6 +34,11 @@ from django.conf import settings as local_settings
 
 
 class LipadOrgType(models.Model):
+    """
+        Enumeration model for Phil-LiDAR 1 defined organization types
+        for Profile Requests
+        
+    """
     val = models.CharField(_('Value'), max_length=100)
     display_val = models.CharField(_('Display'), max_length=100)
     category = models.CharField(_('Sub'), max_length=100, null=True)
@@ -45,7 +50,10 @@ class LipadOrgType(models.Model):
         return (_('{}').format(self.val,))
 
 class BaseRequest(TimeStampedModel):
-    
+    """
+        The base request model is an abstract class from which the profile and data requests inherit. 
+        It inherits from the TimeStampedModel class which automatically gives it the created and modified fields.
+    """
     STATUS = Choices(
         ('pending', _('Pending')),
         ('approved', _('Approved')),
@@ -92,6 +100,9 @@ class BaseRequest(TimeStampedModel):
         app_label = "datarequests"
 
 class RequestRejectionReason(models.Model):
+    """
+        Enumeration model for Request Rejection reasons
+    """
     reason = models.CharField(_('Reason for rejection'), max_length=100)
 
     class Meta:

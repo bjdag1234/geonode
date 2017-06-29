@@ -34,17 +34,27 @@ from taggit.models import GenericTaggedItemBase, TagBase
 import geonode.local_settings as local_settings
 
 class SUCRequestTag (TagBase):
+    """
+        Django taggit model for tagging SUCs
+    """
     class Meta:
         app_label = "datarequests"
 
 
 class SUCTaggedRequest (GenericTaggedItemBase):
+    """
+        Auxiliary models to allow multiple unrelated tags for a data request
+    """
     tag = models.ForeignKey(SUCRequestTag, related_name='SUC_request_tag')
     
     class Meta:
         app_label = "datarequests"
 
 class DataRequest(BaseRequest, StatusModel):
+    """
+        Model for requesting data. Provides an instance for each request for data, 
+        from specific user or requester  
+    """
 
     DATA_TYPE_CHOICES = Choices(
         ('interpreted', _('Interpreted')),
@@ -159,15 +169,25 @@ class DataRequest(BaseRequest, StatusModel):
             ))
 
     def get_absolute_url(self):
+        """
+            Returns a data request object’s absolute URL
+        """
         return reverse('datarequests:data_request_detail', kwargs={'pk': self.pk})
 
     def set_status(self, status, administrator = None):
+        """
+            Sets the status for this request, whether unconfirmed, pending, 
+            approved, cancelled, or rejected. If administrator is provided, 
+            the administrator field of the profile request is set to the the passed administrator
+        """
         self.status = status
         self.administrator = administrator
         self.save()
 
     def assign_jurisdiction(self):
-        # Link shapefile to account
+        """
+            Maps the Geonode Layer object included in this data request to the Profile object mapped to this data request
+        """
         uj = None
         try:
             uj = UserJurisdiction.objects.get(user=self.profile)
@@ -183,36 +203,54 @@ class DataRequest(BaseRequest, StatusModel):
         resource.set_permissions(perms)
 
     def get_first_name(self):
+        """
+            Get the data request's user profile's first name
+        """
         if self.profile:
             return self.profile.first_name
         if self.profile_request:
             return self.profile_request.first_name
 
     def get_last_name(self):
+        """
+            Get the data request's user profile's last name
+        """
         if self.profile:
             return self.profile.last_name
         if self.profile_request:
             return self.profile_request.last_name
 
     def get_email(self):
+        """
+            Get the data request's user profile's email
+        """
         if self.profile:
             return self.profile.email
         if self.profile_request:
             return self.profile_request.email
 
     def get_contact_number(self):
+        """
+            Get the data request's user profile's contact number
+        """
         if self.profile:
             return self.profile.voice
         if self.profile_request:
             return self.profile_request.contact_number
 
     def get_organization(self):
+        """
+            Get the data request's user profile's organization name
+        """
         if self.profile:
             return self.profile.organization
         if self.profile_request:
             return self.profile_request.organization
 
     def get_organization_type(self):
+        """
+            Get the data request's user profile's organization type
+        """
         if self.profile_request:
             return self.profile_request.org_type
         elif self.profile:
@@ -221,6 +259,10 @@ class DataRequest(BaseRequest, StatusModel):
             return None
 
     def to_values_list(self, fields=['id','name','email','contact_number', 'organization', 'project_summary', 'created','status', 'data_size','area_coverage','has_profile_request']):
+        """
+            Returns the values of the data request as a list based on the passed fields variable
+            Used by download_csv
+        """
         out = []
         for f in fields:
             if f  is 'id':
@@ -295,6 +337,9 @@ class DataRequest(BaseRequest, StatusModel):
         return out
 
     def send_email(self, subj, msg, html_msg):
+        """
+            Generic function for sending emails
+        """
         text_content = msg
 
         html_content = html_msg
@@ -311,6 +356,9 @@ class DataRequest(BaseRequest, StatusModel):
         msg.send()
 
     def send_new_request_notif_to_admins(self, request_type="Data"):
+        """
+            Sends an email notification to the LiPAD email address about the arrival of this data request
+        """
         site = Site.objects.get_current()
         text_content = email_utils.NEW_REQUEST_EMAIL_TEXT.format(
             request_type,
@@ -327,6 +375,9 @@ class DataRequest(BaseRequest, StatusModel):
         self.send_email(email_subject,text_content,html_content)
 
     def send_approval_email(self, username):
+        """
+            Sets the an approval notice to the email address indicated in the profile request
+        """
         site = Site.objects.get_current()
         profile_url = (
             reverse('profile_detail', kwargs={'username': username})
@@ -348,7 +399,9 @@ class DataRequest(BaseRequest, StatusModel):
         self.send_email(email_subject,text_content,html_content)
 
     def send_rejection_email(self):
-
+        """
+            Sets the an rejection notice to the email address indicated in the profile request
+        """
         additional_details = 'Additional Details: ' + str(self.additional_rejection_reason)
 
         text_content = email_utils.DATA_REJECTION_TEXT.format(
@@ -370,6 +423,9 @@ class DataRequest(BaseRequest, StatusModel):
         self.send_email(email_subject,text_content,html_content)
         
     def send_suc_notification(self, suc=None):
+        """
+            Notifies the tagged SUC/HEI of a possible request forwarding by sending an email listed in SUC_contacts objects
+        """
         if not suc:
             if len(self.suc.names()) > 1:
                 suc = "UPD"
@@ -433,6 +489,9 @@ class DataRequest(BaseRequest, StatusModel):
             
     
     def send_jurisdiction(self, suc=None):
+        """
+            Forwards a link of the user’s data request area of interest with permissions updated
+        """
         if not suc:
             if len(self.suc.names()) == 1:
                 suc = self.suc.names()[0]
@@ -493,6 +552,9 @@ class DataRequest(BaseRequest, StatusModel):
         self.save()
         
     def notify_user_preforward(self, suc=None):
+        """
+            Notifies the data requester about a possible request forwarding
+        """
         if not suc:
             if len(self.suc.names()) == 1:
                 suc = self.suc.names()[0]
@@ -533,6 +595,9 @@ class DataRequest(BaseRequest, StatusModel):
         msg.send()
     
     def notify_user_forward(self, suc=None):
+        """
+            Notify the user that their data request has been forwarded
+        """
         if not suc:
             if len(self.suc.names()) == 1:
                 suc = self.suc.names()[0]
