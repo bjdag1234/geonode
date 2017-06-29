@@ -76,12 +76,25 @@ class CASBackend(ModelBackend):
                             attributes[field.name] = ''
                     except KeyError:
                         continue
+                if field.get_internal_type() == 'IntegerField':
+                    try:
+                        integer_value = int(attributes[field.name])
+                        attributes[field.name] = integer_value
+                    except KeyError:
+                        continue
+                if field.get_internal_type() == 'FloatField':
+                    try:
+                        float_value = float(attributes[field.name])
+                        attributes[field.name] = float_value
+                    except KeyError:
+                        continue
+                if field.get_internal_type() == 'BooleanField':
+                    try:
+                        boolean_value = attributes[field.name] == 'True'
+                        attributes[field.name] = boolean_value
+                    except KeyError:
+                        continue
 
-            # Handle boolean attributes
-            attributes["is_active"] = (attributes["is_active"].lower() == "true")
-            attributes["is_staff"] = (attributes["is_staff"].lower() == "true")
-            attributes["is_superuser"] = (attributes["is_superuser"].lower() == "true")
-            #pprint(attributes)
 
             user.__dict__.update(attributes)
 
@@ -155,10 +168,8 @@ def handle_user_authenticated(sender, **kwargs):
         #group_diff =  list(set(l1)-set(groups_list))
         #if len(group_diff) > 0:
         #    join_user_to_groups(user, group_diff)
-            
+
         group_diff = list(set(groups_list) - set(l1))
         #pprint(group_diff)
         if len(group_diff) > 0:
             join_user_to_groups.delay(user, group_diff)
-            
-        
