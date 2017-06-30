@@ -25,7 +25,9 @@ from .models import DataRequestProfile, RequestRejectionReason, DataRequest, Pro
 from pprint import pprint
 
 class ProfileRequestForm(forms.ModelForm):
-
+    """
+        A ModelForm based on the ProfileRequest model
+    """
     ORG_TYPE_CHOICES = LipadOrgType.objects.all().values_list('val', 'display_val')
     ORDERED_FIELDS =['org_type', 'organization_other','request_level','funding_source']
     captcha = ReCaptchaField(attrs={'theme': 'clean'})
@@ -255,6 +257,9 @@ class ProfileRequestForm(forms.ModelForm):
         return profile_request
 
 class DataRequestForm(forms.ModelForm):
+    """
+        This form handles data request submissions without a shapefile
+    """
     ORDERED_FIELDS = ["purpose", "purpose_other", "data_class_requested","data_class_other"]
 
     INTENDED_USE_CHOICES = Choices(
@@ -418,6 +423,11 @@ class DataRequestForm(forms.ModelForm):
 
 
 class DataRequestShapefileForm(NewLayerUploadForm):
+    """
+        Inherit from NewLayerUploadForm. Handles data request submissions which include a shapefile. 
+        Since the NewLayerUploadForm only handles the shapefile form fields. 
+        We had to manually add the some of the fields from the Data Request model
+    """
     ORDERED_FIELDS = ["purpose", "purpose_other", "data_class_requested","data_class_other"]
 
     INTENDED_USE_CHOICES = Choices(
@@ -582,6 +592,9 @@ class ProfileRequestRejectForm(forms.ModelForm):
             self.fields['rejection_reason'].choices = [(r.reason, r.reason) for r in rejection_reason_qs]
 
 class DataRequestRejectForm(forms.ModelForm):
+    """
+        Form for handling rejecting data requests
+    """
 
     REJECTION_REASON_CHOICES = Choices(
         ('Invalid requirements', _('Invalid requirements')),
