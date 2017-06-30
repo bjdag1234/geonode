@@ -46,6 +46,9 @@ from geonode.layers.models import Layer
 
 @login_required
 def tile_check(request):
+    """
+        Maptiles checking for georefs
+    """
     user = request.user
     response = "false"
     if not request.POST:
@@ -69,6 +72,12 @@ def tile_check(request):
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def file_list_ceph(request, sort=None):
+    """
+        Lists all objects uploaded in Ceph
+    """
+    if sort == "default":
+        sort = None
+    
     if sort not in utils.SORT_TYPES and sort != None:
         return HttpResponse(status=404)
 
@@ -110,6 +119,9 @@ def file_list_ceph(request, sort=None):
 @user_passes_test(lambda u: u.is_superuser)
 def file_list_geonode(request, sort=None, grid_ref=None):
 
+    if sort == "default":
+        sort = None
+    
     if sort not in utils.SORT_TYPES and sort != None:
         return HttpResponse(status=404)
 
@@ -453,6 +465,9 @@ def ftp_request_details(request, ftp_req_name=None):
 
 @login_required
 def tile_check(request):
+    """
+        Maptiles checking for georefs
+    """
     user = request.user
     response = "false"
     if not request.POST:
