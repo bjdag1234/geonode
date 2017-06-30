@@ -170,7 +170,7 @@ class DataRequest(BaseRequest, StatusModel):
 
     def get_absolute_url(self):
         """
-            Returns a data request object’s absolute URL
+            Returns a data request object's absolute URL
         """
         return reverse('datarequests:data_request_detail', kwargs={'pk': self.pk})
 
@@ -490,7 +490,7 @@ class DataRequest(BaseRequest, StatusModel):
     
     def send_jurisdiction(self, suc=None):
         """
-            Forwards a link of the user’s data request area of interest with permissions updated
+            Forwards a link of the user's data request area of interest with permissions updated
         """
         if not suc:
             if len(self.suc.names()) == 1:

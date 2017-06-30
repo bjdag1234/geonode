@@ -77,7 +77,7 @@ def user_data_request_list(request):
 
 def data_request_detail(request, pk, template='datarequests/data_detail.html'):
     """
-        Handles viewing of a data request’s details
+        Handles viewing of a data request's details
     """
 
     data_request = get_object_or_404(DataRequest, pk=pk)
@@ -414,7 +414,7 @@ def data_request_notify_requester(request,pk):
         
 def data_request_forward_request(request,pk):
     """
-        Triggers forwarding of data request’s shapefile to the tagged SUC/HEI. 
+        Triggers forwarding of data request's shapefile to the tagged SUC/HEI. 
         If multiple SUCs/HEIs are tagged, forwarding will be sent to UPD. 
         Requires an approved data request and notified parties.
     """

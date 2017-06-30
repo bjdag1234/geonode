@@ -182,7 +182,7 @@ def profile_request_reject(request, pk):
 
 def profile_request_reconfirm(request, pk):
     """
-        This is the view function which handles the resending of a confirmation email to a profile request’s email address.
+        This is the view function which handles the resending of a confirmation email to a profile request's email address.
     """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
@@ -200,7 +200,7 @@ def profile_request_reconfirm(request, pk):
 
 def profile_request_recreate_dir(request, pk):
     """
-        This function which executes the creation of an approved account’s FTP folder should it fail.
+        This function which executes the creation of an approved account's FTP folder should it fail.
     """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')

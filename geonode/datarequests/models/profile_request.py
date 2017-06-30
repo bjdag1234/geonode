@@ -194,13 +194,13 @@ class ProfileRequest(BaseRequest, StatusModel):
     @property
     def has_verified_email(self):
         """
-            Returns whether or not this profile request’s email has been verified
+            Returns whether or not this profile request's email has been verified
         """
         return self.verification_date is not None
 
     def get_absolute_url(self):
         """
-            Returns a profile request object’s absolute URL
+            Returns a profile request object's absolute URL
         """
         return reverse('datarequests:profile_request_detail', kwargs={'pk': self.pk})
 
