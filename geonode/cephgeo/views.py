@@ -118,7 +118,9 @@ def file_list_ceph(request, sort=None):
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def file_list_geonode(request, sort=None, grid_ref=None):
-
+    """
+        Lists all Ceph objects whose instance has been encoded in the database
+    """
     if sort == "default":
         sort = None
     
@@ -175,7 +177,9 @@ def file_list_geonode(request, sort=None, grid_ref=None):
 
 @login_required
 def file_list_json(request, sort=None, grid_ref=None):
-
+    """
+        JSON version of file_list_geonode
+    """
     if sort not in utils.SORT_TYPES and sort != None:
         return HttpResponse(status=404)
 
@@ -219,6 +223,9 @@ def file_list_json(request, sort=None, grid_ref=None):
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def data_input(request):
+    """
+        Input for newly uploaded list of Ceph Data Objects
+    """
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # pprint(request.POST)
@@ -253,6 +260,9 @@ def data_input(request):
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def data_remove(request):
+    """
+        Lists all objects to be deleted from Ceph
+    """
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # pprint(request.POST)
@@ -288,12 +298,18 @@ def data_remove(request):
 
 @login_required
 def error(request):
+    """
+        View for handling errors on this app
+    """
     return render(request, "ceph_error.html",
                   {"err_msg": request.error, })
 
 
 @login_required
 def get_cart(request):
+    """
+        View for user's cart from maptiles
+    """
     return render_to_response('cart.html',
                               dict(cart=CartProxy(request), cartsize=get_cart_datasize(
                                   request), projections=SRS.labels.values()),
@@ -302,6 +318,9 @@ def get_cart(request):
 
 @login_required
 def get_cart_json(request):
+    """
+        JSON of get_cart
+    """
     cart = CartProxy(request)
     #~ json_cart = dict()
     #~ for item in cart:
@@ -317,6 +336,9 @@ def get_cart_json(request):
 
 @login_required
 def get_obj_ids_json(request):
+    """
+        Cart items translated to their object IDs
+    """
     cart = CartProxy(request)
     json_cart = dict()
     ceph_objs = CephDataObject.objects.all()
