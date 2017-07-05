@@ -58,7 +58,7 @@ def dem_metadata_job(request):
             """
             print 'Saving...'
             
-            lidar_block_name_list = smart_str(form.cleaned_data['lidar_blocks']).replace(' \t\n\r', '').split(',')
+            lidar_block_name_list = parse_dem_block_list(smart_str(form.cleaned_data['lidar_blocks'])
             dem_input_dict = {'dem_name': smart_str(form.cleaned_data['dem_name']),
                               'dem_file_path': smart_str(form.cleaned_data['input_dir']),
                               'blocks' : lidar_block_name_list,
@@ -81,3 +81,17 @@ def dem_metadata_job(request):
         form = DemJobForm()
 
     return render(request, 'dem_job.html', {'dem_job_form': form})
+
+def parse_dem_block_list(cleaned_string):
+    """
+        Utility function for parsing DEM Lidar Block list
+        Returns a list of lists with the ff format:
+        [   [block_name_a,shifting_val_x,shifting_val_y,shifting_val_z,height_diff,rmse,],
+            [block_name_b,shifting_val_x,shifting_val_y,shifting_val_z,height_diff,rmse,],
+            [block_name_c,shifting_val_x,shifting_val_y,shifting_val_z,height_diff,rmse,],
+        ]
+    """
+    result = []
+    for dem_line in cleaned_string.replace(' \t\r', '').split('\n'):
+        result.append(dem_line.split(','))
+    return result
