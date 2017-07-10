@@ -12,6 +12,7 @@ ROOT_DIRECTORY=""
 
 @celery.task(name="geonode.tasks.mk_folder.create_folder",queue="mk_folder")
 def create_folder(username):
+    """ Creates user folder """
     try:
         pprint("hallo thar create_folder")
         result = execute(fab_create_folder, username)
@@ -21,7 +22,7 @@ def create_folder(username):
         mail_on_error(username,  traceback.format_exc())
         pprint(traceback.format_exc())
         return e
-        
+
 
 @hosts(settings.FTP_HOST)
 def fab_create_folder(username):
@@ -32,5 +33,5 @@ def fab_create_folder(username):
 def mail_on_error(username, trace_error):
     mail_subject = "Folder creation failed for {0}".format(username)
     mail_body = "" + trace_error
-    
+
     send_mail(mail_subject, mail_body, settings.FTP_AUTOMAIL, [settings.LIPAD_SUPPORT_MAIL], fail_silently= False)

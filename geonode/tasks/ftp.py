@@ -56,9 +56,9 @@ def fab_check_cephaccess(username, user_email, request_name):
     if result.failed:
         logger.error(
             "Unable to access {0}. Host may be down or there may be a network problem.".format(env.hosts))
-        mail_msg = ERR_TEXT_NO_CEPH_ACCESS.format(  request_name,
-                                                    username,
-                                                    settings.FTP_SUPPORT_MAIL,)
+        mail_msg = ERR_TEXT_NO_CEPH_ACCESS.format(request_name,
+                                                  username,
+                                                  settings.FTP_SUPPORT_MAIL,)
 
         mail_ftp_user(username, user_email, request_name, mail_msg)
         raise CephAccessException(
@@ -71,6 +71,7 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
         Creates an FTP folder for the requested tile data set
         Records the request in the database
         If an existing record already exists, counts the duplicates (?)
+        Need to refactor
     """
     username = ftp_request.user.username
     request_name = ftp_request.name
@@ -85,9 +86,9 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
         if result.return_code == 1:
             logger.error("FTP Task Error: No toplevel directory was found.")
             ftp_request.status = FTPStatus.ERROR
-            mail_msg = ERR_TEXT_NO_TOP_DIR.format( request_name, 
-                                                   username, 
-                                                   settings.FTP_SUPPORT_MAIL,)
+            mail_msg = ERR_TEXT_NO_TOP_DIR.format(request_name,
+                                                  username,
+                                                  settings.FTP_SUPPORT_MAIL,)
 
             mail_ftp_user(username, user_email, request_name, mail_msg)
             return "ERROR: No top level directory was found."
@@ -98,9 +99,9 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
             logger.error(
                 "FTP Task Error: A duplicate FTP request toplevel directory was found.")
             ftp_request.status = FTPStatus.DUPLICATE
-            mail_msg = ERR_TEXT_TOPLEVEL_DIR_DUP.format( request_name,
-                                                                username,
-                                                                settings.FTP_SUPPORT_MAIL,)
+            mail_msg = ERR_TEXT_TOPLEVEL_DIR_DUP.format(request_name,
+                                                        username,
+                                                        settings.FTP_SUPPORT_MAIL,)
 
             mail_ftp_user(username, user_email, request_name, mail_msg)
             return "ERROR: A duplicate FTP request toplevel directory was found."
@@ -139,11 +140,12 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
                         logger.error(
                             "Error on FTP request: Failed to create data class subdirectory at [{0}]. Please notify the administrator of this error".format(ftp_dir))
                         ftp_request.status = FTPStatus.ERROR
-                        mail_msg = ERR_TEXT_FAILED_CREATE_DATA_CLASS_DIR.format(    request_name,
-                                                                                    username,
-                                                                                    os.path.join(ftp_dir, type_dir),
-                                                                                    settings.FTP_SUPPORT_MAIL,
-                                                                                    result,)
+                        mail_msg = ERR_TEXT_FAILED_CREATE_DATA_CLASS_DIR.format(request_name,
+                                                                                username,
+                                                                                os.path.join(
+                                                                                    ftp_dir, type_dir),
+                                                                                settings.FTP_SUPPORT_MAIL,
+                                                                                result,)
 
                         mail_ftp_user(username, user_email,
                                       request_name, mail_msg)
@@ -171,11 +173,11 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
                         logger.error(
                             "Error on FTP request: Failed to download file/s for dataclass [{0}].".format(data_class))
                         ftp_request.status = FTPStatus.ERROR
-                        mail_msg = ERR_TEXT_FAILED_DOWNLOAD_TILES.format(   request_name,
-                                                                            username,
-                                                                            obj_dl_list,
-                                                                            settings.FTP_SUPPORT_MAIL,
-                                                                            result,)
+                        mail_msg = ERR_TEXT_FAILED_DOWNLOAD_TILES.format(request_name,
+                                                                         username,
+                                                                         obj_dl_list,
+                                                                         settings.FTP_SUPPORT_MAIL,
+                                                                         result,)
                         mail_ftp_user(username, user_email,
                                       request_name, mail_msg)
                         return "ERROR: Failed to create folder [{0}].".format(ftp_dir)
@@ -184,11 +186,11 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
             logger.error(
                 "Error on FTP request: Failed to create FTP folder at [{0}]. Please notify the administrator of this error".format(ftp_dir))
             ftp_request.status = FTPStatus.ERROR
-            mail_msg = ERR_TEXT_FAILED_CREATE_FTP_DIR.format(   request_name,
-                                                                username,
-                                                                ftp_dir,
-                                                                settings.FTP_SUPPORT_MAIL,
-                                                                result,)
+            mail_msg = ERR_TEXT_FAILED_CREATE_FTP_DIR.format(request_name,
+                                                             username,
+                                                             ftp_dir,
+                                                             settings.FTP_SUPPORT_MAIL,
+                                                             result,)
 
             mail_ftp_user(username, user_email, request_name, mail_msg)
             return "ERROR: Failed to create folder [{0}].".format(ftp_dir)
@@ -197,7 +199,8 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
         logger.info("FTP request has been completed for user [{0}]. Requested data is found under the DL directory path [{1}]".format(
             username, os.path.join("DL", request_name)))
         ftp_request.status = FTPStatus.DONE
-        mail_msg = SUCCESS_TEXT.format(request_name, username, settings.FTP_SUPPORT_MAIL)
+        mail_msg = SUCCESS_TEXT.format(
+            request_name, username, settings.FTP_SUPPORT_MAIL)
 
         mail_ftp_user(username, user_email, request_name, mail_msg)
         return "SUCCESS: FTP request successfuly completed."
@@ -206,9 +209,9 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
         logger.error(
             "FTP request has failed. No FTP folder was found for username [{0}]. User may not have proper access rights to the FTP repository.".format(username))
         ftp_request.status = FTPStatus.ERROR
-        mail_msg = ERR_TEXT_NO_USER_FOLDER.format(   request_name,
-                                                              username,
-                                                              settings.FTP_SUPPORT_MAIL)
+        mail_msg = ERR_TEXT_NO_USER_FOLDER.format(request_name,
+                                                  username,
+                                                  settings.FTP_SUPPORT_MAIL)
 
         mail_ftp_user(username, user_email, request_name, mail_msg)
         return "ERROR: User [{0}] has no FTP folder: ".format(e.message)
@@ -218,10 +221,10 @@ def fab_create_ftp_folder(ftp_request, ceph_obj_list_by_data_class, srs_epsg=Non
         logger.error("""An FTP request has failed with an unexpected error:
 {0}""".format(error_trace))
         ftp_request.status = FTPStatus.ERROR
-        mail_msg = ERR_TEXT_GENERIC.format(  request_name,
-                username,
-                settings.FTP_SUPPORT_MAIL,
-                error_trace,)
+        mail_msg = ERR_TEXT_GENERIC.format(request_name,
+                                           username,
+                                           settings.FTP_SUPPORT_MAIL,
+                                           error_trace,)
 
         mail_ftp_user(username, user_email, request_name, mail_msg)
         return "ERROR: Unexpected error occurred:\n[{0}]".format(e.message)
@@ -261,6 +264,9 @@ def process_ftp_request(ftp_request, ceph_obj_list_by_data_class, srs_epsg_num=N
 #   UTIL FUNCTIONS
 ###
 def get_folders_for_user(user, request_name):
+    """
+        Move paths to settings
+    """
     if not user:
         raise UserEmptyException(user)
 
