@@ -8,9 +8,10 @@ from tag_layers import update_tags
 
 # metadata update, seeding, SUC/FP tagging
 @task(name='geonode.tasks.fhm_metadata.update_fhm_metadata_task', queue='fhm_metadata')
-def update_fhm_metadata_task(pk):
+def update_fhm_metadata_task(pk, *args):
+    print 'Param print', args
     layer = Layer.objects.get(pk=pk)
-    update_metadata(layer)
+    update_metadata(layer, params)
     mode = 'fhm'
     update_tags(layer, mode)
 

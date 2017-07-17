@@ -11,7 +11,7 @@ from django.template import RequestContext
 
 from pprint import pprint
 
-from geonode.cephgeo.forms import DataInputForm
+from geonode.cephgeo.forms import DataInputForm, FhmMetadataForm, FhmMetadataForm
 from geonode.cephgeo.models import CephDataObject, FTPRequest, FTPStatus, FTPRequestToObjectIndex
 from geonode.cephgeo.utils import get_data_class_from_filename
 from geonode.tasks.ftp import process_ftp_request
@@ -479,30 +479,56 @@ def delete_all_fhm(request):
         .format(layer_count))
     return HttpResponseRedirect(reverse('data_management'))
 
+
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-# metadata update, seeding, SUC/FP tagging
-def update_fhm_metadata(request):
-    lastday = datetime.now() - timedelta(days=2)
-    layer_list = []
-    layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') & Q(
-        upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
-        .order_by('-upload_session')
-    # layer_list = Layer.objects.filter(
-    #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
-    layer_count = len(layer_list)
-    # compute start time of update
-    start_time = datetime.now()
+def update_metadata(request):
+    # metadata update, seeding, SUC/FP tagging
 
-    # get primary key of layer to pass in the task
-    jobs = group(update_fhm_metadata_task.s(layer.pk)
-                 for layer in layer_list).apply_async()
-    job_result_task.delay(jobs, start_time)
+    if request.method == 'POST':
+        form = FhmMetadataForm(request.POST)
+        # print form.as_table()
+        if form.is_valid():
+            print 'VALID FORM'
+            params = {}
+            params['fhm_coverage'] = form.cleaned_data['fhm_coverage']
+            params['style'] = form.cleaned_data['style']
+            params['suc_municipality_layer'] = form.cleaned_data[
+                'suc_municipality_layer']
+            params['abstract'] = form.cleaned_data['abstract']
+            print params
+            lastday = datetime.now() - \
+                timedelta(days=form.cleaned_data['day_counter'])
+            layer_list = []
+            layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') & Q(
+                upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
+                .order_by('-upload_session')
+            # layer_list = Layer.objects.filter(
+            #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+            layer_count = len(layer_list)
+            # compute start time of update
+            start_time = datetime.now()
 
-    messages.error(
-        request, "Updating Metadata of {0} FHMs. See logging in /var/log/celeryd.log "
-        .format(layer_count))
+            # get primary key of layer to pass in the task
+            jobs = group(update_fhm_metadata_task.s(layer.pk, params)
+                         for layer in layer_list).apply_async()
+            job_result_task.delay(jobs, start_time)
+            update_fhm_metadata_task.delay()
+        else:
+            messages.error(request, 'Invalid input')
+            return redirect('geonode.cephgeo.views.update_metadata')
+    # fhm_metadata_update.delay()
+    else:
+        form = FhmMetadataForm()
+        return render(request, 'metadata_input.html', {'fhm_metadata_input_form': form})
+
+    messages.error(request, "Updating Flood Hazard Map metadata")
     return HttpResponseRedirect(reverse('data_management'))
+
+    # messages.error(
+    #     request, "Updating Metadata of {0} FHMs. See logging in /var/log/celeryd.log "
+    #     .format(layer_count))
+    # return HttpResponseRedirect(reverse('data_management'))
 
 
 @login_required

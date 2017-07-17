@@ -177,7 +177,7 @@ $( "#delete-fhm" ).click(function() {
 $( "#update-metadata" ).click(function() {
     if ($( "input:checked" ).val() == "fhm"){
         // $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-            window.location = "{% url 'cephgeo.views.update_fhm_metadata' %}";
+            window.location = "{% url 'cephgeo.views.update_metadata' %}";
     }
     else if ($( "input:checked" ).val() == "resourcelayer"){
             window.location = "{% url 'cephgeo.views.update_pl2_metadata' %}";
