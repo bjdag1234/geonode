@@ -34,6 +34,15 @@ from django.conf import settings as local_settings
 
 
 class LipadOrgType(models.Model):
+    """Lists all the Organization Type used in Profile Requests
+
+    This model lists all the organization type used in the Profile Request.
+    Fields:
+        val - the acronym used for the oranization type
+        display_val - the complete name of the organization type as displayed in the forms
+        category - the merged version of the organization types. Used in distribution status
+
+    """
     val = models.CharField(_('Value'), max_length=100)
     display_val = models.CharField(_('Display'), max_length=100)
     category = models.CharField(_('Sub'), max_length=100, null=True)
@@ -45,7 +54,18 @@ class LipadOrgType(models.Model):
         return (_('{}').format(self.val,))
 
 class BaseRequest(TimeStampedModel):
-    
+    """Both Profile and Data Requests share
+
+    The base request model is an abstract class from which the profile and data requests inherit. It inherits from the TimeStampedModel class which automatically gives it the created and modified fields.
+    Fields:
+        profile - a mapping to a user Profile object
+        administrator - a mapping to a superuser Profile object. Set to the admin Profile object who made the last modifications via editing or status changes done through the website
+        rejection_reason - a container for saving the cause of rejection
+        additional_remarks - a container for possible additional comments by an administrator
+        additional_rejection_reason - a more elaborate version of the rejection_reason
+
+    """
+
     STATUS = Choices(
         ('pending', _('Pending')),
         ('approved', _('Approved')),
@@ -92,6 +112,11 @@ class BaseRequest(TimeStampedModel):
         app_label = "datarequests"
 
 class RequestRejectionReason(models.Model):
+    """Rejection Reason model
+
+    This is where the reason for rejection is stored.
+
+    """
     reason = models.CharField(_('Reason for rejection'), max_length=100)
 
     class Meta:

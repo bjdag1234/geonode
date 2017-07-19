@@ -37,6 +37,18 @@ import csv
 
 @login_required
 def data_requests_csv(request):
+    """Creates a csv tabulating DataRequest objects
+
+    This function produces the CSV file download of all data requests when the "Download CSV" button in the DataRequestList has been clicked.
+
+    URL:
+        url(r'^data/data_requests_csv/$', 'data_requests_csv', name='data_requests_csv'),
+
+    Returns:
+        csv file: named datarequests-<month><day><year>’.
+            `fields`: First row content, and DataRequest keys to be placed on each column per object
+
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
 
@@ -56,6 +68,14 @@ def data_requests_csv(request):
     return response
 
 class DataRequestList(LoginRequiredMixin, TemplateView):
+    """Creats a view for all DataRequest objects
+
+    This class is a TemplateView used to display the list of submitted data requests.
+
+    URL:
+        url(r'^data/$', DataRequestList.as_view(), name='data_request_browse'),
+
+    """
     template_name = 'datarequests/data_request_list.html'
     raise_exception = True
 
@@ -66,7 +86,20 @@ def user_data_request_list(request):
     return None
 
 def data_request_detail(request, pk, template='datarequests/data_detail.html'):
+    """Renders the per object DataRequest page
 
+    This function provides a detailed view of a data request. The different fields displayed is shown in the `template`, while the configuration for the mini map and `context_dict` parameters, to be used in the `template`, are shown in the function.
+    This function imports the DataRequestRejectForm to the template. The form is to be used for Rejecting and Canceling of DataRequest.
+    The superuser can view the details of all requests, while the user can only view its own requests.
+
+    URL:
+        url(r'^data/(?P<pk>\d+)/$', 'data_request_detail', name="data_request_detail"),
+
+    Args:
+        `pk`(int): primary key of the DataRequest object.
+        `template`(string): indicates the template file to be used for displaying the data request.
+
+    """
     data_request = get_object_or_404(DataRequest, pk=pk)
 
     if not request.user.is_superuser and not data_request.profile == request.user:
@@ -153,23 +186,39 @@ def data_request_detail(request, pk, template='datarequests/data_detail.html'):
     context_dict["request_reject_form"]= DataRequestRejectForm(instance=data_request)
 
     return render_to_response(template, RequestContext(request, context_dict))
-    
+
 @login_required
 def data_request_edit(request, pk, template ='datarequests/data_detail_edit.html'):
+    """Editing a DataRequest object
+
+    This function is for displaying the form for editing the data request with primary key `pk`. Only admin accounts are allowed to edit it.
+    This is activated by an "Edit Request" button in data_request_detail with Pending, Unconfirmed Email, Approved, and Rejected Status
+
+    URL:
+        url(r'^data/(?P<pk>\d+)/edit/$', 'data_request_edit', name="data_request_edit"),
+
+    Args:
+        `pk`(int): primary key of the DataRequest object.
+        `template`(string): indicates the template file to be used for displaying the data request.
+
+    Form:
+        DataRequestEditForm in admin_edit_forms.py
+
+    """
     data_request = get_object_or_404(DataRequest, pk=pk)
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
-    
-    if request.method == 'GET': 
+
+    if request.method == 'GET':
         context_dict={"data_request":data_request}
         initial_data = model_to_dict(data_request)
         if not DataRequestEditForm.INTENDED_USE_CHOICES.__contains__(initial_data['purpose']):
-            initial_data['purpose_other'] = initial_data['purpose'] 
+            initial_data['purpose_other'] = initial_data['purpose']
             initial_data['purpose'] = 'other'
-            
+
         context_dict["form"] = DataRequestEditForm(initial = initial_data)
         return render(request, template, context_dict)
-    else:
+    else: # If POST
         form = DataRequestEditForm(request.POST)
         if form.is_valid():
             pprint("form is valid")
@@ -178,7 +227,7 @@ def data_request_edit(request, pk, template ='datarequests/data_detail_edit.html
                     data_types = []
                     data_request.data_type.clear()
                     for i in v:
-                        data_request.data_type.add(str(i.short_name))
+                        data_request.data_type.add(str(i.short_name)) #short_name found in cephgeo/models.py's TileDataClass
                     #remove original tags
                 elif k=='purpose':
                     if v == form.INTENDED_USE_CHOICES.other:
@@ -196,6 +245,22 @@ def data_request_edit(request, pk, template ='datarequests/data_detail_edit.html
         return HttpResponseRedirect(data_request.get_absolute_url())
 
 def data_request_cancel(request, pk):
+    """Canceling a DataRequest object
+
+    This is the function for handling the cancellation of a data request.
+    Only superusers can cancel objects.
+    This is activated by a "Cancel Request" button in data_request_detail with Pending, and Unconfirmed Email Status
+
+    URL:
+        url(r'^data/(?P<pk>\d+)/cancel/$', 'data_request_cancel', name="data_request_cancel"),
+
+    Args:
+        `pk`(int): primary key of the DataRequest object.
+
+    Form:
+        forms.py's DataRequestRejectForm. See data_request_detail for importing of the form to the template
+
+    """
     data_request = get_object_or_404(DataRequest, pk=pk)
     if not request.user.is_superuser and not data_request.profile == request.user:
         return HttpResponseRedirect('/forbidden')
@@ -226,6 +291,22 @@ def data_request_cancel(request, pk):
     )
 
 def data_request_approve(request, pk):
+    """Approving a DataRequest object
+
+    This is the view function for handling the approval of a data request. Only requests with status pending, and an AD/Profile/Approved ProfileRequest can be approved this way. Only superuser can approve requests.
+    Upon approval, if the data request has a shapefile, the user jurisdiction and grid refs are automatically calculated and assigned. Previous user jurisdiction and assigned grid refs will be overwritten.  The user is then sent an email stating his approval.
+    This is activated by an "Approve" button in data_request_detail with Pending Status
+
+    URL:
+        url(r'^data/(?P<pk>\d+)/approve/$', 'data_request_approve', name="data_request_approve"),
+
+    Args:
+        `pk`(int): primary key of the DataRequest object.
+
+    Function:
+        ../models/data_request.py's DataRequest's create_account(self)
+
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden')
     if not request.method == 'POST':
@@ -233,7 +314,7 @@ def data_request_approve(request, pk):
 
     if request.method == 'POST':
         data_request = get_object_or_404(DataRequest, pk=pk)
-
+        ### Check for an AD/Profile/Approved ProfileRequest
         if not data_request.profile:
             if data_request.profile_request:
                 if not data_request.profile_request.status == 'approved':
@@ -244,16 +325,15 @@ def data_request_approve(request, pk):
                     data_request.profile = profile_request.profile
                     data_request.save()
 
-        if data_request.jurisdiction_shapefile:
+        if data_request.jurisdiction_shapefile:# with shapefile
             data_request.assign_jurisdiction() #assigns/creates jurisdiction object
-            assign_grid_refs.delay(data_request.profile)
-        else:
+            assign_grid_refs.delay(data_request.profile) #assigns/creates grid_ref object
+        else:# No shapefile
             try:
                 uj = UserJurisdiction.objects.get(user=data_request.profile)
                 uj.delete()
             except ObjectDoesNotExist as e:
                 pprint("Jurisdiction Shapefile not found, nothing to delete. Carry on")
-
 
         data_request.set_status('approved',administrator = request.user)
         data_request.send_approval_email(data_request.profile.username)
@@ -265,6 +345,22 @@ def data_request_approve(request, pk):
         return HttpResponseRedirect("/forbidden/")
 
 def data_request_reject(request, pk):
+    """Rejecting a DataRequest object
+
+    This is the function for handling the rejection of a data request.
+    Only superusers can reject objects.
+    This is activated by a "Reject" button in data_request_detail with Pending Status
+
+    URL:
+        url(r'^data/(?P<pk>\d+)/reject/$', 'data_request_reject', name="data_request_reject"),
+
+    Args:
+        `pk`(int): primary key of the DataRequest object.
+
+    Form:
+        forms.py's DataRequestRejectForm. See data_request_detail for importing of the form to the template
+
+    """
     if not request.user.is_superuser:
         return HttpResponseRedirect('/forbidden/')
 
@@ -295,6 +391,11 @@ def data_request_reject(request, pk):
     )
 
 def data_request_compute_size_all(request):
+    """Compute data size and area coverage
+
+    Triggers the size computation (data size and area coverage) in the background for all submitted data request.
+
+    """
     if request.user.is_superuser:
         data_requests = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         compute_size_update.delay(data_requests)
@@ -305,6 +406,11 @@ def data_request_compute_size_all(request):
 
 
 def data_request_compute_size(request, pk):
+    """
+
+    Triggers the size computation (data size and area coverage) in the background for the data request with primary key pk
+
+    """
     if request.user.is_superuser and request.method == 'POST':
         if DataRequest.objects.get(pk=pk).jurisdiction_shapefile:
             data_requests = DataRequest.objects.filter(pk=pk)
@@ -318,6 +424,11 @@ def data_request_compute_size(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc_all(request):
+    """
+
+    Triggers tagging of all data requests by SUC/HEI
+
+    """
     if request.user.is_superuser:
         drs = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         if drs.count()>0:
@@ -325,12 +436,17 @@ def data_request_tag_suc_all(request):
             messages.info(request,"The requests are currently being tagged")
         else:
             messages.info(request,"No request has a shapefile")
-        
+
         return HttpResponseRedirect(reverse('datarequests:data_request_browse'))
     else:
         return  HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc(request,pk):
+    """
+
+    Triggers tagging by SUC/HEI of data request with primary key pk
+
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         if dr.jurisdiction_shapefile:
@@ -338,12 +454,17 @@ def data_request_tag_suc(request,pk):
             messages.info(request,"This request is currently being tagged")
         else:
             messages.info(request,"This request does not have a shapefile")
-        
+
         return HttpResponseRedirect(dr.get_absolute_url())
     else:
         return  HttpResponseRedirect('/forbidden/')
-        
+
 def data_request_notify_suc(request,pk):
+    """
+
+    Triggers notification of SUC via email regarding request forwarding. Requires an approved data request. If multiple SUCs/HEIs are tagged, notification will be sent to UPD
+
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         if dr.juris_data_size > settings.MAX_FTP_SIZE:
@@ -355,8 +476,13 @@ def data_request_notify_suc(request,pk):
         return HttpResponseRedirect(dr.get_absolute_url())
     else:
         return HttpResponseRedirect('/forbidden/')
-        
+
 def data_request_notify_requester(request,pk):
+    """
+
+    Triggers notification of data requester via email regarding request forwarding. Requires an approved data request
+
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         dr.notify_user_preforward()
@@ -364,8 +490,13 @@ def data_request_notify_requester(request,pk):
         return HttpResponseRedirect(dr.get_absolute_url())
     else:
         return HttpResponseRedirect('/forbidden/')
-        
+
 def data_request_forward_request(request,pk):
+    """
+
+    Triggers forwarding of data request’s shapefile to the tagged SUC/HEI. If multiple SUCs/HEIs are tagged, forwarding will be sent to UPD. Requires an approved data request and notified parties.
+
+    """
     if request.user.is_superuser and request.method=='POST':
         dr = get_object_or_404(DataRequest, pk=pk)
         dr.send_jurisdiction()
@@ -373,9 +504,14 @@ def data_request_forward_request(request,pk):
         return HttpResponseRedirect(dr.get_absolute_url())
     else:
         return HttpResponseRedirect('/forbidden/')
-            
+
 
 def data_request_reverse_geocode_all(request):
+    """
+
+    Triggers reverse geocoding for all data requests with a shapefile.
+
+    """
     if request.user.is_superuser:
         data_requests = DataRequest.objects.exclude(jurisdiction_shapefile=None)
         place_name_update.delay(data_requests)
@@ -385,6 +521,11 @@ def data_request_reverse_geocode_all(request):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_reverse_geocode(request, pk):
+    """
+
+    Triggers reverse geocoding for a single data request with a shapefile
+
+    """
     if request.user.is_superuser and request.method == 'POST':
         if DataRequest.objects.get(pk=pk).jurisdiction_shapefile:
             data_requests = DataRequest.objects.filter(pk=pk)
@@ -398,6 +539,11 @@ def data_request_reverse_geocode(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_assign_gridrefs(request):
+    """
+
+    Handle assignment of grid refs to users with approved data requests. Doing so will overwrite all existing grid refs assignment
+
+    """
     if request.user.is_superuser:
         assign_grid_refs_all.delay()
         messages.info(request, "Now processing jurisdictions. Please wait for a few minutes for them to finish")
@@ -407,6 +553,14 @@ def data_request_assign_gridrefs(request):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_facet_count(request):
+    """Number of request per status to be used in html and js
+
+    This function returns with the number of requests per status in JSON format.
+
+    URL:
+        url(r'^data/~count_facets/$', 'data_request_facet_count', name="data_request_facet_count"),
+
+    """
     #if not request.user.is_superuser:
     #    return HttpResponseRedirect('/forbidden')
 
