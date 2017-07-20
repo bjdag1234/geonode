@@ -5,8 +5,10 @@
 LANG          = en
 SPHINXBUILD   = sphinx-build
 PAPER         =
-SOURCEDIR     = .
-BUILDDIR      = _build/$(LANG)
+# SOURCEDIR     = .
+SOURCEDIR     = ../source
+# BUILDDIR      = _build/$(LANG)
+BUILDDIR      = ../../sphinx-docs
 SPHINXOPTS    = -D language='$(LANG)' $(SOURCEDIR)
 
 # Internal variables.
