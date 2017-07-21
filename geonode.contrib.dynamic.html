@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.contrib.dynamic package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.contrib.dynamic package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.contrib.dynamic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-contrib-dynamic-package">
+<h1>geonode.contrib.dynamic package<a class="headerlink" href="#geonode-contrib-dynamic-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="geonode-contrib-dynamic-admin-module">
+<h2>geonode.contrib.dynamic.admin module<a class="headerlink" href="#geonode-contrib-dynamic-admin-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.contrib.dynamic.models">
+<span id="geonode-contrib-dynamic-models-module"></span><h2>geonode.contrib.dynamic.models module<a class="headerlink" href="#module-geonode.contrib.dynamic.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.contrib.dynamic.models.Field">
+<em class="property">class </em><code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">Field</code><span class="sig-paren">(</span><em>id</em>, <em>model_id</em>, <em>name</em>, <em>type</em>, <em>original_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.Field.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.Field.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.dynamic.models.Field.get_django_field">
+<code class="descname">get_django_field</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.get_django_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the correct field type, instantiated with applicable settings</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.Field.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.Field.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.Field.settings">
+<code class="descname">settings</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Field.settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.contrib.dynamic.models.ModelDescription">
+<em class="property">class </em><code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">ModelDescription</code><span class="sig-paren">(</span><em>id</em>, <em>name</em>, <em>layer_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.data_objects">
+<code class="descname">data_objects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.data_objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.fields">
+<code class="descname">fields</code><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.get_django_model">
+<code class="descname">get_django_model</code><span class="sig-paren">(</span><em>with_admin=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.get_django_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a functional Django model based on current data</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.layer">
+<code class="descname">layer</code><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.ModelDescription.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.contrib.dynamic.models.ModelDescription.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.contrib.dynamic.models.Setting">
+<em class="property">class </em><code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">Setting</code><span class="sig-paren">(</span><em>id</em>, <em>field_id</em>, <em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.Setting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.Setting.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Setting.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.contrib.dynamic.models.Setting.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Setting.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.Setting.field">
+<code class="descname">field</code><a class="headerlink" href="#geonode.contrib.dynamic.models.Setting.field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.dynamic.models.Setting.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.contrib.dynamic.models.Setting.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.create_model">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">create_model</code><span class="sig-paren">(</span><em>name</em>, <em>fields=None</em>, <em>app_label=u''</em>, <em>module=u''</em>, <em>options=None</em>, <em>admin_opts=None</em>, <em>with_admin=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.create_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create specified model</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.generate_model">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">generate_model</code><span class="sig-paren">(</span><em>model_description</em>, <em>mapping</em>, <em>db_key=u''</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.generate_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses instrospection to generate a Django model from a database table.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.get_field_type">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">get_field_type</code><span class="sig-paren">(</span><em>connection</em>, <em>table_name</em>, <em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.get_field_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the database connection, the table name, and the cursor row
+description, this routine will return the given field type name, as
+well as any additional keyword parameters and notes for the field.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.is_valid_field">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">is_valid_field</code><span class="sig-paren">(</span><em>self</em>, <em>field_data</em>, <em>all_data</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.is_valid_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.normalize_col_name">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">normalize_col_name</code><span class="sig-paren">(</span><em>col_name</em>, <em>used_column_names</em>, <em>is_relation</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.normalize_col_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify the column name to make it Python-compatible as a field name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.post_save_layer">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">post_save_layer</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.post_save_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign layer instance to the dynamic model.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.models.pre_save_layer">
+<code class="descclassname">geonode.contrib.dynamic.models.</code><code class="descname">pre_save_layer</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.models.pre_save_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save to postgis if there is a datastore.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.dynamic.postgis">
+<span id="geonode-contrib-dynamic-postgis-module"></span><h2>geonode.contrib.dynamic.postgis module<a class="headerlink" href="#module-geonode.contrib.dynamic.postgis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.execute">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>sql</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns out running plain SQL within Django is very hard.
+The following code is really weak but gets the job done.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.file2pgtable">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">file2pgtable</code><span class="sig-paren">(</span><em>infile</em>, <em>table_name</em>, <em>srid=4326</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.file2pgtable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create table and fill it from file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.get_extent_from_text">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">get_extent_from_text</code><span class="sig-paren">(</span><em>points</em>, <em>srid_in</em>, <em>srid_out</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.get_extent_from_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform an extent from srid_in to srid_out.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.get_model_field_name">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">get_model_field_name</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.get_model_field_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the field name usable without quotes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.merge_geometries">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">merge_geometries</code><span class="sig-paren">(</span><em>geometries_str</em>, <em>sep='$'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.merge_geometries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a list of geometries in a string, and merge it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.dynamic.postgis.transform_geom">
+<code class="descclassname">geonode.contrib.dynamic.postgis.</code><code class="descname">transform_geom</code><span class="sig-paren">(</span><em>wkt</em>, <em>srid_in</em>, <em>srid_out</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.dynamic.postgis.transform_geom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.dynamic.urls">
+<span id="geonode-contrib-dynamic-urls-module"></span><h2>geonode.contrib.dynamic.urls module<a class="headerlink" href="#module-geonode.contrib.dynamic.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.contrib.dynamic">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.contrib.dynamic" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

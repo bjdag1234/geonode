@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.catalogue.backends package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.catalogue.backends package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.catalogue.backends.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-catalogue-backends-package">
+<h1>geonode.catalogue.backends package<a class="headerlink" href="#geonode-catalogue-backends-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.catalogue.backends.base">
+<span id="geonode-catalogue-backends-base-module"></span><h2>geonode.catalogue.backends.base module<a class="headerlink" href="#module-geonode.catalogue.backends.base" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.catalogue.backends.base.BaseCatalogueBackend">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.base.</code><code class="descname">BaseCatalogueBackend</code><a class="headerlink" href="#geonode.catalogue.backends.base.BaseCatalogueBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Catalogue abstract base class</p>
+<dl class="method">
+<dt id="geonode.catalogue.backends.base.BaseCatalogueBackend.create_record">
+<code class="descname">create_record</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.base.BaseCatalogueBackend.create_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create record in the catalogue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.base.BaseCatalogueBackend.get_record">
+<code class="descname">get_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.base.BaseCatalogueBackend.get_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get record from the catalogue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.base.BaseCatalogueBackend.remove_record">
+<code class="descname">remove_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.base.BaseCatalogueBackend.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove record from the catalogue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.base.BaseCatalogueBackend.search_records">
+<code class="descname">search_records</code><span class="sig-paren">(</span><em>keywords</em>, <em>start</em>, <em>limit</em>, <em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.base.BaseCatalogueBackend.search_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for records from the catalogue</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.catalogue.backends.generic">
+<span id="geonode-catalogue-backends-generic-module"></span><h2>geonode.catalogue.backends.generic module<a class="headerlink" href="#module-geonode.catalogue.backends.generic" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.catalogue.backends.generic.Catalogue">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.generic.</code><code class="descname">Catalogue</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">owslib.csw.CatalogueServiceWeb</span></code></p>
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.create_from_layer">
+<code class="descname">create_from_layer</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.create_from_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.csw_gen_anytext">
+<code class="descname">csw_gen_anytext</code><span class="sig-paren">(</span><em>xml</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.csw_gen_anytext" title="Permalink to this definition">¶</a></dt>
+<dd><p>get all element data from an XML document</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.csw_gen_xml">
+<code class="descname">csw_gen_xml</code><span class="sig-paren">(</span><em>layer</em>, <em>template</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.csw_gen_xml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.csw_request">
+<code class="descname">csw_request</code><span class="sig-paren">(</span><em>layer</em>, <em>template</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.csw_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.delete_layer">
+<code class="descname">delete_layer</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.delete_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.extract_links">
+<code class="descname">extract_links</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.extract_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.get_by_uuid">
+<code class="descname">get_by_uuid</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.get_by_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.login">
+<code class="descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.logout">
+<code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.logout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.metadatarecord2dict">
+<code class="descname">metadatarecord2dict</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.metadatarecord2dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>accepts a node representing a catalogue result
+record and builds a POD structure representing
+the search result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.normalize_bbox">
+<code class="descname">normalize_bbox</code><span class="sig-paren">(</span><em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.normalize_bbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>fix bbox axis order
+GeoNetwork accepts x/y
+pycsw accepts y/x</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>keywords</em>, <em>startposition</em>, <em>maxrecords</em>, <em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>CSW search wrapper</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.set_metadata_privs">
+<code class="descname">set_metadata_privs</code><span class="sig-paren">(</span><em>uuid</em>, <em>privileges</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.set_metadata_privs" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the full set of geonetwork privileges on the item with the
+specified uuid based on the dictionary given of the form:
+{</p>
+<blockquote>
+<div>‘group_name1’: {‘operation1’: True, ‘operation2’: True, …},
+‘group_name2’: …</div></blockquote>
+<p>}</p>
+<p>all unspecified operations and operations for unspecified groups
+are set to False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.update_layer">
+<code class="descname">update_layer</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.update_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.url_for_uuid">
+<code class="descname">url_for_uuid</code><span class="sig-paren">(</span><em>uuid</em>, <em>outputschema</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.url_for_uuid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.urlopen">
+<code class="descname">urlopen</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.urlopen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.Catalogue.urls_for_uuid">
+<code class="descname">urls_for_uuid</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.Catalogue.urls_for_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns list of valid GetRecordById URLs for a given record</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.catalogue.backends.generic.CatalogueBackend">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.generic.</code><code class="descname">CatalogueBackend</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.CatalogueBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.catalogue.backends.base.BaseCatalogueBackend" title="geonode.catalogue.backends.base.BaseCatalogueBackend"><code class="xref py py-class docutils literal"><span class="pre">geonode.catalogue.backends.base.BaseCatalogueBackend</span></code></a></p>
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.CatalogueBackend.create_record">
+<code class="descname">create_record</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.CatalogueBackend.create_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.CatalogueBackend.get_record">
+<code class="descname">get_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.CatalogueBackend.get_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.CatalogueBackend.remove_record">
+<code class="descname">remove_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.CatalogueBackend.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.generic.CatalogueBackend.search_records">
+<code class="descname">search_records</code><span class="sig-paren">(</span><em>keywords</em>, <em>start</em>, <em>limit</em>, <em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.generic.CatalogueBackend.search_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.catalogue.backends.geonetwork">
+<span id="geonode-catalogue-backends-geonetwork-module"></span><h2>geonode.catalogue.backends.geonetwork module<a class="headerlink" href="#module-geonode.catalogue.backends.geonetwork" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.catalogue.backends.geonetwork.CatalogueBackend">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.geonetwork.</code><code class="descname">CatalogueBackend</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.geonetwork.CatalogueBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.catalogue.backends.generic.CatalogueBackend" title="geonode.catalogue.backends.generic.CatalogueBackend"><code class="xref py py-class docutils literal"><span class="pre">geonode.catalogue.backends.generic.CatalogueBackend</span></code></a></p>
+<p>GeoNetwork CSW Backend</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.catalogue.backends.pycsw_http">
+<span id="geonode-catalogue-backends-pycsw-http-module"></span><h2>geonode.catalogue.backends.pycsw_http module<a class="headerlink" href="#module-geonode.catalogue.backends.pycsw_http" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.catalogue.backends.pycsw_http.CatalogueBackend">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.pycsw_http.</code><code class="descname">CatalogueBackend</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_http.CatalogueBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.catalogue.backends.generic.CatalogueBackend" title="geonode.catalogue.backends.generic.CatalogueBackend"><code class="xref py py-class docutils literal"><span class="pre">geonode.catalogue.backends.generic.CatalogueBackend</span></code></a></p>
+<p>pycsw HTTP CSW backend</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.catalogue.backends.pycsw_local">
+<span id="geonode-catalogue-backends-pycsw-local-module"></span><h2>geonode.catalogue.backends.pycsw_local module<a class="headerlink" href="#module-geonode.catalogue.backends.pycsw_local" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.catalogue.backends.pycsw_local.CatalogueBackend">
+<em class="property">class </em><code class="descclassname">geonode.catalogue.backends.pycsw_local.</code><code class="descname">CatalogueBackend</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_local.CatalogueBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.catalogue.backends.generic.CatalogueBackend" title="geonode.catalogue.backends.generic.CatalogueBackend"><code class="xref py py-class docutils literal"><span class="pre">geonode.catalogue.backends.generic.CatalogueBackend</span></code></a></p>
+<dl class="method">
+<dt id="geonode.catalogue.backends.pycsw_local.CatalogueBackend.create_record">
+<code class="descname">create_record</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_local.CatalogueBackend.create_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.pycsw_local.CatalogueBackend.get_record">
+<code class="descname">get_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_local.CatalogueBackend.get_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.pycsw_local.CatalogueBackend.remove_record">
+<code class="descname">remove_record</code><span class="sig-paren">(</span><em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_local.CatalogueBackend.remove_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.catalogue.backends.pycsw_local.CatalogueBackend.search_records">
+<code class="descname">search_records</code><span class="sig-paren">(</span><em>keywords</em>, <em>start</em>, <em>limit</em>, <em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.catalogue.backends.pycsw_local.CatalogueBackend.search_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.catalogue.backends.pycsw_local_mappings">
+<span id="geonode-catalogue-backends-pycsw-local-mappings-module"></span><h2>geonode.catalogue.backends.pycsw_local_mappings module<a class="headerlink" href="#module-geonode.catalogue.backends.pycsw_local_mappings" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.catalogue.backends">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.catalogue.backends" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

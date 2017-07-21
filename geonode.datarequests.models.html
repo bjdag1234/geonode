@@ -1,0 +1,1192 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.datarequests.models package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.datarequests.models package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.datarequests.models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-datarequests-models-package">
+<h1>geonode.datarequests.models package<a class="headerlink" href="#geonode-datarequests-models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.datarequests.models.base_request">
+<span id="geonode-datarequests-models-base-request-module"></span><h2>geonode.datarequests.models.base_request module<a class="headerlink" href="#module-geonode.datarequests.models.base_request" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.models.base_request.BaseRequest">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.base_request.</code><code class="descname">BaseRequest</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">model_utils.models.TimeStampedModel</span></code></p>
+<dl class="class">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.Meta.abstract">
+<code class="descname">abstract</code><em class="property"> = False</em><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.Meta.abstract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.Meta.app_label">
+<code class="descname">app_label</code><em class="property"> = 'datarequests'</em><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.Meta.app_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.STATUS">
+<code class="descname">STATUS</code><em class="property"> = Choices(('pending', 'pending', u'Pending'), ('approved', 'approved', u'Approved'), ('cancelled', 'cancelled', u'Cancelled'), ('rejected', 'rejected', u'Rejected'), ('unconfirmed', 'unconfirmed', u'Unconfirmed Email'))</em><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.STATUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.administrator">
+<code class="descname">administrator</code><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.administrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.get_next_by_created">
+<code class="descname">get_next_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.get_next_by_modified">
+<code class="descname">get_next_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.get_next_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.get_previous_by_created">
+<code class="descname">get_previous_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.get_previous_by_modified">
+<code class="descname">get_previous_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.get_previous_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.BaseRequest.profile">
+<code class="descname">profile</code><a class="headerlink" href="#geonode.datarequests.models.base_request.BaseRequest.profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.datarequests.models.base_request.LipadOrgType">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.base_request.</code><code class="descname">LipadOrgType</code><span class="sig-paren">(</span><em>id</em>, <em>val</em>, <em>display_val</em>, <em>category</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.LipadOrgType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.base_request.LipadOrgType.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.base_request.LipadOrgType.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.base_request.LipadOrgType.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.base_request.LipadOrgType.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.LipadOrgType.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.base_request.LipadOrgType.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.datarequests.models.base_request.RequestRejectionReason">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.base_request.</code><code class="descname">RequestRejectionReason</code><span class="sig-paren">(</span><em>id</em>, <em>reason</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.base_request.RequestRejectionReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.base_request.RequestRejectionReason.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.base_request.RequestRejectionReason.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.base_request.RequestRejectionReason.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.base_request.RequestRejectionReason.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.base_request.RequestRejectionReason.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.base_request.RequestRejectionReason.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.models.data_request">
+<span id="geonode-datarequests-models-data-request-module"></span><h2>geonode.datarequests.models.data_request module<a class="headerlink" href="#module-geonode.datarequests.models.data_request" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.models.data_request.DataRequest">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.data_request.</code><code class="descname">DataRequest</code><span class="sig-paren">(</span><em>id</em>, <em>created</em>, <em>modified</em>, <em>status</em>, <em>status_changed</em>, <em>profile_id</em>, <em>administrator_id</em>, <em>rejection_reason</em>, <em>additional_remarks</em>, <em>additional_rejection_reason</em>, <em>profile_request_id</em>, <em>jurisdiction_shapefile_id</em>, <em>project_summary</em>, <em>data_class_other</em>, <em>data_type_requested</em>, <em>purpose</em>, <em>intended_use_of_dataset</em>, <em>place_name</em>, <em>area_coverage</em>, <em>juris_data_size</em>, <em>request_letter_id</em>, <em>suc_notified</em>, <em>suc_notified_date</em>, <em>forwarded</em>, <em>forwarded_date</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.datarequests.models.base_request.BaseRequest" title="geonode.datarequests.models.base_request.BaseRequest"><code class="xref py py-class docutils literal"><span class="pre">geonode.datarequests.models.base_request.BaseRequest</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">model_utils.models.StatusModel</span></code></p>
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.DATASET_USE_CHOICES">
+<code class="descname">DATASET_USE_CHOICES</code><em class="property"> = Choices(('commercial', 'commercial', u'Commercial'), ('noncommercial', 'noncommercial', u'Non-commercial'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.DATASET_USE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.DATA_TYPE_CHOICES">
+<code class="descname">DATA_TYPE_CHOICES</code><em class="property"> = Choices(('interpreted', 'interpreted', u'Interpreted'), ('raw', 'raw', u'Raw'), ('processed', 'processed', u'Processed'), ('other', 'other', u'Other'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.DATA_TYPE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.DataRequest.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.DataRequest.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.REJECTION_REASON_CHOICES">
+<code class="descname">REJECTION_REASON_CHOICES</code><em class="property"> = Choices(('reason1', 'reason1', u'Reason 1'), ('reason2', 'reason2', u'Reason 2'), ('reason3', 'reason3', u'Reason 3'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.REJECTION_REASON_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.administrator">
+<code class="descname">administrator</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.administrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.approved">
+<code class="descname">approved</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.approved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.assign_jurisdiction">
+<code class="descname">assign_jurisdiction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.assign_jurisdiction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.cancelled">
+<code class="descname">cancelled</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.cancelled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.data_type">
+<code class="descname">data_type</code><em class="property"> = &lt;taggit.managers._TaggableManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.datarequestprofile_set">
+<code class="descname">datarequestprofile_set</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.datarequestprofile_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_contact_number">
+<code class="descname">get_contact_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_contact_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_data_type_requested_display">
+<code class="descname">get_data_type_requested_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_data_type_requested_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_email">
+<code class="descname">get_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_first_name">
+<code class="descname">get_first_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_intended_use_of_dataset_display">
+<code class="descname">get_intended_use_of_dataset_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_intended_use_of_dataset_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_last_name">
+<code class="descname">get_last_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_next_by_created">
+<code class="descname">get_next_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_next_by_modified">
+<code class="descname">get_next_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_next_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_next_by_status_changed">
+<code class="descname">get_next_by_status_changed</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_next_by_status_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_organization">
+<code class="descname">get_organization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_organization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_organization_type">
+<code class="descname">get_organization_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_organization_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_previous_by_created">
+<code class="descname">get_previous_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_previous_by_modified">
+<code class="descname">get_previous_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_previous_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_previous_by_status_changed">
+<code class="descname">get_previous_by_status_changed</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_previous_by_status_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.get_status_display">
+<code class="descname">get_status_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.jurisdiction_shapefile">
+<code class="descname">jurisdiction_shapefile</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.jurisdiction_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.new">
+<code class="descname">new</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.notify_user_forward">
+<code class="descname">notify_user_forward</code><span class="sig-paren">(</span><em>suc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.notify_user_forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.notify_user_preforward">
+<code class="descname">notify_user_preforward</code><span class="sig-paren">(</span><em>suc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.notify_user_preforward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.pending">
+<code class="descname">pending</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.pending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.profile">
+<code class="descname">profile</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.profile_request">
+<code class="descname">profile_request</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.profile_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.rejected">
+<code class="descname">rejected</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.rejected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.request_letter">
+<code class="descname">request_letter</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.request_letter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_approval_email">
+<code class="descname">send_approval_email</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_approval_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_email">
+<code class="descname">send_email</code><span class="sig-paren">(</span><em>subj</em>, <em>msg</em>, <em>html_msg</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_jurisdiction">
+<code class="descname">send_jurisdiction</code><span class="sig-paren">(</span><em>suc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_jurisdiction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_new_request_notif_to_admins">
+<code class="descname">send_new_request_notif_to_admins</code><span class="sig-paren">(</span><em>request_type='Data'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_new_request_notif_to_admins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_rejection_email">
+<code class="descname">send_rejection_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_rejection_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.send_suc_notification">
+<code class="descname">send_suc_notification</code><span class="sig-paren">(</span><em>suc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.send_suc_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.set_status">
+<code class="descname">set_status</code><span class="sig-paren">(</span><em>status</em>, <em>administrator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.set_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.suc">
+<code class="descname">suc</code><em class="property"> = &lt;taggit.managers._TaggableManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.suc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.tagged_items">
+<code class="descname">tagged_items</code><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.tagged_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request.DataRequest.to_values_list">
+<code class="descname">to_values_list</code><span class="sig-paren">(</span><em>fields=['id', 'name', 'email', 'contact_number', 'organization', 'project_summary', 'created', 'status', 'data_size', 'area_coverage', 'has_profile_request']</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.to_values_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.DataRequest.unconfirmed">
+<code class="descname">unconfirmed</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.DataRequest.unconfirmed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.datarequests.models.data_request.SUCRequestTag">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.data_request.</code><code class="descname">SUCRequestTag</code><span class="sig-paren">(</span><em>id</em>, <em>name</em>, <em>slug</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCRequestTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">taggit.models.TagBase</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.SUCRequestTag.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCRequestTag.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.SUCRequestTag.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCRequestTag.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCRequestTag.SUC_request_tag">
+<code class="descname">SUC_request_tag</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCRequestTag.SUC_request_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCRequestTag.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCRequestTag.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.data_request.</code><code class="descname">SUCTaggedRequest</code><span class="sig-paren">(</span><em>id</em>, <em>object_id</em>, <em>content_type_id</em>, <em>tag_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">taggit.models.GenericTaggedItemBase</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.content_object">
+<code class="descname">content_object</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.content_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a generic relation to any object through content-type/object-id
+fields.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.content_type">
+<code class="descname">content_type</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request.SUCTaggedRequest.tag">
+<code class="descname">tag</code><a class="headerlink" href="#geonode.datarequests.models.data_request.SUCTaggedRequest.tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.models.data_request_profile">
+<span id="geonode-datarequests-models-data-request-profile-module"></span><h2>geonode.datarequests.models.data_request_profile module<a class="headerlink" href="#module-geonode.datarequests.models.data_request_profile" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.data_request_profile.</code><code class="descname">DataRequestProfile</code><span class="sig-paren">(</span><em>id</em>, <em>created</em>, <em>modified</em>, <em>profile_id</em>, <em>username</em>, <em>jurisdiction_shapefile_id</em>, <em>request_status</em>, <em>first_name</em>, <em>middle_name</em>, <em>last_name</em>, <em>organization</em>, <em>location</em>, <em>email</em>, <em>contact_number</em>, <em>project_summary</em>, <em>data_type_requested</em>, <em>area_coverage</em>, <em>purpose</em>, <em>intended_use_of_dataset</em>, <em>organization_type</em>, <em>org_type</em>, <em>organization_other</em>, <em>request_level</em>, <em>funding_source</em>, <em>is_consultant</em>, <em>rejection_reason</em>, <em>additional_rejection_reason</em>, <em>place_name</em>, <em>juris_data_size</em>, <em>request_letter_id</em>, <em>verification_key</em>, <em>key_created_date</em>, <em>date</em>, <em>ftp_folder</em>, <em>administrator_id</em>, <em>action_date</em>, <em>additional_remarks</em>, <em>profile_request_id</em>, <em>data_request_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">model_utils.models.TimeStampedModel</span></code></p>
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.DATASET_USE_CHOICES">
+<code class="descname">DATASET_USE_CHOICES</code><em class="property"> = Choices(('commercial', 'commercial', u'Commercial'), ('noncommercial', 'noncommercial', u'Non-commercial'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.DATASET_USE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.DATA_TYPE_CHOICES">
+<code class="descname">DATA_TYPE_CHOICES</code><em class="property"> = Choices(('interpreted', 'interpreted', u'Interpreted'), ('raw', 'raw', u'Raw'), ('processed', 'processed', u'Processed'), ('other', 'other', u'Other'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.DATA_TYPE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.LOCATION_CHOICES">
+<code class="descname">LOCATION_CHOICES</code><em class="property"> = Choices(('local', 'local', u'Local'), ('foreign', 'foreign', u'Foreign'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.LOCATION_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.REJECTION_REASON_CHOICES">
+<code class="descname">REJECTION_REASON_CHOICES</code><em class="property"> = Choices(('reason1', 'reason1', u'Reason 1'), ('reason2', 'reason2', u'Reason 2'), ('reason3', 'reason3', u'Reason 3'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.REJECTION_REASON_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUESTER_TYPE_CHOICES">
+<code class="descname">REQUESTER_TYPE_CHOICES</code><em class="property"> = Choices(('commercial', 'commercial', u'Commercial Requester'), ('noncommercial', 'noncommercial', u'Non-Commercial Requester'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUESTER_TYPE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUEST_LEVEL_CHOICES">
+<code class="descname">REQUEST_LEVEL_CHOICES</code><em class="property"> = Choices(('institution', 'institution', u'Institution'), ('faculty', 'faculty', u'Faculty'), ('student', 'student', u'Student'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUEST_LEVEL_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUEST_STATUS_CHOICES">
+<code class="descname">REQUEST_STATUS_CHOICES</code><em class="property"> = Choices(('pending', 'pending', u'Pending'), ('approved', 'approved', u'Approved'), ('cancelled', 'cancelled', u'Cancelled'), ('rejected', 'rejected', u'Rejected'), ('unconfirmed', 'unconfirmed', u'Unconfirmed Email'))</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.REQUEST_STATUS_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.administrator">
+<code class="descname">administrator</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.administrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.area_coverage">
+<code class="descname">area_coverage</code><em class="property"> = None</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.area_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>data_resolution = models.PositiveIntegerField(</dt>
+<dd>_(‘Data Resolution’),
+help_text=_(‘pixels per inch’),</dd>
+</dl>
+<p>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.assign_jurisdiction">
+<code class="descname">assign_jurisdiction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.assign_jurisdiction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.create_account">
+<code class="descname">create_account</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.create_account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.create_directory">
+<code class="descname">create_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.create_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.data_request">
+<code class="descname">data_request</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.data_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.data_type_requested">
+<code class="descname">data_type_requested</code><em class="property"> = None</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.data_type_requested" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>data_set = models.CharField(</dt>
+<dd>_(‘Data/Data Set Subject to License’),
+max_length=100,</dd>
+</dl>
+<p>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_data_type_requested_display">
+<code class="descname">get_data_type_requested_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_data_type_requested_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_intended_use_of_dataset_display">
+<code class="descname">get_intended_use_of_dataset_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_intended_use_of_dataset_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_location_display">
+<code class="descname">get_location_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_location_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_created">
+<code class="descname">get_next_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_key_created_date">
+<code class="descname">get_next_by_key_created_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_key_created_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_modified">
+<code class="descname">get_next_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_next_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_organization_type_display">
+<code class="descname">get_organization_type_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_organization_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_created">
+<code class="descname">get_previous_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_key_created_date">
+<code class="descname">get_previous_by_key_created_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_key_created_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_modified">
+<code class="descname">get_previous_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_previous_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_request_level_display">
+<code class="descname">get_request_level_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_request_level_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.get_request_status_display">
+<code class="descname">get_request_status_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.get_request_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.has_verified_email">
+<code class="descname">has_verified_email</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.has_verified_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.join_requester_grp">
+<code class="descname">join_requester_grp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.join_requester_grp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.jurisdiction_shapefile">
+<code class="descname">jurisdiction_shapefile</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.jurisdiction_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.migrate_request_data">
+<code class="descname">migrate_request_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.migrate_request_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.migrate_request_profile">
+<code class="descname">migrate_request_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.migrate_request_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.organization_type">
+<code class="descname">organization_type</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.organization_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.profile">
+<code class="descname">profile</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.profile_request">
+<code class="descname">profile_request</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.profile_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.request_letter">
+<code class="descname">request_letter</code><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.request_letter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_account_approval_email">
+<code class="descname">send_account_approval_email</code><span class="sig-paren">(</span><em>username</em>, <em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_account_approval_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_account_rejection_email">
+<code class="descname">send_account_rejection_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_account_rejection_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_new_request_notif_to_admins">
+<code class="descname">send_new_request_notif_to_admins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_new_request_notif_to_admins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_approval_email">
+<code class="descname">send_request_approval_email</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_approval_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_reception_email">
+<code class="descname">send_request_reception_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_reception_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_rejection_email">
+<code class="descname">send_request_rejection_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_request_rejection_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.send_verification_email">
+<code class="descname">send_verification_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.send_verification_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.set_approved">
+<code class="descname">set_approved</code><span class="sig-paren">(</span><em>is_new_acc</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.set_approved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.set_verification_key">
+<code class="descname">set_verification_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.set_verification_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.data_request_profile.DataRequestProfile.to_values_list">
+<code class="descname">to_values_list</code><span class="sig-paren">(</span><em>fields=['id', 'name', 'email', 'contact_number', 'organization', 'project_summary', 'created', 'request_status', 'data_size', 'area_coverage']</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.data_request_profile.DataRequestProfile.to_values_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.models.email_msg_templates">
+<span id="geonode-datarequests-models-email-msg-templates-module"></span><h2>geonode.datarequests.models.email_msg_templates module<a class="headerlink" href="#module-geonode.datarequests.models.email_msg_templates" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.datarequests.models.profile_request">
+<span id="geonode-datarequests-models-profile-request-module"></span><h2>geonode.datarequests.models.profile_request module<a class="headerlink" href="#module-geonode.datarequests.models.profile_request" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.profile_request.</code><code class="descname">ProfileRequest</code><span class="sig-paren">(</span><em>id</em>, <em>created</em>, <em>modified</em>, <em>status</em>, <em>status_changed</em>, <em>profile_id</em>, <em>administrator_id</em>, <em>rejection_reason</em>, <em>additional_remarks</em>, <em>additional_rejection_reason</em>, <em>data_request_id</em>, <em>username</em>, <em>first_name</em>, <em>middle_name</em>, <em>last_name</em>, <em>organization</em>, <em>location</em>, <em>email</em>, <em>contact_number</em>, <em>organization_type</em>, <em>org_type</em>, <em>organization_other</em>, <em>request_level</em>, <em>funding_source</em>, <em>is_consultant</em>, <em>verification_key</em>, <em>key_created_date</em>, <em>verification_date</em>, <em>ftp_folder</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.datarequests.models.base_request.BaseRequest" title="geonode.datarequests.models.base_request.BaseRequest"><code class="xref py py-class docutils literal"><span class="pre">geonode.datarequests.models.base_request.BaseRequest</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">model_utils.models.StatusModel</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.LOCATION_CHOICES">
+<code class="descname">LOCATION_CHOICES</code><em class="property"> = Choices(('local', 'local', u'Local'), ('foreign', 'foreign', u'Foreign'))</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.LOCATION_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.REJECTION_REASON_CHOICES">
+<code class="descname">REJECTION_REASON_CHOICES</code><em class="property"> = Choices(('reason1', 'reason1', u'Reason 1'), ('reason2', 'reason2', u'Reason 2'), ('reason3', 'reason3', u'Reason 3'))</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.REJECTION_REASON_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.REQUESTER_TYPE_CHOICES">
+<code class="descname">REQUESTER_TYPE_CHOICES</code><em class="property"> = Choices(('commercial', 'commercial', u'Commercial Requester'), ('noncommercial', 'noncommercial', u'Non-Commercial Requester'))</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.REQUESTER_TYPE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.REQUEST_LEVEL_CHOICES">
+<code class="descname">REQUEST_LEVEL_CHOICES</code><em class="property"> = Choices(('institution', 'institution', u'Institution'), ('faculty', 'faculty', u'Faculty'), ('student', 'student', u'Student'))</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.REQUEST_LEVEL_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.STATUS">
+<code class="descname">STATUS</code><em class="property"> = Choices(('pending', 'pending', u'Pending'), ('approved', 'approved', u'Approved'), ('cancelled', 'cancelled', u'Cancelled'), ('rejected', 'rejected', u'Rejected'), ('unconfirmed', 'unconfirmed', u'Unconfirmed Email'))</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.STATUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.administrator">
+<code class="descname">administrator</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.administrator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.approved">
+<code class="descname">approved</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.approved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.cancelled">
+<code class="descname">cancelled</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.cancelled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.create_account">
+<code class="descname">create_account</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.create_account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.create_directory">
+<code class="descname">create_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.create_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.data_request">
+<code class="descname">data_request</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.data_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.datarequest_set">
+<code class="descname">datarequest_set</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.datarequest_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.datarequestprofile_set">
+<code class="descname">datarequestprofile_set</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.datarequestprofile_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_location_display">
+<code class="descname">get_location_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_location_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_created">
+<code class="descname">get_next_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_key_created_date">
+<code class="descname">get_next_by_key_created_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_key_created_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_modified">
+<code class="descname">get_next_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_status_changed">
+<code class="descname">get_next_by_status_changed</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_next_by_status_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_organization_type">
+<code class="descname">get_organization_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_organization_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_organization_type_display">
+<code class="descname">get_organization_type_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_organization_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_created">
+<code class="descname">get_previous_by_created</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_key_created_date">
+<code class="descname">get_previous_by_key_created_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_key_created_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_modified">
+<code class="descname">get_previous_by_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_status_changed">
+<code class="descname">get_previous_by_status_changed</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_previous_by_status_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_request_level_display">
+<code class="descname">get_request_level_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_request_level_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.get_status_display">
+<code class="descname">get_status_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.has_verified_email">
+<code class="descname">has_verified_email</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.has_verified_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.join_requester_grp">
+<code class="descname">join_requester_grp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.join_requester_grp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.organization_type">
+<code class="descname">organization_type</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.organization_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.pending">
+<code class="descname">pending</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.pending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.profile">
+<code class="descname">profile</code><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.rejected">
+<code class="descname">rejected</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.rejected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.send_approval_email">
+<code class="descname">send_approval_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.send_approval_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.send_email">
+<code class="descname">send_email</code><span class="sig-paren">(</span><em>subj</em>, <em>msg</em>, <em>html_msg</em>, <em>recipient='lipad&#64;dream.upd.edu.ph'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.send_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.send_new_request_notif_to_admins">
+<code class="descname">send_new_request_notif_to_admins</code><span class="sig-paren">(</span><em>request_type='Profile'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.send_new_request_notif_to_admins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.send_rejection_email">
+<code class="descname">send_rejection_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.send_rejection_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.send_verification_email">
+<code class="descname">send_verification_email</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.send_verification_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.set_status">
+<code class="descname">set_status</code><span class="sig-paren">(</span><em>status</em>, <em>administrator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.set_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.set_verification_key">
+<code class="descname">set_verification_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.set_verification_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.to_values_list">
+<code class="descname">to_values_list</code><span class="sig-paren">(</span><em>fields=['id', 'name', 'email', 'contact_number', 'organization', 'org_type', 'created', 'status', 'has_data_request']</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.to_values_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.profile_request.ProfileRequest.unconfirmed">
+<code class="descname">unconfirmed</code><em class="property"> = &lt;model_utils.managers.QueryManager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.profile_request.ProfileRequest.unconfirmed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.models.suc_directory">
+<span id="geonode-datarequests-models-suc-directory-module"></span><h2>geonode.datarequests.models.suc_directory module<a class="headerlink" href="#module-geonode.datarequests.models.suc_directory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.models.suc_directory.SUC_Contact">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.models.suc_directory.</code><code class="descname">SUC_Contact</code><span class="sig-paren">(</span><em>id</em>, <em>institution_abrv</em>, <em>institution_full</em>, <em>name</em>, <em>position</em>, <em>email_address</em>, <em>salutation</em>, <em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.models.suc_directory.SUC_Contact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.datarequests.models.suc_directory.SUC_Contact.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.datarequests.models.suc_directory.SUC_Contact.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.datarequests.models.suc_directory.SUC_Contact.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.datarequests.models.suc_directory.SUC_Contact.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.models.suc_directory.SUC_Contact.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.datarequests.models.suc_directory.SUC_Contact.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.datarequests.models" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

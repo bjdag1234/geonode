@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.tasks package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.tasks package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.tasks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-tasks-package">
+<h1>geonode.tasks package<a class="headerlink" href="#geonode-tasks-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.ceph_update">
+<span id="geonode-tasks-ceph-update-module"></span><h2>geonode.tasks.ceph_update module<a class="headerlink" href="#module-geonode.tasks.ceph_update" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.deletion">
+<span id="geonode-tasks-deletion-module"></span><h2>geonode.tasks.deletion module<a class="headerlink" href="#module-geonode.tasks.deletion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.email">
+<span id="geonode-tasks-email-module"></span><h2>geonode.tasks.email module<a class="headerlink" href="#module-geonode.tasks.email" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.ftp">
+<span id="geonode-tasks-ftp-module"></span><h2>geonode.tasks.ftp module<a class="headerlink" href="#module-geonode.tasks.ftp" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="geonode.tasks.ftp.CephAccessException">
+<em class="property">exception </em><code class="descclassname">geonode.tasks.ftp.</code><code class="descname">CephAccessException</code><a class="headerlink" href="#geonode.tasks.ftp.CephAccessException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.tasks.ftp.UnauthenticatedUserException">
+<em class="property">exception </em><code class="descclassname">geonode.tasks.ftp.</code><code class="descname">UnauthenticatedUserException</code><a class="headerlink" href="#geonode.tasks.ftp.UnauthenticatedUserException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.tasks.ftp.UserEmptyException">
+<em class="property">exception </em><code class="descclassname">geonode.tasks.ftp.</code><code class="descname">UserEmptyException</code><a class="headerlink" href="#geonode.tasks.ftp.UserEmptyException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.ftp.fab_check_cephaccess">
+<code class="descclassname">geonode.tasks.ftp.</code><code class="descname">fab_check_cephaccess</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.ftp.fab_check_cephaccess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call to check if CephAccess is up and running</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.ftp.fab_create_ftp_folder">
+<code class="descclassname">geonode.tasks.ftp.</code><code class="descname">fab_create_ftp_folder</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.ftp.fab_create_ftp_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an FTP folder for the requested tile data set
+Records the request in the database
+If an existing record already exists, counts the duplicates (?)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.ftp.get_folders_for_user">
+<code class="descclassname">geonode.tasks.ftp.</code><code class="descname">get_folders_for_user</code><span class="sig-paren">(</span><em>user</em>, <em>request_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.ftp.get_folders_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.ftp.mail_ftp_user">
+<code class="descclassname">geonode.tasks.ftp.</code><code class="descname">mail_ftp_user</code><span class="sig-paren">(</span><em>username</em>, <em>user_email</em>, <em>mail_subject</em>, <em>mail_msg</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.ftp.mail_ftp_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.jurisdiction">
+<span id="geonode-tasks-jurisdiction-module"></span><h2>geonode.tasks.jurisdiction module<a class="headerlink" href="#module-geonode.tasks.jurisdiction" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.jurisdiction2">
+<span id="geonode-tasks-jurisdiction2-module"></span><h2>geonode.tasks.jurisdiction2 module<a class="headerlink" href="#module-geonode.tasks.jurisdiction2" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.assign_grid_ref_util">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">assign_grid_ref_util</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.assign_grid_ref_util" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.dissolve_shp">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">dissolve_shp</code><span class="sig-paren">(</span><em>geometries</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.dissolve_shp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.email_on_error">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">email_on_error</code><span class="sig-paren">(</span><em>recipient</em>, <em>message</em>, <em>subject</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.email_on_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.get_epsg">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">get_epsg</code><span class="sig-paren">(</span><em>shp_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.get_epsg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.get_geometries_ogr">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">get_geometries_ogr</code><span class="sig-paren">(</span><em>juris_shp_name</em>, <em>dest_epsg=32651</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.get_geometries_ogr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.get_juris_data_size">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">get_juris_data_size</code><span class="sig-paren">(</span><em>geometry</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.get_juris_data_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.get_juris_tiles">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">get_juris_tiles</code><span class="sig-paren">(</span><em>juris_shp</em>, <em>user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.get_juris_tiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.reproject">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">reproject</code><span class="sig-paren">(</span><em>geom</em>, <em>src_epsg</em>, <em>dest_epsg=32651</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.reproject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.tile_ceiling">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">tile_ceiling</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.tile_ceiling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.jurisdiction2.tile_floor">
+<code class="descclassname">geonode.tasks.jurisdiction2.</code><code class="descname">tile_floor</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.jurisdiction2.tile_floor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.layer_metadata">
+<span id="geonode-tasks-layer-metadata-module"></span><h2>geonode.tasks.layer_metadata module<a class="headerlink" href="#module-geonode.tasks.layer_metadata" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.layer_metadata.fhm_year_metadata">
+<code class="descclassname">geonode.tasks.layer_metadata.</code><code class="descname">fhm_year_metadata</code><span class="sig-paren">(</span><em>flood_year</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.layer_metadata.fhm_year_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.layer_permission">
+<span id="geonode-tasks-layer-permission-module"></span><h2>geonode.tasks.layer_permission module<a class="headerlink" href="#module-geonode.tasks.layer_permission" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.layer_permission.fhm_perms_update">
+<code class="descclassname">geonode.tasks.layer_permission.</code><code class="descname">fhm_perms_update</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.layer_permission.fhm_perms_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.layer_style">
+<span id="geonode-tasks-layer-style-module"></span><h2>geonode.tasks.layer_style module<a class="headerlink" href="#module-geonode.tasks.layer_style" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.layer_style.style_update">
+<code class="descclassname">geonode.tasks.layer_style.</code><code class="descname">style_update</code><span class="sig-paren">(</span><em>layer</em>, <em>style_template</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.layer_style.style_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.lidar_coverage">
+<span id="geonode-tasks-lidar-coverage-module"></span><h2>geonode.tasks.lidar_coverage module<a class="headerlink" href="#module-geonode.tasks.lidar_coverage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.lidar_coverage.lidar_coverage_metadata">
+<code class="descclassname">geonode.tasks.lidar_coverage.</code><code class="descname">lidar_coverage_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.lidar_coverage.lidar_coverage_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.lidar_coverage.lidar_coverage_permission">
+<code class="descclassname">geonode.tasks.lidar_coverage.</code><code class="descname">lidar_coverage_permission</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.lidar_coverage.lidar_coverage_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.mk_folder">
+<span id="geonode-tasks-mk-folder-module"></span><h2>geonode.tasks.mk_folder module<a class="headerlink" href="#module-geonode.tasks.mk_folder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.mk_folder.fab_create_folder">
+<code class="descclassname">geonode.tasks.mk_folder.</code><code class="descname">fab_create_folder</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.mk_folder.fab_create_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.mk_folder.mail_on_error">
+<code class="descclassname">geonode.tasks.mk_folder.</code><code class="descname">mail_on_error</code><span class="sig-paren">(</span><em>username</em>, <em>trace_error</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.mk_folder.mail_on_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.requests">
+<span id="geonode-tasks-requests-module"></span><h2>geonode.tasks.requests module<a class="headerlink" href="#module-geonode.tasks.requests" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.requests.get_sucs">
+<code class="descclassname">geonode.tasks.requests.</code><code class="descname">get_sucs</code><span class="sig-paren">(</span><em>layer</em>, <em>sucs_layer='PL1_SUC_Munis'</em>, <em>proj=32651</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.requests.get_sucs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="geonode-tasks-resource-layer-metadata-module">
+<h2>geonode.tasks.resource_layer_metadata module<a class="headerlink" href="#geonode-tasks-resource-layer-metadata-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks.suc_rb_tagging">
+<span id="geonode-tasks-suc-rb-tagging-module"></span><h2>geonode.tasks.suc_rb_tagging module<a class="headerlink" href="#module-geonode.tasks.suc_rb_tagging" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.suc_rb_tagging.assign_tag">
+<code class="descclassname">geonode.tasks.suc_rb_tagging.</code><code class="descname">assign_tag</code><span class="sig-paren">(</span><em>mode</em>, <em>records</em>, <em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.suc_rb_tagging.assign_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.tasks.suc_rb_tagging.tag_layers">
+<code class="descclassname">geonode.tasks.suc_rb_tagging.</code><code class="descname">tag_layers</code><span class="sig-paren">(</span><em>mode</em>, <em>delineation</em>, <em>cur</em>, <em>conn</em>, <em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.suc_rb_tagging.tag_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.tests">
+<span id="geonode-tasks-tests-module"></span><h2>geonode.tasks.tests module<a class="headerlink" href="#module-geonode.tasks.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.tasks.tests.TasksTests">
+<em class="property">class </em><code class="descclassname">geonode.tasks.tests.</code><code class="descname">TasksTests</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.tests.TasksTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.thumbnail_permission">
+<span id="geonode-tasks-thumbnail-permission-module"></span><h2>geonode.tasks.thumbnail_permission module<a class="headerlink" href="#module-geonode.tasks.thumbnail_permission" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.thumbnail_permission.update_thumb_perms">
+<code class="descclassname">geonode.tasks.thumbnail_permission.</code><code class="descname">update_thumb_perms</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.thumbnail_permission.update_thumb_perms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.update">
+<span id="geonode-tasks-update-module"></span><h2>geonode.tasks.update module<a class="headerlink" href="#module-geonode.tasks.update" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.tasks.update.iterate_over_layers">
+<code class="descclassname">geonode.tasks.update.</code><code class="descname">iterate_over_layers</code><span class="sig-paren">(</span><em>layers</em>, <em>style_template</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.tasks.update.iterate_over_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.tasks.users">
+<span id="geonode-tasks-users-module"></span><h2>geonode.tasks.users module<a class="headerlink" href="#module-geonode.tasks.users" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.tasks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.tasks" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

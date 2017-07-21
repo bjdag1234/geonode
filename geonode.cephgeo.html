@@ -1,0 +1,1839 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.cephgeo package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.cephgeo package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.cephgeo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-cephgeo-package">
+<h1>geonode.cephgeo package<a class="headerlink" href="#geonode-cephgeo-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geonode.cephgeo.templatetags.html">geonode.cephgeo.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.cephgeo.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.cephgeo.templatetags.html#module-geonode.cephgeo.templatetags.cephgeo_extras">geonode.cephgeo.templatetags.cephgeo_extras module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.cephgeo.templatetags.html#module-geonode.cephgeo.templatetags">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.cephgeo.admin">
+<span id="geonode-cephgeo-admin-module"></span><h2>geonode.cephgeo.admin module<a class="headerlink" href="#module-geonode.cephgeo.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.admin.CartAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">CartAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CartAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'user', 'creation_date', 'checked_out', 'item_set')</em><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CartAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CartAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CartAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Cart</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CartAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('user__username', 'creation_date')</em><a class="headerlink" href="#geonode.cephgeo.admin.CartAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">CephDataObjectAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'name', 'block_uid', 'file_hash', 'last_modified', 'content_type', 'data_class', 'grid_ref', 'size_in_bytes')</em><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('data_class', 'content_type')</em><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">CephDataObject</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.CephDataObjectAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('name', 'data_class', 'content_type', 'grid_ref', 'block_uid__uid', 'block_uid__name')</em><a class="headerlink" href="#geonode.cephgeo.admin.CephDataObjectAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">FTPRequestAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'name', 'date_time', 'user', 'status', 'num_tiles', 'size_in_bytes')</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id', 'name')</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('status',)</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">FTPRequest</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('name', 'user__username', 'status')</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">FTPRequestToObjectIndexAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'ftprequest', 'cephobject')</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">FTPRequestToObjectIndex</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('cephobject__name', 'ftprequest__name')</em><a class="headerlink" href="#geonode.cephgeo.admin.FTPRequestToObjectIndexAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.ItemAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">ItemAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.ItemAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.ItemAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'cart', 'quantity', 'unit_price', 'content_type', 'object_id')</em><a class="headerlink" href="#geonode.cephgeo.admin.ItemAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.ItemAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.ItemAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.ItemAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.ItemAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.ItemAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.ItemAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Item</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">LidarCoverageBlockAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('uid', 'block_name', 'adjusted_l', 'sensor', 'processor', 'flight_num', 'mission_na', 'date_flown', 'floodplain', 'pl1_suc', 'pl2_suc')</em><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('uid', 'block_name')</em><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('sensor', 'pl1_suc', 'pl2_suc')</em><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">LidarCoverageBlock</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.LidarCoverageBlockAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('uid', 'block_name', 'sensor', 'processor', 'flight_num', 'mission_na', 'date_flown', 'floodplain', 'pl1_suc', 'pl2_suc')</em><a class="headerlink" href="#geonode.cephgeo.admin.LidarCoverageBlockAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">MissionGridRefAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'grid_ref', 'fieldID')</em><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('fieldID',)</em><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MissionGridRef</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.MissionGridRefAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('grid_ref', 'fieldID')</em><a class="headerlink" href="#geonode.cephgeo.admin.MissionGridRefAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.RIDFAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">RIDFAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="method">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.Riverbasins">
+<code class="descname">Riverbasins</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.Riverbasins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.get_queryset">
+<code class="descname">get_queryset</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'prov_code', 'prov_name', 'muni_code', 'muni_name', 'iscity', '_5yr', '_25yr', '_100yr', 'rbs_raw', 'Riverbasins')</em><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">RIDF</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.queryset">
+<code class="descname">queryset</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.RIDFAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('muni_code', 'muni_name', 'iscity', 'prov_code', 'prov_name', '_100yr', '_25yr', '_5yr', 'rbs_raw')</em><a class="headerlink" href="#geonode.cephgeo.admin.RIDFAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">SucToLayerAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'suc', 'block_name')</em><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('suc',)</em><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">SucToLayer</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.SucToLayerAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('suc', 'block_name')</em><a class="headerlink" href="#geonode.cephgeo.admin.SucToLayerAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.TileDataClassAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">TileDataClassAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.TileDataClassAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.TileDataClassAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'short_name', 'full_name', 'description')</em><a class="headerlink" href="#geonode.cephgeo.admin.TileDataClassAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.TileDataClassAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('short_name',)</em><a class="headerlink" href="#geonode.cephgeo.admin.TileDataClassAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.TileDataClassAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.TileDataClassAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.TileDataClassAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.TileDataClassAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">TileDataClass</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">UserJurisdictionAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'user', 'jurisdiction_shapefile')</em><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">UserJurisdiction</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserJurisdictionAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('user__username', 'jurisdiction_shapefile__title')</em><a class="headerlink" href="#geonode.cephgeo.admin.UserJurisdictionAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.admin.</code><code class="descname">UserTilesAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'user', 'num_tiles')</em><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">UserTiles</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.admin.UserTilesAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('user__username', 'gridref_list')</em><a class="headerlink" href="#geonode.cephgeo.admin.UserTilesAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.cart_utils">
+<span id="geonode-cephgeo-cart-utils-module"></span><h2>geonode.cephgeo.cart_utils module<a class="headerlink" href="#module-geonode.cephgeo.cart_utils" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="geonode.cephgeo.cart_utils.DuplicateCartItemException">
+<em class="property">exception </em><code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">DuplicateCartItemException</code><a class="headerlink" href="#geonode.cephgeo.cart_utils.DuplicateCartItemException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.add_to_cart">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">add_to_cart</code><span class="sig-paren">(</span><em>request</em>, <em>ceph_obj_id</em>, <em>quantity=1</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.add_to_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.add_to_cart_unique">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">add_to_cart_unique</code><span class="sig-paren">(</span><em>request</em>, <em>ceph_obj_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.add_to_cart_unique" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.check_dup_cart_item">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">check_dup_cart_item</code><span class="sig-paren">(</span><em>cartproxy</em>, <em>ceph_obj_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.check_dup_cart_item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.compute_price">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">compute_price</code><span class="sig-paren">(</span><em>data_class</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.compute_price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.get_item">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">get_item</code><span class="sig-paren">(</span><em>cartproxy</em>, <em>ceph_obj_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.get_item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.remove_all_from_cart">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">remove_all_from_cart</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.remove_all_from_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.cart_utils.remove_from_cart">
+<code class="descclassname">geonode.cephgeo.cart_utils.</code><code class="descname">remove_from_cart</code><span class="sig-paren">(</span><em>request</em>, <em>ceph_obj_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.cart_utils.remove_from_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.ceph_client">
+<span id="geonode-cephgeo-ceph-client-module"></span><h2>geonode.cephgeo.ceph_client module<a class="headerlink" href="#module-geonode.cephgeo.ceph_client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.ceph_client.</code><code class="descname">CephStorageClient</code><span class="sig-paren">(</span><em>user</em>, <em>key</em>, <em>ceph_radosgw_url</em>, <em>container_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.close_connection">
+<code class="descname">close_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.close_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.delete_object">
+<code class="descname">delete_object</code><span class="sig-paren">(</span><em>object_name</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.delete_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.download_file_to_path">
+<code class="descname">download_file_to_path</code><span class="sig-paren">(</span><em>object_name</em>, <em>destination_path</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.download_file_to_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.download_via_http">
+<code class="descname">download_via_http</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.download_via_http" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.get_active_container">
+<code class="descname">get_active_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.get_active_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.get_cwd">
+<code class="descname">get_cwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.get_cwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current working directory of the python script</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.list_containers">
+<code class="descname">list_containers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.list_containers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.list_files">
+<code class="descname">list_files</code><span class="sig-paren">(</span><em>container_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.list_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.log_wrapper">
+<code class="descname">log_wrapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.log_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to set logging parameters for output</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.set_active_container">
+<code class="descname">set_active_container</code><span class="sig-paren">(</span><em>container_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.set_active_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.upload_file_from_path">
+<code class="descname">upload_file_from_path</code><span class="sig-paren">(</span><em>file_path</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.upload_file_from_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.ceph_client.CephStorageClient.upload_via_http">
+<code class="descname">upload_via_http</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.ceph_client.CephStorageClient.upload_via_http" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.client">
+<span id="geonode-cephgeo-client-module"></span><h2>geonode.cephgeo.client module<a class="headerlink" href="#module-geonode.cephgeo.client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.client.CephStorageClient">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.client.</code><code class="descname">CephStorageClient</code><span class="sig-paren">(</span><em>user</em>, <em>key</em>, <em>ceph_radosgw_url</em>, <em>container_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.bulk_upload_nonthreaded">
+<code class="descname">bulk_upload_nonthreaded</code><span class="sig-paren">(</span><em>file_path</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.bulk_upload_nonthreaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.close_connection">
+<code class="descname">close_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.close_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.delete_object">
+<code class="descname">delete_object</code><span class="sig-paren">(</span><em>object_name</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.delete_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.does_exist">
+<code class="descname">does_exist</code><span class="sig-paren">(</span><em>file_name</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.does_exist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.download_file_to_path">
+<code class="descname">download_file_to_path</code><span class="sig-paren">(</span><em>object_name</em>, <em>destination_path</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.download_file_to_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.download_via_http">
+<code class="descname">download_via_http</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.download_via_http" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.get_active_container">
+<code class="descname">get_active_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.get_active_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.get_cwd">
+<code class="descname">get_cwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.get_cwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current working directory of the python script</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.list_containers">
+<code class="descname">list_containers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.list_containers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.list_files">
+<code class="descname">list_files</code><span class="sig-paren">(</span><em>container_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.list_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.log_wrapper">
+<code class="descname">log_wrapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.log_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to set logging parameters for output</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.set_active_container">
+<code class="descname">set_active_container</code><span class="sig-paren">(</span><em>container_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.set_active_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.upload_file_from_path">
+<code class="descname">upload_file_from_path</code><span class="sig-paren">(</span><em>file_path</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.upload_file_from_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.client.CephStorageClient.upload_via_http">
+<code class="descname">upload_via_http</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.client.CephStorageClient.upload_via_http" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.forms">
+<span id="geonode-cephgeo-forms-module"></span><h2>geonode.cephgeo.forms module<a class="headerlink" href="#module-geonode.cephgeo.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.forms.DataDeleteForm">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.forms.</code><code class="descname">DataDeleteForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.forms.DataDeleteForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.DataDeleteForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'data': &lt;django.forms.fields.CharField object&gt;, 'update_grid': &lt;django.forms.fields.BooleanField object&gt;, 'delete_from_ceph': &lt;django.forms.fields.BooleanField object&gt;}</em><a class="headerlink" href="#geonode.cephgeo.forms.DataDeleteForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.DataDeleteForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.forms.DataDeleteForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.forms.DataInputForm">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.forms.</code><code class="descname">DataInputForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.forms.DataInputForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.DataInputForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'data': &lt;django.forms.fields.CharField object&gt;, 'update_grid': &lt;django.forms.fields.BooleanField object&gt;}</em><a class="headerlink" href="#geonode.cephgeo.forms.DataInputForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.DataInputForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.forms.DataInputForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.forms.RequestDataClassForm">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.forms.</code><code class="descname">RequestDataClassForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.forms.RequestDataClassForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.RequestDataClassForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'LAZ': &lt;django.forms.fields.BooleanField object&gt;, 'DEM': &lt;django.forms.fields.BooleanField object&gt;, 'DSM': &lt;django.forms.fields.BooleanField object&gt;, 'DTM': &lt;django.forms.fields.BooleanField object&gt;, 'Orthophoto': &lt;django.forms.fields.BooleanField object&gt;}</em><a class="headerlink" href="#geonode.cephgeo.forms.RequestDataClassForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.forms.RequestDataClassForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.cephgeo.forms.RequestDataClassForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.gsquery">
+<span id="geonode-cephgeo-gsquery-module"></span><h2>geonode.cephgeo.gsquery module<a class="headerlink" href="#module-geonode.cephgeo.gsquery" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.area">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">area</code><span class="sig-paren">(</span><em>geom</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.create_nested_gridref_filter">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">create_nested_gridref_filter</code><span class="sig-paren">(</span><em>gridref_list</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.create_nested_gridref_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.get_feature_property">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">get_feature_property</code><span class="sig-paren">(</span><em>typeName</em>, <em>propertyName</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.get_feature_property" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.get_features_list">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">get_features_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.get_features_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.nested_grid_update">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">nested_grid_update</code><span class="sig-paren">(</span><em>gridref_list</em>, <em>field_id</em>, <em>field_value</em>, <em>shapefile_name='geonode:philgrid'</em>, <em>property_name='GRIDREF'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.nested_grid_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.send_request">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">send_request</code><span class="sig-paren">(</span><em>query</em>, <em>method='GET'</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.send_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.transacton_update">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">transacton_update</code><span class="sig-paren">(</span><em>typeName</em>, <em>search_id</em>, <em>search_value</em>, <em>field_id</em>, <em>field_value</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.transacton_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.gsquery.union">
+<code class="descclassname">geonode.cephgeo.gsquery.</code><code class="descname">union</code><span class="sig-paren">(</span><em>geoms</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.gsquery.union" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.local_settings">
+<span id="geonode-cephgeo-local-settings-module"></span><h2>geonode.cephgeo.local_settings module<a class="headerlink" href="#module-geonode.cephgeo.local_settings" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.cephgeo.models">
+<span id="geonode-cephgeo-models-module"></span><h2>geonode.cephgeo.models module<a class="headerlink" href="#module-geonode.cephgeo.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.models.CephDataObject">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">CephDataObject</code><span class="sig-paren">(</span><em>id</em>, <em>size_in_bytes</em>, <em>file_hash</em>, <em>name</em>, <em>last_modified</em>, <em>content_type</em>, <em>data_class</em>, <em>grid_ref</em>, <em>block_uid_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.CephDataObject.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.CephDataObject.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.CephDataObject.block_uid">
+<code class="descname">block_uid</code><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.block_uid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.CephDataObject.data_class">
+<code class="descname">data_class</code><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.data_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.CephDataObject.ftprequesttoobjectindex_set">
+<code class="descname">ftprequesttoobjectindex_set</code><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.ftprequesttoobjectindex_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.CephDataObject.get_data_class_display">
+<code class="descname">get_data_class_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.get_data_class_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.CephDataObject.get_next_by_last_modified">
+<code class="descname">get_next_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.get_next_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.CephDataObject.get_previous_by_last_modified">
+<code class="descname">get_previous_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.get_previous_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.CephDataObject.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.CephDataObject.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.DataClassification">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">DataClassification</code><a class="headerlink" href="#geonode.cephgeo.models.DataClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django_enumfield.enum.Enum</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.DSM">
+<code class="descname">DSM</code><em class="property"> = 4</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.DSM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.DTM">
+<code class="descname">DTM</code><em class="property"> = 3</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.DTM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.LAZ">
+<code class="descname">LAZ</code><em class="property"> = 1</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.LAZ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.ORTHOPHOTO">
+<code class="descname">ORTHOPHOTO</code><em class="property"> = 5</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.ORTHOPHOTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = 0</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.filename_suffixes">
+<code class="descname">filename_suffixes</code><em class="property"> = {'_dsm.tif': 4, '_dtm.tif': 3, '_ortho.tif': 5, '.laz': 1}</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.filename_suffixes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.gs_feature_labels">
+<code class="descname">gs_feature_labels</code><em class="property"> = {0: 'UNSUPPORTED', 1: 'LAZ', 3: 'DTM', 4: 'DSM', 5: 'ORTHO'}</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.gs_feature_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.labels">
+<code class="descname">labels</code><em class="property"> = {0: 'Unknown Type', 1: 'LAZ', 3: 'DTM TIF', 4: 'DSM TIF', 5: 'Orthophoto'}</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.DataClassification.values">
+<code class="descname">values</code><em class="property"> = {0: UNKNOWN, 1: LAZ, 3: DTM, 4: DSM, 5: ORTHOPHOTO}</em><a class="headerlink" href="#geonode.cephgeo.models.DataClassification.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.EULA">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">EULA</code><span class="sig-paren">(</span><em>id</em>, <em>user_id</em>, <em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.EULA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.EULA.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.EULA.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.EULA.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.EULA.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.EULA.document">
+<code class="descname">document</code><a class="headerlink" href="#geonode.cephgeo.models.EULA.document" title="Permalink to this definition">¶</a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Returns a
+FieldFile when accessed so you can do stuff like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assigns a file object on assignment so you can do:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.EULA.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.EULA.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.EULA.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.cephgeo.models.EULA.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.FTPRequest">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">FTPRequest</code><span class="sig-paren">(</span><em>id</em>, <em>name</em>, <em>date_time</em>, <em>user_id</em>, <em>status</em>, <em>size_in_bytes</em>, <em>num_tiles</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.FTPRequest.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.FTPRequest.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequest.ftprequesttoobjectindex_set">
+<code class="descname">ftprequesttoobjectindex_set</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.ftprequesttoobjectindex_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.FTPRequest.get_next_by_date_time">
+<code class="descname">get_next_by_date_time</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.get_next_by_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.FTPRequest.get_previous_by_date_time">
+<code class="descname">get_previous_by_date_time</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.get_previous_by_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.FTPRequest.get_status_display">
+<code class="descname">get_status_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequest.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequest.status">
+<code class="descname">status</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequest.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequest.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">FTPRequestToObjectIndex</code><span class="sig-paren">(</span><em>id</em>, <em>ftprequest_id</em>, <em>cephobject_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex.cephobject">
+<code class="descname">cephobject</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex.cephobject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex.ftprequest">
+<code class="descname">ftprequest</code><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex.ftprequest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPRequestToObjectIndex.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.FTPRequestToObjectIndex.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.FTPStatus">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">FTPStatus</code><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django_enumfield.enum.Enum</span></code></p>
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.DONE">
+<code class="descname">DONE</code><em class="property"> = 0</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.DONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.DUPLICATE">
+<code class="descname">DUPLICATE</code><em class="property"> = 3</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.DUPLICATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.ERROR">
+<code class="descname">ERROR</code><em class="property"> = 2</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.FORWARDED">
+<code class="descname">FORWARDED</code><em class="property"> = 4</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.FORWARDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.PENDING">
+<code class="descname">PENDING</code><em class="property"> = 1</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.PENDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.labels">
+<code class="descname">labels</code><em class="property"> = {0: 'Done', 1: 'Pending', 2: 'Error', 3: 'Duplicate', 4: 'Forwarded'}</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.FTPStatus.values">
+<code class="descname">values</code><em class="property"> = {0: DONE, 1: PENDING, 2: ERROR, 3: DUPLICATE, 4: FORWARDED}</em><a class="headerlink" href="#geonode.cephgeo.models.FTPStatus.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">LidarCoverageBlock</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Help text for attributes</p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.adjusted_l_ht">
+<code class="descname">adjusted_l_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.adjusted_l_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.block_name_ht">
+<code class="descname">block_name_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.block_name_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.cal_ref_pt_ht">
+<code class="descname">cal_ref_pt_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.cal_ref_pt_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.cephdataobject_set">
+<code class="descname">cephdataobject_set</code><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.cephdataobject_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.cephdataobjectresourcebase_set">
+<code class="descname">cephdataobjectresourcebase_set</code><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.cephdataobjectresourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.date_flown_ht">
+<code class="descname">date_flown_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.date_flown_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.flight_num_ht">
+<code class="descname">flight_num_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.flight_num_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.floodplain_ht">
+<code class="descname">floodplain_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.floodplain_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.height_dif_ht">
+<code class="descname">height_dif_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.height_dif_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.mission_na_ht">
+<code class="descname">mission_na_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.mission_na_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.pl1_suc_ht">
+<code class="descname">pl1_suc_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.pl1_suc_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.pl2_suc_ht">
+<code class="descname">pl2_suc_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.pl2_suc_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.processor_ht">
+<code class="descname">processor_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.processor_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.rmse_val_m_ht">
+<code class="descname">rmse_val_m_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.rmse_val_m_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.sensor_ht">
+<code class="descname">sensor_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.sensor_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.uid_ht">
+<code class="descname">uid_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.uid_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.val_ref_pt_ht">
+<code class="descname">val_ref_pt_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.val_ref_pt_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.x_shift_m_ht">
+<code class="descname">x_shift_m_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.x_shift_m_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.y_shift_m_ht">
+<code class="descname">y_shift_m_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.y_shift_m_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.LidarCoverageBlock.z_shift_m_ht">
+<code class="descname">z_shift_m_ht</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.LidarCoverageBlock.z_shift_m_ht" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.MissionGridRef">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">MissionGridRef</code><span class="sig-paren">(</span><em>id</em>, <em>fieldID</em>, <em>grid_ref</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.MissionGridRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.MissionGridRef.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.MissionGridRef.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.MissionGridRef.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.MissionGridRef.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.MissionGridRef.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.MissionGridRef.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.RIDF">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">RIDF</code><span class="sig-paren">(</span><em>id</em>, <em>prov_code</em>, <em>prov_name</em>, <em>muni_code</em>, <em>muni_name</em>, <em>iscity</em>, <em>_5yr</em>, <em>_25yr</em>, <em>_100yr</em>, <em>rbs_raw</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.RIDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.RIDF.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.RIDF.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.RIDF.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.RIDF.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.RIDF.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.RIDF.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.RIDF.riverbasins">
+<code class="descname">riverbasins</code><em class="property"> = &lt;taggit.managers._TaggableManager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.RIDF.riverbasins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.RIDF.tagged_items">
+<code class="descname">tagged_items</code><a class="headerlink" href="#geonode.cephgeo.models.RIDF.tagged_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.SucToLayer">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">SucToLayer</code><span class="sig-paren">(</span><em>id</em>, <em>suc</em>, <em>block_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.SucToLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.SucToLayer.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.SucToLayer.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.SucToLayer.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.SucToLayer.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.SucToLayer.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.SucToLayer.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.TileDataClass">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">TileDataClass</code><span class="sig-paren">(</span><em>id</em>, <em>short_name</em>, <em>full_name</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.TileDataClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.TileDataClass.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.TileDataClass.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.TileDataClass.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.TileDataClass.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.TileDataClass.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.TileDataClass.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.UserJurisdiction">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">UserJurisdiction</code><span class="sig-paren">(</span><em>id</em>, <em>user_id</em>, <em>jurisdiction_shapefile_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.UserJurisdiction.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.UserJurisdiction.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.UserJurisdiction.get_shapefile_typename">
+<code class="descname">get_shapefile_typename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.get_shapefile_typename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.models.UserJurisdiction.get_user_name">
+<code class="descname">get_user_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.get_user_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserJurisdiction.jurisdiction_shapefile">
+<code class="descname">jurisdiction_shapefile</code><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.jurisdiction_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserJurisdiction.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserJurisdiction.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.cephgeo.models.UserJurisdiction.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.cephgeo.models.UserTiles">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.models.</code><code class="descname">UserTiles</code><span class="sig-paren">(</span><em>id</em>, <em>user_id</em>, <em>gridref_list</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.models.UserTiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.cephgeo.models.UserTiles.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.cephgeo.models.UserTiles.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.cephgeo.models.UserTiles.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.cephgeo.models.UserTiles.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserTiles.num_tiles">
+<code class="descname">num_tiles</code><a class="headerlink" href="#geonode.cephgeo.models.UserTiles.num_tiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserTiles.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.cephgeo.models.UserTiles.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.models.UserTiles.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.cephgeo.models.UserTiles.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.tests">
+<span id="geonode-cephgeo-tests-module"></span><h2>geonode.cephgeo.tests module<a class="headerlink" href="#module-geonode.cephgeo.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.cephgeo.tests.UtilsTestCase">
+<em class="property">class </em><code class="descclassname">geonode.cephgeo.tests.</code><code class="descname">UtilsTestCase</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.ceph_object_id_by_data_class_test">
+<code class="descname">ceph_object_id_by_data_class_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.ceph_object_id_by_data_class_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.cephobjects">
+<code class="descname">cephobjects</code><em class="property"> = [('E240N1782_ORTHO.tif', '2015-06-25 15:36:24', '12000344', 'image/tiff', '', 'cdcfb5297fea40a067ea8b50351205a7', 'E240N1782'), ('E211N1749_ORTHO.tif', '2015-06-25 15:36:25', '12000344', 'image/tiff', '', 'c8fcf62ce2f0a9f84e28a8d93eb82b3c', 'E211N1749'), ('E233N1748_ORTHO.tif', '2015-06-25 15:36:26', '12000344', 'image/tiff', '', 'd4d147cbe294dfabdb4b1c5785e3523b', 'E233N1748'), ('E230N1752_ORTHO.tif', '2015-06-25 15:36:28', '12000344', 'image/tiff', '', 'b9af27d72275e815a2b638c7f5d0f5b3', 'E230N1752'), ('E238N1781_ORTHO.tif', '2015-06-25 15:36:29', '12000344', 'image/tiff', '', 'caaa4a9c7ff0ffa6a5f2c49e60fc0fee', 'E238N1781'), ('E226N1781_ORTHO.tif', '2015-06-25 15:36:30', '12000344', 'image/tiff', '', 'baba7239ea528a9caf86238a5471e3a2', 'E226N1781'), ('E256N1751_ORTHO.tif', '2015-06-25 15:36:32', '12000344', 'image/tiff', '', 'da02435810a3329bb7ef58710df07a4e', 'E256N1751'), ('E248N1751_ORTHO.tif', '2015-06-25 15:36:33', '12000344', 'image/tiff', '', 'caa5482711eb7a60612e38490242d913', 'E248N1751'), ('E234N1762_ORTHO.tif', '2015-06-25 15:36:34', '12000344', 'image/tiff', '', 'b124aadc292a889b5d7716eda524c6a7', 'E234N1762'), ('E232N1771_ORTHO.tif', '2015-06-25 15:36:35', '12000344', 'image/tiff', '', '053d2882a8470932425742551999a4b7', 'E232N1771'), ('E215N1779_ORTHO.tif', '2015-06-25 15:36:37', '12000344', 'image/tiff', '', 'e70dba3321084b86045af0a1d0b4c9f7', 'E215N1779'), ('E220N1757_ORTHO.tif', '2015-06-25 15:36:38', '12000344', 'image/tiff', '', '8d74f2813e50de9e6f8282de5f039952', 'E220N1757'), ('E249N1768_ORTHO.tif', '2015-06-25 15:36:40', '12000344', 'image/tiff', '', 'a806b5ade9d4a3bb55b00c5797f3b906', 'E249N1768'), ('E254N1772_ORTHO.tif', '2015-06-25 15:36:41', '12000344', 'image/tiff', '', '4ac1c85e1ccee7fc9d404c52d4c5a1fb', 'E254N1772'), ('E257N1768_ORTHO.tif', '2015-06-25 15:36:42', '12000344', 'image/tiff', '', 'f3f19bb9b5dcc89118d230f3ed8a329e', 'E257N1768'), ('E252N1749_ORTHO.tif', '2015-06-25 15:36:43', '12000344', 'image/tiff', '', 'a111de769ba0f3504674c2f14bd2c913', 'E252N1749'), ('E232N1759_ORTHO.tif', '2015-06-25 15:36:45', '12000344', 'image/tiff', '', '54dd45b597b2cf32558f14caad50badb', 'E232N1759'), ('E215N1751_ORTHO.tif', '2015-06-25 15:36:46', '12000344', 'image/tiff', '', '1083fda9188dbb16feaeb1bb7259df76', 'E215N1751'), ('E229N1750_ORTHO.tif', '2015-06-25 15:36:47', '12000344', 'image/tiff', '', '1d5917a4e85cfee6c5d8145c4a384858', 'E229N1750'), ('E237N1750_ORTHO.tif', '2015-06-25 15:36:48', '12000344', 'image/tiff', '', 'e03265b08ea32cb8fc539be2e646d883', 'E237N1750'), ('E210N1758_ORTHO.tif', '2015-06-25 15:36:50', '12000344', 'image/tiff', '', '3982a04b64baeae0d7232c3b373055be', 'E210N1758'), ('E253N1770_ORTHO.tif', '2015-06-25 15:36:51', '12000344', 'image/tiff', '', '4d2c2583dd80a51f771734b3d83a17fb', 'E253N1770')]</em><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.cephobjects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.comodel">
+<code class="descname">comodel</code><em class="property"> = ('NAME', 'LAST_MODIFIED', 'SIZE_IN_BYTES', 'CONTENT_TYPE', 'GEO_TYPE', 'FILE_HASH', 'GRID_REF')</em><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.comodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.fixtures">
+<code class="descname">fixtures</code><em class="property"> = ['bobby']</em><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.get_cart_datasize_test">
+<code class="descname">get_cart_datasize_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.get_cart_datasize_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.get_data_class_from_filename_test">
+<code class="descname">get_data_class_from_filename_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.get_data_class_from_filename_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.is_valid_grid_ref_range_test">
+<code class="descname">is_valid_grid_ref_range_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.is_valid_grid_ref_range_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.is_valid_grid_ref_test">
+<code class="descname">is_valid_grid_ref_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.is_valid_grid_ref_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.cephgeo.tests.UtilsTestCase.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.tests.UtilsTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.urls">
+<span id="geonode-cephgeo-urls-module"></span><h2>geonode.cephgeo.urls module<a class="headerlink" href="#module-geonode.cephgeo.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.cephgeo.utils">
+<span id="geonode-cephgeo-utils-module"></span><h2>geonode.cephgeo.utils module<a class="headerlink" href="#module-geonode.cephgeo.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.cephgeo.utils.ceph_object_ids_by_data_class">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">ceph_object_ids_by_data_class</code><span class="sig-paren">(</span><em>ceph_obj_list</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.ceph_object_ids_by_data_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.file_classifier">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">file_classifier</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.file_classifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.filter_gridref">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">filter_gridref</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.filter_gridref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_bounds_1x1km">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_bounds_1x1km</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_bounds_1x1km" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_bytes_by_type">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_bytes_by_type</code><span class="sig-paren">(</span><em>ftp_request</em>, <em>data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_bytes_by_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_cart_datasize">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_cart_datasize</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_cart_datasize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_data_class_from_filename">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_data_class_from_filename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_data_class_from_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_ftp_details">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_ftp_details</code><span class="sig-paren">(</span><em>ftp_request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_ftp_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.get_tiles_by_type">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">get_tiles_by_type</code><span class="sig-paren">(</span><em>ftp_request</em>, <em>data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.get_tiles_by_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.is_valid_grid_ref">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">is_valid_grid_ref</code><span class="sig-paren">(</span><em>grid_ref_string</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.is_valid_grid_ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.is_valid_grid_ref_old">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">is_valid_grid_ref_old</code><span class="sig-paren">(</span><em>grid_ref_string</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.is_valid_grid_ref_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.is_valid_grid_ref_range">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">is_valid_grid_ref_range</code><span class="sig-paren">(</span><em>grid_ref_string</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.is_valid_grid_ref_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.iterate_over_features">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">iterate_over_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.iterate_over_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.map_blocks_suc">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">map_blocks_suc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.map_blocks_suc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.sort_by">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">sort_by</code><span class="sig-paren">(</span><em>sort_key</em>, <em>object_list</em>, <em>descending=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.sort_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.tile_ceiling">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">tile_ceiling</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.tile_ceiling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.tile_floor">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">tile_floor</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.tile_floor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.utils.tile_shp">
+<code class="descclassname">geonode.cephgeo.utils.</code><code class="descname">tile_shp</code><span class="sig-paren">(</span><em>tile_extents</em>, <em>eval_shp_poly</em>, <em>feature</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.utils.tile_shp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo.views">
+<span id="geonode-cephgeo-views-module"></span><h2>geonode.cephgeo.views module<a class="headerlink" href="#module-geonode.cephgeo.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.cephgeo.views.clear_cart">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">clear_cart</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.clear_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.count_duplicate_requests">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">count_duplicate_requests</code><span class="sig-paren">(</span><em>ftp_request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.count_duplicate_requests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.create_ftp_folder">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">create_ftp_folder</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.create_ftp_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.data_input">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">data_input</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.data_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.data_remove">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">data_remove</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.data_remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.delete_all_items_from_cart">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">delete_all_items_from_cart</code><span class="sig-paren">(</span><em>request</em>, <em>warn_user=True</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.delete_all_items_from_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.dem_cov_default_style">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">dem_cov_default_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.dem_cov_default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.error">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">error</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.fhm_default_style">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">fhm_default_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.fhm_default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.file_list_ceph">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">file_list_ceph</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.file_list_ceph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.file_list_geonode">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">file_list_geonode</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.file_list_geonode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.file_list_json">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">file_list_json</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.file_list_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.ftp_request_details">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">ftp_request_details</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.ftp_request_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.ftp_request_list">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">ftp_request_list</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.ftp_request_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.get_cart">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">get_cart</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.get_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.get_cart_json">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">get_cart_json</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.get_cart_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.get_obj_ids_json">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">get_obj_ids_json</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.get_obj_ids_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.jurisdict_default_style">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">jurisdict_default_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.jurisdict_default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.management">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">management</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.management" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.rl_default_style">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">rl_default_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.rl_default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.sar_default_style">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">sar_default_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.sar_default_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.seed_SAR_DEM">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">seed_SAR_DEM</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.seed_SAR_DEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.seed_fhm_layers">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">seed_fhm_layers</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.seed_fhm_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.seed_resource_layers">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">seed_resource_layers</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.seed_resource_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.tile_check">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">tile_check</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.tile_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.update_fhm_metadata">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">update_fhm_metadata</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.update_fhm_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.update_floodplain_keywords">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">update_floodplain_keywords</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.update_floodplain_keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.update_lidar_coverage">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">update_lidar_coverage</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.update_lidar_coverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.update_pl2_metadata">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">update_pl2_metadata</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.update_pl2_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.cephgeo.views.update_sar_metadata">
+<code class="descclassname">geonode.cephgeo.views.</code><code class="descname">update_sar_metadata</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.cephgeo.views.update_sar_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.cephgeo">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.cephgeo" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

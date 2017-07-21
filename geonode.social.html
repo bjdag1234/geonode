@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.social package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.social package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.social.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-social-package">
+<h1>geonode.social package<a class="headerlink" href="#geonode-social-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geonode.social.templatetags.html">geonode.social.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.social.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.social.templatetags.html#module-geonode.social.templatetags.social_tags">geonode.social.templatetags.social_tags module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.social.templatetags.html#module-geonode.social.templatetags">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.social.models">
+<span id="geonode-social-models-module"></span><h2>geonode.social.models module<a class="headerlink" href="#module-geonode.social.models" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.social.signals">
+<span id="geonode-social-signals-module"></span><h2>geonode.social.signals module<a class="headerlink" href="#module-geonode.social.signals" title="Permalink to this headline">¶</a></h2>
+<p>Django signals connections and associated receiver functions for geonode’s
+third-party ‘social’ apps which include announcements, notifications,
+relationships, actstream user_messages and potentially others</p>
+<dl class="function">
+<dt id="geonode.social.signals.activity_post_modify_object">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">activity_post_modify_object</code><span class="sig-paren">(</span><em>sender</em>, <em>instance</em>, <em>created=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.activity_post_modify_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new activities after a Map, Layer, or Comment is  created/updated/deleted.</p>
+<p>action_settings:
+actor: the user who performed the activity
+action_object: the object that received the action
+created_verb: a translatable verb that is used when an object is created
+deleted_verb: a translatable verb that is used when an object is deleted
+object_name: the title of the object that is used to keep information about the object after it is deleted
+target: the target of an action (if a comment is added to a map, the comment is the object the map is the target)
+updated_verb: a translatable verb that is used when an object is updated</p>
+<p>raw_action: a constant that describes the type of action performed (values should be: created, uploaded, deleted)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.comment_post_save">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">comment_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>created</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.comment_post_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a notification when a comment to a layer, map or document has
+been submitted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.get_notification_recipients">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">get_notification_recipients</code><span class="sig-paren">(</span><em>notice_type_label</em>, <em>exclude_user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.get_notification_recipients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get notification recipients</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.notification_post_delete_resource">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">notification_post_delete_resource</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.notification_post_delete_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a notification when a layer, map or document is deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.notification_post_save_resource">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">notification_post_save_resource</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>created</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.notification_post_save_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a notification when a layer, map or document is created or
+updated</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.rating_post_save">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">rating_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>created</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.rating_post_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a notification when rating a layer, map or document</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.relationship_post_save">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">relationship_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>created</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.relationship_post_save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.relationship_post_save_actstream">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">relationship_post_save_actstream</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>created</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.relationship_post_save_actstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.social.signals.relationship_pre_delete_actstream">
+<code class="descclassname">geonode.social.signals.</code><code class="descname">relationship_pre_delete_actstream</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.signals.relationship_pre_delete_actstream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.social.tests">
+<span id="geonode-social-tests-module"></span><h2>geonode.social.tests module<a class="headerlink" href="#module-geonode.social.tests" title="Permalink to this headline">¶</a></h2>
+<p>This file demonstrates writing tests using the unittest module. These will pass
+when you run “manage.py test”.</p>
+<p>Replace this with more appropriate tests for your application.</p>
+<dl class="class">
+<dt id="geonode.social.tests.SimpleTest">
+<em class="property">class </em><code class="descclassname">geonode.social.tests.</code><code class="descname">SimpleTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.tests.SimpleTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<dl class="attribute">
+<dt id="geonode.social.tests.SimpleTest.fixtures">
+<code class="descname">fixtures</code><em class="property"> = ['initial_data.json']</em><a class="headerlink" href="#geonode.social.tests.SimpleTest.fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.social.tests.SimpleTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.tests.SimpleTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.social.tests.SimpleTest.test_layer_activity">
+<code class="descname">test_layer_activity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.tests.SimpleTest.test_layer_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests the activity functionality when a layer is saved.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.social.urls">
+<span id="geonode-social-urls-module"></span><h2>geonode.social.urls module<a class="headerlink" href="#module-geonode.social.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.social.views">
+<span id="geonode-social-views-module"></span><h2>geonode.social.views module<a class="headerlink" href="#module-geonode.social.views" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.social.views.RecentActivity">
+<em class="property">class </em><code class="descclassname">geonode.social.views.</code><code class="descname">RecentActivity</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.views.RecentActivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Returns recent public activity.</p>
+<dl class="attribute">
+<dt id="geonode.social.views.RecentActivity.context_object_name">
+<code class="descname">context_object_name</code><em class="property"> = 'action_list'</em><a class="headerlink" href="#geonode.social.views.RecentActivity.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.social.views.RecentActivity.get_context_data">
+<code class="descname">get_context_data</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.social.views.RecentActivity.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.social.views.RecentActivity.queryset">
+<code class="descname">queryset</code><em class="property"> = [&lt;Action: admin uploaded fhm_coverage_04032017 1&nbsp;month ago&gt;, &lt;Action: admin uploaded ph060407000_fh25yr_10m_1 1&nbsp;month ago&gt;, &lt;Action: admin uploaded ph060407000_fh25yr_10m 1&nbsp;month ago&gt;, &lt;Action: admin uploaded repr_ph060407000_fh25yr_10m 1&nbsp;month ago&gt;, &lt;Action: admin downloaded lidar_coverage 3&nbsp;months, 1&nbsp;week ago&gt;, &lt;Action: admin downloaded lidar_coverage 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin downloaded lidar_coverage 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin uploaded lidar_coverage 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin deleted 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin deleted 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin deleted 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin deleted 3&nbsp;months, 2&nbsp;weeks ago&gt;, &lt;Action: admin downloaded magarao_49 3&nbsp;months, 3&nbsp;weeks ago&gt;, &lt;Action: admin uploaded magarao_49 3&nbsp;months, 4&nbsp;weeks ago&gt;, &lt;Action: admin deleted 3&nbsp;months, 4&nbsp;weeks ago&gt;]</em><a class="headerlink" href="#geonode.social.views.RecentActivity.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.social.views.RecentActivity.template_name">
+<code class="descname">template_name</code><em class="property"> = 'social/activity_list.html'</em><a class="headerlink" href="#geonode.social.views.RecentActivity.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.social">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.social" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

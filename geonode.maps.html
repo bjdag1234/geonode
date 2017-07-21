@@ -1,0 +1,1106 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.maps package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.maps package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.maps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-maps-package">
+<h1>geonode.maps package<a class="headerlink" href="#geonode-maps-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geonode.maps.management.html">geonode.maps.management package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.maps.management.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geonode.maps.management.commands.html">geonode.maps.management.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geonode.maps.management.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.maps.management.commands.html#module-geonode.maps.management.commands.updatemaplayerip">geonode.maps.management.commands.updatemaplayerip module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.maps.management.commands.html#module-geonode.maps.management.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.maps.management.html#module-geonode.maps.management">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.admin">
+<span id="geonode-maps-admin-module"></span><h2>geonode.maps.admin module<a class="headerlink" href="#module-geonode.maps.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdmin">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.maps.admin.MapAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#geonode.maps.admin.MapAdminForm" title="geonode.maps.admin.MapAdminForm"><code class="xref py py-class docutils literal"><span class="pre">MapAdminForm</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.inlines">
+<code class="descname">inlines</code><em class="property"> = [&lt;class 'geonode.maps.admin.MapLayerInline'&gt;]</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.inlines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'title', 'owner')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('title',)</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('owner', 'category')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('title', 'abstract', 'purpose')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdminForm">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapAdminForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.admin.ResourceBaseAdminForm" title="geonode.base.admin.ResourceBaseAdminForm"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.ResourceBaseAdminForm</span></code></a></p>
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdminForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.Meta.autocomplete_registry">
+<code class="descname">autocomplete_registry</code><em class="property"> = {'RegionAutocomplete': &lt;class 'autocomplete_light.registry.RegionAutocomplete'&gt;, 'TagAutocomplete': &lt;class 'autocomplete_light.registry.TagAutocomplete'&gt;, 'ResourceBaseAutocomplete': &lt;class 'autocomplete_light.registry.ResourceBaseAutocomplete'&gt;, 'DocumentAutocomplete': &lt;class 'autocomplete_light.registry.DocumentAutocomplete'&gt;, 'ProfileAutocomplete': &lt;class 'autocomplete_light.registry.ProfileAutocomplete'&gt;, 'MapAutocomplete': &lt;class 'autocomplete_light.registry.MapAutocomplete'&gt;, 'LayerAutocomplete': &lt;class 'autocomplete_light.registry.LayerAutocomplete'&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta.autocomplete_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Map</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'uuid': &lt;django.forms.fields.CharField object&gt;, 'owner': &lt;autocomplete_light.fields.ModelChoiceField object&gt;, 'contacts': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'title': &lt;django.forms.fields.CharField object&gt;, 'title_en': &lt;django.forms.fields.CharField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'date_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'edition': &lt;django.forms.fields.CharField object&gt;, 'abstract': &lt;django.forms.fields.CharField object&gt;, 'abstract_en': &lt;django.forms.fields.CharField object&gt;, 'purpose': &lt;django.forms.fields.CharField object&gt;, 'purpose_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'maintenance_frequency': &lt;django.forms.fields.TypedChoiceField object&gt;, 'regions': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'restriction_code_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'constraints_other': &lt;django.forms.fields.CharField object&gt;, 'constraints_other_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'license': &lt;django.forms.models.ModelChoiceField object&gt;, 'language': &lt;django.forms.fields.TypedChoiceField object&gt;, 'category': &lt;django.forms.models.ModelChoiceField object&gt;, 'spatial_representation_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'supplemental_information': &lt;django.forms.fields.CharField object&gt;, 'supplemental_information_en': &lt;django.forms.fields.CharField object&gt;, 'distribution_url': &lt;django.forms.fields.CharField object&gt;, 'distribution_description': &lt;django.forms.fields.CharField object&gt;, 'distribution_description_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'data_quality_statement': &lt;django.forms.fields.CharField object&gt;, 'data_quality_statement_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'bbox_x0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_x1': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y1': &lt;django.forms.fields.DecimalField object&gt;, 'srid': &lt;django.forms.fields.CharField object&gt;, 'csw_typename': &lt;django.forms.fields.CharField object&gt;, 'csw_schema': &lt;django.forms.fields.CharField object&gt;, 'csw_mdsource': &lt;django.forms.fields.CharField object&gt;, 'csw_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'csw_anytext': &lt;django.forms.fields.CharField object&gt;, 'csw_wkt_geometry': &lt;django.forms.fields.CharField object&gt;, 'metadata_uploaded': &lt;django.forms.fields.BooleanField object&gt;, 'metadata_xml': &lt;django.forms.fields.CharField object&gt;, 'popular_count': &lt;django.forms.fields.IntegerField object&gt;, 'share_count': &lt;django.forms.fields.IntegerField object&gt;, 'featured': &lt;django.forms.fields.BooleanField object&gt;, 'is_published': &lt;django.forms.fields.BooleanField object&gt;, 'thumbnail_url': &lt;django.forms.fields.CharField object&gt;, 'detail_url': &lt;django.forms.fields.CharField object&gt;, 'rating': &lt;django.forms.fields.IntegerField object&gt;, 'zoom': &lt;django.forms.fields.IntegerField object&gt;, 'projection': &lt;django.forms.fields.CharField object&gt;, 'center_x': &lt;django.forms.fields.FloatField object&gt;, 'center_y': &lt;django.forms.fields.FloatField object&gt;, 'urlsuffix': &lt;django.forms.fields.CharField object&gt;, 'featuredurl': &lt;django.forms.fields.CharField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapLayerAdmin">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapLayerAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MapLayerForm</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'map', 'name')</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('map',)</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('map__title', 'name')</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapLayerInline">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapLayerInline</code><span class="sig-paren">(</span><em>parent_model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapLayerInline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.TabularInline</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerInline.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapLayerInline.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerInline.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.maps.admin.MapLayerInline.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MapLayer</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps.autocomplete_light_registry">
+<span id="geonode-maps-autocomplete-light-registry-module"></span><h2>geonode.maps.autocomplete_light_registry module<a class="headerlink" href="#module-geonode.maps.autocomplete_light_registry" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.forms">
+<span id="geonode-maps-forms-module"></span><h2>geonode.maps.forms module<a class="headerlink" href="#module-geonode.maps.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.forms.MapForm">
+<em class="property">class </em><code class="descclassname">geonode.maps.forms.</code><code class="descname">MapForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.forms.MapForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.forms.ResourceBaseForm" title="geonode.base.forms.ResourceBaseForm"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.forms.ResourceBaseForm</span></code></a></p>
+<dl class="class">
+<dt id="geonode.maps.forms.MapForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.maps.forms.MapForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">geonode.base.forms.Meta</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.forms.MapForm.Meta.exclude">
+<code class="descname">exclude</code><em class="property"> = ('contacts', 'name', 'uuid', 'bbox_x0', 'bbox_x1', 'bbox_y0', 'bbox_y1', 'srid', 'category', 'csw_typename', 'csw_schema', 'csw_mdsource', 'csw_type', 'csw_wkt_geometry', 'metadata_uploaded', 'metadata_xml', 'csw_anytext', 'popular_count', 'share_count', 'thumbnail', 'charset', 'rating', 'detail_url', 'zoom', 'projection', 'center_x', 'center_y')</em><a class="headerlink" href="#geonode.maps.forms.MapForm.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.forms.MapForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.maps.forms.MapForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Map</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.forms.MapForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'owner': &lt;django.forms.models.ModelChoiceField object&gt;, 'title': &lt;django.forms.fields.CharField object&gt;, 'title_en': &lt;django.forms.fields.CharField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'date_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'edition': &lt;django.forms.fields.CharField object&gt;, 'abstract': &lt;django.forms.fields.CharField object&gt;, 'abstract_en': &lt;django.forms.fields.CharField object&gt;, 'purpose': &lt;django.forms.fields.CharField object&gt;, 'purpose_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'maintenance_frequency': &lt;django.forms.fields.TypedChoiceField object&gt;, 'regions': &lt;mptt.forms.TreeNodeMultipleChoiceField object&gt;, 'restriction_code_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'constraints_other': &lt;django.forms.fields.CharField object&gt;, 'constraints_other_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'license': &lt;django.forms.models.ModelChoiceField object&gt;, 'language': &lt;django.forms.fields.TypedChoiceField object&gt;, 'spatial_representation_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'supplemental_information': &lt;django.forms.fields.CharField object&gt;, 'supplemental_information_en': &lt;django.forms.fields.CharField object&gt;, 'distribution_url': &lt;django.forms.fields.CharField object&gt;, 'distribution_description': &lt;django.forms.fields.CharField object&gt;, 'distribution_description_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'data_quality_statement': &lt;django.forms.fields.CharField object&gt;, 'data_quality_statement_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'featured': &lt;django.forms.fields.BooleanField object&gt;, 'is_published': &lt;django.forms.fields.BooleanField object&gt;, 'thumbnail_url': &lt;django.forms.fields.CharField object&gt;, 'urlsuffix': &lt;django.forms.fields.CharField object&gt;, 'featuredurl': &lt;django.forms.fields.CharField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;, 'poc': &lt;django.forms.models.ModelChoiceField object&gt;, 'metadata_author': &lt;django.forms.models.ModelChoiceField object&gt;}</em><a class="headerlink" href="#geonode.maps.forms.MapForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.forms.MapForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'owner': &lt;django.forms.models.ModelChoiceField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'poc': &lt;django.forms.models.ModelChoiceField object&gt;, 'metadata_author': &lt;django.forms.models.ModelChoiceField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;, 'regions': &lt;mptt.forms.TreeNodeMultipleChoiceField object&gt;}</em><a class="headerlink" href="#geonode.maps.forms.MapForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.forms.MapForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.forms.MapForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps.models">
+<span id="geonode-maps-models-module"></span><h2>geonode.maps.models module<a class="headerlink" href="#module-geonode.maps.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.models.Map">
+<em class="property">class </em><code class="descclassname">geonode.maps.models.</code><code class="descname">Map</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.models.ResourceBase" title="geonode.base.models.ResourceBase"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.ResourceBase</span></code></a>, <a class="reference internal" href="geonode.html#geonode.utils.GXPMapBase" title="geonode.utils.GXPMapBase"><code class="xref py py-class docutils literal"><span class="pre">geonode.utils.GXPMapBase</span></code></a></p>
+<p>A Map aggregates several layers together and annotates them with a viewport
+configuration.</p>
+<dl class="exception">
+<dt id="geonode.maps.models.Map.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.maps.models.Map.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.DoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.maps.models.Map.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.maps.models.Map.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.abstract">
+<code class="descname">abstract</code><a class="headerlink" href="#geonode.maps.models.Map.abstract" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.action_object_actions">
+<code class="descname">action_object_actions</code><a class="headerlink" href="#geonode.maps.models.Map.action_object_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.actor_actions">
+<code class="descname">actor_actions</code><a class="headerlink" href="#geonode.maps.models.Map.actor_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.base_objects">
+<code class="descname">base_objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.maps.models.Map.base_objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.center">
+<code class="descname">center</code><a class="headerlink" href="#geonode.maps.models.Map.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>A handy shortcut for the center_x and center_y properties as a tuple
+(read only)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.class_name">
+<code class="descname">class_name</code><a class="headerlink" href="#geonode.maps.models.Map.class_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.constraints_other">
+<code class="descname">constraints_other</code><a class="headerlink" href="#geonode.maps.models.Map.constraints_other" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.create_from_layer_list">
+<code class="descname">create_from_layer_list</code><span class="sig-paren">(</span><em>user</em>, <em>layers</em>, <em>title</em>, <em>abstract</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.create_from_layer_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.data_quality_statement">
+<code class="descname">data_quality_statement</code><a class="headerlink" href="#geonode.maps.models.Map.data_quality_statement" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.distribution_description">
+<code class="descname">distribution_description</code><a class="headerlink" href="#geonode.maps.models.Map.distribution_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.get_bbox_from_layers">
+<code class="descname">get_bbox_from_layers</code><span class="sig-paren">(</span><em>layers</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.get_bbox_from_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the bbox from a given list of Layer objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.get_next_by_last_modified">
+<code class="descname">get_next_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.get_next_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.get_previous_by_last_modified">
+<code class="descname">get_previous_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.get_previous_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.is_public">
+<code class="descname">is_public</code><a class="headerlink" href="#geonode.maps.models.Map.is_public" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if anonymous (public) user can view map.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.json">
+<code class="descname">json</code><span class="sig-paren">(</span><em>layer_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a JSON representation of this map suitable for sending to geoserver
+for creating a download of all layers</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.keyword_list">
+<code class="descname">keyword_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.keyword_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.layer_group">
+<code class="descname">layer_group</code><a class="headerlink" href="#geonode.maps.models.Map.layer_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns layer group name from local OWS for this map instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.layer_set">
+<code class="descname">layer_set</code><a class="headerlink" href="#geonode.maps.models.Map.layer_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.layers">
+<code class="descname">layers</code><a class="headerlink" href="#geonode.maps.models.Map.layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.local_layers">
+<code class="descname">local_layers</code><a class="headerlink" href="#geonode.maps.models.Map.local_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.translator.NewMultilingualManager object&gt;</em><a class="headerlink" href="#geonode.maps.models.Map.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.polymorphic_primary_key_name">
+<code class="descname">polymorphic_primary_key_name</code><em class="property"> = u'id'</em><a class="headerlink" href="#geonode.maps.models.Map.polymorphic_primary_key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.polymorphic_super_sub_accessors_replaced">
+<code class="descname">polymorphic_super_sub_accessors_replaced</code><em class="property"> = False</em><a class="headerlink" href="#geonode.maps.models.Map.polymorphic_super_sub_accessors_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.publish_layer_group">
+<code class="descname">publish_layer_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.publish_layer_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Publishes local map layers as WMS layer group on local OWS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.purpose">
+<code class="descname">purpose</code><a class="headerlink" href="#geonode.maps.models.Map.purpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.resourcebase_ptr">
+<code class="descname">resourcebase_ptr</code><a class="headerlink" href="#geonode.maps.models.Map.resourcebase_ptr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.snapshot_set">
+<code class="descname">snapshot_set</code><a class="headerlink" href="#geonode.maps.models.Map.snapshot_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.snapshots">
+<code class="descname">snapshots</code><a class="headerlink" href="#geonode.maps.models.Map.snapshots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.supplemental_information">
+<code class="descname">supplemental_information</code><a class="headerlink" href="#geonode.maps.models.Map.supplemental_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.tagged_items">
+<code class="descname">tagged_items</code><a class="headerlink" href="#geonode.maps.models.Map.tagged_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.target_actions">
+<code class="descname">target_actions</code><a class="headerlink" href="#geonode.maps.models.Map.target_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.Map.title">
+<code class="descname">title</code><a class="headerlink" href="#geonode.maps.models.Map.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.Map.update_from_viewer">
+<code class="descname">update_from_viewer</code><span class="sig-paren">(</span><em>conf</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.Map.update_from_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update this Map’s details by parsing a JSON object as produced by
+a GXP Viewer.</p>
+<p>This method automatically persists to the database!</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.models.MapLayer">
+<em class="property">class </em><code class="descclassname">geonode.maps.models.</code><code class="descname">MapLayer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code>, <a class="reference internal" href="geonode.html#geonode.utils.GXPLayerBase" title="geonode.utils.GXPLayerBase"><code class="xref py py-class docutils literal"><span class="pre">geonode.utils.GXPLayerBase</span></code></a></p>
+<p>The MapLayer model represents a layer included in a map.  This doesn’t just
+identify the dataset, but also extra options such as which style to load
+and the file format to use for image tiles.</p>
+<dl class="exception">
+<dt id="geonode.maps.models.MapLayer.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.maps.models.MapLayer.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.maps.models.MapLayer.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.maps.models.MapLayer.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.MapLayer.layer_config">
+<code class="descname">layer_config</code><span class="sig-paren">(</span><em>user=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapLayer.layer_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapLayer.layer_title">
+<code class="descname">layer_title</code><a class="headerlink" href="#geonode.maps.models.MapLayer.layer_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapLayer.local_link">
+<code class="descname">local_link</code><a class="headerlink" href="#geonode.maps.models.MapLayer.local_link" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapLayer.map">
+<code class="descname">map</code><a class="headerlink" href="#geonode.maps.models.MapLayer.map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapLayer.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.maps.models.MapLayer.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.models.MapSnapshot">
+<em class="property">class </em><code class="descclassname">geonode.maps.models.</code><code class="descname">MapSnapshot</code><span class="sig-paren">(</span><em>id</em>, <em>map_id</em>, <em>config</em>, <em>created_dttm</em>, <em>user_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapSnapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.maps.models.MapSnapshot.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.maps.models.MapSnapshot.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.maps.models.MapSnapshot.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.maps.models.MapSnapshot.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapSnapshot.config">
+<code class="descname">config</code><em class="property"> = None</em><a class="headerlink" href="#geonode.maps.models.MapSnapshot.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map configuration in JSON format</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapSnapshot.created_dttm">
+<code class="descname">created_dttm</code><em class="property"> = None</em><a class="headerlink" href="#geonode.maps.models.MapSnapshot.created_dttm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date/time the snapshot was created.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.MapSnapshot.get_next_by_created_dttm">
+<code class="descname">get_next_by_created_dttm</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapSnapshot.get_next_by_created_dttm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.MapSnapshot.get_previous_by_created_dttm">
+<code class="descname">get_previous_by_created_dttm</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapSnapshot.get_previous_by_created_dttm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.models.MapSnapshot.json">
+<code class="descname">json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.MapSnapshot.json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapSnapshot.map">
+<code class="descname">map</code><a class="headerlink" href="#geonode.maps.models.MapSnapshot.map" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the map this snapshot was generated from.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapSnapshot.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.maps.models.MapSnapshot.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.models.MapSnapshot.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.maps.models.MapSnapshot.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user who created the snapshot.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.models.pre_delete_map">
+<code class="descclassname">geonode.maps.models.</code><code class="descname">pre_delete_map</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwrargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.models.pre_delete_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="geonode-maps-search-indexes-module">
+<h2>geonode.maps.search_indexes module<a class="headerlink" href="#geonode-maps-search-indexes-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.signals">
+<span id="geonode-maps-signals-module"></span><h2>geonode.maps.signals module<a class="headerlink" href="#module-geonode.maps.signals" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.tests">
+<span id="geonode-maps-tests-module"></span><h2>geonode.maps.tests module<a class="headerlink" href="#module-geonode.maps.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.tests.MapsTest">
+<em class="property">class </em><code class="descclassname">geonode.maps.tests.</code><code class="descname">MapsTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<p>Tests geonode.maps app/module</p>
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.default_abstract">
+<code class="descname">default_abstract</code><em class="property"> = 'This is a demonstration of GeoNode, an application for assembling and publishing web based maps.  After adding layers to the map, use the Save Map button above to contribute your map to the GeoNode community.'</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.default_abstract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.default_title">
+<code class="descname">default_title</code><em class="property"> = 'GeoNode Default Map'</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.default_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.fixtures">
+<code class="descname">fixtures</code><em class="property"> = ['initial_data.json', 'bobby']</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.perm_spec">
+<code class="descname">perm_spec</code><em class="property"> = {'users': {'admin': ['change_resourcebase', 'change_resourcebase_permissions', 'view_resourcebase']}, 'groups': {}}</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.perm_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_ajax_map_permissions">
+<code class="descname">test_ajax_map_permissions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_ajax_map_permissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the ajax_layer_permissions view is behaving as expected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_details">
+<code class="descname">test_map_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>/maps/1 -&gt; Test accessing the map browse view function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_embed">
+<code class="descname">test_map_embed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_embed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that map can be properly embedded</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_fetch">
+<code class="descname">test_map_fetch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>/maps/[id]/data -&gt; Test fetching a map in JSON</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_json">
+<code class="descname">test_map_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_metadata">
+<code class="descname">test_map_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that map metadata can be properly rendered</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_remove">
+<code class="descname">test_map_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that map can be properly removed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_save">
+<code class="descname">test_map_save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>POST /maps/new/data -&gt; Test saving a new map</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_to_json">
+<code class="descname">test_map_to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make some assertions about the data structure produced for serialization
+to a JSON map configuration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_to_wmc">
+<code class="descname">test_map_to_wmc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_to_wmc" title="Permalink to this definition">¶</a></dt>
+<dd><p>/maps/1/wmc -&gt; Test map WMC export
+Make some assertions about the data structure produced
+for serialization to a Web Map Context Document</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_map_view">
+<code class="descname">test_map_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_map_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that map view can be properly rendered</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_new_map_config">
+<code class="descname">test_new_map_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_new_map_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test that new map config can be properly assigned</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_new_map_with_empty_bbox_layer">
+<code class="descname">test_new_map_with_empty_bbox_layer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_new_map_with_empty_bbox_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_new_map_with_layer">
+<code class="descname">test_new_map_with_layer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_new_map_with_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_new_map_without_layers">
+<code class="descname">test_new_map_without_layers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_new_map_without_layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_newmap_to_json">
+<code class="descname">test_newmap_to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_newmap_to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make some assertions about the data structure produced for serialization
+to a new JSON map configuration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.maps.tests.MapsTest.test_rating_map_remove">
+<code class="descname">test_rating_map_remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests.MapsTest.test_rating_map_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test map rating is removed on map remove</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.viewer_config">
+<code class="descname">viewer_config</code><em class="property"> = '\n    {\n      &quot;defaultSourceType&quot;: &quot;gx_wmssource&quot;,\n      &quot;about&quot;: {\n          &quot;title&quot;: &quot;Title&quot;,\n          &quot;abstract&quot;: &quot;Abstract&quot;\n      },\n      &quot;sources&quot;: {\n        &quot;capra&quot;: {\n          &quot;url&quot;:&quot;http://localhost:8080/geoserver/wms&quot;\n        }\n      },\n      &quot;map&quot;: {\n        &quot;projection&quot;:&quot;EPSG:900913&quot;,\n        &quot;units&quot;:&quot;m&quot;,\n        &quot;maxResolution&quot;:156543.0339,\n        &quot;maxExtent&quot;:[-20037508.34,-20037508.34,20037508.34,20037508.34],\n        &quot;center&quot;:[-9428760.8688778,1436891.8972581],\n        &quot;layers&quot;:[{\n          &quot;source&quot;:&quot;capra&quot;,\n          &quot;buffer&quot;:0,\n          &quot;wms&quot;:&quot;capra&quot;,\n          &quot;name&quot;:&quot;base:nic_admin&quot;\n        }],\n        &quot;keywords&quot;:[&quot;saving&quot;, &quot;keywords&quot;],\n        &quot;zoom&quot;:7\n      }\n    }\n    '</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.viewer_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.tests.MapsTest.viewer_config_alternative">
+<code class="descname">viewer_config_alternative</code><em class="property"> = '\n    {\n      &quot;defaultSourceType&quot;: &quot;gx_wmssource&quot;,\n      &quot;about&quot;: {\n          &quot;title&quot;: &quot;Title2&quot;,\n          &quot;abstract&quot;: &quot;Abstract2&quot;\n      },\n      &quot;sources&quot;: {\n        &quot;capra&quot;: {\n          &quot;url&quot;:&quot;http://localhost:8080/geoserver/wms&quot;\n        }\n      },\n      &quot;map&quot;: {\n        &quot;projection&quot;:&quot;EPSG:900913&quot;,\n        &quot;units&quot;:&quot;m&quot;,\n        &quot;maxResolution&quot;:156543.0339,\n        &quot;maxExtent&quot;:[-20037508.34,-20037508.34,20037508.34,20037508.34],\n        &quot;center&quot;:[-9428760.8688778,1436891.8972581],\n        &quot;layers&quot;:[{\n          &quot;source&quot;:&quot;capra&quot;,\n          &quot;buffer&quot;:0,\n          &quot;wms&quot;:&quot;capra&quot;,\n          &quot;name&quot;:&quot;base:nic_admin&quot;\n        }],\n        &quot;zoom&quot;:7\n      }\n    }\n    '</em><a class="headerlink" href="#geonode.maps.tests.MapsTest.viewer_config_alternative" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps.tests_populate_maplayers">
+<span id="geonode-maps-tests-populate-maplayers-module"></span><h2>geonode.maps.tests_populate_maplayers module<a class="headerlink" href="#module-geonode.maps.tests_populate_maplayers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.maps.tests_populate_maplayers.create_maplayers">
+<code class="descclassname">geonode.maps.tests_populate_maplayers.</code><code class="descname">create_maplayers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.tests_populate_maplayers.create_maplayers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps.translation">
+<span id="geonode-maps-translation-module"></span><h2>geonode.maps.translation module<a class="headerlink" href="#module-geonode.maps.translation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.translation.MapTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.maps.translation.</code><code class="descname">MapTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.translation.MapTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.translation.MapTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('distribution_description', 'constraints_other', 'data_quality_statement', 'title', 'abstract', 'supplemental_information', 'purpose')</em><a class="headerlink" href="#geonode.maps.translation.MapTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps.urls">
+<span id="geonode-maps-urls-module"></span><h2>geonode.maps.urls module<a class="headerlink" href="#module-geonode.maps.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.utils">
+<span id="geonode-maps-utils-module"></span><h2>geonode.maps.utils module<a class="headerlink" href="#module-geonode.maps.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.maps.views">
+<span id="geonode-maps-views-module"></span><h2>geonode.maps.views module<a class="headerlink" href="#module-geonode.maps.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.maps.views.ajax_snapshot_history">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">ajax_snapshot_history</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.ajax_snapshot_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.ajax_url_lookup">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">ajax_url_lookup</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.ajax_url_lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.clean_config">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">clean_config</code><span class="sig-paren">(</span><em>conf</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.clean_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.featured_map">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">featured_map</code><span class="sig-paren">(</span><em>request</em>, <em>site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.featured_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>The view that returns the map composer opened to
+the map with the given official site url.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.featured_map_info">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">featured_map_info</code><span class="sig-paren">(</span><em>request</em>, <em>site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.featured_map_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>main view for map resources, dispatches to correct
+view based on method and query args.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.get_suffix_if_custom">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">get_suffix_if_custom</code><span class="sig-paren">(</span><em>map</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.get_suffix_if_custom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_detail">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_detail</code><span class="sig-paren">(</span><em>request</em>, <em>mapid</em>, <em>snapshot=None</em>, <em>template='maps/map_detail.html'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_detail" title="Permalink to this definition">¶</a></dt>
+<dd><p>The view that show details of each map</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_download">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_download</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download all the layers of a map as a batch
+XXX To do, remove layer status once progress id done
+This should be fix because</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_download_check">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_download_check</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_download_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>this is an endpoint for monitoring map downloads</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_embed">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_embed</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_embed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_json">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_json</code><span class="sig-paren">(</span><em>request</em>, <em>mapid</em>, <em>snapshot=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_metadata">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_metadata</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_remove">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_remove</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a map, and its constituent layers.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_thumbnail">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_thumbnail</code><span class="sig-paren">(</span><em>request</em>, <em>mapid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_view">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_view</code><span class="sig-paren">(</span><em>request</em>, <em>mapid</em>, <em>snapshot=None</em>, <em>template='maps/map_view.html'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>The view that returns the map composer opened to
+the map with the given map ID.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_view_js">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_view_js</code><span class="sig-paren">(</span><em>request</em>, <em>mapid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_view_js" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_wmc">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_wmc</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_wmc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize an OGC Web Map Context Document (WMC) 1.1</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.map_wms">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">map_wms</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.map_wms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Publish local map layers as group layer in local OWS.</p>
+<p>/maps/:id/wms</p>
+<p>GET: return endpoint information for group layer,
+PUT: update existing or create new group layer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.maplayer_attributes">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">maplayer_attributes</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.maplayer_attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.new_map">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">new_map</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.new_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.new_map_config">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">new_map_config</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.new_map_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>View that creates a new map.</p>
+<p>If the query argument ‘copy’ is given, the initial map is
+a copy of the map with the id specified, otherwise the
+default map configuration is used.  If copy is specified
+and the map specified does not exist a 404 is returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.new_map_json">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">new_map_json</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.new_map_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.snapshot_config">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">snapshot_config</code><span class="sig-paren">(</span><em>snapshot</em>, <em>map_obj</em>, <em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.snapshot_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the snapshot map configuration - look up WMS parameters (bunding box)
+for local GeoNode layers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.maps.views.snapshot_create">
+<code class="descclassname">geonode.maps.views.</code><code class="descname">snapshot_create</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.views.snapshot_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a permalinked map</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.maps">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.maps" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

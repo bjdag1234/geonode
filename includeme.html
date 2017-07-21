@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GeoNode &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/>
+        <link rel="prev" title="GeoNode’s Documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GeoNode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development-roadmap">Development Roadmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpl-license">GPL License</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>GeoNode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/includeme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference external image-reference" href="http://travis-ci.org/GeoNode/geonode"><img alt="Build Status" src="https://secure.travis-ci.org/GeoNode/geonode.png" /></a>
+<div class="section" id="geonode">
+<h1>GeoNode<a class="headerlink" href="#geonode" title="Permalink to this headline">¶</a></h1>
+<p>If you just want to try GeoNode, it is recommended to use Ubuntu 12.04 and install the python software properties.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">software</span><span class="o">-</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>For 12.04 with python software properties installed, install the latest stable release of GeoNode.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">geonode</span><span class="o">/</span><span class="n">release</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">geonode</span>
+</pre></div>
+</div>
+<p>If instead, you are interested in doing development on the source code, here are the instructions: <a class="reference external" href="http://docs.geonode.org/en/master/tutorials/devel/install_devmode/index.html#install-devmode">http://docs.geonode.org/en/master/tutorials/devel/install_devmode/index.html#install-devmode</a>.</p>
+<p>Docker Usage
+If you want to use Docker you can now:</p>
+<blockquote>
+<div><p># build the docker container
+docker build -t geonode .</p>
+<p># run the docker container
+docker run -d -p 8111:8000 geonode</p>
+</div></blockquote>
+<p>Or if you use fig:</p>
+<blockquote>
+<div><p># build the container
+fig build</p>
+<p># run the container
+fig up</p>
+</div></blockquote>
+<p>openSUSE Development Build Instructions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Add Application:Geo and Python repositories</span>
+<span class="n">zypper</span> <span class="o">-</span><span class="n">ar</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">opensuse</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">Application</span><span class="p">:</span><span class="o">/</span><span class="n">Geo</span><span class="o">/</span><span class="n">openSUSE_12</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span> <span class="n">GEO</span>
+<span class="n">zypper</span> <span class="o">-</span><span class="n">ar</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">opensuse</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">repositories</span><span class="o">/</span><span class="n">devel</span><span class="p">:</span><span class="o">/</span><span class="n">languages</span><span class="p">:</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">openSUSE_12</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span> <span class="n">python</span>
+<span class="n">zypper</span> <span class="n">refresh</span>
+
+<span class="c1"># Basic build packages</span>
+<span class="n">zypper</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span> <span class="n">libgeos</span><span class="o">-</span><span class="n">devel</span> <span class="n">libproj</span><span class="o">-</span><span class="n">devel</span>
+
+<span class="c1"># Python native dependencies</span>
+<span class="n">zypper</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">virtualenv</span> <span class="n">python</span><span class="o">-</span><span class="n">imaging</span> <span class="n">python</span><span class="o">-</span><span class="n">lxml</span> <span class="n">python</span><span class="o">-</span><span class="n">gdal</span>
+
+<span class="c1"># Java dependencies</span>
+<span class="n">zypper</span> <span class="n">install</span> <span class="n">java</span><span class="o">-</span><span class="mi">1</span><span class="n">_7_0_openjdk</span><span class="o">-</span><span class="n">devel</span> <span class="n">ant</span> <span class="n">maven</span>
+
+<span class="c1"># Supporting tools</span>
+<span class="n">zypper</span> <span class="n">install</span> <span class="n">git</span> <span class="n">gettext</span><span class="o">-</span><span class="n">runtime</span>
+
+<span class="c1"># Create virtualenv and activate it</span>
+<span class="n">virtualenv</span> <span class="n">venv</span> <span class="o">--</span><span class="n">system</span><span class="o">-</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">cd</span> <span class="n">venv</span>
+
+<span class="c1"># Clone GeoNode</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">GeoNode</span><span class="o">/</span><span class="n">geonode</span><span class="o">.</span><span class="n">git</span>
+
+<span class="c1"># Install GeoNode in the local virtualenv</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="n">geonode</span> <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">mirrors</span>
+
+<span class="n">cd</span> <span class="n">geonode</span>
+
+<span class="c1"># Compile GeoServer</span>
+<span class="n">paver</span> <span class="n">setup</span>
+
+<span class="c1"># Start the servers</span>
+<span class="n">paver</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>Windows Development Build Instructions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Prerequisites</span><span class="p">:</span>
+<span class="c1"># Java JDK</span>
+<span class="c1"># Python 2.7</span>
+<span class="c1"># ant (bin directory must be on system PATH)</span>
+<span class="c1"># maven2 (bin directory must be on system PATH)</span>
+<span class="c1"># Python distutils (easy_install)</span>
+<span class="c1"># GDAL Core Libraries</span>
+<span class="c1"># git</span>
+
+<span class="c1"># Install and configure from the windows command prompt</span>
+<span class="n">If</span> <span class="n">you</span> <span class="n">don</span><span class="s1">&#39;t already have python virtualenv installed, then do it now:</span>
+<span class="n">easy_install</span> <span class="n">virtualenv</span>
+
+<span class="c1"># Create virtualenv and activate it</span>
+<span class="n">cd</span> <span class="o">&lt;</span><span class="n">Directory</span> <span class="n">to</span> <span class="n">install</span> <span class="n">the</span> <span class="n">virtualenv</span> <span class="o">&amp;</span> <span class="n">geonode</span> <span class="n">into</span><span class="o">&gt;</span>
+<span class="n">virtualenv</span> <span class="n">venv</span>
+<span class="n">venv</span>\<span class="n">scripts</span>\<span class="n">activate</span>
+
+<span class="c1"># Clone GeoNode</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">GeoNode</span><span class="o">/</span><span class="n">geonode</span><span class="o">.</span><span class="n">git</span>
+
+<span class="c1"># Install compiled packages for Python 2.7 Win32</span>
+<span class="n">cd</span> <span class="n">geonode</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">paver</span>
+<span class="n">paver</span> <span class="n">win_install_deps</span>
+
+<span class="c1"># Install GeoNode in the local virtualenv</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span> <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">mirrors</span>
+
+<span class="c1"># Compile GeoServer</span>
+<span class="n">paver</span> <span class="n">setup</span>
+
+<span class="c1"># Start the servers</span>
+<span class="n">paver</span> <span class="n">start</span> <span class="o">--</span><span class="n">java_path</span><span class="o">=</span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">java</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+<p>Mac OSX Development Build Instructions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># you may need brew install various dependencies</span>
+
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">pyenv</span>
+<span class="n">virtualenv</span> <span class="o">~/</span><span class="n">pyenv</span><span class="o">/</span><span class="n">geonode</span>
+<span class="n">source</span> <span class="o">~/</span><span class="n">pyenv</span><span class="o">/</span><span class="n">geonode</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">GeoNode</span><span class="o">/</span><span class="n">geonode</span>
+<span class="n">cd</span> <span class="n">geonode</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">lxml</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pyproj</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">nose</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">httplib2</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">shapely</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pillow</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">paver</span>
+
+<span class="c1"># Node and tools required for static development</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">node</span>
+<span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">bower</span>
+<span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">grunt</span><span class="o">-</span><span class="n">cli</span>
+
+<span class="c1">#Install pip dependencies</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+
+<span class="c1">#Paver handles dependencies for Geonode, first setup (this will download and update your python dependencies - ensure you&#39;re in a virtualenv)</span>
+<span class="n">paver</span> <span class="n">setup</span>
+<span class="n">paver</span> <span class="n">start</span>
+
+<span class="c1"># Optional: To generate document thumbnails for PDFs and other ghostscripts file types</span>
+<span class="c1"># Then download ghostscript: https://www.macupdate.com/app/mac/9980/gpl-ghostscript</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">imagemagick</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">Wand</span><span class="o">==</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Once fully started, you should see a message indicating the address of your geonode.
+The default username and password are <code class="docutils literal"><span class="pre">admin</span></code> and <code class="docutils literal"><span class="pre">admin</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Development</span> <span class="n">Geonode</span> <span class="ow">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span><span class="o">/</span>
+<span class="n">To</span> <span class="n">stop</span> <span class="n">the</span> <span class="n">GeoNode</span> <span class="n">machine</span> <span class="n">run</span><span class="p">:</span>
+<span class="n">paver</span> <span class="n">stop</span>
+
+<span class="n">Or</span> <span class="n">quit</span> <span class="n">the</span> <span class="n">server</span> <span class="n">by</span> <span class="n">pressing</span>
+<span class="n">CTRL</span><span class="o">-</span><span class="n">C</span> <span class="n">to</span> <span class="n">shut</span> <span class="n">down</span>
+</pre></div>
+</div>
+<p>Before starting GeoNode (paver start), you could test your installation by running tests:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">paver</span> <span class="n">test</span>
+<span class="n">paver</span> <span class="n">test_integration</span>
+</pre></div>
+</div>
+<p>In case you want to build yourself the documentation, you need to install Sphinx and the run ‘make html’ from within the docs directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sphinx</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx_rtd_theme</span>
+<span class="n">cd</span> <span class="n">docs</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>You can eventually generate a pdf containing the whole documentation set. For this purpose, if using Ubuntu you will need to install the texlive-full package:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">full</span>
+<span class="n">make</span> <span class="n">latexpdf</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When running <code class="docutils literal"><span class="pre">virtualenv</span> <span class="pre">venv</span></code> the <code class="docutils literal"><span class="pre">--system-site-packages</span></code> option is
+not required.  If not enabled, the bootstrap script will sandbox your virtual
+environment from any packages that are installed in the system, useful if
+you have incompatible versions of libraries such as Django installed
+system-wide.  On the other hand, most of the times it is useful to use a version of
+the Python Imaging Library provided by your operating system
+vendor, or packaged other than on PyPI.  When in doubt, however, just leave
+this option out.</p>
+</div>
+<div class="section" id="development-roadmap">
+<h2>Development Roadmap<a class="headerlink" href="#development-roadmap" title="Permalink to this headline">¶</a></h2>
+<p>Geonode’s development roadmap is documented in a series of Geonode Improvement Projects (GNIPS).
+They are documented here: <a class="reference external" href="https://github.com/GeoNode/geonode/wiki/GeoNode-Improvement-Proposals">https://github.com/GeoNode/geonode/wiki/GeoNode-Improvement-Proposals</a>.
+GNIPS are considered to be large undertakings which will add a large amount of features to the project.
+As such they are the topic of community dicussion and guidance.
+The community discusses these on the developer mailing list: <a class="reference external" href="https://groups.google.com/a/opengeo.org/forum/#!forum/geonode-dev">https://groups.google.com/a/opengeo.org/forum/#!forum/geonode-dev</a>
+Github issues tracks features and bugs, for new developers the tag ‘easy-pick’ indicates an
+issue that should be relatively easy for new developers to understand and complete. Once you have completed an issue
+a pull request should be submitted. This will then be reviewed by the community.</p>
+</div>
+<div class="section" id="gpl-license">
+<h2>GPL License<a class="headerlink" href="#gpl-license" title="Permalink to this headline">¶</a></h2>
+<p>GeoNode is Copyright 2010 OpenPlans.</p>
+<p>GeoNode is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+<p>GeoNode is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with GeoNode.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="GeoNode’s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

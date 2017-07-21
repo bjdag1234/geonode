@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.datarequests.views package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.datarequests.views package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.datarequests.views.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-datarequests-views-package">
+<h1>geonode.datarequests.views package<a class="headerlink" href="#geonode-datarequests-views-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.datarequests.views.alpha">
+<span id="geonode-datarequests-views-alpha-module"></span><h2>geonode.datarequests.views.alpha module<a class="headerlink" href="#module-geonode.datarequests.views.alpha" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.views.alpha.DataRequestProfileList">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">DataRequestProfileList</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.DataRequestProfileList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">braces.views._access.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal"><span class="pre">django.views.generic.base.TemplateView</span></code></p>
+<dl class="attribute">
+<dt id="geonode.datarequests.views.alpha.DataRequestProfileList.raise_exception">
+<code class="descname">raise_exception</code><em class="property"> = True</em><a class="headerlink" href="#geonode.datarequests.views.alpha.DataRequestProfileList.raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.views.alpha.DataRequestProfileList.template_name">
+<code class="descname">template_name</code><em class="property"> = 'datarequests/old_requests_model_list.html'</em><a class="headerlink" href="#geonode.datarequests.views.alpha.DataRequestProfileList.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.old_request_detail">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">old_request_detail</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.old_request_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.old_request_facet_count">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">old_request_facet_count</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.old_request_facet_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.old_request_migration">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">old_request_migration</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.old_request_migration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.old_request_migration_all">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">old_request_migration_all</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.old_request_migration_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.old_requests_csv">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">old_requests_csv</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.old_requests_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.requests_csv">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">requests_csv</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.requests_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.alpha.requests_landing">
+<code class="descclassname">geonode.datarequests.views.alpha.</code><code class="descname">requests_landing</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.alpha.requests_landing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.views.data">
+<span id="geonode-datarequests-views-data-module"></span><h2>geonode.datarequests.views.data module<a class="headerlink" href="#module-geonode.datarequests.views.data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.views.data.DataRequestList">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">DataRequestList</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.DataRequestList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">braces.views._access.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal"><span class="pre">django.views.generic.base.TemplateView</span></code></p>
+<dl class="attribute">
+<dt id="geonode.datarequests.views.data.DataRequestList.raise_exception">
+<code class="descname">raise_exception</code><em class="property"> = True</em><a class="headerlink" href="#geonode.datarequests.views.data.DataRequestList.raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.views.data.DataRequestList.template_name">
+<code class="descname">template_name</code><em class="property"> = 'datarequests/data_request_list.html'</em><a class="headerlink" href="#geonode.datarequests.views.data.DataRequestList.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_approve">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_approve</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_approve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_assign_gridrefs">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_assign_gridrefs</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_assign_gridrefs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_cancel">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_cancel</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_compute_size">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_compute_size</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_compute_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_compute_size_all">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_compute_size_all</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_compute_size_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_detail">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_detail</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em>, <em>template='datarequests/data_detail.html'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_edit">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_edit</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_facet_count">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_facet_count</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_facet_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_forward_request">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_forward_request</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_forward_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_notify_requester">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_notify_requester</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_notify_requester" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_notify_suc">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_notify_suc</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_notify_suc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_reject">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_reject</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_reject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_reverse_geocode">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_reverse_geocode</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_reverse_geocode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_reverse_geocode_all">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_reverse_geocode_all</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_reverse_geocode_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_tag_suc">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_tag_suc</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_tag_suc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_request_tag_suc_all">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_request_tag_suc_all</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_request_tag_suc_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.data_requests_csv">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">data_requests_csv</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.data_requests_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.data.user_data_request_list">
+<code class="descclassname">geonode.datarequests.views.data.</code><code class="descname">user_data_request_list</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.data.user_data_request_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.views.profile">
+<span id="geonode-datarequests-views-profile-module"></span><h2>geonode.datarequests.views.profile module<a class="headerlink" href="#module-geonode.datarequests.views.profile" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.datarequests.views.profile.ProfileRequestList">
+<em class="property">class </em><code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">ProfileRequestList</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.ProfileRequestList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">braces.views._access.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal"><span class="pre">django.views.generic.base.TemplateView</span></code></p>
+<dl class="attribute">
+<dt id="geonode.datarequests.views.profile.ProfileRequestList.raise_exception">
+<code class="descname">raise_exception</code><em class="property"> = True</em><a class="headerlink" href="#geonode.datarequests.views.profile.ProfileRequestList.raise_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.datarequests.views.profile.ProfileRequestList.template_name">
+<code class="descname">template_name</code><em class="property"> = 'datarequests/profile_request_list.html'</em><a class="headerlink" href="#geonode.datarequests.views.profile.ProfileRequestList.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_approve">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_approve</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_approve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_cancel">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_cancel</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_detail">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_detail</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_edit">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_edit</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_facet_count">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_facet_count</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_facet_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_reconfirm">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_reconfirm</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_reconfirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_recreate_dir">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_recreate_dir</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_recreate_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_request_reject">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_request_reject</code><span class="sig-paren">(</span><em>request</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_request_reject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.profile.profile_requests_csv">
+<code class="descclassname">geonode.datarequests.views.profile.</code><code class="descname">profile_requests_csv</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.profile.profile_requests_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.views.registration">
+<span id="geonode-datarequests-views-registration-module"></span><h2>geonode.datarequests.views.registration module<a class="headerlink" href="#module-geonode.datarequests.views.registration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.create_letter_document">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">create_letter_document</code><span class="sig-paren">(</span><em>request_letter</em>, <em>profile=None</em>, <em>profile_request=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.create_letter_document" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.data_request_view">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">data_request_view</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.data_request_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.email_verification_confirm">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">email_verification_confirm</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.email_verification_confirm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.email_verification_send">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">email_verification_send</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.email_verification_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.profile_request_view">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">profile_request_view</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.profile_request_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.datarequests.views.registration.register">
+<code class="descclassname">geonode.datarequests.views.registration.</code><code class="descname">register</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.datarequests.views.registration.register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.datarequests.views">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.datarequests.views" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

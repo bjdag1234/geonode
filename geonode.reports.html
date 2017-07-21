@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.reports package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.reports package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.reports.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-reports-package">
+<h1>geonode.reports package<a class="headerlink" href="#geonode-reports-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.reports.admin">
+<span id="geonode-reports-admin-module"></span><h2>geonode.reports.admin module<a class="headerlink" href="#module-geonode.reports.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.reports.admin.DownloadCountAdmin">
+<em class="property">class </em><code class="descclassname">geonode.reports.admin.</code><code class="descname">DownloadCountAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.admin.DownloadCountAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadCountAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'date', 'category', 'chart_group', 'download_type', 'count')</em><a class="headerlink" href="#geonode.reports.admin.DownloadCountAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadCountAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.reports.admin.DownloadCountAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadCountAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.reports.admin.DownloadCountAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadCountAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.reports.admin.DownloadCountAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">DownloadCount</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.reports.admin.DownloadTrackerAdmin">
+<em class="property">class </em><code class="descclassname">geonode.reports.admin.</code><code class="descname">DownloadTrackerAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.admin.DownloadTrackerAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadTrackerAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'timestamp', 'actor', 'title', 'resource_type', 'dl_type', 'keywords')</em><a class="headerlink" href="#geonode.reports.admin.DownloadTrackerAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadTrackerAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.reports.admin.DownloadTrackerAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadTrackerAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.reports.admin.DownloadTrackerAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.DownloadTrackerAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.reports.admin.DownloadTrackerAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">DownloadTracker</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.reports.admin.SUCLuzViMinAdmin">
+<em class="property">class </em><code class="descclassname">geonode.reports.admin.</code><code class="descname">SUCLuzViMinAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.admin.SUCLuzViMinAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.reports.admin.SUCLuzViMinAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'province', 'suc', 'luzvimin')</em><a class="headerlink" href="#geonode.reports.admin.SUCLuzViMinAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.SUCLuzViMinAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.reports.admin.SUCLuzViMinAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.SUCLuzViMinAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.reports.admin.SUCLuzViMinAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.admin.SUCLuzViMinAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.reports.admin.SUCLuzViMinAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">SUCLuzViMin</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.reports.models">
+<span id="geonode-reports-models-module"></span><h2>geonode.reports.models module<a class="headerlink" href="#module-geonode.reports.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.reports.models.DownloadCount">
+<em class="property">class </em><code class="descclassname">geonode.reports.models.</code><code class="descname">DownloadCount</code><span class="sig-paren">(</span><em>id</em>, <em>date</em>, <em>category</em>, <em>chart_group</em>, <em>download_type</em>, <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.reports.models.DownloadCount.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.reports.models.DownloadCount.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.reports.models.DownloadCount.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.reports.models.DownloadCount.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.reports.models.DownloadCount.get_next_by_date">
+<code class="descname">get_next_by_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadCount.get_next_by_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.reports.models.DownloadCount.get_previous_by_date">
+<code class="descname">get_previous_by_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadCount.get_previous_by_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.models.DownloadCount.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.reports.models.DownloadCount.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.reports.models.DownloadTracker">
+<em class="property">class </em><code class="descclassname">geonode.reports.models.</code><code class="descname">DownloadTracker</code><span class="sig-paren">(</span><em>id</em>, <em>timestamp</em>, <em>actor_id</em>, <em>title</em>, <em>resource_type</em>, <em>keywords</em>, <em>dl_type</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.reports.models.DownloadTracker.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.reports.models.DownloadTracker.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.reports.models.DownloadTracker.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.reports.models.DownloadTracker.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.models.DownloadTracker.actor">
+<code class="descname">actor</code><a class="headerlink" href="#geonode.reports.models.DownloadTracker.actor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.reports.models.DownloadTracker.get_next_by_timestamp">
+<code class="descname">get_next_by_timestamp</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadTracker.get_next_by_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.reports.models.DownloadTracker.get_previous_by_timestamp">
+<code class="descname">get_previous_by_timestamp</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.DownloadTracker.get_previous_by_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.models.DownloadTracker.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.reports.models.DownloadTracker.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.reports.models.SUCLuzViMin">
+<em class="property">class </em><code class="descclassname">geonode.reports.models.</code><code class="descname">SUCLuzViMin</code><span class="sig-paren">(</span><em>id</em>, <em>province</em>, <em>suc</em>, <em>luzvimin</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.models.SUCLuzViMin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.reports.models.SUCLuzViMin.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.reports.models.SUCLuzViMin.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.reports.models.SUCLuzViMin.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.reports.models.SUCLuzViMin.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.reports.models.SUCLuzViMin.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.reports.models.SUCLuzViMin.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.reports.tests">
+<span id="geonode-reports-tests-module"></span><h2>geonode.reports.tests module<a class="headerlink" href="#module-geonode.reports.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.reports.urls">
+<span id="geonode-reports-urls-module"></span><h2>geonode.reports.urls module<a class="headerlink" href="#module-geonode.reports.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.reports.views">
+<span id="geonode-reports-views-module"></span><h2>geonode.reports.views module<a class="headerlink" href="#module-geonode.reports.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.reports.views.report_distribution_status">
+<code class="descclassname">geonode.reports.views.</code><code class="descname">report_distribution_status</code><span class="sig-paren">(</span><em>request</em>, <em>template='reports/distribution_status.html'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.reports.views.report_distribution_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.reports">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.reports" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

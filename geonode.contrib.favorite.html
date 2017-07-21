@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.contrib.favorite package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.contrib.favorite package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.contrib.favorite.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-contrib-favorite-package">
+<h1>geonode.contrib.favorite package<a class="headerlink" href="#geonode-contrib-favorite-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.contrib.favorite.models">
+<span id="geonode-contrib-favorite-models-module"></span><h2>geonode.contrib.favorite.models module<a class="headerlink" href="#module-geonode.contrib.favorite.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.contrib.favorite.models.Favorite">
+<em class="property">class </em><code class="descclassname">geonode.contrib.favorite.models.</code><code class="descname">Favorite</code><span class="sig-paren">(</span><em>id</em>, <em>user_id</em>, <em>content_type_id</em>, <em>object_id</em>, <em>created_on</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.contrib.favorite.models.Favorite.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.contrib.favorite.models.Favorite.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.favorite.models.Favorite.content_object">
+<code class="descname">content_object</code><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.content_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides a generic relation to any object through content-type/object-id
+fields.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.favorite.models.Favorite.content_type">
+<code class="descname">content_type</code><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.Favorite.get_next_by_created_on">
+<code class="descname">get_next_by_created_on</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.get_next_by_created_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.Favorite.get_previous_by_created_on">
+<code class="descname">get_previous_by_created_on</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.get_previous_by_created_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.favorite.models.Favorite.objects">
+<code class="descname">objects</code><em class="property"> = &lt;geonode.contrib.favorite.models.FavoriteManager object&gt;</em><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.contrib.favorite.models.Favorite.user">
+<code class="descname">user</code><a class="headerlink" href="#geonode.contrib.favorite.models.Favorite.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.contrib.favorite.models.FavoriteManager">
+<em class="property">class </em><code class="descclassname">geonode.contrib.favorite.models.</code><code class="descname">FavoriteManager</code><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.bulk_favorite_objects">
+<code class="descname">bulk_favorite_objects</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.bulk_favorite_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the actual favorite objects for a user as a dict by content_type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.create_favorite">
+<code class="descname">create_favorite</code><span class="sig-paren">(</span><em>content_object</em>, <em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.create_favorite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorite_documents_for_user">
+<code class="descname">favorite_documents_for_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorite_documents_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorite_for_user_and_content_object">
+<code class="descname">favorite_for_user_and_content_object</code><span class="sig-paren">(</span><em>user</em>, <em>content_object</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorite_for_user_and_content_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>if Favorite exists for input user and type and pk of the input
+content_object, return it.  else return None.
+impl note: can only be 0 or 1, per the class’s unique_together.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorite_layers_for_user">
+<code class="descname">favorite_layers_for_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorite_layers_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorite_maps_for_user">
+<code class="descname">favorite_maps_for_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorite_maps_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorite_users_for_user">
+<code class="descname">favorite_users_for_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorite_users_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.models.FavoriteManager.favorites_for_user">
+<code class="descname">favorites_for_user</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.models.FavoriteManager.favorites_for_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.favorite.tests">
+<span id="geonode-contrib-favorite-tests-module"></span><h2>geonode.contrib.favorite.tests module<a class="headerlink" href="#module-geonode.contrib.favorite.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest">
+<em class="property">class </em><code class="descclassname">geonode.contrib.favorite.tests.</code><code class="descname">FavoriteTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<p>Tests geonode.contrib.favorite app/module</p>
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view">
+<code class="descname">test_create_favorite_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>call create view with valid user and content.
+then call again to check for idempotent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view_id_not_found">
+<code class="descname">test_create_favorite_view_id_not_found</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view_id_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>call create view with object id that does not exist.
+expect not found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view_login_required">
+<code class="descname">test_create_favorite_view_login_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_create_favorite_view_login_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>call create view, not logged in.
+expect a redirect to login page.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_delete_favorite_view">
+<code class="descname">test_delete_favorite_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_delete_favorite_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>call delete view with valid user and favorite id.
+then call again to check for idempotent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_delete_favorite_view_login_required">
+<code class="descname">test_delete_favorite_view_login_required</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_delete_favorite_view_login_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>call delete view, not logged in.
+expect a redirect to login page.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.contrib.favorite.tests.FavoriteTest.test_favorite">
+<code class="descname">test_favorite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.tests.FavoriteTest.test_favorite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.favorite.urls">
+<span id="geonode-contrib-favorite-urls-module"></span><h2>geonode.contrib.favorite.urls module<a class="headerlink" href="#module-geonode.contrib.favorite.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.contrib.favorite.utils">
+<span id="geonode-contrib-favorite-utils-module"></span><h2>geonode.contrib.favorite.utils module<a class="headerlink" href="#module-geonode.contrib.favorite.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.contrib.favorite.utils.get_favorite_info">
+<code class="descclassname">geonode.contrib.favorite.utils.</code><code class="descname">get_favorite_info</code><span class="sig-paren">(</span><em>user</em>, <em>content_object</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.utils.get_favorite_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>return favorite info dict containing:</dt>
+<dd><ol class="first last loweralpha simple">
+<li>an add favorite url for the input parameters.</li>
+<li>whether there is an existing Favorite for the input parameters.</li>
+<li>a delete url (if there is an existing Favorite).</li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.favorite.views">
+<span id="geonode-contrib-favorite-views-module"></span><h2>geonode.contrib.favorite.views module<a class="headerlink" href="#module-geonode.contrib.favorite.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.contrib.favorite.views.delete_favorite">
+<code class="descclassname">geonode.contrib.favorite.views.</code><code class="descname">delete_favorite</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.views.delete_favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete favorite and put favorite_info object in response.
+method is idempotent, if favorite does not exist, just return favorite_info.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.favorite.views.favorite">
+<code class="descclassname">geonode.contrib.favorite.views.</code><code class="descname">favorite</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.views.favorite" title="Permalink to this definition">¶</a></dt>
+<dd><p>create favorite and put favorite_info object in response.
+method is idempotent, Favorite’s create_favorite method
+only creates if does not already exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.contrib.favorite.views.get_favorites">
+<code class="descclassname">geonode.contrib.favorite.views.</code><code class="descname">get_favorites</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.contrib.favorite.views.get_favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the request user’s favorites.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.contrib.favorite">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.contrib.favorite" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

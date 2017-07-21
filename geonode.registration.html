@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.registration package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.registration package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.registration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-registration-package">
+<h1>geonode.registration package<a class="headerlink" href="#geonode-registration-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.registration.admin">
+<span id="geonode-registration-admin-module"></span><h2>geonode.registration.admin module<a class="headerlink" href="#module-geonode.registration.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.registration.admin.MunicipalityAdmin">
+<em class="property">class </em><code class="descclassname">geonode.registration.admin.</code><code class="descname">MunicipalityAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'municipality_name', 'province')</em><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ['id', 'municipality_name']</em><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('province', 'municipality_name')</em><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Municipality</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.MunicipalityAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('province', 'municipality_name', 'alt_name')</em><a class="headerlink" href="#geonode.registration.admin.MunicipalityAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.registration.admin.ProvinceAdmin">
+<em class="property">class </em><code class="descclassname">geonode.registration.admin.</code><code class="descname">ProvinceAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.admin.ProvinceAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.registration.admin.ProvinceAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'province_name')</em><a class="headerlink" href="#geonode.registration.admin.ProvinceAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.ProvinceAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ['province_name']</em><a class="headerlink" href="#geonode.registration.admin.ProvinceAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.ProvinceAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.registration.admin.ProvinceAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.admin.ProvinceAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.registration.admin.ProvinceAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Province</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.registration.forms">
+<span id="geonode-registration-forms-module"></span><h2>geonode.registration.forms module<a class="headerlink" href="#module-geonode.registration.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.registration.forms.UserRegistrationForm1">
+<em class="property">class </em><code class="descclassname">geonode.registration.forms.</code><code class="descname">UserRegistrationForm1</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm1.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'name_of_requestor': &lt;django.forms.fields.CharField object&gt;, 'organization': &lt;django.forms.fields.CharField object&gt;, 'local_or_foreign': &lt;django.forms.fields.TypedChoiceField object&gt;, 'intended_use': &lt;django.forms.fields.TypedChoiceField object&gt;}</em><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm1.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm1.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm1.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.registration.forms.UserRegistrationForm2">
+<em class="property">class </em><code class="descclassname">geonode.registration.forms.</code><code class="descname">UserRegistrationForm2</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm2.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'project_summary': &lt;django.forms.fields.CharField object&gt;, 'organization_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'other_org_type': &lt;django.forms.fields.CharField object&gt;}</em><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm2.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm2.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm2.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.registration.forms.UserRegistrationForm3">
+<em class="property">class </em><code class="descclassname">geonode.registration.forms.</code><code class="descname">UserRegistrationForm3</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm3.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {}</em><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm3.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.forms.UserRegistrationForm3.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.registration.forms.UserRegistrationForm3.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.registration.models">
+<span id="geonode-registration-models-module"></span><h2>geonode.registration.models module<a class="headerlink" href="#module-geonode.registration.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.registration.models.Municipality">
+<em class="property">class </em><code class="descclassname">geonode.registration.models.</code><code class="descname">Municipality</code><span class="sig-paren">(</span><em>id</em>, <em>municipality_name</em>, <em>area_type</em>, <em>alt_name</em>, <em>province_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.models.Municipality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.registration.models.Municipality.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.registration.models.Municipality.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.registration.models.Municipality.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.registration.models.Municipality.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.models.Municipality.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.registration.models.Municipality.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.models.Municipality.province">
+<code class="descname">province</code><a class="headerlink" href="#geonode.registration.models.Municipality.province" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.registration.models.Province">
+<em class="property">class </em><code class="descclassname">geonode.registration.models.</code><code class="descname">Province</code><span class="sig-paren">(</span><em>id</em>, <em>province_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.models.Province" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.registration.models.Province.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.registration.models.Province.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.registration.models.Province.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.registration.models.Province.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.models.Province.municipality_set">
+<code class="descname">municipality_set</code><a class="headerlink" href="#geonode.registration.models.Province.municipality_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.registration.models.Province.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.registration.models.Province.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.registration.tests">
+<span id="geonode-registration-tests-module"></span><h2>geonode.registration.tests module<a class="headerlink" href="#module-geonode.registration.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="geonode-registration-urls-module">
+<h2>geonode.registration.urls module<a class="headerlink" href="#geonode-registration-urls-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.registration.views">
+<span id="geonode-registration-views-module"></span><h2>geonode.registration.views module<a class="headerlink" href="#module-geonode.registration.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.registration.views.user_registration">
+<code class="descclassname">geonode.registration.views.</code><code class="descname">user_registration</code><span class="sig-paren">(</span><em>request</em>, <em>page=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.registration.views.user_registration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.registration">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.registration" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

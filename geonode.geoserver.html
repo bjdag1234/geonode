@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.geoserver package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.geoserver package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.geoserver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-geoserver-package">
+<h1>geonode.geoserver package<a class="headerlink" href="#geonode-geoserver-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geonode.geoserver.management.html">geonode.geoserver.management package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.geoserver.management.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geonode.geoserver.management.commands.html">geonode.geoserver.management.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geonode.geoserver.management.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.geoserver.management.commands.html#module-geonode.geoserver.management.commands.updatelayers">geonode.geoserver.management.commands.updatelayers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.geoserver.management.commands.html#module-geonode.geoserver.management.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.geoserver.management.html#module-geonode.geoserver.management">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.geoserver.context_processors">
+<span id="geonode-geoserver-context-processors-module"></span><h2>geonode.geoserver.context_processors module<a class="headerlink" href="#module-geonode.geoserver.context_processors" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.geoserver.context_processors.geoserver_urls">
+<code class="descclassname">geonode.geoserver.context_processors.</code><code class="descname">geoserver_urls</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.context_processors.geoserver_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global values to pass to templates</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver.helpers">
+<span id="geonode-geoserver-helpers-module"></span><h2>geonode.geoserver.helpers module<a class="headerlink" href="#module-geonode.geoserver.helpers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.geoserver.helpers.OGC_Server">
+<em class="property">class </em><code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">OGC_Server</code><span class="sig-paren">(</span><em>ogc_server</em>, <em>alias</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>OGC Server object.</p>
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.credentials">
+<code class="descname">credentials</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple of the server’s credentials.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.datastore_db">
+<code class="descname">datastore_db</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.datastore_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the server’s datastore dict or None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.hostname">
+<code class="descname">hostname</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.internal_ows">
+<code class="descname">internal_ows</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.internal_ows" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Open Web Service url for the server used by GeoNode internally.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.internal_rest">
+<code class="descname">internal_rest</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.internal_rest" title="Permalink to this definition">¶</a></dt>
+<dd><p>The internal REST endpoint for the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.netloc">
+<code class="descname">netloc</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.netloc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.ows">
+<code class="descname">ows</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.ows" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Open Web Service url for the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.public_url">
+<code class="descname">public_url</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.public_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The global public endpoint for the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.geoserver.helpers.OGC_Server.rest">
+<code class="descname">rest</code><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Server.rest" title="Permalink to this definition">¶</a></dt>
+<dd><p>The REST endpoint for the server.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.geoserver.helpers.OGC_Servers_Handler">
+<em class="property">class </em><code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">OGC_Servers_Handler</code><span class="sig-paren">(</span><em>ogc_server_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Servers_Handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>OGC Server Settings Convenience dict.</p>
+<dl class="method">
+<dt id="geonode.geoserver.helpers.OGC_Servers_Handler.all">
+<code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Servers_Handler.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.helpers.OGC_Servers_Handler.ensure_defaults">
+<code class="descname">ensure_defaults</code><span class="sig-paren">(</span><em>alias</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Servers_Handler.ensure_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the defaults into the settings dictionary for a given connection where no settings is provided.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.helpers.OGC_Servers_Handler.ensure_valid_configuration">
+<code class="descname">ensure_valid_configuration</code><span class="sig-paren">(</span><em>alias</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.OGC_Servers_Handler.ensure_valid_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures the settings are valid.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.geoserver.helpers.ServerDoesNotExist">
+<em class="property">exception </em><code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">ServerDoesNotExist</code><a class="headerlink" href="#geonode.geoserver.helpers.ServerDoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.cascading_delete">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">cascading_delete</code><span class="sig-paren">(</span><em>cat</em>, <em>layer_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.cascading_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.check_geoserver_is_up">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">check_geoserver_is_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.check_geoserver_is_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifies all geoserver is running,
+this is needed to be able to upload.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.cleanup">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">cleanup</code><span class="sig-paren">(</span><em>name</em>, <em>uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.cleanup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes GeoServer and Catalogue records for a given name.</p>
+<p>Useful to clean the mess when something goes terribly wrong.
+It also verifies if the Django record existed, in which case
+it performs no action.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.delete_from_postgis">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">delete_from_postgis</code><span class="sig-paren">(</span><em>resource_name</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.delete_from_postgis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a table from PostGIS (because Geoserver won’t do it yet);
+to be used after deleting a layer from the system.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.fixup_style">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">fixup_style</code><span class="sig-paren">(</span><em>cat</em>, <em>resource</em>, <em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.fixup_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.geoserver_layer_type">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">geoserver_layer_type</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.geoserver_layer_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.geoserver_upload">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">geoserver_upload</code><span class="sig-paren">(</span><em>layer</em>, <em>base_file</em>, <em>user</em>, <em>name</em>, <em>overwrite=True</em>, <em>title=None</em>, <em>abstract=None</em>, <em>permissions=None</em>, <em>keywords=()</em>, <em>charset='UTF-8'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.geoserver_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_attribute_statistics">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_attribute_statistics</code><span class="sig-paren">(</span><em>layer_name</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_attribute_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate statistics (range, mean, median, standard deviation, unique values)
+for layer attribute</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_coverage_grid_extent">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_coverage_grid_extent</code><span class="sig-paren">(</span><em>instance</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_coverage_grid_extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of integers with the size of the coverage
+extent in pixels</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_sld_for">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_sld_for</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_sld_for" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_store">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_store</code><span class="sig-paren">(</span><em>cat</em>, <em>name</em>, <em>workspace=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_store" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_stores">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_stores</code><span class="sig-paren">(</span><em>store_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_stores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_time_info">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_time_info</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_time_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the configured time dimension metadata for the layer as a dict.</p>
+<p>The keys of the dict will be those of the parameters of <cite>set_time_info</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict of values or None if not configured</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_wcs_record">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_wcs_record</code><span class="sig-paren">(</span><em>instance</em>, <em>retry=True</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_wcs_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.get_wms">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">get_wms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.get_wms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.gs_slurp">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">gs_slurp</code><span class="sig-paren">(</span><em>ignore_errors=True</em>, <em>verbosity=1</em>, <em>console=None</em>, <em>owner=None</em>, <em>workspace=None</em>, <em>store=None</em>, <em>filter=None</em>, <em>skip_unadvertised=False</em>, <em>skip_geonode_registered=False</em>, <em>remove_deleted=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.gs_slurp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the layers available in GeoServer in GeoNode.</p>
+<p>It returns a list of dictionaries with the name of the layer,
+the result of the operation and the errors and traceback if it failed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.is_layer_attribute_aggregable">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">is_layer_attribute_aggregable</code><span class="sig-paren">(</span><em>store_type</em>, <em>field_name</em>, <em>field_type</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.is_layer_attribute_aggregable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decipher whether layer attribute is suitable for statistical derivation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.save_style">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">save_style</code><span class="sig-paren">(</span><em>gs_style</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.save_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.set_attributes">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">set_attributes</code><span class="sig-paren">(</span><em>layer</em>, <em>overwrite=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.set_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve layer attribute names &amp; types from Geoserver,
+then store in GeoNode database using Attribute model</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.set_styles">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">set_styles</code><span class="sig-paren">(</span><em>layer</em>, <em>gs_catalog</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.set_styles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.set_time_info">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">set_time_info</code><span class="sig-paren">(</span><em>layer</em>, <em>attribute</em>, <em>end_attribute</em>, <em>presentation</em>, <em>precision_value</em>, <em>precision_step</em>, <em>enabled=True</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.set_time_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the time dimension for a layer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>layer</strong> – the layer to configure</li>
+<li><strong>attribute</strong> – the attribute used to represent the instant or period
+start</li>
+<li><strong>end_attribute</strong> – the optional attribute used to represent the end
+period</li>
+<li><strong>presentation</strong> – either ‘LIST’, ‘DISCRETE_INTERVAL’, or
+‘CONTINUOUS_INTERVAL’</li>
+<li><strong>precision_value</strong> – number representing number of steps</li>
+<li><strong>precision_step</strong> – one of ‘seconds’, ‘minutes’, ‘hours’, ‘days’,
+‘months’, ‘years’</li>
+<li><strong>enabled</strong> – defaults to True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.style_update">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">style_update</code><span class="sig-paren">(</span><em>request</em>, <em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.style_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync style stuff from GS to GN.
+Ideally we should call this from a view straight from GXP, and we should use
+gsConfig, that at this time does not support styles updates. Before gsConfig
+is updated, for now we need to parse xml.
+In case of a DELETE, we need to query request.path to get the style name,
+and then remove it.
+In case of a POST or PUT, we need to parse the xml from
+request.body, which is in this format:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.helpers.wps_execute_layer_attribute_statistics">
+<code class="descclassname">geonode.geoserver.helpers.</code><code class="descname">wps_execute_layer_attribute_statistics</code><span class="sig-paren">(</span><em>layer_name</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.helpers.wps_execute_layer_attribute_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Derive aggregate statistics from WPS endpoint</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver.models">
+<span id="geonode-geoserver-models-module"></span><h2>geonode.geoserver.models module<a class="headerlink" href="#module-geonode.geoserver.models" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.geoserver.ows">
+<span id="geonode-geoserver-ows-module"></span><h2>geonode.geoserver.ows module<a class="headerlink" href="#module-geonode.geoserver.ows" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.geoserver.ows.wcs_links">
+<code class="descclassname">geonode.geoserver.ows.</code><code class="descname">wcs_links</code><span class="sig-paren">(</span><em>wcs_url</em>, <em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.ows.wcs_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.ows.wfs_links">
+<code class="descclassname">geonode.geoserver.ows.</code><code class="descname">wfs_links</code><span class="sig-paren">(</span><em>wfs_url</em>, <em>identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.ows.wfs_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.ows.wms_links">
+<code class="descclassname">geonode.geoserver.ows.</code><code class="descname">wms_links</code><span class="sig-paren">(</span><em>wms_url</em>, <em>identifier</em>, <em>bbox</em>, <em>srid</em>, <em>height</em>, <em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.ows.wms_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver.signals">
+<span id="geonode-geoserver-signals-module"></span><h2>geonode.geoserver.signals module<a class="headerlink" href="#module-geonode.geoserver.signals" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.geoserver.signals.geoserver_post_save">
+<code class="descclassname">geonode.geoserver.signals.</code><code class="descname">geoserver_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.signals.geoserver_post_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save keywords to GeoServer</p>
+<p>The way keywords are implemented requires the layer
+to be saved to the database before accessing them.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.signals.geoserver_post_save_map">
+<code class="descclassname">geonode.geoserver.signals.</code><code class="descname">geoserver_post_save_map</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.signals.geoserver_post_save_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.signals.geoserver_pre_delete">
+<code class="descclassname">geonode.geoserver.signals.</code><code class="descname">geoserver_pre_delete</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.signals.geoserver_pre_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the layer from GeoServer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.signals.geoserver_pre_save">
+<code class="descclassname">geonode.geoserver.signals.</code><code class="descname">geoserver_pre_save</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.signals.geoserver_pre_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send information to geoserver.</p>
+<p>The attributes sent include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Title</li>
+<li>Abstract</li>
+<li>Name</li>
+<li>Keywords</li>
+<li>Metadata Links,</li>
+<li>Point of Contact name and url</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.signals.geoserver_pre_save_maplayer">
+<code class="descclassname">geonode.geoserver.signals.</code><code class="descname">geoserver_pre_save_maplayer</code><span class="sig-paren">(</span><em>instance</em>, <em>sender</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.signals.geoserver_pre_save_maplayer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver.tests">
+<span id="geonode-geoserver-tests-module"></span><h2>geonode.geoserver.tests module<a class="headerlink" href="#module-geonode.geoserver.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.geoserver.tests.LayerTests">
+<em class="property">class </em><code class="descclassname">geonode.geoserver.tests.</code><code class="descname">LayerTests</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<dl class="attribute">
+<dt id="geonode.geoserver.tests.LayerTests.fixtures">
+<code class="descname">fixtures</code><em class="property"> = ['bobby']</em><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.LayerTests.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.LayerTests.test_feature_edit_check">
+<code class="descname">test_feature_edit_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.test_feature_edit_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the feature_edit_check view is behaving as expected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.LayerTests.test_layer_acls">
+<code class="descname">test_layer_acls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.test_layer_acls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the layer_acls view is behaving as expected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.LayerTests.test_resolve_user">
+<code class="descname">test_resolve_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.test_resolve_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the resolve_user view is behaving as expected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.LayerTests.test_style_manager">
+<code class="descname">test_style_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.LayerTests.test_style_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures the layer_style_manage route returns a 200.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.geoserver.tests.SecurityTest">
+<em class="property">class </em><code class="descclassname">geonode.geoserver.tests.</code><code class="descname">SecurityTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.SecurityTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<p>Tests for the Geonode security app.</p>
+<dl class="method">
+<dt id="geonode.geoserver.tests.SecurityTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.SecurityTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.SecurityTest.test_login_middleware">
+<code class="descname">test_login_middleware</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.SecurityTest.test_login_middleware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests the Geonode login required authentication middleware.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.geoserver.tests.UtilsTests">
+<em class="property">class </em><code class="descclassname">geonode.geoserver.tests.</code><code class="descname">UtilsTests</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.UtilsTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<dl class="method">
+<dt id="geonode.geoserver.tests.UtilsTests.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.UtilsTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.UtilsTests.test_importer_configuration">
+<code class="descname">test_importer_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.UtilsTests.test_importer_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests that the OGC_Servers_Handler throws an ImproperlyConfigured exception when using the importer
+backend without a vector database and a datastore configured.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.UtilsTests.test_ogc_server_defaults">
+<code class="descname">test_ogc_server_defaults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.UtilsTests.test_ogc_server_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests that OGC_SERVER_SETTINGS are built if they do not exist in the settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.geoserver.tests.UtilsTests.test_ogc_server_settings">
+<code class="descname">test_ogc_server_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.tests.UtilsTests.test_ogc_server_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests the OGC Servers Handler class.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver.urls">
+<span id="geonode-geoserver-urls-module"></span><h2>geonode.geoserver.urls module<a class="headerlink" href="#module-geonode.geoserver.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.geoserver.views">
+<span id="geonode-geoserver-views-module"></span><h2>geonode.geoserver.views module<a class="headerlink" href="#module-geonode.geoserver.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.geoserver.views.feature_edit_check">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">feature_edit_check</code><span class="sig-paren">(</span><em>request</em>, <em>layername</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.feature_edit_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the layer is not a raster and the user has edit permission, return a status of 200 (OK).
+Otherwise, return a status of 401 (unauthorized).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.geoserver_rest_proxy">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">geoserver_rest_proxy</code><span class="sig-paren">(</span><em>request</em>, <em>proxy_path</em>, <em>downstream_path</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.geoserver_rest_proxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.layer_acls">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">layer_acls</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.layer_acls" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns json-encoded lists of layer identifiers that
+represent the sets of read-write and read-only layers
+for the currently authenticated user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.layer_batch_download">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">layer_batch_download</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.layer_batch_download" title="Permalink to this definition">¶</a></dt>
+<dd><p>batch download a set of layers</p>
+<p>POST - begin download
+GET?id=&lt;download_id&gt; monitor status</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.layer_style">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">layer_style</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.layer_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.layer_style_manage">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">layer_style_manage</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.layer_style_manage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.layer_style_upload">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">layer_style_upload</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.layer_style_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.resolve_user">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">resolve_user</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.resolve_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.stores">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">stores</code><span class="sig-paren">(</span><em>request</em>, <em>store_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.stores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.style_change_check">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">style_change_check</code><span class="sig-paren">(</span><em>request</em>, <em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.style_change_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the layer has not change_layer_style permission, return a status of
+401 (unauthorized)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.geoserver.views.updatelayers">
+<code class="descclassname">geonode.geoserver.views.</code><code class="descname">updatelayers</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.geoserver.views.updatelayers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.geoserver">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.geoserver" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

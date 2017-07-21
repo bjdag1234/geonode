@@ -1,0 +1,1618 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>geonode.base package &mdash; GeoNode 2.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeoNode 2.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GeoNode
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="includeme.html">GeoNode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GeoNode</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>geonode.base package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/geonode.base.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geonode-base-package">
+<h1>geonode.base package<a class="headerlink" href="#geonode-base-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geonode.base.management.html">geonode.base.management package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.base.management.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="geonode.base.management.commands.html">geonode.base.management.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="geonode.base.management.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.base.management.commands.html#module-geonode.base.management.commands.fixsitename">geonode.base.management.commands.fixsitename module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geonode.base.management.commands.html#module-geonode.base.management.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.base.management.html#module-geonode.base.management">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geonode.base.templatetags.html">geonode.base.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geonode.base.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.base.templatetags.html#module-geonode.base.templatetags.base_tags">geonode.base.templatetags.base_tags module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geonode.base.templatetags.html#module-geonode.base.templatetags">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.base.admin">
+<span id="geonode-base-admin-module"></span><h2>geonode.base.admin module<a class="headerlink" href="#module-geonode.base.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.base.admin.ContactRoleAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">ContactRoleAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ContactRoleForm</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'contact', 'resource', 'role')</em><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.list_editable">
+<code class="descname">list_editable</code><em class="property"> = ('contact', 'resource', 'role')</em><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.list_editable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ContactRoleAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.ContactRoleAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ContactRole</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.LicenseAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">LicenseAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.LicenseAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.LicenseAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'name')</em><a class="headerlink" href="#geonode.base.admin.LicenseAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LicenseAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('name',)</em><a class="headerlink" href="#geonode.base.admin.LicenseAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LicenseAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.LicenseAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LicenseAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.LicenseAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">License</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.LinkAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">LinkAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.LinkAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.base.admin.LinkAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">LinkForm</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'resource', 'extension', 'link_type', 'name', 'mime')</em><a class="headerlink" href="#geonode.base.admin.LinkAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.base.admin.LinkAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('resource', 'extension', 'link_type', 'mime')</em><a class="headerlink" href="#geonode.base.admin.LinkAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.LinkAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.LinkAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Link</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.LinkAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('name', 'resource__title')</em><a class="headerlink" href="#geonode.base.admin.LinkAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.MediaTranslationAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">MediaTranslationAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.MediaTranslationAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.admin.TranslationAdmin</span></code></p>
+<dl class="class">
+<dt id="geonode.base.admin.MediaTranslationAdmin.Media">
+<em class="property">class </em><code class="descname">Media</code><a class="headerlink" href="#geonode.base.admin.MediaTranslationAdmin.Media" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.base.admin.MediaTranslationAdmin.Media.css">
+<code class="descname">css</code><em class="property"> = {'screen': ('modeltranslation/css/tabbed_translation_fields.css',)}</em><a class="headerlink" href="#geonode.base.admin.MediaTranslationAdmin.Media.css" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.MediaTranslationAdmin.Media.js">
+<code class="descname">js</code><em class="property"> = ('modeltranslation/js/tabbed_translation_fields.js',)</em><a class="headerlink" href="#geonode.base.admin.MediaTranslationAdmin.Media.js" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.MediaTranslationAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.MediaTranslationAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.RegionAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">RegionAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.RegionAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.group_fieldsets">
+<code class="descname">group_fieldsets</code><em class="property"> = True</em><a class="headerlink" href="#geonode.base.admin.RegionAdmin.group_fieldsets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('code', 'name', 'parent')</em><a class="headerlink" href="#geonode.base.admin.RegionAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('name',)</em><a class="headerlink" href="#geonode.base.admin.RegionAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.RegionAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.RegionAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Region</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RegionAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('code', 'name')</em><a class="headerlink" href="#geonode.base.admin.RegionAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.ResourceBaseAdminForm">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">ResourceBaseAdminForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.ResourceBaseAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">autocomplete_light.forms.ModelForm</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.ResourceBaseAdminForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.base.admin.ResourceBaseAdminForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ResourceBaseAdminForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.base.admin.ResourceBaseAdminForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.ResourceBaseAdminForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.ResourceBaseAdminForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">RestrictionCodeTypeAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="method">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.has_add_permission">
+<code class="descname">has_add_permission</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.has_add_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.has_delete_permission">
+<code class="descname">has_delete_permission</code><span class="sig-paren">(</span><em>request</em>, <em>obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.has_delete_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('identifier', 'description', 'gn_description', 'is_choice')</em><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('identifier',)</em><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.RestrictionCodeTypeAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.RestrictionCodeTypeAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">RestrictionCodeType</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">SpatialRepresentationTypeAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="method">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.has_add_permission">
+<code class="descname">has_add_permission</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.has_add_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.has_delete_permission">
+<code class="descname">has_delete_permission</code><span class="sig-paren">(</span><em>request</em>, <em>obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.has_delete_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('identifier', 'description', 'gn_description', 'is_choice')</em><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('identifier',)</em><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.SpatialRepresentationTypeAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.SpatialRepresentationTypeAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">SpatialRepresentationType</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.admin.TopicCategoryAdmin">
+<em class="property">class </em><code class="descclassname">geonode.base.admin.</code><code class="descname">TopicCategoryAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="attribute">
+<dt id="geonode.base.admin.TopicCategoryAdmin.exclude">
+<code class="descname">exclude</code><em class="property"> = ('identifier', 'description')</em><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.admin.TopicCategoryAdmin.has_add_permission">
+<code class="descname">has_add_permission</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.has_add_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.admin.TopicCategoryAdmin.has_delete_permission">
+<code class="descname">has_delete_permission</code><span class="sig-paren">(</span><em>request</em>, <em>obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.has_delete_permission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.TopicCategoryAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('identifier', 'description', 'gn_description', 'is_choice')</em><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.TopicCategoryAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('identifier',)</em><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.TopicCategoryAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.admin.TopicCategoryAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.base.admin.TopicCategoryAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">TopicCategory</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base.autocomplete_light_registry">
+<span id="geonode-base-autocomplete-light-registry-module"></span><h2>geonode.base.autocomplete_light_registry module<a class="headerlink" href="#module-geonode.base.autocomplete_light_registry" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.base.enumerations">
+<span id="geonode-base-enumerations-module"></span><h2>geonode.base.enumerations module<a class="headerlink" href="#module-geonode.base.enumerations" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-geonode.base.forms">
+<span id="geonode-base-forms-module"></span><h2>geonode.base.forms module<a class="headerlink" href="#module-geonode.base.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.base.forms.CategoryChoiceField">
+<em class="property">class </em><code class="descclassname">geonode.base.forms.</code><code class="descname">CategoryChoiceField</code><span class="sig-paren">(</span><em>queryset</em>, <em>empty_label=u'---------'</em>, <em>cache_choices=False</em>, <em>required=True</em>, <em>widget=None</em>, <em>label=None</em>, <em>initial=None</em>, <em>help_text=u''</em>, <em>to_field_name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.forms.CategoryChoiceField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelChoiceField</span></code></p>
+<dl class="method">
+<dt id="geonode.base.forms.CategoryChoiceField.label_from_instance">
+<code class="descname">label_from_instance</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.forms.CategoryChoiceField.label_from_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.forms.CategoryForm">
+<em class="property">class </em><code class="descclassname">geonode.base.forms.</code><code class="descname">CategoryForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id=u'id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.util.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.forms.CategoryForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.forms.Form</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.forms.CategoryForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'category_choice_field': &lt;geonode.base.forms.CategoryChoiceField object&gt;}</em><a class="headerlink" href="#geonode.base.forms.CategoryForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.forms.CategoryForm.clean">
+<code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.forms.CategoryForm.clean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.forms.CategoryForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.forms.CategoryForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.forms.ResourceBaseForm">
+<em class="property">class </em><code class="descclassname">geonode.base.forms.</code><code class="descname">ResourceBaseForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.forms.TranslationModelForm</span></code></p>
+<p>Base form for metadata, should be inherited by childres classes of ResourceBase</p>
+<dl class="class">
+<dt id="geonode.base.forms.ResourceBaseForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.base.forms.ResourceBaseForm.Meta.exclude">
+<code class="descname">exclude</code><em class="property"> = ('contacts', 'name', 'uuid', 'bbox_x0', 'bbox_x1', 'bbox_y0', 'bbox_y1', 'srid', 'category', 'csw_typename', 'csw_schema', 'csw_mdsource', 'csw_type', 'csw_wkt_geometry', 'metadata_uploaded', 'metadata_xml', 'csw_anytext', 'popular_count', 'share_count', 'thumbnail', 'charset', 'rating', 'detail_url')</em><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm.Meta.exclude" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.forms.ResourceBaseForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'owner': &lt;django.forms.models.ModelChoiceField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'poc': &lt;django.forms.models.ModelChoiceField object&gt;, 'metadata_author': &lt;django.forms.models.ModelChoiceField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;, 'regions': &lt;mptt.forms.TreeNodeMultipleChoiceField object&gt;}</em><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.forms.ResourceBaseForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'owner': &lt;django.forms.models.ModelChoiceField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'poc': &lt;django.forms.models.ModelChoiceField object&gt;, 'metadata_author': &lt;django.forms.models.ModelChoiceField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;, 'regions': &lt;mptt.forms.TreeNodeMultipleChoiceField object&gt;}</em><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.forms.ResourceBaseForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.base.forms.ResourceBaseForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base.models">
+<span id="geonode-base-models-module"></span><h2>geonode.base.models module<a class="headerlink" href="#module-geonode.base.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.base.models.ContactRole">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">ContactRole</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ContactRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>ContactRole is an intermediate model to bind Profiles as Contacts to Resources and apply roles.</p>
+<dl class="exception">
+<dt id="geonode.base.models.ContactRole.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.ContactRole.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.ContactRole.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.ContactRole.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ContactRole.clean">
+<code class="descname">clean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ContactRole.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure there is only one poc and author per resource</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ContactRole.contact">
+<code class="descname">contact</code><a class="headerlink" href="#geonode.base.models.ContactRole.contact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ContactRole.get_role_display">
+<code class="descname">get_role_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ContactRole.get_role_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ContactRole.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.base.models.ContactRole.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ContactRole.resource">
+<code class="descname">resource</code><a class="headerlink" href="#geonode.base.models.ContactRole.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.License">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">License</code><span class="sig-paren">(</span><em>id</em>, <em>identifier</em>, <em>name</em>, <em>abbreviation</em>, <em>description</em>, <em>url</em>, <em>license_text</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.License" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="geonode.base.models.License.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.License.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.License.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.License.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.License.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.License.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.description">
+<code class="descname">description</code><a class="headerlink" href="#geonode.base.models.License.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.description_bullets">
+<code class="descname">description_bullets</code><a class="headerlink" href="#geonode.base.models.License.description_bullets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.license_text">
+<code class="descname">license_text</code><a class="headerlink" href="#geonode.base.models.License.license_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.name">
+<code class="descname">name</code><a class="headerlink" href="#geonode.base.models.License.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.name_long">
+<code class="descname">name_long</code><a class="headerlink" href="#geonode.base.models.License.name_long" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.License.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.License.resourcebase_set">
+<code class="descname">resourcebase_set</code><a class="headerlink" href="#geonode.base.models.License.resourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.Link">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">Link</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Auxiliary model for storing links for resources.</p>
+<p>This helps avoiding the need for runtime lookups
+to the OWS server or the CSW Catalogue.</p>
+<dl class="docutils">
+<dt>There are four types of links:</dt>
+<dd><ul class="first last simple">
+<li>original: For uploaded files (Shapefiles or GeoTIFFs)</li>
+<li>data: For WFS and WCS links that allow access to raw data</li>
+<li>image: For WMS and TMS links</li>
+<li>metadata: For CSW links</li>
+<li>OGC:WMS: for WMS service links</li>
+<li>OGC:WFS: for WFS service links</li>
+<li>OGC:WCS: for WCS service links</li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="geonode.base.models.Link.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.Link.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.Link.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.Link.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.Link.get_download_url">
+<code class="descname">get_download_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Link.get_download_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.Link.get_link_type_display">
+<code class="descname">get_link_type_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Link.get_link_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Link.objects">
+<code class="descname">objects</code><em class="property"> = &lt;geonode.base.models.LinkManager object&gt;</em><a class="headerlink" href="#geonode.base.models.Link.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Link.resource">
+<code class="descname">resource</code><a class="headerlink" href="#geonode.base.models.Link.resource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.Link.update_siteurl">
+<code class="descname">update_siteurl</code><span class="sig-paren">(</span><em>protocol='http'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Link.update_siteurl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Link.x">
+<code class="descname">x</code><em class="property"> = 'OGC:WCS'</em><a class="headerlink" href="#geonode.base.models.Link.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.LinkManager">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">LinkManager</code><a class="headerlink" href="#geonode.base.models.LinkManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<p>Helper class to access links grouped by type</p>
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.data">
+<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.download">
+<code class="descname">download</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.download" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.geogig">
+<code class="descname">geogig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.geogig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.image">
+<code class="descname">image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.metadata">
+<code class="descname">metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.original">
+<code class="descname">original</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.original" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.LinkManager.ows">
+<code class="descname">ows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.LinkManager.ows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.Region">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">Region</code><span class="sig-paren">(</span><em>id</em>, <em>code</em>, <em>name</em>, <em>parent_id</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">mptt.models.MPTTModel</span></code></p>
+<dl class="exception">
+<dt id="geonode.base.models.Region.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.Region.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.Region.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.Region.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Region.children">
+<code class="descname">children</code><a class="headerlink" href="#geonode.base.models.Region.children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.Region.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.Region.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Region.name">
+<code class="descname">name</code><a class="headerlink" href="#geonode.base.models.Region.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Region.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.translator.NewMultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.Region.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Region.parent">
+<code class="descname">parent</code><a class="headerlink" href="#geonode.base.models.Region.parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.Region.resourcebase_set">
+<code class="descname">resourcebase_set</code><a class="headerlink" href="#geonode.base.models.Region.resourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.RegionManager">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">RegionManager</code><a class="headerlink" href="#geonode.base.models.RegionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="method">
+<dt id="geonode.base.models.RegionManager.get_by_natural_key">
+<code class="descname">get_by_natural_key</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.RegionManager.get_by_natural_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.ResourceBase">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">ResourceBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">polymorphic.polymorphic_model.PolymorphicModel</span></code>, <a class="reference internal" href="geonode.security.html#geonode.security.models.PermissionLevelMixin" title="geonode.security.models.PermissionLevelMixin"><code class="xref py py-class docutils literal"><span class="pre">geonode.security.models.PermissionLevelMixin</span></code></a></p>
+<p>Base Resource Object loosely based on ISO 19115:2003</p>
+<dl class="exception">
+<dt id="geonode.base.models.ResourceBase.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.ResourceBase.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.ResourceBase.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.ResourceBase.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.VALID_DATE_TYPES">
+<code class="descname">VALID_DATE_TYPES</code><em class="property"> = [('creation', &lt;django.utils.functional.__proxy__ object&gt;), ('publication', &lt;django.utils.functional.__proxy__ object&gt;), ('revision', &lt;django.utils.functional.__proxy__ object&gt;)]</em><a class="headerlink" href="#geonode.base.models.ResourceBase.VALID_DATE_TYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.abstract_help_text">
+<code class="descname">abstract_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.abstract_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.base_objects">
+<code class="descname">base_objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.base_objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.bbox">
+<code class="descname">bbox</code><a class="headerlink" href="#geonode.base.models.ResourceBase.bbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.bbox_string">
+<code class="descname">bbox_string</code><a class="headerlink" href="#geonode.base.models.ResourceBase.bbox_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.category">
+<code class="descname">category</code><a class="headerlink" href="#geonode.base.models.ResourceBase.category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.category_help_text">
+<code class="descname">category_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.category_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.cephdataobjectresourcebase">
+<code class="descname">cephdataobjectresourcebase</code><a class="headerlink" href="#geonode.base.models.ResourceBase.cephdataobjectresourcebase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.constraints_other_help_text">
+<code class="descname">constraints_other_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.constraints_other_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.contactrole_set">
+<code class="descname">contactrole_set</code><a class="headerlink" href="#geonode.base.models.ResourceBase.contactrole_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.contacts">
+<code class="descname">contacts</code><a class="headerlink" href="#geonode.base.models.ResourceBase.contacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.data_quality_statement_help_text">
+<code class="descname">data_quality_statement_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.data_quality_statement_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.date_help_text">
+<code class="descname">date_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.date_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.date_type_help_text">
+<code class="descname">date_type_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.date_type_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.distribution_description_help_text">
+<code class="descname">distribution_description_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.distribution_description_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.distribution_url_help_text">
+<code class="descname">distribution_url_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.distribution_url_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.document">
+<code class="descname">document</code><a class="headerlink" href="#geonode.base.models.ResourceBase.document" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.download_links">
+<code class="descname">download_links</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.download_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>assemble download links for pycsw</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.edition_help_text">
+<code class="descname">edition_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.edition_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.geographic_bounding_box">
+<code class="descname">geographic_bounding_box</code><a class="headerlink" href="#geonode.base.models.ResourceBase.geographic_bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_csw_type_display">
+<code class="descname">get_csw_type_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_csw_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_date_type_display">
+<code class="descname">get_date_type_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_date_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_language_display">
+<code class="descname">get_language_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_language_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_legend">
+<code class="descname">get_legend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_legend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Link for legend or None if it does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_legend_url">
+<code class="descname">get_legend_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_legend_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return URL for legend or None if it does not exist.</p>
+<p>The legend can be either an image (for Geoserver’s WMS)
+or a JSON object for ArcGIS.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_maintenance_frequency_display">
+<code class="descname">get_maintenance_frequency_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_maintenance_frequency_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_next_by_date">
+<code class="descname">get_next_by_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_next_by_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_ows_url">
+<code class="descname">get_ows_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_ows_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return URL for OGC WMS server None if it does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_previous_by_date">
+<code class="descname">get_previous_by_date</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_previous_by_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_thumbnail_url">
+<code class="descname">get_thumbnail_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_thumbnail_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a thumbnail url.</p>
+<p>It could be a local one if it exists, a remote one (WMS GetImage) for example
+or a ‘Missing Thumbnail’ one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.get_tiles_url">
+<code class="descname">get_tiles_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.get_tiles_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return URL for Z/Y/X mapping clients or None if it does not exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.has_thumbnail">
+<code class="descname">has_thumbnail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.has_thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the thumbnail object exists and an image exists</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.keyword_csv">
+<code class="descname">keyword_csv</code><a class="headerlink" href="#geonode.base.models.ResourceBase.keyword_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.keyword_list">
+<code class="descname">keyword_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.keyword_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.keyword_slug_list">
+<code class="descname">keyword_slug_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.keyword_slug_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.keywords">
+<code class="descname">keywords</code><em class="property"> = &lt;taggit.managers._TaggableManager object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.keywords_help_text">
+<code class="descname">keywords_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.keywords_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.language_help_text">
+<code class="descname">language_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.language_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.language_title">
+<code class="descname">language_title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.language_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.layer">
+<code class="descname">layer</code><a class="headerlink" href="#geonode.base.models.ResourceBase.layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.license">
+<code class="descname">license</code><a class="headerlink" href="#geonode.base.models.ResourceBase.license" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.license_help_text">
+<code class="descname">license_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.license_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.license_light">
+<code class="descname">license_light</code><a class="headerlink" href="#geonode.base.models.ResourceBase.license_light" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.license_verbose">
+<code class="descname">license_verbose</code><a class="headerlink" href="#geonode.base.models.ResourceBase.license_verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.link_set">
+<code class="descname">link_set</code><a class="headerlink" href="#geonode.base.models.ResourceBase.link_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.maintenance_frequency_help_text">
+<code class="descname">maintenance_frequency_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.maintenance_frequency_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.maintenance_frequency_title">
+<code class="descname">maintenance_frequency_title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.maintenance_frequency_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.map">
+<code class="descname">map</code><a class="headerlink" href="#geonode.base.models.ResourceBase.map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.metadata_author">
+<code class="descname">metadata_author</code><a class="headerlink" href="#geonode.base.models.ResourceBase.metadata_author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.translator.NewMultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.owner">
+<code class="descname">owner</code><a class="headerlink" href="#geonode.base.models.ResourceBase.owner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.poc">
+<code class="descname">poc</code><a class="headerlink" href="#geonode.base.models.ResourceBase.poc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.polymorphic_ctype">
+<code class="descname">polymorphic_ctype</code><a class="headerlink" href="#geonode.base.models.ResourceBase.polymorphic_ctype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.polymorphic_primary_key_name">
+<code class="descname">polymorphic_primary_key_name</code><em class="property"> = u'id'</em><a class="headerlink" href="#geonode.base.models.ResourceBase.polymorphic_primary_key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.polymorphic_super_sub_accessors_replaced">
+<code class="descname">polymorphic_super_sub_accessors_replaced</code><em class="property"> = True</em><a class="headerlink" href="#geonode.base.models.ResourceBase.polymorphic_super_sub_accessors_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.purpose_help_text">
+<code class="descname">purpose_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.purpose_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.region_name_list">
+<code class="descname">region_name_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.region_name_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.regions">
+<code class="descname">regions</code><a class="headerlink" href="#geonode.base.models.ResourceBase.regions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.regions_help_text">
+<code class="descname">regions_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.regions_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.restriction_code_type">
+<code class="descname">restriction_code_type</code><a class="headerlink" href="#geonode.base.models.ResourceBase.restriction_code_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.restriction_code_type_help_text">
+<code class="descname">restriction_code_type_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.restriction_code_type_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.save_thumbnail">
+<code class="descname">save_thumbnail</code><span class="sig-paren">(</span><em>filename</em>, <em>image</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.save_thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.service">
+<code class="descname">service</code><a class="headerlink" href="#geonode.base.models.ResourceBase.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.set_bounds_from_bbox">
+<code class="descname">set_bounds_from_bbox</code><span class="sig-paren">(</span><em>bbox</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.set_bounds_from_bbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate zoom level and center coordinates in mercator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.set_bounds_from_center_and_zoom">
+<code class="descname">set_bounds_from_center_and_zoom</code><span class="sig-paren">(</span><em>center_x</em>, <em>center_y</em>, <em>zoom</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.set_bounds_from_center_and_zoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate zoom level and center coordinates in mercator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.set_latlon_bounds">
+<code class="descname">set_latlon_bounds</code><span class="sig-paren">(</span><em>box</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.set_latlon_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the four bounds in lat lon projection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.set_missing_info">
+<code class="descname">set_missing_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.set_missing_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default permissions and point of contacts.</p>
+<p>It is mandatory to call it from descendant classes
+but hard to enforce technically via signals or save overriding.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.spatial_representation_type">
+<code class="descname">spatial_representation_type</code><a class="headerlink" href="#geonode.base.models.ResourceBase.spatial_representation_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.spatial_representation_type_help_text">
+<code class="descname">spatial_representation_type_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.spatial_representation_type_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBase.spatial_representation_type_string">
+<code class="descname">spatial_representation_type_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBase.spatial_representation_type_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.tagged_items">
+<code class="descname">tagged_items</code><a class="headerlink" href="#geonode.base.models.ResourceBase.tagged_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.temporal_extent_end_help_text">
+<code class="descname">temporal_extent_end_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.temporal_extent_end_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.temporal_extent_start_help_text">
+<code class="descname">temporal_extent_start_help_text</code><em class="property"> = &lt;django.utils.functional.__proxy__ object&gt;</em><a class="headerlink" href="#geonode.base.models.ResourceBase.temporal_extent_start_help_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.ResourceBase.x">
+<code class="descname">x</code><em class="property"> = 'Revision'</em><a class="headerlink" href="#geonode.base.models.ResourceBase.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.ResourceBaseManager">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">ResourceBaseManager</code><span class="sig-paren">(</span><em>queryset_class=None</em>, <em>*args</em>, <em>**kwrags</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBaseManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">polymorphic.manager.PolymorphicManager</span></code></p>
+<dl class="method">
+<dt id="geonode.base.models.ResourceBaseManager.admin_contact">
+<code class="descname">admin_contact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBaseManager.admin_contact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBaseManager.get_query_set">
+<code class="descname">get_query_set</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBaseManager.get_query_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBaseManager.get_queryset">
+<code class="descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBaseManager.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.ResourceBaseManager.polymorphic_queryset">
+<code class="descname">polymorphic_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.ResourceBaseManager.polymorphic_queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.RestrictionCodeType">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">RestrictionCodeType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.RestrictionCodeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Metadata information about the spatial representation type.
+It should reflect a list of codes from TC211
+See: <a class="reference external" href="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml">http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml</a>
+&lt;CodeListDictionary gml:id=”MD_RestrictionCode”&gt;</p>
+<dl class="exception">
+<dt id="geonode.base.models.RestrictionCodeType.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.RestrictionCodeType.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.RestrictionCodeType.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.RestrictionCodeType.description">
+<code class="descname">description</code><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.RestrictionCodeType.gn_description">
+<code class="descname">gn_description</code><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.gn_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.RestrictionCodeType.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.RestrictionCodeType.resourcebase_set">
+<code class="descname">resourcebase_set</code><a class="headerlink" href="#geonode.base.models.RestrictionCodeType.resourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.SpatialRepresentationType">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">SpatialRepresentationType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Metadata information about the spatial representation type.
+It should reflect a list of codes from TC211
+See: <a class="reference external" href="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml">http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml</a>
+&lt;CodeListDictionary gml:id=”MD_SpatialRepresentationTypeCode”&gt;</p>
+<dl class="exception">
+<dt id="geonode.base.models.SpatialRepresentationType.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.SpatialRepresentationType.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.SpatialRepresentationType.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.SpatialRepresentationType.description">
+<code class="descname">description</code><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.SpatialRepresentationType.gn_description">
+<code class="descname">gn_description</code><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.gn_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.SpatialRepresentationType.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.SpatialRepresentationType.resourcebase_set">
+<code class="descname">resourcebase_set</code><a class="headerlink" href="#geonode.base.models.SpatialRepresentationType.resourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.models.TopicCategory">
+<em class="property">class </em><code class="descclassname">geonode.base.models.</code><code class="descname">TopicCategory</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.TopicCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Metadata about high-level geographic data thematic classification.
+It should reflect a list of codes from TC211
+See: <a class="reference external" href="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml">http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml</a>
+&lt;CodeListDictionary gml:id=”MD_MD_TopicCategoryCode”&gt;</p>
+<dl class="exception">
+<dt id="geonode.base.models.TopicCategory.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.base.models.TopicCategory.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.base.models.TopicCategory.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.base.models.TopicCategory.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.models.TopicCategory.clean_fields">
+<code class="descname">clean_fields</code><span class="sig-paren">(</span><em>exclude=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.TopicCategory.clean_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.TopicCategory.description">
+<code class="descname">description</code><a class="headerlink" href="#geonode.base.models.TopicCategory.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.TopicCategory.gn_description">
+<code class="descname">gn_description</code><a class="headerlink" href="#geonode.base.models.TopicCategory.gn_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A descriptor used for the original translated field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.TopicCategory.objects">
+<code class="descname">objects</code><em class="property"> = &lt;modeltranslation.manager.MultilingualManager object&gt;</em><a class="headerlink" href="#geonode.base.models.TopicCategory.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.base.models.TopicCategory.resourcebase_set">
+<code class="descname">resourcebase_set</code><a class="headerlink" href="#geonode.base.models.TopicCategory.resourcebase_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.base.models.rating_post_save">
+<code class="descclassname">geonode.base.models.</code><code class="descname">rating_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.rating_post_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to fill the average rating field on OverallRating change.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.base.models.resourcebase_post_save">
+<code class="descclassname">geonode.base.models.</code><code class="descname">resourcebase_post_save</code><span class="sig-paren">(</span><em>instance</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.models.resourcebase_post_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to fill any additional fields after the save.
+Has to be called by the children</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base.populate_test_data">
+<span id="geonode-base-populate-test-data-module"></span><h2>geonode.base.populate_test_data module<a class="headerlink" href="#module-geonode.base.populate_test_data" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.base.populate_test_data.all_public">
+<code class="descclassname">geonode.base.populate_test_data.</code><code class="descname">all_public</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.populate_test_data.all_public" title="Permalink to this definition">¶</a></dt>
+<dd><p>ensure all layers, maps and documents are publicly viewable</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geonode.base.populate_test_data.create_fixtures">
+<code class="descclassname">geonode.base.populate_test_data.</code><code class="descname">create_fixtures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.populate_test_data.create_fixtures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.base.populate_test_data.create_models">
+<code class="descclassname">geonode.base.populate_test_data.</code><code class="descname">create_models</code><span class="sig-paren">(</span><em>type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.populate_test_data.create_models" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.base.populate_test_data.dump_models">
+<code class="descclassname">geonode.base.populate_test_data.</code><code class="descname">dump_models</code><span class="sig-paren">(</span><em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.populate_test_data.dump_models" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base.tests">
+<span id="geonode-base-tests-module"></span><h2>geonode.base.tests module<a class="headerlink" href="#module-geonode.base.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.base.tests.ThumbnailTests">
+<em class="property">class </em><code class="descclassname">geonode.base.tests.</code><code class="descname">ThumbnailTests</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.tests.ThumbnailTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.test.testcases.TestCase</span></code></p>
+<dl class="method">
+<dt id="geonode.base.tests.ThumbnailTests.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.tests.ThumbnailTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.base.tests.ThumbnailTests.test_initial_behavior">
+<code class="descname">test_initial_behavior</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.tests.ThumbnailTests.test_initial_behavior" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base.translation">
+<span id="geonode-base-translation-module"></span><h2>geonode.base.translation module<a class="headerlink" href="#module-geonode.base.translation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.base.translation.LicenseTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.base.translation.</code><code class="descname">LicenseTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.translation.LicenseTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.translation.LicenseTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('license_text', 'name', 'description')</em><a class="headerlink" href="#geonode.base.translation.LicenseTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.translation.RegionTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.base.translation.</code><code class="descname">RegionTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.translation.RegionTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.translation.RegionTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('name',)</em><a class="headerlink" href="#geonode.base.translation.RegionTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.translation.RestrictionCodeTypeTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.base.translation.</code><code class="descname">RestrictionCodeTypeTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.translation.RestrictionCodeTypeTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.translation.RestrictionCodeTypeTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('gn_description', 'description')</em><a class="headerlink" href="#geonode.base.translation.RestrictionCodeTypeTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.translation.SpatialRepresentationTypeTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.base.translation.</code><code class="descname">SpatialRepresentationTypeTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.translation.SpatialRepresentationTypeTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.translation.SpatialRepresentationTypeTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('gn_description', 'description')</em><a class="headerlink" href="#geonode.base.translation.SpatialRepresentationTypeTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.base.translation.TopicCategoryTranslationOptions">
+<em class="property">class </em><code class="descclassname">geonode.base.translation.</code><code class="descname">TopicCategoryTranslationOptions</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.base.translation.TopicCategoryTranslationOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">modeltranslation.translator.TranslationOptions</span></code></p>
+<dl class="attribute">
+<dt id="geonode.base.translation.TopicCategoryTranslationOptions.fields">
+<code class="descname">fields</code><em class="property"> = ('gn_description', 'description')</em><a class="headerlink" href="#geonode.base.translation.TopicCategoryTranslationOptions.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geonode.base">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.base" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, GeoNode Development Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
