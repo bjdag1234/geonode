@@ -4,9 +4,6 @@ geonode\.automation package
 Subpackages
 -----------
 
-.. toctree::
-
-    geonode.automation.migrations
 
 Submodules
 ----------

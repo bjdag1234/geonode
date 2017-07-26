@@ -20,7 +20,7 @@ import os
 DOC_PATH = os.path.dirname(__file__)
 PROJ_PATH = os.path.join(DOC_PATH, '../')
 # sys.path.extend([DOC_PATH, PROJ_PATH])
-sys.path.insert(0, os.path.abspath('../../geonode/automation/..'))
+sys.path.insert(0, os.path.abspath('../../geonode/'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
 # -- General configuration -----------------------------------------------
