@@ -213,11 +213,12 @@ class CephDataObject(models.Model):
     grid_ref = models.CharField(max_length=10)
     block_uid = models.ForeignKey(LidarCoverageBlock, null=True, blank=True)
 
-    def uid(self):
-        return self.block_uid.uid
+    # @property
+    # def block_uid(self):
+    #     return self.block_uid.uid
 
-    def block_name(self):
-        return self.block_uid.block_name
+    # def block_name(self):
+    #     return self.block_uid.block_name
 
     def __unicode__(self):
         return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])

@@ -43,18 +43,18 @@ class DemCephObjectMapAdmin(admin.ModelAdmin):
         return obj.demdatastore.type
     get_demdatastore_type.short_description = 'DEM Type'
     get_demdatastore_type.admin_order_field = 'demdatastore__type'
-    
-    
+
+
     def get_cephdataobject_name(self, obj):
         return obj.cephdataobject.name
     get_cephdataobject_name.short_description = 'Ceph Data Object Name'
     get_cephdataobject_name.admin_order_field = 'cephdataobject__name'
-    
+
     def get_lidar_block_name(self, obj):
         return obj.lidar_block.block_name
     get_lidar_block_name.short_description = 'Lidar Block Name'
     get_lidar_block_name.admin_order_field = 'lidar_block__block_name'
-    
+
     list_display_links = ('id',)
     list_display = (
         'id',
@@ -70,3 +70,22 @@ class DemCephObjectMapAdmin(admin.ModelAdmin):
 admin.site.register(AutomationJob, AutomationJobAdmin)
 admin.site.register(DemDataStore, DemDataStoreAdmin)
 admin.site.register(DemCephObjectMap, DemCephObjectMapAdmin)
+
+
+class CephDataObjectResourceBaseAdmin(admin.ModelAdmin):
+    model = CephDataObjectResourceBase
+    list_display_links = ('id',)
+    list_display = (
+        'id',
+        'size_in_bytes',
+        'file_hash',
+        'name',
+        'last_modified',
+        'content_type',
+        'data_class',
+        'grid_ref',
+        'block_uid'
+    )
+
+admin.site.register(AutomationJob, AutomationJobAdmin)
+admin.site.register(CephDataObjectResourceBase, CephDataObjectResourceBaseAdmin)

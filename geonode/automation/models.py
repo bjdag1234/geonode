@@ -3,6 +3,9 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from model_utils import Choices
 from geonode.cephgeo.models import CephDataObject, LidarCoverageBlock
+from geonode.base.models import ResourceBase
+from geonode.cephgeo.models import DataClassification, LidarCoverageBlock
+from django_enumfield import enum
 # Create your models here.
 
 
@@ -139,3 +142,25 @@ class DemCephObjectMap(models.Model):
     shifting_val_z = models.DecimalField(decimal_places=3, max_digits=20)
     height_diff = models.DecimalField(decimal_places=3, max_digits=20)
     rmse = models.DecimalField(decimal_places=3, max_digits=20)
+
+
+class CephDataObjectResourceBase(ResourceBase):
+    size_in_bytes = models.IntegerField()
+    file_hash = models.CharField(max_length=40)
+    name = models.CharField(max_length=100)
+    last_modified = models.DateTimeField()
+    content_type = models.CharField(max_length=20)
+    #geo_type        = models.CharField(max_length=20)
+    data_class = enum.EnumField(
+        DataClassification, default=DataClassification.UNKNOWN)
+    grid_ref = models.CharField(max_length=10)
+    block_uid = models.ForeignKey(LidarCoverageBlock, null=True, blank=True)
+
+    def uid(self):
+        return self.block_uid.uid
+
+    def block_name(self):
+        return self.block_uid.block_name
+
+    def __unicode__(self):
+        return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])
