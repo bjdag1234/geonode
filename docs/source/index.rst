@@ -1,7 +1,7 @@
 .. _mainindex:
 
 =======================
-GeoNode's Documentation
+LiPAD's Documentation
 =======================
 
 .. toctree::
