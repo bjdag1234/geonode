@@ -150,9 +150,6 @@ urlpatterns = patterns('',
 
                        (r'^i18n/', include('django.conf.urls.i18n')),
                        (r'^autocomplete/', include('autocomplete_light.urls')),
-                       # django-admin documentation
-                       (r'^admin/doc/',
-                        include('django.contrib.admindocs.urls')),
                        (r'^admin/', include(admin.site.urls)),
                        (r'^groups/', include('geonode.groups.urls')),
                        (r'^documents/', include('geonode.documents.urls')),
