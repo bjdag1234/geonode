@@ -40,6 +40,7 @@ def metadata_job(request):
 
     return render(request, 'input_job.html', {'input_job_form': form})
 
+
 def dem_metadata_job(request):
     print 'METHOD IS ', request.method
     if request.method == 'POST':
@@ -50,29 +51,33 @@ def dem_metadata_job(request):
             # print request
             # output_dir, date_submitted, status, log,
             """
-            fields = ['dem_name', 'lidar_blocks', 'input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
-            '{"blocks": [["Dumaguete_Blk53C", 0, 0, 60.48, -0.5941, 0.1095], ["Dumaguete_Blk53C_reflights", 0, 0, 0.214, -0.5941, 0.1095], ["Dumaguete_Blk53D_reflights", 0, 0, 0, -0.5941, 0.1095], ["Dumaguete_Blk53D_additional_reflights", 0, 0, -0.1969, -0.5941, 0.1095], ["Dumaguete_Blk53D_supplement_reflights", 0, 0, -0.10246, -0.5941, 0.1095]], 
-            "dem_file_path": "/home/ken/Dump/DEM_Sipalay", 
+            fields = ['dem_name', 'lidar_blocks', 'input_dir',
+                'output_dir', 'datatype', 'processor', 'target_os']
+            '{"blocks": [["Dumaguete_Blk53C", 0, 0, 60.48, -0.5941, 0.1095], ["Dumaguete_Blk53C_reflights", 0, 0, 0.214, -0.5941, 0.1095], ["Dumaguete_Blk53D_reflights", 0, 0, 0, -0.5941, 0.1095], ["Dumaguete_Blk53D_additional_reflights", 0, 0, -0.1969, -0.5941, 0.1095], ["Dumaguete_Blk53D_supplement_reflights", 0, 0, -0.10246, -0.5941, 0.1095]],
+            "dem_file_path": "/home/ken/Dump/DEM_Sipalay",
             "dem_name": "Sipalay"}'
 
             """
             print 'Saving...'
-            
-            lidar_block_name_list = parse_dem_block_list(smart_str(form.cleaned_data['lidar_blocks'])
+
+            lidar_block_name_list = parse_dem_block_list(
+                smart_str(form.cleaned_data['lidar_blocks']))
             dem_input_dict = {'dem_name': smart_str(form.cleaned_data['dem_name']),
                               'dem_file_path': smart_str(form.cleaned_data['input_dir']),
-                              'blocks' : lidar_block_name_list,
-                                                         }
-            
+                              'blocks': lidar_block_name_list,
+                              }
+
             dem_job = AutomationJob(datatype=smart_str(form.cleaned_data['datatype']),
                                     input_dir=str(dem_input_dict),
-                                    output_dir=smart_str(form.cleaned_data['output_dir']),
-                                    processor=smart_str(form.cleaned_data['processor']),
-                                    target_os=smart_str(form.cleaned_data['target_os']),)
+                                    output_dir=smart_str(
+                form.cleaned_data['output_dir']),
+                processor=smart_str(
+                form.cleaned_data['processor']),
+                target_os=smart_str(form.cleaned_data['target_os']),)
             dem_job.save()
-            
+
             pprint(dem_job.__dict__)
-            
+
             return render(request, "update_task.html")
 
     else:
@@ -81,6 +86,7 @@ def dem_metadata_job(request):
         form = DemJobForm()
 
     return render(request, 'dem_job.html', {'dem_job_form': form})
+
 
 def parse_dem_block_list(cleaned_string):
     """

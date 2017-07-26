@@ -128,13 +128,14 @@ class DemDataStore(models.Model):
         help_text=_('The date when the DEM was uploaded'),
         default=datetime.now()
     )
-    
+
 class DemCephObjectMap(models.Model):
     demdatastore = models.ForeignKey(DemDataStore)
     cephdataobject = models.ForeignKey(CephDataObject)
     lidar_block = models.ForeignKey(LidarCoverageBlock)
-    shifting_val_x = models.FloatField(decimal_places=3)
-    shifting_val_y = models.FloatField(decimal_places=3)
-    shifting_val_z = models.FloatField(decimal_places=3)
-    height_diff = models.FloatField(decimal_places=3)
-    rmse = models.FloatField(decimal_places=3)
+    ## TODO replace DecimalField with TextField
+    shifting_val_x = models.DecimalField(decimal_places=3, max_digits=20)
+    shifting_val_y = models.DecimalField(decimal_places=3, max_digits=20)
+    shifting_val_z = models.DecimalField(decimal_places=3, max_digits=20)
+    height_diff = models.DecimalField(decimal_places=3, max_digits=20)
+    rmse = models.DecimalField(decimal_places=3, max_digits=20)

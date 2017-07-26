@@ -116,13 +116,10 @@ def get_juris_data_size(geometry):
     pprint("Geom_type = " + geometry.geom_type)
     if geometry.geom_type == "Polygon":
         tile_list = get_juris_tiles(geometry)
-    """
-        Remove. Combine with get_juris_tiles
-    """
+    # Remove. Combine with get_juris_tiles
     elif geometry.geom_type == "MultiPolygon":
         for g in geometry.geoms:
             tile_list.extend(get_juris_tiles(g))
-    """"""
     pprint("Number of tiles: " + str(len(tile_list)))
 
     total_data_size = 0
