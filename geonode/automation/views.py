@@ -18,6 +18,13 @@ def create_obj():
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def metadata_job(request):
+    """
+    Create a task for metadata automation  processes.
+
+    ``automation``
+        An instance of :model: `geonode.Automation`.
+
+    """
     print 'METHOD IS ', request.method
     if request.method == 'POST':
         print 'Method: ', str(request.method)
