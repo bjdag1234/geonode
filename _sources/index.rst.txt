@@ -4,6 +4,24 @@
 GeoNode's Documentation
 =======================
 
+.. toctree::
+    :maxdepth: 2
+
+Contents
+--------
+.. toctree::
+   :maxdepth: 2
+
+   modules
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 .. Welcome to GeoNode's Documentation.
 
 .. GeoNode is an Open Source, Content Management System (CMS) for geospatial data. It is a web-based application and platform for developing geospatial information systems (GIS) and for deploying spatial data infrastructures (SDI).
@@ -96,7 +114,3 @@ GeoNode's Documentation
 .. .. _ticket tracker: http://github.com/GeoNode/geonode/issues
 
 
-.. toctree::
-    :maxdepth: 2
-
-    includeme
