@@ -67,10 +67,6 @@ class DemCephObjectMapAdmin(admin.ModelAdmin):
     list_filter = ('demdatastore__type',)
 
 
-admin.site.register(AutomationJob, AutomationJobAdmin)
-admin.site.register(DemDataStore, DemDataStoreAdmin)
-admin.site.register(DemCephObjectMap, DemCephObjectMapAdmin)
-
 
 class CephDataObjectResourceBaseAdmin(admin.ModelAdmin):
     model = CephDataObjectResourceBase
@@ -87,5 +83,8 @@ class CephDataObjectResourceBaseAdmin(admin.ModelAdmin):
         'block_uid'
     )
 
+
 admin.site.register(AutomationJob, AutomationJobAdmin)
 admin.site.register(CephDataObjectResourceBase, CephDataObjectResourceBaseAdmin)
+admin.site.register(DemDataStore, DemDataStoreAdmin)
+admin.site.register(DemCephObjectMap, DemCephObjectMapAdmin)
