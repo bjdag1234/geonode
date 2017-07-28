@@ -24,7 +24,7 @@ def own_thumbnail(layer):
     subprocess.call(['sudo', '/bin/chmod', '666', thumb_url])
 
 
-def update_fhm(layer):
+def update_fhm(layer, params):
 
     # Get flood year from layer name
     flood_year = int(layer.name.split('fh')[1].split('yr')[0])
@@ -55,14 +55,14 @@ def update_fhm(layer):
 
     # Get proper layer properties
     # Title
-    layer_title = ''
-    muni = ridf_obj.muni_name
-    prov = ridf_obj.prov_name
-    layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
-        muni, prov, flood_year).replace("_", " ").title()
-    if ridf_obj.iscity:
-        layer_title = 'City of ' + layer_title
-    print layer.name, ': layer_title:', layer_title
+    # layer_title = ''
+    # muni = ridf_obj.muni_name
+    # prov = ridf_obj.prov_name
+    # layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
+    #     muni, prov, flood_year).replace("_", " ").title()
+    # if ridf_obj.iscity:
+    #     layer_title = 'City of ' + layer_title
+    # print layer.name, ': layer_title:', layer_title
 
     # Abstract
     layer_abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
@@ -90,10 +90,10 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
 
     # Check if there are changes
     has_layer_changes = False
-    if layer.title != layer_title:
-        print layer.name, ': Setting layer.title...'
-        has_layer_changes = True
-        layer.title = layer_title
+    # if layer.title != layer_title:
+    #     print layer.name, ': Setting layer.title...'
+    #     has_layer_changes = True
+    #     layer.title = layer_title
     if layer.abstract != layer_abstract:
         print layer.name, ': Setting layer.abstract...'
         has_layer_changes = True
@@ -129,7 +129,7 @@ Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
     return has_layer_changes
 
 
-def update_metadata(layer):
+def update_metadata(layer, params):
 
     print 'layer.name:', layer.name
 
@@ -140,7 +140,7 @@ def update_metadata(layer):
         # checks if layer has changes
         has_layer_changes = False
         if '_fh' in layer.name:
-            has_layer_changes = update_fhm(layer)
+            has_layer_changes = update_fhm(layer,params)
 
         # Save layer if there are changes
         if has_layer_changes:

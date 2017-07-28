@@ -88,7 +88,7 @@ def check_keyword(mode, results, layer):
 
     logger.debug('%s: Keywords: %s', layer.name, layer.keywords.names())
     logger.debug('%s: Floodplain Tags: %s', layer.name,
-                layer.floodplain_tag.names())
+                 layer.floodplain_tag.names())
     logger.debug('%s: SUC Tags: %s', layer.name, layer.SUC_tag.names())
 
     return has_changes
@@ -103,23 +103,58 @@ def dem_rb_name(t, cur, conn, results):
 
 
 def form_query(layer_name, mode):
+
     query = '''
 WITH l AS (
     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
     FROM ''' + layer_name + ''' AS f
 )'''
 
+    if mode == 'fhm_rb':
+        # WITH l AS (
+        #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+        #     FROM <layer_name> AS f
+        # )
+        # SELECT d."RBFP_name",
+        # (ST_AREA(ST_INTERSECTION(d.the_geom, l.the_geom))/ST_AREA(d.the_geom)) as proportion
+        # FROM FHM_COVERAGE AS d, l
+        # WHERE ST_INTERSECTS(d.the_geom, l.the_geom)
+        # ORDER BY proportion desc, d."RBFP_name"
+        query += '''
+SELECT d."RBFP_name",
+(ST_AREA(ST_INTERSECTION(d.the_geom, l.the_geom))/ST_AREA(d.the_geom)) as proportion
+FROM FHM_COVERAGE AS d, l
+WHERE ST_INTERSECTS(d.the_geom, l.the_geom)
+ORDER BY proportion desc, d."RBFP_name"
+        '''
+
+    # intersecting sar with delineation
     if mode == 'sar' or mode == 'fhm_2':
+        # WITH l AS (
+        #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+        #     FROM <layer_name> AS f
+        # )
+        # SELECT DISTINCT d."SUC" FROM <PL1_SUC_MUNIS> AS d, l
+        # WHERE ST_Intersects(d.the_geom, l.the_geom)
         deln = settings.PL1_SUC_MUNIS
         query += '''
 SELECT DISTINCT d."SUC" FROM ''' + deln + ''' AS d, l'''
+        query = (query + '''
+    WHERE ST_Intersects(d.the_geom, l.the_geom);''')
+
+    # intersect muni of fhm to fhm_coverage
     elif mode == 'fhm':
+        # WITH l AS (
+        #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+        #     FROM <layer_name> AS f
+        # )
+        # SELECT d."RBFP_name", d."SUC" FROM FHM_COVERAGE AS d, l
+        # WHERE ST_Intersects(d.the_geom, l.the_geom)
         deln = settings.FHM_COVERAGE
         query += '''
 SELECT d."RBFP_name", d."SUC" FROM ''' + deln + ''' AS d, l'''
-
         query = (query + '''
-WHERE ST_Intersects(d.the_geom, l.the_geom);''')
+    WHERE ST_Intersects(d.the_geom, l.the_geom);''')
 
     return query
 
@@ -186,3 +221,49 @@ def sar_mode(layer, mode, results):
         return True
     else:
         logger.info('DOES NOT EXIST %s', sar_layer.name)
+
+
+def rb_title(layer, mode='fhm_rb'):
+    conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
+                             (settings.DATABASE_HOST,
+                              settings.DATASTORE_DB,
+                              settings.DATABASE_USER,
+                              settings.DATABASE_PASSWORD)))
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    query_int = form_query(layer.name, mode)
+    results = execute_query(query_int, layer, cur, conn)
+
+    pass
+
+
+def muni_title(layer):
+    layer_title = ''
+    # Get muni code
+    muni_code = layer.name.split('_fh')[0]
+    print layer.name, ': muni_code:', muni_code
+
+    # Get ridf
+    ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
+    ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
+    print layer.name, ': ridf: ', ridf
+
+    muni = ridf_obj.muni_name
+    prov = ridf_obj.prov_name
+
+    layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
+        muni, prov, flood_year).replace("_", " ").title()
+    if ridf_obj.iscity:
+        layer_title = 'City of ' + layer_title
+    print layer.name, ': layer_title:', layer_title
+    layer.save()
+
+    return layer
+
+
+def update_title(layer, title_option):
+
+    title_option = str(title_option)
+    if 'rb' in title_option:
+        layer = rb_title(layer.name)
+    else:
+        layer = muni_title(layer)

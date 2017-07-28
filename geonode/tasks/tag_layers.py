@@ -59,3 +59,4 @@ def update_tags(layer, mode):
                         # layer.save()
                     except Exception:
                         logger.exception('%s: ERROR SAVING LAYER', layer.name)
+    conn.close()
