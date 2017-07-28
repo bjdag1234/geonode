@@ -11,6 +11,8 @@ from crispy_forms.bootstrap import FormActions
 from geonode.layers.models import Layer, Style
 from geoserver.catalog import Catalog
 
+from model_utils import Choices
+
 
 class DataInputForm(forms.Form):
     data = forms.CharField(widget=forms.Textarea(
@@ -61,99 +63,96 @@ class RequestDataClassForm(forms.Form):
 
 
 class FhmMetadataForm(forms.Form):
-    date_field = forms.DateField(
-        widget=forms.TextInput(
-            attrs={'type': 'date'}
-        )
+
+    TITLE_CHOICES = Choices(
+        ('muni', _('Municipality and Province')),
+        ('rb', _('Riverbasin Floodplain')),
     )
-    fhm_coverage_name = forms.CharField(initial='fhm_coverage')
-    style_template = forms.CharField(initial='fhm')
-    suc_muni_layer = forms.CharField(initial='pl1_suc_munis')
 
-    def __init__(self, *args, **kwargs):
-
-        super(FhmMetadataForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Fieldset(
-                '',
-                'date_field',
-                'fhm_coverage_name',
-                'style_template',
-                'suc_muni_layer',
-            ),
-            FormActions(
-                Submit('submit', 'Submit', css_class='button white'),
-            )
-        )
-
-
-# class UpdateMetadataForm(forms.Form):
-#     date_field = forms.DateField(
-#         widget=forms.TextInput(
-#             attrs={'type': 'date', 'style': 'width:50%'}
-#         )
-#     )
-#     fhm_coverage_name = forms.CharField(
-#         help_text='FHM Coverage Layer Name', initial='fhm_coverage')
-#     style_template = forms.CharField(initial='fhm', help_text='SLD Name')
-#     suc_muni_layer = forms.CharField(
-#         initial='pl1_suc_munis', help_text='Layer Name of SUC Municipal Boundary')
-#     CHOICES = (('1', 'Update Flood Hazard Map Metadata + SUC/FP Tag'),
-#                ('2', 'Update Resource Layer Metadata'),
-#                ('3', 'Update SAR DEM Metadata'),
-#                ('4', 'Tag FHM w SUC and FP'))
-#     choice_field = forms.ChoiceField(
-#         widget=forms.RadioSelect, choices=CHOICES, label='Metadata Update')
-
-#     def __init__(self, *args, **kwargs):
-
-#         super(UpdateMetadataForm, self).__init__(*args, **kwargs)
-
-#         self.helper = FormHelper()
-#         self.helper.layout = Layout(
-#             Fieldset(
-#                 '',
-#                 Div(
-#                     Field('choice_field', css_class='form-control'),
-#                     Div(
-#                         Field('date_field', css_class='form-control'),
-#                         # Field('fhm_coverage_name', css_class='form-control'),
-#                         # Field('style_template', css_class='form-control'),
-#                         # Field('suc_muni_layer', css_class='form-control'),
-#                         style='display:none',
-#                         # css_id='div1'
-#                     ),
-#                     css_id='update-metadata',
-#                 ),
-#             ),
-#             FormActions(
-#                 Submit('submit', 'Submit', css_class='button white'),
-#             )
-#         )
-
-class FhmMetadataForm(forms.Form):
     day_counter = forms.IntegerField(label='Update FHM within the last X days')
+
+    title = forms.ChoiceField(choices=TITLE_CHOICES,
+                              help_text='Replace title variables',
+                              initial=TITLE_CHOICES.muni)
+
+    rb_field = forms.CharField(
+        initial='RB_FP',
+        help_text='Column name of Riverbasin/Floodplain in FHM Coverage')
+
     fhm_coverage = forms.CharField(initial='fhm_coverage')
+
     style = forms.CharField(initial='fhm')
+
     suc_municipality_layer = forms.CharField(initial='pl1_suc_munis')
+
     abstract = forms.CharField(widget=forms.Textarea(
-        attrs={'style': 'resize:none; width:100%; height:60%;', 'wrap': 'virtual'}),
-        label='Abstract', help_text='Layer abstract. To replace variables with value, \
-                                    enclose placeholders with # eg #year#')
+        attrs={'style': 'resize:none; width:100%; height:80%;', 'wrap': 'virtual'}),
+        label='Abstract',
+        help_text='Layer abstract. To replace variables with value, \
+                                    enclose placeholders with \"##\" eg #year',
+        initial="""This shapefile, with a resolution of #map_resolution# meters, \
+        illustrates the inundation extents in the area if the actual \
+        amount of rain exceeds that of a #flood_year# year-rain return period.
+
+Note: There is a 1/#flood_year# (#flood_year_probability#%) probability of a \
+flood with #flood_year# year return period occurring in a single year. \
+The Rainfall Intesity Duration Frequency is #ridf#mm.
+
+3 levels of hazard:
+Low Hazard (YELLOW)
+Height: 0.1m-0.5m
+
+Medium Hazard (ORANGE)
+Height: 0.5m-1.5m
+
+High Hazard (RED)
+Height: beyond 1.5m""")
 
     def __init__(self, *args, **kwargs):
         super(FhmMetadataForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
-            Fieldset(
-                '',
-                'day_counter',
-                'fhm_coverage',
-                'style',
-                'suc_municipality_layer',
-                'abstract',
-            ),
+            Fieldset('FHM Metadata Update',
+                     'day_counter',
+                     'title',
+                     Fieldset('Riverbasin Column',
+                              Div(
+                                  Field('rb_field', css_class=''),
+                                  css_class='form-group'
+                              ),
+                              css_class='rb-fieldset'
+                              ),
+
+                     'fhm_coverage',
+                     'style',
+                     'suc_municipality_layer',
+                     'abstract'
+                     ),
+            # Div(
+            #     Field('day_counter', css_class=''),
+            #     css_class='form-group'
+            # ),
+            # Div(
+            #     Field('title', css_class=''),
+            #     css_class='form-group'
+            # ),
+            # Div(
+            #     Field('fhm_coverage', css_class=''),
+            #     css_class='form-group'
+            # ),
+            # Div(
+            #     Field('style', css_class=''),
+            #     css_class='form-group'
+            # ),
+            # Div(
+            #     Field('suc_municipality_layer', css_class=''),
+            #     css_class='form-group'
+            # ),
+            # Div(
+            #     Field('abstract', css_class=''),
+            #     css_class='form-group'
+            # ),
+
             FormActions(
                 Submit('submit', 'Update metadata', css_class='button white')
             )

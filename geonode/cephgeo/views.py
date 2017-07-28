@@ -11,7 +11,7 @@ from django.template import RequestContext
 
 from pprint import pprint
 
-from geonode.cephgeo.forms import DataInputForm, FhmMetadataForm, FhmMetadataForm
+from geonode.cephgeo.forms import DataInputForm, FhmMetadataForm
 from geonode.cephgeo.models import CephDataObject, FTPRequest, FTPStatus, FTPRequestToObjectIndex
 from geonode.cephgeo.utils import get_data_class_from_filename
 from geonode.tasks.ftp import process_ftp_request
@@ -43,6 +43,7 @@ from geonode.layers.models import Layer
 # celery  multiprocessing
 from celery import group
 from django.db.models import Q
+import re
 
 # Create your views here.
 
@@ -480,6 +481,16 @@ def delete_all_fhm(request):
     return HttpResponseRedirect(reverse('data_management'))
 
 
+def get_placeholders(abstract):
+    temp = abstract.split(' ')
+    var = []
+    for x in temp:
+        if '#' in x:
+            result = re.search(r'\#(.*)\#', x)
+            var.append(result.group(1))
+    return var
+
+
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def update_metadata(request):
@@ -496,16 +507,21 @@ def update_metadata(request):
             params['suc_municipality_layer'] = form.cleaned_data[
                 'suc_municipality_layer']
             params['abstract'] = form.cleaned_data['abstract']
+            params['title'] = form.cleaned_data['title']
+
+            var_list = get_placeholders(params['abstract'])
+
             print params
             lastday = datetime.now() - \
                 timedelta(days=form.cleaned_data['day_counter'])
             layer_list = []
-            layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') & Q(
-                upload_session__date__gte=lastday)).exclude(owner__username='dataRegistrationUploader') \
+            layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') &
+                                              Q(upload_session__date__gte=lastday)).\
+                exclude(owner__username='dataRegistrationUploader') \
                 .order_by('-upload_session')
-            # layer_list = Layer.objects.filter(
-            #     Q(name__iregex=r'^ph[0-9]+_fh')).order_by('-upload_session')
+
             layer_count = len(layer_list)
+
             # compute start time of update
             start_time = datetime.now()
 
