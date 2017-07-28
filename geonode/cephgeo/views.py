@@ -508,14 +508,16 @@ def update_metadata(request):
                 'suc_municipality_layer']
             params['abstract'] = form.cleaned_data['abstract']
             params['title'] = form.cleaned_data['title']
-
+            params['rb_field'] = form.cleaned_data['rb_field']
+            params['day_counter'] = form.cleaned_data['day_counter']
             var_list = get_placeholders(params['abstract'])
 
             print params
             lastday = datetime.now() - \
-                timedelta(days=form.cleaned_data['day_counter'])
+                timedelta(days=params.get('day_counter'))
+            print 'LAST DAY', lastday
             layer_list = []
-            layer_list = Layer.objects.filter(Q(name__iregex=r'^ph[0-9]+_fh') &
+            layer_list = Layer.objects.filter(#Q(name__iregex=r'^ph[0-9]+_fh') &
                                               Q(upload_session__date__gte=lastday)).\
                 exclude(owner__username='dataRegistrationUploader') \
                 .order_by('-upload_session')
@@ -529,7 +531,7 @@ def update_metadata(request):
             jobs = group(update_fhm_metadata_task.s(layer.pk, params)
                          for layer in layer_list).apply_async()
             job_result_task.delay(jobs, start_time)
-            update_fhm_metadata_task.delay()
+            # update_fhm_metadata_task.delay()
         else:
             messages.error(request, 'Invalid input')
             return redirect('geonode.cephgeo.views.update_metadata')

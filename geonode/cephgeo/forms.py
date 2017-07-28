@@ -90,13 +90,9 @@ class FhmMetadataForm(forms.Form):
         label='Abstract',
         help_text='Layer abstract. To replace variables with value, \
                                     enclose placeholders with \"##\" eg #year',
-        initial="""This shapefile, with a resolution of #map_resolution# meters, \
-        illustrates the inundation extents in the area if the actual \
-        amount of rain exceeds that of a #flood_year# year-rain return period.
+        initial="""This shapefile, with a resolution of #map_resolution# meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a #flood_year# year-rain return period.
 
-Note: There is a 1/#flood_year# (#flood_year_probability#%) probability of a \
-flood with #flood_year# year return period occurring in a single year. \
-The Rainfall Intesity Duration Frequency is #ridf#mm.
+Note: There is a 1/#flood_year# (#flood_year_probability#%) probability of a flood with #flood_year# year return period occurring in a single year. The Rainfall Intesity Duration Frequency is #ridf#mm.
 
 3 levels of hazard:
 Low Hazard (YELLOW)
@@ -107,6 +103,7 @@ Height: 0.5m-1.5m
 
 High Hazard (RED)
 Height: beyond 1.5m""")
+
 
     def __init__(self, *args, **kwargs):
         super(FhmMetadataForm, self).__init__(*args, **kwargs)
@@ -128,30 +125,6 @@ Height: beyond 1.5m""")
                      'suc_municipality_layer',
                      'abstract'
                      ),
-            # Div(
-            #     Field('day_counter', css_class=''),
-            #     css_class='form-group'
-            # ),
-            # Div(
-            #     Field('title', css_class=''),
-            #     css_class='form-group'
-            # ),
-            # Div(
-            #     Field('fhm_coverage', css_class=''),
-            #     css_class='form-group'
-            # ),
-            # Div(
-            #     Field('style', css_class=''),
-            #     css_class='form-group'
-            # ),
-            # Div(
-            #     Field('suc_municipality_layer', css_class=''),
-            #     css_class='form-group'
-            # ),
-            # Div(
-            #     Field('abstract', css_class=''),
-            #     css_class='form-group'
-            # ),
 
             FormActions(
                 Submit('submit', 'Update metadata', css_class='button white')

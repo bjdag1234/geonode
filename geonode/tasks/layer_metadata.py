@@ -49,8 +49,12 @@ def update_fhm(layer, params):
     print layer.name, ': muni_code:', muni_code
 
     # Get ridf
-    ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
-    ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
+    ridf = 0
+    try:
+        ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
+        ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
+    except Exception:
+        pass
     print layer.name, ': ridf: ', ridf
 
     # Get proper layer properties
@@ -67,18 +71,23 @@ def update_fhm(layer, params):
     # Abstract
     layer_abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
 
-Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year. The Rainfall Intesity Duration Frequency is {5}mm.
+Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year.
+""".format(map_resolution, flood_year, flood_year, flood_year_probability, flood_year)
+    if ridf > 0:
+        layer_abstract += """The Rainfall Intesity Duration Frequency is {0}mm.""".format(
+            ridf)
 
+    layer_abstract += """
 3 levels of hazard:
-Low Hazard (YELLOW)
-Height: 0.1m-0.5m
+Low Hazard(YELLOW)
+Height: 0.1m - 0.5m
 
-Medium Hazard (ORANGE)
-Height: 0.5m-1.5m
+Medium Hazard(ORANGE)
+Height: 0.5m - 1.5m
 
-High Hazard (RED)
-Height: beyond 1.5m""".format(map_resolution, flood_year, flood_year,
-                              flood_year_probability, flood_year, ridf)
+High Hazard(RED)
+Height: beyond 1.5m"""
+
     print layer.name, ': layer_abstract:', layer_abstract
 
     # Purpose
@@ -140,7 +149,7 @@ def update_metadata(layer, params):
         # checks if layer has changes
         has_layer_changes = False
         if '_fh' in layer.name:
-            has_layer_changes = update_fhm(layer,params)
+            has_layer_changes = update_fhm(layer, params)
 
         # Save layer if there are changes
         if has_layer_changes:

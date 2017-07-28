@@ -11,7 +11,7 @@ logger = get_task_logger("geonode.tasks.update")
 logger.setLevel(logging.INFO)
 
 
-def update_tags(layer, mode):
+def update_tags(layer, mode, rb_field):
     conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
                              (settings.DATABASE_HOST,
                               settings.DATASTORE_DB,
@@ -36,7 +36,7 @@ def update_tags(layer, mode):
             hc1 = False
             if mode == 'sar':
                 hc1 = sar_mode(layer, mode, results)
-            hc2 = check_keyword(mode, results, layer)
+            hc2 = check_keyword(mode, results, layer, rb_field)
             has_changes = has_changes or hc1 or hc2
 
             if has_changes:
@@ -52,7 +52,7 @@ def update_tags(layer, mode):
             if not results:
                 logger.info('NO INTERSECTION %s IN %s', layer.name, deln)
             else:
-                has_changes = check_keyword(mode, results, layer)
+                has_changes = check_keyword(mode, results, layer, rb_field)
                 if has_changes:
                     try:
                         logger.info('[Comment] %s: Muni intersected. Saving layer...', layer.name)
