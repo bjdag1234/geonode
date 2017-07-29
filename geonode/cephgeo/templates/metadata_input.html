@@ -1,0 +1,76 @@
+{% extends "ceph_base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %} {% trans "Metadata Input Form" %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}Cephgeo Metadata Input{% endblock %}
+
+{% block body_outer %}
+  {% block body %}
+
+  <div class="row">
+        <div class="form-controls">
+            {% load crispy_forms_tags %}
+            {% crispy fhm_metadata_input_form %}
+        </div>
+
+  </div>
+
+{% endblock body %}
+ {% block sidebar %}{% endblock sidebar %}
+{% endblock body_outer %}
+
+
+{% block extra_script %}
+<script type="text/javascript">
+$(function() {
+
+    var $title = $("#id_title");
+    var $form = $title.closest('form');
+    var $rb = $form.find('fieldset.rb-fieldset');
+
+    $rb.toggle(false);
+    if ($title.val() == 'rb'){
+        $title.toggle(true);
+    }
+    $title.change(function (){
+        if ($(this).val() == 'rb'){
+            $rb.slideDown();
+        } else {
+            $rb.slideUp();
+        }
+    });
+
+
+    // var $org_type = $('input[name="organization_type"]');
+    // var $org_type_checked = $('input[name="organization_type"]:checked');
+    // var $form2 = $org_type.closest('form');
+    // var $form2 = $org_type.closest('form');
+    // var $academe = $form2.find('fieldset.academe-fieldset');
+    // var $other = $form2.find('div#div_id_organization_other');
+
+    // // Initial values
+    // $academe.toggle(false);
+    // $other.toggle(false);
+    // if ($org_type.val().indexOf("Academe")>=0) {
+    //   $academe.toggle(true);
+    // }else if ($org_type.val() == 'Other') {
+    //   $other.toggle(true);
+    // }
+    // $org_type.change( function() {
+    //     // if ($(this).val() == '3'){
+    //     if ($(this).val().indexOf("Academe")>=0){
+    //         $academe.slideDown();
+    //     } else {
+    //         $academe.slideUp();
+    //     }
+    //     if ($(this).val() == 'Other'){
+    //         $other.slideDown();
+    //     } else {
+    //         $other.slideUp();
+    //     }
+    // });
+});
+</script>
+{% endblock extra_script %}

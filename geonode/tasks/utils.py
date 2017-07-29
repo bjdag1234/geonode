@@ -2,6 +2,9 @@ import geonode.settings as settings
 import logging
 from celery.utils.log import get_task_logger
 from geonode.layers.models import Layer
+from geonode.cephgeo.models import RIDF
+import psycopg2
+import psycopg2.extras
 
 logger = get_task_logger("geonode.tasks.update")
 logger.setLevel(logging.INFO)
@@ -49,7 +52,7 @@ def assign_keyword(keywords, rb_name, layer):
     return False
 
 
-def check_keyword(mode, results, layer):
+def check_keyword(mode, results, layer, rb_field):
 
     has_changes = False
     keywords = layer.keywords.names()
@@ -72,8 +75,8 @@ def check_keyword(mode, results, layer):
                 has_changes = has_changes or hc1 or hc2
         elif mode == 'fhm':
             # Floodplain - SUC
-            if 'RBFP_name' in r:
-                temp_fp = check_floodplain_names(r['RBFP_name'])
+            if rb_field in r:
+                temp_fp = check_floodplain_names(r[rb_field])
                 # print 'TEMP FP is: ', temp_fp
                 for t in temp_fp:
                     hc1 = assign_keyword(keywords, t, layer)
@@ -88,7 +91,7 @@ def check_keyword(mode, results, layer):
 
     logger.debug('%s: Keywords: %s', layer.name, layer.keywords.names())
     logger.debug('%s: Floodplain Tags: %s', layer.name,
-                layer.floodplain_tag.names())
+                 layer.floodplain_tag.names())
     logger.debug('%s: SUC Tags: %s', layer.name, layer.SUC_tag.names())
 
     return has_changes
@@ -102,23 +105,69 @@ def dem_rb_name(t, cur, conn, results):
     # print 'taglayer RESULTS ', results
 
 
-def form_query(layer_name, mode):
+def form_query_rb(layer_name, params):
+    fhm_coverage = params.get('fhm_coverage')
+    rb_field = params.get('rb_field')
     query = '''
 WITH l AS (
     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
     FROM ''' + layer_name + ''' AS f
 )'''
 
+    # WITH l AS (
+    #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+    #     FROM <layer_name> AS f
+    # )
+    # SELECT d."RBFP_name",
+    # (ST_AREA(ST_INTERSECTION(d.the_geom, l.the_geom))/ST_AREA(d.the_geom)) as proportion
+    # FROM FHM_COVERAGE AS d, l
+    # WHERE ST_INTERSECTS(d.the_geom, l.the_geom)
+    # ORDER BY proportion desc, d."RBFP_name"
+    query += '''
+SELECT d."''' + rb_field + '''",
+(ST_AREA(ST_INTERSECTION(d.the_geom, l.the_geom))/ST_AREA(d.the_geom)) as proportion
+FROM ''' + fhm_coverage + ''' AS d, l
+WHERE ST_INTERSECTS(d.the_geom, l.the_geom)
+ORDER BY proportion desc, d."''' + rb_field + '''"'''
+
+    print query
+    return query
+
+def form_query(layer_name, params, mode):
+
+    query = '''
+WITH l AS (
+    SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+    FROM ''' + layer_name + ''' AS f
+)'''
+
+
+    # intersecting sar with delineation
     if mode == 'sar' or mode == 'fhm_2':
-        deln = settings.PL1_SUC_MUNIS
+        # WITH l AS (
+        #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+        #     FROM <layer_name> AS f
+        # )
+        # SELECT DISTINCT d."SUC" FROM <PL1_SUC_MUNIS> AS d, l
+        # WHERE ST_Intersects(d.the_geom, l.the_geom)
+        deln = params.get('suc_municipality_layer')
         query += '''
 SELECT DISTINCT d."SUC" FROM ''' + deln + ''' AS d, l'''
-    elif mode == 'fhm':
-        deln = settings.FHM_COVERAGE
-        query += '''
-SELECT d."RBFP_name", d."SUC" FROM ''' + deln + ''' AS d, l'''
 
-        query = (query + '''
+    # intersect muni of fhm to fhm_coverage
+    elif mode == 'fhm':
+        # WITH l AS (
+        #     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
+        #     FROM <layer_name> AS f
+        # )
+        # SELECT d."RBFP_name", d."SUC" FROM FHM_COVERAGE AS d, l
+        # WHERE ST_Intersects(d.the_geom, l.the_geom)
+        deln = params.get('fhm_coverage')
+        rb_field = params.get('rb_field')
+        query += '''
+SELECT d."''' + rb_field + '''", d."SUC" FROM ''' + deln + ''' AS d, l'''
+
+    query = (query + '''
 WHERE ST_Intersects(d.the_geom, l.the_geom);''')
 
     return query
@@ -186,3 +235,63 @@ def sar_mode(layer, mode, results):
         return True
     else:
         logger.info('DOES NOT EXIST %s', sar_layer.name)
+
+
+def rb_title(layer, params):
+    conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
+                             (settings.DATABASE_HOST,
+                              settings.DATASTORE_DB,
+                              settings.DATABASE_USER,
+                              settings.DATABASE_PASSWORD)))
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    query_int = form_query_rb(layer.name, params)
+    results = execute_query(query_int, layer, cur, conn)
+
+    flood_year = int(layer.name.split('fh')[1].split('yr')[0])
+    print layer.name, ': flood_year:', flood_year
+    layer.title =  '{0} {1} Year Flood Hazard Map'.format(
+        results[0], flood_year).replace("_", " ").title()
+
+    layer.save()
+    conn.close()
+    return layer
+
+
+def muni_title(layer):
+    layer_title = ''
+    flood_year = int(layer.name.split('fh')[1].split('yr')[0])
+    print layer.name, ': flood_year:', flood_year
+    # Get muni code
+    muni_code = layer.name.split('_fh')[0]
+    print layer.name, ': muni_code:', muni_code
+
+    # Get ridf
+    ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
+    ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
+    print layer.name, ': ridf: ', ridf
+
+    muni = ridf_obj.muni_name
+    prov = ridf_obj.prov_name
+
+    layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
+        muni, prov, flood_year).replace("_", " ").title()
+    if ridf_obj.iscity:
+        layer_title = 'City of ' + layer_title
+    print layer.name, ': layer_title:', layer_title
+
+    if layer.title != layer_title:
+        print layer.name, ': Setting layer.title...'
+        has_layer_changes = True
+        layer.title = layer_title
+
+    return layer
+
+
+def update_title(layer, params):
+    title_option = params.get('title')
+
+    title_option = str(title_option)
+    if 'rb' in title_option:
+        layer = rb_title(layer, params)
+    else:
+        layer = muni_title(layer)

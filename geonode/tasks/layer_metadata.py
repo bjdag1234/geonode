@@ -4,12 +4,12 @@ from geonode.base.models import TopicCategory
 from geonode.cephgeo.models import RIDF
 from layer_permission import fhm_perms_update
 from layer_style import style_update
+from layer_seed import seed_layers
 from pprint import pprint
 import getpass
 import subprocess
 import traceback
 import logging
-from layer_seed import seed_layers
 
 logger = get_task_logger("geonode.tasks.fhm_metadata")
 logger.setLevel(logging.INFO)
@@ -24,7 +24,7 @@ def own_thumbnail(layer):
     subprocess.call(['sudo', '/bin/chmod', '666', thumb_url])
 
 
-def update_fhm(layer):
+def update_fhm(layer, params):
 
     # Get flood year from layer name
     flood_year = int(layer.name.split('fh')[1].split('yr')[0])
@@ -48,55 +48,46 @@ def update_fhm(layer):
     muni_code = layer.name.split('_fh')[0]
     print layer.name, ': muni_code:', muni_code
 
-    # Title
-    layer_title = ''
-
     # Get ridf
-    ridf = ''
+    ridf = 0
     try:
         ridf_obj = RIDF.objects.get(muni_code__icontains=muni_code)
         ridf = eval('ridf_obj._' + str(flood_year) + 'yr')
-        print layer.name, ': ridf: ', ridf
-
-        # Get proper layer properties
-        muni = ridf_obj.muni_name
-        prov = ridf_obj.prov_name
-
-        # Set layer title
-        layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
-            muni, prov, flood_year).replace("_", " ").title()
-
-        # Check if municipality is city
-        if ridf_obj.iscity:
-            layer_title = 'City of ' + layer_title
-
     except Exception:
-        print 'No RIDF match for', muni_code
+        pass
+    print layer.name, ': ridf: ', ridf
 
-        # Set layer title
-        str_end = 'Year Flood Hazard Map'
-        layer_title = '{0} {1} {2}'.format(muni_code, flood_year, str_end) \
-            .replace('_', ' ').title()
-
-    print layer.name, ': layer_title:', layer_title
+    # Get proper layer properties
+    # Title
+    # layer_title = ''
+    # muni = ridf_obj.muni_name
+    # prov = ridf_obj.prov_name
+    # layer_title = '{0}, {1} {2} Year Flood Hazard Map'.format(
+    #     muni, prov, flood_year).replace("_", " ").title()
+    # if ridf_obj.iscity:
+    #     layer_title = 'City of ' + layer_title
+    # print layer.name, ': layer_title:', layer_title
 
     # Abstract
     layer_abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
 
-Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year. """.format(map_resolution, flood_year, flood_year,flood_year_probability, flood_year)
-    if ridf!='':
-        layer_abstract+="The Rainfall Intesity Duration Frequency is {0}mm.".format(ridf)
-    layer_abstract+="""
+Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year.
+""".format(map_resolution, flood_year, flood_year, flood_year_probability, flood_year)
+    if ridf > 0:
+        layer_abstract += """The Rainfall Intesity Duration Frequency is {0}mm.""".format(
+            ridf)
 
+    layer_abstract += """
 3 levels of hazard:
-Low Hazard (YELLOW)
-Height: 0.1m-0.5m
+Low Hazard(YELLOW)
+Height: 0.1m - 0.5m
 
-Medium Hazard (ORANGE)
-Height: 0.5m-1.5m
+Medium Hazard(ORANGE)
+Height: 0.5m - 1.5m
 
-High Hazard (RED)
+High Hazard(RED)
 Height: beyond 1.5m"""
+
     print layer.name, ': layer_abstract:', layer_abstract
 
     # Purpose
@@ -108,10 +99,10 @@ Height: beyond 1.5m"""
 
     # Check if there are changes
     has_layer_changes = False
-    if layer.title != layer_title:
-        print layer.name, ': Setting layer.title...'
-        has_layer_changes = True
-        layer.title = layer_title
+    # if layer.title != layer_title:
+    #     print layer.name, ': Setting layer.title...'
+    #     has_layer_changes = True
+    #     layer.title = layer_title
     if layer.abstract != layer_abstract:
         print layer.name, ': Setting layer.abstract...'
         has_layer_changes = True
@@ -147,7 +138,7 @@ Height: beyond 1.5m"""
     return has_layer_changes
 
 
-def update_metadata(layer):
+def update_metadata(layer, params):
 
     print 'layer.name:', layer.name
 
@@ -158,7 +149,7 @@ def update_metadata(layer):
         # checks if layer has changes
         has_layer_changes = False
         if '_fh' in layer.name:
-            has_layer_changes = update_fhm(layer)
+            has_layer_changes = update_fhm(layer, params)
 
         # Save layer if there are changes
         if has_layer_changes:
