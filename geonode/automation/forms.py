@@ -11,7 +11,8 @@ from django_enumfield import enum
 
 
 class MetaDataJobForm(forms.ModelForm):
-
+    """Form for the model``AutomationJob``.
+    """
     class Meta:
         model = AutomationJob
         fields = ['input_dir', 'output_dir', 'datatype', 'processor', 'target_os']
@@ -44,8 +45,3 @@ class MetaDataJobForm(forms.ModelForm):
             )
         )
         # self.helper.add_input(Submit('submit', 'Submit'))
-
-
-# datatype
-# input directory
-# processor

@@ -18,12 +18,22 @@ def create_obj():
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def metadata_job(request):
-    """
-    Create a task for metadata automation  processes.
+    """Fetches process job for AutomationJob.
 
-    ``automation``
-        An instance of :model: `geonode.Automation`.
+    Shows form MetaDataJobForm to create a worker.
 
+    Args:
+        request (:obj: `request object`): HTTP request upon access of URL.
+
+    Returns:
+        A dictionary mapping of the request to the corresponding fetched data from
+        MetadataJobForm.
+
+    **URL:**
+        `\/automation\/input\/`
+
+    **Template:**
+        input_job.html
     """
     print 'METHOD IS ', request.method
     if request.method == 'POST':
@@ -34,14 +44,11 @@ def metadata_job(request):
             print 'Input Directory', smart_str(form.cleaned_data['input_dir'])
             print 'Processor', smart_str(form.cleaned_data['processor'])
             print 'Datatype', smart_str(form.cleaned_data['datatype'])
-            # print request
-            # output_dir, date_submitted, status, log,
             print 'Saving...'
             form.save()
             return render(request, "update_task.html")
 
     else:
-        # for any other method, create a blank form
         print 'Method:', str(request.method)
         form = MetaDataJobForm()
 
