@@ -493,8 +493,8 @@ def get_placeholders(abstract):
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
-# metadata update, seeding, SUC/FP tagging
-def update_fhm_metadata(request):
+def update_metadata(request):
+    # metadata update, seeding, SUC/FP tagging
 
     if request.method == 'POST':
         form = FhmMetadataForm(request.POST)
