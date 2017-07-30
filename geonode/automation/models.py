@@ -9,6 +9,30 @@ from django_enumfield import enum
 
 
 class AutomationJob(models.Model):
+    """This class saves a worker job for metadata automation processes.
+
+    Attributes:
+        DATATYPE_CHOICES (tuple): Input data type to be processed.
+        PROCESSOR_CHOICES (tuple): Component processor of input data based on
+            UP TCAGP Phil-LiDAR Program components.
+        STATUS_CHOICES (tuple): Status of jobs in Automation model.
+        OS_CHOICES (tuple): Operating system options wherein data will be processed
+        datatype (str): The datatype of input. Limited to DATATYPE_CHOICES.
+        input_dir (str): Directory containing input data. Path folder is traversed
+            in processing environment's server mount path.
+        output_dir (str): Directory to contain output data. Path folder must be in
+            processing environment's
+        processor (str): The processor of input data. Limited to PROCESSOR_CHOICES.
+        date_submitted (date): Date and time when an automation process\/job is submitted.
+        status (str): Status of jobs. Limited to STATUS_CHOICES.
+        status_timestamp (date): Date and time of changing a job\'s status.
+        target_os (str): Processing environment receiver's operating system. Limited
+            to OS_CHOICES.
+        log (str): Stores logs per transaction between processing. Includes renaming,
+            processing, tiling, transfer logs.
+
+    """
+
     DATATYPE_CHOICES = Choices(
         ('LAZ', _('LAZ')),
         ('Ortho', _('ORTHO')),
@@ -97,7 +121,39 @@ class AutomationJob(models.Model):
         return "{0} {1} {2}". \
             format(self.datatype, self.date_submitted, self.status)
 
+
 class CephDataObjectResourceBase(ResourceBase):
+    """Explicitly inherits ResourceBase class.
+
+    Object storage model for each `Ceph object storage` data entry. Each data input is
+    divided into 1km by 1km. This data division is called `tile`.
+
+    Attributes:
+        size_in_bytes (int): Data entry size in bytes represented as intergers.
+            Data entries are also called `Ceph objects`.
+        file_hash (str): Hash output of source input file in Ceph object storage.
+            This is a result of `Ceph`\'s hashing algorithm.
+        name (str): String identifier of a Ceph object\'s source file. A data object
+            name is the source input filename.
+        last_modified (date): Records data of ceph object recent modification. This
+            could be create, delete, updating data.
+        content_type (str): Type representation of input spatial data. These are:
+            - `image/tiff` for Digital Elevation Model and Orthophoto
+            - `None` for LAZ files
+        data_class (enum): Data classification of input data. These are:
+            - LAZ
+            - Orthophoto
+            - Digital Elevation Model
+                -  Digital Terrain Model
+                - Digital Surface Model
+        grid_ref (str): Grid reference or spatial coordinates of a data tile.
+            Represented in easting and northing coordinate format.
+        block_uid (:obj:`lidarcoverageblock`): Foreign key to `LidarCoverageBlock`
+            model. Defines which LiDAR block the input data is part of.
+            - In the case of LAZ and Orthophoto datatypes, mapping to a lidar coverage
+                block is one-to-one.
+            - For DEM, mapping to lidar coverage block is many-to-many.
+    """
     size_in_bytes = models.IntegerField()
     file_hash = models.CharField(max_length=40)
     name = models.CharField(max_length=100)
@@ -110,10 +166,14 @@ class CephDataObjectResourceBase(ResourceBase):
     block_uid = models.ForeignKey(LidarCoverageBlock, null=True, blank=True)
 
     def uid(self):
+        """int: Returns unique identifier of corresponding lidar coverage block."""
         return self.block_uid.uid
 
     def block_name(self):
+        """str: Returns block name of corresponding lidar coverage block."""
         return self.block_uid.block_name
 
     def __unicode__(self):
+        """name, data_class: Returns file name and data class of CephDataObjectResourceBase
+            object being queried."""
         return "{0}:{1}".format(self.name, DataClassification.labels[self.data_class])
