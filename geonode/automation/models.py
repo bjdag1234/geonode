@@ -31,7 +31,7 @@ class AutomationJob(models.Model):
                 database watcher from processing environment.
             # done_process (Processing Job): Task is already received by Salad,
                 processing the data begins. For LAZ/Orthophoto data, renaming and
-                creation of output folder is done here. It is named \‘Processing Job\’
+                creation of output folder is done here. It is named \'Processing Job\'
                 in case the processing environment goes down, resumption of
                 processing starts from the top and discards previous output.
                 This is done to preserve data integrity.
