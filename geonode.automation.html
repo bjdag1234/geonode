@@ -392,31 +392,39 @@ processing environment’s</p>
 <code class="descname">status</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.status" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>str</em> – Status of jobs. Limited to STATUS_CHOICES. The status define
 where the worker is in the Automation workflow. The following are the
-list of STATUC_CHOICES and definitions:
-#. pending_process (Pending Job): The task is not yet fetched by the</p>
-<blockquote>
-<div>database watcher from processing environment.</div></blockquote>
+list of STATUS_CHOICES and definitions:</p>
 <ol class="arabic simple">
 <li><dl class="first docutils">
-<dt>done_process (Processing Job): Task is already received by Salad,</dt>
-<dd>processing the data begins. For LAZ/Orthophoto data, renaming and
-creation of output folder is done here. It is named ‘Processing Job’
-in case the processing environment goes down, resumption of
-processing starts from the top and discards previous output.
+<dt>pending_process (Pending Job):</dt>
+<dd>The task is not yet fetched by the database watcher from processing
+environment.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>done_process (Processing Job):</dt>
+<dd>Task is already received by Salad, processing the data begins.
+For LAZ/Orthophoto data, renaming and creation of output folder is
+done here. It is named ‘Processing Job’ in case the processing environment
+goes down, resumption of processing starts from the top and discards previous output.
 This is done to preserve data integrity.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>pending_ceph (Uploading in Ceph):  Processing of data is done and</dt>
-<dd>is ready for upload in Ceph.</dd>
+<dt>pending_ceph (Uploading in Ceph):</dt>
+<dd>Processing of data is done and is ready for upload in Ceph.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>done_ceph (Uploaded in Ceph): Processed data are ready to be uploaded</dt>
-<dd>to LiPAD. This trasnfers the metadata to LiPAD database.</dd>
+<dt>done_ceph (Uploaded in Ceph):</dt>
+<dd>Processed data are ready to be uploaded to LiPAD. This transfers
+the metadata to LiPAD database.</dd>
 </dl>
 </li>
-<li>done (Uploaded in LiPAD): Metadata is uploaded in LiPAD.</li>
+<li><dl class="first docutils">
+<dt>done (Uploaded in LiPAD):</dt>
+<dd>Metadata is uploaded in LiPAD.</dd>
+</dl>
+</li>
 </ol>
 </dd></dl>
 
