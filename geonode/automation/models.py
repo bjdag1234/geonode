@@ -24,7 +24,22 @@ class AutomationJob(models.Model):
             processing environment's
         processor (str): The processor of input data. Limited to PROCESSOR_CHOICES.
         date_submitted (date): Date and time when an automation process\/job is submitted.
-        status (str): Status of jobs. Limited to STATUS_CHOICES.
+        status (str): Status of jobs. Limited to STATUS_CHOICES. The status define
+            where the worker is in the Automation workflow. The following are the
+            list of STATUC_CHOICES and definitions:
+            # pending_process (Pending Job): The task is not yet fetched by the
+                database watcher from processing environment.
+            # done_process (Processing Job): Task is already received by Salad,
+                processing the data begins. For LAZ/Orthophoto data, renaming and
+                creation of output folder is done here. It is named \‘Processing Job\’
+                in case the processing environment goes down, resumption of
+                processing starts from the top and discards previous output.
+                This is done to preserve data integrity.
+            # pending_ceph (Uploading in Ceph):  Processing of data is done and
+                is ready for upload in Ceph.
+            # done_ceph (Uploaded in Ceph): Processed data are ready to be uploaded
+                to LiPAD. This trasnfers the metadata to LiPAD database.
+            # done (Uploaded in LiPAD): Metadata is uploaded in LiPAD.
         status_timestamp (date): Date and time of changing a job\'s status.
         target_os (str): Processing environment receiver's operating system. Limited
             to OS_CHOICES.
