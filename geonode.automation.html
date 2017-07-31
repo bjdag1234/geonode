@@ -130,7 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.middleware">geonode.middleware module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.settings">geonode.settings module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.sitemap">geonode.sitemap module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geonode.html#geonode-urls-module">geonode.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.urls">geonode.urls module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.utils">geonode.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.version">geonode.version module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.views">geonode.views module</a></li>
@@ -215,23 +215,494 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="geonode-automation-admin-module">
-<h2>geonode.automation.admin module<a class="headerlink" href="#geonode-automation-admin-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.automation.admin">
+<span id="geonode-automation-admin-module"></span><h2>geonode.automation.admin module<a class="headerlink" href="#module-geonode.automation.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.automation.admin.AutomationJobAdmin">
+<em class="property">class </em><code class="descclassname">geonode.automation.admin.</code><code class="descname">AutomationJobAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'datatype', 'input_dir', 'processor', 'date_submitted', 'status', 'status_timestamp')</em><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('datatype', 'status', 'processor', 'target_os')</em><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">AutomationJob</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.AutomationJobAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('datatype', 'status', 'input_dir', 'processor')</em><a class="headerlink" href="#geonode.automation.admin.AutomationJobAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.automation.admin.CephDataObjectResourceBaseAdmin">
+<em class="property">class </em><code class="descclassname">geonode.automation.admin.</code><code class="descname">CephDataObjectResourceBaseAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.admin.CephDataObjectResourceBaseAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.automation.admin.CephDataObjectResourceBaseAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'size_in_bytes', 'file_hash', 'name', 'last_modified', 'content_type', 'data_class', 'grid_ref', 'block_uid')</em><a class="headerlink" href="#geonode.automation.admin.CephDataObjectResourceBaseAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.CephDataObjectResourceBaseAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id',)</em><a class="headerlink" href="#geonode.automation.admin.CephDataObjectResourceBaseAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.CephDataObjectResourceBaseAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.automation.admin.CephDataObjectResourceBaseAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.admin.CephDataObjectResourceBaseAdmin.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.automation.admin.CephDataObjectResourceBaseAdmin.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">CephDataObjectResourceBase</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="geonode-automation-forms-module">
-<h2>geonode.automation.forms module<a class="headerlink" href="#geonode-automation-forms-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.automation.forms">
+<span id="geonode-automation-forms-module"></span><h2>geonode.automation.forms module<a class="headerlink" href="#module-geonode.automation.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.automation.forms.MetaDataJobForm">
+<em class="property">class </em><code class="descclassname">geonode.automation.forms.</code><code class="descname">MetaDataJobForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<p>Form for the model``AutomationJob``.</p>
+<dl class="class">
+<dt id="geonode.automation.forms.MetaDataJobForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.automation.forms.MetaDataJobForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ['input_dir', 'output_dir', 'datatype', 'processor', 'target_os']</em><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.forms.MetaDataJobForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">AutomationJob</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.forms.MetaDataJobForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'input_dir': &lt;django.forms.fields.CharField object&gt;, 'output_dir': &lt;django.forms.fields.CharField object&gt;, 'datatype': &lt;django.forms.fields.TypedChoiceField object&gt;, 'processor': &lt;django.forms.fields.TypedChoiceField object&gt;, 'target_os': &lt;django.forms.fields.TypedChoiceField object&gt;}</em><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.forms.MetaDataJobForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {}</em><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.forms.MetaDataJobForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="geonode-automation-models-module">
-<h2>geonode.automation.models module<a class="headerlink" href="#geonode-automation-models-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.automation.models">
+<span id="geonode-automation-models-module"></span><h2>geonode.automation.models module<a class="headerlink" href="#module-geonode.automation.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.automation.models.AutomationJob">
+<em class="property">class </em><code class="descclassname">geonode.automation.models.</code><code class="descname">AutomationJob</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>This class saves a worker job for metadata automation processes.</p>
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.DATATYPE_CHOICES">
+<code class="descname">DATATYPE_CHOICES</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.DATATYPE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Input data type to be processed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.PROCESSOR_CHOICES">
+<code class="descname">PROCESSOR_CHOICES</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.PROCESSOR_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Component processor of input data based on
+UP TCAGP Phil-LiDAR Program components.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.STATUS_CHOICES">
+<code class="descname">STATUS_CHOICES</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.STATUS_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Status of jobs in Automation model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.OS_CHOICES">
+<code class="descname">OS_CHOICES</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.OS_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Operating system options wherein data will be processed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.datatype">
+<code class="descname">datatype</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.datatype" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The datatype of input. Limited to DATATYPE_CHOICES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.input_dir">
+<code class="descname">input_dir</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.input_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Directory containing input data. Path folder is traversed
+in processing environment’s server mount path.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.output_dir">
+<code class="descname">output_dir</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.output_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Directory to contain output data. Path folder must be in
+processing environment’s</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.processor">
+<code class="descname">processor</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.processor" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The processor of input data. Limited to PROCESSOR_CHOICES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.date_submitted">
+<code class="descname">date_submitted</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.date_submitted" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>date</em> – Date and time when an automation process/job is submitted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.status">
+<code class="descname">status</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.status" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Status of jobs. Limited to STATUS_CHOICES. The status define
+where the worker is in the Automation workflow. The following are the
+list of STATUC_CHOICES and definitions:
+# pending_process (Pending Job): The task is not yet fetched by the</p>
+<blockquote>
+<div>database watcher from processing environment.</div></blockquote>
+<dl class="docutils">
+<dt># done_process (Processing Job): Task is already received by Salad,</dt>
+<dd>processing the data begins. For LAZ/Orthophoto data, renaming and
+creation of output folder is done here. It is named ‘Processing Job’
+in case the processing environment goes down, resumption of
+processing starts from the top and discards previous output.
+This is done to preserve data integrity.</dd>
+<dt># pending_ceph (Uploading in Ceph):  Processing of data is done and</dt>
+<dd>is ready for upload in Ceph.</dd>
+<dt># done_ceph (Uploaded in Ceph): Processed data are ready to be uploaded</dt>
+<dd>to LiPAD. This trasnfers the metadata to LiPAD database.</dd>
+</dl>
+<p># done (Uploaded in LiPAD): Metadata is uploaded in LiPAD.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.status_timestamp">
+<code class="descname">status_timestamp</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.status_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>date</em> – Date and time of changing a job’s status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.target_os">
+<code class="descname">target_os</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.target_os" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Processing environment receiver’s operating system. Limited
+to OS_CHOICES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.log">
+<code class="descname">log</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.log" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Stores logs per transaction between processing. Includes renaming,
+processing, tiling, transfer logs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">DATATYPE_CHOICES</code><em class="property"> = Choices(('LAZ', 'LAZ', &lt;django.utils.functional.__proxy__ object&gt;), ('Ortho', 'Ortho', &lt;django.utils.functional.__proxy__ object&gt;), ('DTM', 'DTM', &lt;django.utils.functional.__proxy__ object&gt;), ('DSM', 'DSM', &lt;django.utils.functional.__proxy__ object&gt;), ('Others', 'Others', &lt;django.utils.functional.__proxy__ object&gt;))</em></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="geonode.automation.models.AutomationJob.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.automation.models.AutomationJob.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.automation.models.AutomationJob.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">OS_CHOICES</code><em class="property"> = Choices(('linux', 'linux', &lt;django.utils.functional.__proxy__ object&gt;), ('windows', 'windows', &lt;django.utils.functional.__proxy__ object&gt;))</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">PROCESSOR_CHOICES</code><em class="property"> = Choices(('DRM', 'DRM', &lt;django.utils.functional.__proxy__ object&gt;), ('PL1', 'PL1', &lt;django.utils.functional.__proxy__ object&gt;), ('PL2', 'PL2', &lt;django.utils.functional.__proxy__ object&gt;))</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">STATUS_CHOICES</code><em class="property"> = Choices(('pending_process', 'pending_process', &lt;django.utils.functional.__proxy__ object&gt;), ('done_process', 'done_process', &lt;django.utils.functional.__proxy__ object&gt;), ('pending_ceph', 'pending_ceph', &lt;django.utils.functional.__proxy__ object&gt;), ('done_ceph', 'done_ceph', &lt;django.utils.functional.__proxy__ object&gt;), ('done', 'done', &lt;django.utils.functional.__proxy__ object&gt;))</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_datatype_display">
+<code class="descname">get_datatype_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_datatype_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_next_by_date_submitted">
+<code class="descname">get_next_by_date_submitted</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_next_by_date_submitted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_previous_by_date_submitted">
+<code class="descname">get_previous_by_date_submitted</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_previous_by_date_submitted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_processor_display">
+<code class="descname">get_processor_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_processor_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_status_display">
+<code class="descname">get_status_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.AutomationJob.get_target_os_display">
+<code class="descname">get_target_os_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.AutomationJob.get_target_os_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.AutomationJob.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.automation.models.AutomationJob.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.automation.models.CephDataObjectResourceBase">
+<em class="property">class </em><code class="descclassname">geonode.automation.models.</code><code class="descname">CephDataObjectResourceBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.models.ResourceBase" title="geonode.base.models.ResourceBase"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.ResourceBase</span></code></a></p>
+<p>Explicitly inherits ResourceBase class.</p>
+<p>Object storage model for each <cite>Ceph object storage</cite> data entry. Each data input is
+divided into 1km by 1km. This data division is called <cite>tile</cite>.</p>
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.size_in_bytes">
+<code class="descname">size_in_bytes</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.size_in_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – Data entry size in bytes represented as intergers.
+Data entries are also called <cite>Ceph objects</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.file_hash">
+<code class="descname">file_hash</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.file_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Hash output of source input file in Ceph object storage.
+This is a result of <cite>Ceph</cite>’s hashing algorithm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.name">
+<code class="descname">name</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – String identifier of a Ceph object’s source file. A data object
+name is the source input filename.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.last_modified">
+<code class="descname">last_modified</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.last_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>date</em> – Records data of ceph object recent modification. This
+could be create, delete, updating data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.content_type">
+<code class="descname">content_type</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.content_type" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Type representation of input spatial data. These are:
+- <cite>image/tiff</cite> for Digital Elevation Model and Orthophoto
+- <cite>None</cite> for LAZ files</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.data_class">
+<code class="descname">data_class</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.data_class" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>enum</em> – Data classification of input data. These are:
+- LAZ
+- Orthophoto
+- Digital Elevation Model</p>
+<blockquote>
+<div><ul class="simple">
+<li>Digital Terrain Model</li>
+<li>Digital Surface Model</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.grid_ref">
+<code class="descname">grid_ref</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.grid_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Grid reference or spatial coordinates of a data tile.
+Represented in easting and northing coordinate format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.block_uid">
+<code class="descname">block_uid</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.block_uid" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal"><span class="pre">lidarcoverageblock</span></code> – Foreign key to <cite>LidarCoverageBlock</cite>
+model. Defines which LiDAR block the input data is part of.
+- In the case of LAZ and Orthophoto datatypes, mapping to a lidar coverage</p>
+<blockquote>
+<div>block is one-to-one.</div></blockquote>
+<ul class="simple">
+<li>For DEM, mapping to lidar coverage block is many-to-many.</li>
+</ul>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.DoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">geonode.base.models.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.base_objects">
+<code class="descname">base_objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.base_objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.block_name">
+<code class="descname">block_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.block_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>str: Returns block name of corresponding lidar coverage block.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">block_uid</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">data_class</code></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.get_data_class_display">
+<code class="descname">get_data_class_display</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.get_data_class_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.get_next_by_last_modified">
+<code class="descname">get_next_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.get_next_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.get_previous_by_last_modified">
+<code class="descname">get_previous_by_last_modified</code><span class="sig-paren">(</span><em>*moreargs</em>, <em>**morekwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.get_previous_by_last_modified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.objects">
+<code class="descname">objects</code><em class="property"> = &lt;geonode.base.models.ResourceBaseManager object&gt;</em><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.polymorphic_primary_key_name">
+<code class="descname">polymorphic_primary_key_name</code><em class="property"> = u'id'</em><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.polymorphic_primary_key_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.polymorphic_super_sub_accessors_replaced">
+<code class="descname">polymorphic_super_sub_accessors_replaced</code><em class="property"> = False</em><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.polymorphic_super_sub_accessors_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.resourcebase_ptr">
+<code class="descname">resourcebase_ptr</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.resourcebase_ptr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.tagged_items">
+<code class="descname">tagged_items</code><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.tagged_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the functionality that makes the related-object
+managers available as attributes on a model class, for fields that have
+multiple “remote” values and have a GenericRelation defined in their model
+(rather than having another model pointed <em>at</em> them). In the example
+“article.publications”, the publications attribute is a
+ReverseGenericRelatedObjectsDescriptor instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geonode.automation.models.CephDataObjectResourceBase.uid">
+<code class="descname">uid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.models.CephDataObjectResourceBase.uid" title="Permalink to this definition">¶</a></dt>
+<dd><p>int: Returns unique identifier of corresponding lidar coverage block.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-geonode.automation.tests">
 <span id="geonode-automation-tests-module"></span><h2>geonode.automation.tests module<a class="headerlink" href="#module-geonode.automation.tests" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="geonode-automation-urls-module">
-<h2>geonode.automation.urls module<a class="headerlink" href="#geonode-automation-urls-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.automation.urls">
+<span id="geonode-automation-urls-module"></span><h2>geonode.automation.urls module<a class="headerlink" href="#module-geonode.automation.urls" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="geonode-automation-views-module">
-<h2>geonode.automation.views module<a class="headerlink" href="#geonode-automation-views-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.automation.views">
+<span id="geonode-automation-views-module"></span><h2>geonode.automation.views module<a class="headerlink" href="#module-geonode.automation.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geonode.automation.views.create_obj">
+<code class="descclassname">geonode.automation.views.</code><code class="descname">create_obj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.views.create_obj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="geonode.automation.views.metadata_job">
+<code class="descclassname">geonode.automation.views.</code><code class="descname">metadata_job</code><span class="sig-paren">(</span><em>request</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.views.metadata_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches process job for AutomationJob.</p>
+<p>Shows form MetaDataJobForm to create a worker.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>(</strong> (<em>request</em>) – obj: <cite>request object</cite>): HTTP request upon access of URL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dictionary mapping of the request to the corresponding fetched data from
+MetadataJobForm.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>URL:</strong></dt>
+<dd><cite>/automation/input/</cite></dd>
+<dt><strong>Template:</strong></dt>
+<dd>input_job.html</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-geonode.automation">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geonode.automation" title="Permalink to this headline">¶</a></h2>

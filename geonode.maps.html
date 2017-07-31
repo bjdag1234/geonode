@@ -130,7 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.middleware">geonode.middleware module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.settings">geonode.settings module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.sitemap">geonode.sitemap module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geonode.html#geonode-urls-module">geonode.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.urls">geonode.urls module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.utils">geonode.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.version">geonode.version module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.views">geonode.views module</a></li>
@@ -232,8 +232,136 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="geonode-maps-admin-module">
-<h2>geonode.maps.admin module<a class="headerlink" href="#geonode-maps-admin-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.maps.admin">
+<span id="geonode-maps-admin-module"></span><h2>geonode.maps.admin module<a class="headerlink" href="#module-geonode.maps.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdmin">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapAdmin</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.admin.MediaTranslationAdmin" title="geonode.base.admin.MediaTranslationAdmin"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.MediaTranslationAdmin</span></code></a></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.maps.admin.MapAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#geonode.maps.admin.MapAdminForm" title="geonode.maps.admin.MapAdminForm"><code class="xref py py-class docutils literal"><span class="pre">MapAdminForm</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.inlines">
+<code class="descname">inlines</code><em class="property"> = [&lt;class 'geonode.maps.admin.MapLayerInline'&gt;]</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.inlines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'title', 'owner')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('title',)</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('owner', 'category')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('title', 'abstract', 'purpose')</em><a class="headerlink" href="#geonode.maps.admin.MapAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdminForm">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapAdminForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.admin.ResourceBaseAdminForm" title="geonode.base.admin.ResourceBaseAdminForm"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.ResourceBaseAdminForm</span></code></a></p>
+<dl class="class">
+<dt id="geonode.maps.admin.MapAdminForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.Meta.autocomplete_registry">
+<code class="descname">autocomplete_registry</code><em class="property"> = {'RegionAutocomplete': &lt;class 'autocomplete_light.registry.RegionAutocomplete'&gt;, 'TagAutocomplete': &lt;class 'autocomplete_light.registry.TagAutocomplete'&gt;, 'ResourceBaseAutocomplete': &lt;class 'autocomplete_light.registry.ResourceBaseAutocomplete'&gt;, 'DocumentAutocomplete': &lt;class 'autocomplete_light.registry.DocumentAutocomplete'&gt;, 'ProfileAutocomplete': &lt;class 'autocomplete_light.registry.ProfileAutocomplete'&gt;, 'MapAutocomplete': &lt;class 'autocomplete_light.registry.MapAutocomplete'&gt;, 'LayerAutocomplete': &lt;class 'autocomplete_light.registry.LayerAutocomplete'&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta.autocomplete_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Map</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'uuid': &lt;django.forms.fields.CharField object&gt;, 'owner': &lt;autocomplete_light.fields.ModelChoiceField object&gt;, 'contacts': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'title': &lt;django.forms.fields.CharField object&gt;, 'title_en': &lt;django.forms.fields.CharField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'date_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'edition': &lt;django.forms.fields.CharField object&gt;, 'abstract': &lt;django.forms.fields.CharField object&gt;, 'abstract_en': &lt;django.forms.fields.CharField object&gt;, 'purpose': &lt;django.forms.fields.CharField object&gt;, 'purpose_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'maintenance_frequency': &lt;django.forms.fields.TypedChoiceField object&gt;, 'regions': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'restriction_code_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'constraints_other': &lt;django.forms.fields.CharField object&gt;, 'constraints_other_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'license': &lt;django.forms.models.ModelChoiceField object&gt;, 'language': &lt;django.forms.fields.TypedChoiceField object&gt;, 'category': &lt;django.forms.models.ModelChoiceField object&gt;, 'spatial_representation_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'supplemental_information': &lt;django.forms.fields.CharField object&gt;, 'supplemental_information_en': &lt;django.forms.fields.CharField object&gt;, 'distribution_url': &lt;django.forms.fields.CharField object&gt;, 'distribution_description': &lt;django.forms.fields.CharField object&gt;, 'distribution_description_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'data_quality_statement': &lt;django.forms.fields.CharField object&gt;, 'data_quality_statement_en': &lt;modeltranslation.fields.NullCharField object&gt;, 'bbox_x0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_x1': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y1': &lt;django.forms.fields.DecimalField object&gt;, 'srid': &lt;django.forms.fields.CharField object&gt;, 'csw_typename': &lt;django.forms.fields.CharField object&gt;, 'csw_schema': &lt;django.forms.fields.CharField object&gt;, 'csw_mdsource': &lt;django.forms.fields.CharField object&gt;, 'csw_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'csw_anytext': &lt;django.forms.fields.CharField object&gt;, 'csw_wkt_geometry': &lt;django.forms.fields.CharField object&gt;, 'metadata_uploaded': &lt;django.forms.fields.BooleanField object&gt;, 'metadata_xml': &lt;django.forms.fields.CharField object&gt;, 'popular_count': &lt;django.forms.fields.IntegerField object&gt;, 'share_count': &lt;django.forms.fields.IntegerField object&gt;, 'featured': &lt;django.forms.fields.BooleanField object&gt;, 'is_published': &lt;django.forms.fields.BooleanField object&gt;, 'thumbnail_url': &lt;django.forms.fields.CharField object&gt;, 'detail_url': &lt;django.forms.fields.CharField object&gt;, 'rating': &lt;django.forms.fields.IntegerField object&gt;, 'zoom': &lt;django.forms.fields.IntegerField object&gt;, 'projection': &lt;django.forms.fields.CharField object&gt;, 'center_x': &lt;django.forms.fields.FloatField object&gt;, 'center_y': &lt;django.forms.fields.FloatField object&gt;, 'urlsuffix': &lt;django.forms.fields.CharField object&gt;, 'featuredurl': &lt;django.forms.fields.CharField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapAdminForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapAdminForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapLayerAdmin">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapLayerAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MapLayerForm</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'map', 'name')</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('map',)</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerAdmin.search_fields">
+<code class="descname">search_fields</code><em class="property"> = ('map__title', 'name')</em><a class="headerlink" href="#geonode.maps.admin.MapLayerAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.maps.admin.MapLayerInline">
+<em class="property">class </em><code class="descclassname">geonode.maps.admin.</code><code class="descname">MapLayerInline</code><span class="sig-paren">(</span><em>parent_model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.maps.admin.MapLayerInline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.TabularInline</span></code></p>
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerInline.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.maps.admin.MapLayerInline.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.maps.admin.MapLayerInline.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.maps.admin.MapLayerInline.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">MapLayer</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-geonode.maps.autocomplete_light_registry">
 <span id="geonode-maps-autocomplete-light-registry-module"></span><h2>geonode.maps.autocomplete_light_registry module<a class="headerlink" href="#module-geonode.maps.autocomplete_light_registry" title="Permalink to this headline">¶</a></h2>

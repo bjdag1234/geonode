@@ -130,7 +130,7 @@
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.middleware">geonode.middleware module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.settings">geonode.settings module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.sitemap">geonode.sitemap module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geonode.html#geonode-urls-module">geonode.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.urls">geonode.urls module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.utils">geonode.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.version">geonode.version module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geonode.html#module-geonode.views">geonode.views module</a></li>
@@ -233,8 +233,77 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="geonode-services-admin-module">
-<h2>geonode.services.admin module<a class="headerlink" href="#geonode-services-admin-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-geonode.services.admin">
+<span id="geonode-services-admin-module"></span><h2>geonode.services.admin module<a class="headerlink" href="#module-geonode.services.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geonode.services.admin.ServiceAdmin">
+<em class="property">class </em><code class="descclassname">geonode.services.admin.</code><code class="descname">ServiceAdmin</code><span class="sig-paren">(</span><em>model</em>, <em>admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.services.admin.ServiceAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdmin.form">
+<code class="descname">form</code><a class="headerlink" href="#geonode.services.admin.ServiceAdmin.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#geonode.services.admin.ServiceAdminForm" title="geonode.services.admin.ServiceAdminForm"><code class="xref py py-class docutils literal"><span class="pre">ServiceAdminForm</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdmin.list_display">
+<code class="descname">list_display</code><em class="property"> = ('id', 'name', 'type', 'method')</em><a class="headerlink" href="#geonode.services.admin.ServiceAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdmin.list_display_links">
+<code class="descname">list_display_links</code><em class="property"> = ('id', 'name')</em><a class="headerlink" href="#geonode.services.admin.ServiceAdmin.list_display_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdmin.list_filter">
+<code class="descname">list_filter</code><em class="property"> = ('type', 'method')</em><a class="headerlink" href="#geonode.services.admin.ServiceAdmin.list_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdmin.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.services.admin.ServiceAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geonode.services.admin.ServiceAdminForm">
+<em class="property">class </em><code class="descclassname">geonode.services.admin.</code><code class="descname">ServiceAdminForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="geonode.base.html#geonode.base.admin.ResourceBaseAdminForm" title="geonode.base.admin.ResourceBaseAdminForm"><code class="xref py py-class docutils literal"><span class="pre">geonode.base.admin.ResourceBaseAdminForm</span></code></a></p>
+<dl class="class">
+<dt id="geonode.services.admin.ServiceAdminForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdminForm.Meta.autocomplete_registry">
+<code class="descname">autocomplete_registry</code><em class="property"> = {'RegionAutocomplete': &lt;class 'autocomplete_light.registry.RegionAutocomplete'&gt;, 'TagAutocomplete': &lt;class 'autocomplete_light.registry.TagAutocomplete'&gt;, 'ResourceBaseAutocomplete': &lt;class 'autocomplete_light.registry.ResourceBaseAutocomplete'&gt;, 'DocumentAutocomplete': &lt;class 'autocomplete_light.registry.DocumentAutocomplete'&gt;, 'ProfileAutocomplete': &lt;class 'autocomplete_light.registry.ProfileAutocomplete'&gt;, 'MapAutocomplete': &lt;class 'autocomplete_light.registry.MapAutocomplete'&gt;, 'LayerAutocomplete': &lt;class 'autocomplete_light.registry.LayerAutocomplete'&gt;}</em><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.Meta.autocomplete_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdminForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">Service</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdminForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'uuid': &lt;django.forms.fields.CharField object&gt;, 'owner': &lt;autocomplete_light.fields.ModelChoiceField object&gt;, 'contacts': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'title': &lt;django.forms.fields.CharField object&gt;, 'date': &lt;django.forms.fields.DateTimeField object&gt;, 'date_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'edition': &lt;django.forms.fields.CharField object&gt;, 'abstract': &lt;django.forms.fields.CharField object&gt;, 'purpose': &lt;django.forms.fields.CharField object&gt;, 'maintenance_frequency': &lt;django.forms.fields.TypedChoiceField object&gt;, 'regions': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'restriction_code_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'constraints_other': &lt;django.forms.fields.CharField object&gt;, 'license': &lt;django.forms.models.ModelChoiceField object&gt;, 'language': &lt;django.forms.fields.TypedChoiceField object&gt;, 'category': &lt;django.forms.models.ModelChoiceField object&gt;, 'spatial_representation_type': &lt;django.forms.models.ModelChoiceField object&gt;, 'temporal_extent_start': &lt;django.forms.fields.DateTimeField object&gt;, 'temporal_extent_end': &lt;django.forms.fields.DateTimeField object&gt;, 'supplemental_information': &lt;django.forms.fields.CharField object&gt;, 'distribution_url': &lt;django.forms.fields.CharField object&gt;, 'distribution_description': &lt;django.forms.fields.CharField object&gt;, 'data_quality_statement': &lt;django.forms.fields.CharField object&gt;, 'bbox_x0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_x1': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y0': &lt;django.forms.fields.DecimalField object&gt;, 'bbox_y1': &lt;django.forms.fields.DecimalField object&gt;, 'srid': &lt;django.forms.fields.CharField object&gt;, 'csw_typename': &lt;django.forms.fields.CharField object&gt;, 'csw_schema': &lt;django.forms.fields.CharField object&gt;, 'csw_mdsource': &lt;django.forms.fields.CharField object&gt;, 'csw_type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'csw_anytext': &lt;django.forms.fields.CharField object&gt;, 'csw_wkt_geometry': &lt;django.forms.fields.CharField object&gt;, 'metadata_uploaded': &lt;django.forms.fields.BooleanField object&gt;, 'metadata_xml': &lt;django.forms.fields.CharField object&gt;, 'popular_count': &lt;django.forms.fields.IntegerField object&gt;, 'share_count': &lt;django.forms.fields.IntegerField object&gt;, 'featured': &lt;django.forms.fields.BooleanField object&gt;, 'is_published': &lt;django.forms.fields.BooleanField object&gt;, 'thumbnail_url': &lt;django.forms.fields.CharField object&gt;, 'detail_url': &lt;django.forms.fields.CharField object&gt;, 'rating': &lt;django.forms.fields.IntegerField object&gt;, 'type': &lt;django.forms.fields.TypedChoiceField object&gt;, 'method': &lt;django.forms.fields.TypedChoiceField object&gt;, 'base_url': &lt;django.forms.fields.URLField object&gt;, 'version': &lt;django.forms.fields.CharField object&gt;, 'name': &lt;django.forms.fields.CharField object&gt;, 'description': &lt;django.forms.fields.CharField object&gt;, 'online_resource': &lt;django.forms.fields.URLField object&gt;, 'fees': &lt;django.forms.fields.CharField object&gt;, 'access_constraints': &lt;django.forms.fields.CharField object&gt;, 'connection_params': &lt;django.forms.fields.CharField object&gt;, 'username': &lt;django.forms.fields.CharField object&gt;, 'password': &lt;django.forms.fields.CharField object&gt;, 'api_key': &lt;django.forms.fields.CharField object&gt;, 'workspace_ref': &lt;django.forms.fields.URLField object&gt;, 'store_ref': &lt;django.forms.fields.URLField object&gt;, 'resources_ref': &lt;django.forms.fields.URLField object&gt;, 'profiles': &lt;autocomplete_light.fields.ModelMultipleChoiceField object&gt;, 'first_noanswer': &lt;django.forms.fields.DateTimeField object&gt;, 'noanswer_retries': &lt;django.forms.fields.IntegerField object&gt;, 'external_id': &lt;django.forms.fields.IntegerField object&gt;, 'parent': &lt;django.forms.models.ModelChoiceField object&gt;, 'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdminForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'keywords': &lt;autocomplete_light.contrib.taggit_field.TaggitField object&gt;}</em><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="geonode.services.admin.ServiceAdminForm.media">
+<code class="descname">media</code><a class="headerlink" href="#geonode.services.admin.ServiceAdminForm.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-geonode.services.enumerations">
 <span id="geonode-services-enumerations-module"></span><h2>geonode.services.enumerations module<a class="headerlink" href="#module-geonode.services.enumerations" title="Permalink to this headline">¶</a></h2>
