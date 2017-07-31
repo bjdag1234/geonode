@@ -11,7 +11,7 @@ from django_enumfield import enum
 
 
 class MetaDataJobForm(forms.ModelForm):
-    """Form for the model``AutomationJob``.
+    """Form for the model ``AutomationJob``.
     """
     class Meta:
         model = AutomationJob
