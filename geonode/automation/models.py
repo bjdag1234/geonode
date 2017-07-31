@@ -26,7 +26,8 @@ class AutomationJob(models.Model):
         date_submitted (date): Date and time when an automation process\/job is submitted.
         status (str): Status of jobs. Limited to STATUS_CHOICES. The status define
             where the worker is in the Automation workflow. The following are the
-            list of STATUC_CHOICES and definitions:
+            list of STATUS_CHOICES and definitions:
+
             #. pending_process (Pending Job): The task is not yet fetched by the
                 database watcher from processing environment.
             #. done_process (Processing Job): Task is already received by Salad,
