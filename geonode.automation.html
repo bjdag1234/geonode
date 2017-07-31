@@ -288,7 +288,7 @@
 <dt id="geonode.automation.forms.MetaDataJobForm">
 <em class="property">class </em><code class="descclassname">geonode.automation.forms.</code><code class="descname">MetaDataJobForm</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">django.forms.models.ModelForm</span></code></p>
-<p>Form for the model``AutomationJob``.</p>
+<p>Form for the model <code class="docutils literal"><span class="pre">AutomationJob</span></code>.</p>
 <dl class="class">
 <dt id="geonode.automation.forms.MetaDataJobForm.Meta">
 <em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#geonode.automation.forms.MetaDataJobForm.Meta" title="Permalink to this definition">¶</a></dt>
@@ -393,22 +393,31 @@ processing environment’s</p>
 <dd><p><em>str</em> – Status of jobs. Limited to STATUS_CHOICES. The status define
 where the worker is in the Automation workflow. The following are the
 list of STATUC_CHOICES and definitions:
-# pending_process (Pending Job): The task is not yet fetched by the</p>
+#. pending_process (Pending Job): The task is not yet fetched by the</p>
 <blockquote>
 <div>database watcher from processing environment.</div></blockquote>
-<dl class="docutils">
-<dt># done_process (Processing Job): Task is already received by Salad,</dt>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>done_process (Processing Job): Task is already received by Salad,</dt>
 <dd>processing the data begins. For LAZ/Orthophoto data, renaming and
 creation of output folder is done here. It is named ‘Processing Job’
 in case the processing environment goes down, resumption of
 processing starts from the top and discards previous output.
 This is done to preserve data integrity.</dd>
-<dt># pending_ceph (Uploading in Ceph):  Processing of data is done and</dt>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>pending_ceph (Uploading in Ceph):  Processing of data is done and</dt>
 <dd>is ready for upload in Ceph.</dd>
-<dt># done_ceph (Uploaded in Ceph): Processed data are ready to be uploaded</dt>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>done_ceph (Uploaded in Ceph): Processed data are ready to be uploaded</dt>
 <dd>to LiPAD. This trasnfers the metadata to LiPAD database.</dd>
 </dl>
-<p># done (Uploaded in LiPAD): Metadata is uploaded in LiPAD.</p>
+</li>
+<li>done (Uploaded in LiPAD): Metadata is uploaded in LiPAD.</li>
+</ol>
 </dd></dl>
 
 <dl class="attribute">
