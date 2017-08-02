@@ -133,14 +133,14 @@ ORDER BY proportion desc, d."''' + rb_field + '''"'''
     print query
     return query
 
-def form_query(layer_name, params, mode):
+
+def form_query(layer_name, mode, params):
 
     query = '''
 WITH l AS (
     SELECT ST_Multi(ST_Union(f.the_geom)) AS the_geom
     FROM ''' + layer_name + ''' AS f
 )'''
-
 
     # intersecting sar with delineation
     if mode == 'sar' or mode == 'fhm_2':
@@ -247,12 +247,16 @@ def rb_title(layer, params):
     query_int = form_query_rb(layer.name, params)
     results = execute_query(query_int, layer, cur, conn)
 
+    layer_title = ''
     flood_year = int(layer.name.split('fh')[1].split('yr')[0])
     print layer.name, ': flood_year:', flood_year
-    layer.title =  '{0} {1} Year Flood Hazard Map'.format(
+    layer_title = '{0} {1} Year Flood Hazard Map'.format(
         str(results[0][0]), flood_year).replace("_", " ").title()
 
-    layer.save()
+    if layer.title != layer_title:
+        print layer.name, ': Setting layer.title...'
+        layer.title = layer_title
+
     conn.close()
     return layer
 
@@ -281,7 +285,6 @@ def muni_title(layer):
 
     if layer.title != layer_title:
         print layer.name, ': Setting layer.title...'
-        has_layer_changes = True
         layer.title = layer_title
 
     return layer
