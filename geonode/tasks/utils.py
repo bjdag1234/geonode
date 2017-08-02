@@ -250,7 +250,7 @@ def rb_title(layer, params):
     flood_year = int(layer.name.split('fh')[1].split('yr')[0])
     print layer.name, ': flood_year:', flood_year
     layer.title =  '{0} {1} Year Flood Hazard Map'.format(
-        results[0], flood_year).replace("_", " ").title()
+        str(results[0][0]), flood_year).replace("_", " ").title()
 
     layer.save()
     conn.close()
