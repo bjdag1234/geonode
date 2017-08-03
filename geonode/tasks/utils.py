@@ -238,24 +238,31 @@ def sar_mode(layer, mode, results):
 
 
 def rb_title(layer, params):
-    conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
-                             (settings.DATABASE_HOST,
-                              settings.DATASTORE_DB,
-                              settings.DATABASE_USER,
-                              settings.DATABASE_PASSWORD)))
-    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    query_int = form_query_rb(layer.name, params)
-    results = execute_query(query_int, layer, cur, conn)
+    # Disabled intersection of RB FHM due to Datastore DB processing failure
+    # conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
+    #                          (settings.DATABASE_HOST,
+    #                           settings.DATASTORE_DB,
+    #                           settings.DATABASE_USER,
+    #                           settings.DATABASE_PASSWORD)))
+    # cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    # query_int = form_query_rb(layer.name, params)
+    # results = execute_query(query_int, layer, cur, conn)
 
-    layer_title = ''
+    # layer_title = '{0} {1} Year Flood Hazard Map'.format(
+    #     str(results[0][0]), flood_year).replace("_", " ").title()
+
+    print 'Get title from Layer name.'
+    rb_name = layer.name.split('_fh')[0]
     flood_year = int(layer.name.split('fh')[1].split('yr')[0])
     print layer.name, ': flood_year:', flood_year
-    layer_title = '{0} {1} Year Flood Hazard Map'.format(
-        str(results[0][0]), flood_year).replace("_", " ").title()
+    layer_title = ''
+    layer_title = '{0} {1} Year Flood Hazard Map'.format(rb_name, flood_year).replace("_", " ").title()
 
     if layer.title != layer_title:
         print layer.name, ': Setting layer.title...'
         layer.title = layer_title
+
+    layer.save()
 
     conn.close()
     return layer

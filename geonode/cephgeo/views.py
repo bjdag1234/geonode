@@ -512,7 +512,8 @@ def update_metadata(request):
             params['day_counter'] = form.cleaned_data['day_counter']
             var_list = get_placeholders(params['abstract'])
 
-            print params
+            print 'PARAMS', params
+            print 'rb_field still required for updating tags'
             lastday = datetime.now() - \
                 timedelta(days=params.get('day_counter'))
             print 'LAST DAY', lastday

@@ -15,7 +15,9 @@ def update_fhm_metadata_task(pk, params):
     update_metadata(layer, params)
     mode = 'fhm'
     update_title(layer, params)
-    update_tags(layer, mode, params.get('rb_field'))
+
+    #: Requires params['rb_field'] for db field intersection
+    update_tags(layer, mode, params)
 
 # delete layer (geoserver, geonode+postgis), defeault style
 
@@ -27,7 +29,8 @@ def delete_fhm_task(pk):
 
 
 @task(name='geonode.tasks.fhm_metadata.tag_fhm_task', queue='fhm_metadata')
-def tag_fhm_task(pk):
+def tag_fhm_task(pk, params=[]):
+    params['fhm_coverage'] = settings.FHM_COVERAGE
     layer = Layer.objects.get(pk=pk)
     mode = 'fhm'
-    update_tags(layer, mode)
+    update_tags(layer, mode, params)

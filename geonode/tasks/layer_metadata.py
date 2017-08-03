@@ -124,7 +124,7 @@ Height: beyond 1.5m"""
             identifier="geoscientificInformation")
 
     # Update style
-    style_update(layer, 'fhm')
+    style_update(layer, params.get('style'))
 
     # Update thumbnail permissions
     own_thumbnail(layer)
