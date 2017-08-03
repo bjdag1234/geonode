@@ -31,7 +31,6 @@ def style_update(layer, style_template):
     if '_fh' in layer.name:
         if 'Var' in attributes:
             gs_style = cat.get_style(style_template)
-            break
         elif 'Merge' in attributes:
             gs_style = cat.get_style("fhm_merge")
         elif 'UVar' in attributes:
