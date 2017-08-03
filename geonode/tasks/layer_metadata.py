@@ -37,11 +37,11 @@ def update_fhm(layer, params):
     # Get map resolution
     map_resolution = ''
     if "_10m_30m" in layer.name:
-        map_resolution = '30'
+        map_resolution = 'combined resolution of 10 and 30'
     elif "_10m" in layer.name:
-        map_resolution = '10'
+        map_resolution = 'resolution of 10'
     elif "_30m" in layer.name:
-        map_resolution = '30'
+        map_resolution = 'resolution of 30'
     print layer.name, ': map_resolution:', map_resolution
 
     # Get muni code
@@ -69,7 +69,7 @@ def update_fhm(layer, params):
     # print layer.name, ': layer_title:', layer_title
 
     # Abstract
-    layer_abstract = """This shapefile, with a resolution of {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
+    layer_abstract = """This shapefile, with a {0} meters, illustrates the inundation extents in the area if the actual amount of rain exceeds that of a {1} year-rain return period.
 
 Note: There is a 1/{2} ({3}%) probability of a flood with {4} year return period occurring in a single year.
 """.format(map_resolution, flood_year, flood_year, flood_year_probability, flood_year)
