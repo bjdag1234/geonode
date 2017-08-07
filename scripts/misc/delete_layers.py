@@ -8,79 +8,79 @@ from geonode.layers.models import Style
 from geoserver.catalog import Catalog
 import argparse
 import os
+from os.path import dirname, abspath
 import psycopg2
+
+import logging
+import time
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
+logger = logging.getLogger()
+LOG_LEVEL = logging.INFO
+FILE_LOG_LEVEL = logging.DEBUG
+
+def setup_logging():
+    logger.setLevel(LOG_LEVEL)
+    formatter = logging.Formatter('[%(asctime)s] %(filename)s \
+(%(levelname)s,%(lineno)d)\t: %(message)s')
+
+    # Setup file logging
+    filename = __file__.split('/')[-1]
+    LOG_FILE_NAME = os.path.splitext(
+        filename)[0] + '_' + time.strftime('%Y-%m-%d') + '.log'
+    LOG_FOLDER = dirname(abspath(__file__)) + '/logs/'
+
+    if not os.path.exists(LOG_FOLDER):
+        os.makedirs(LOG_FOLDER)
+
+    LOG_FILE = LOG_FOLDER + LOG_FILE_NAME
+    fh = logging.FileHandler(LOG_FILE, mode='w')
+    fh.setLevel(FILE_LOG_LEVEL)
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
 
 def delete_layer(keyword, layer_list):
-    # conn = psycopg2.connect(("host={0} dbname={1} user={2} password={3}".format
-    #                          (settings.DATABASE_HOST, settings.DATASTORE_DB,
-    #                           settings.DATABASE_USER, settings.DATABASE_PASSWORD)))
-    # cur = conn.cursor()
 
-    if layer_list is None:
-        layers = ''
-        layers = Layer.objects.filter(name__icontains=keyword)
+    setup_logging()
+
+    if keyword == 'all':
+        layers = Layer.objects.all()
     else:
-        layers = []
-        for l in layer_list:
-            try:
-                layers.append(Layer.objects.get(name=l))
-            except:
-                print 'NO LAYER ', l
-    print 'LAYERS ', layers
+        if layer_list is None:
+            layers = Layer.objects.filter(name__icontains=keyword)
+        else:
+            layers = []
+            for l in layer_list:
+                try:
+                    layers.append(Layer.objects.get(name=l))
+                except:
+                    logging.error('No layer %s', l)
 
-    # cat = Catalog(settings.OGC_SERVER['default']['LOCATION'] + 'rest',
-    #               username=settings.OGC_SERVER['default']['USER'],
-    #               password=settings.OGC_SERVER['default']['PASSWORD'])
+    logging.info('LAYERS: %s', layers)
+    # print 'LAYERS ', layers
 
     total = len(layers)
     print 'TOTAL', total
+    logging.info('TOTAL: %s', total)
     count = 1
-    layername = ''
+
     for layer in layers:
-        print 'LAYER ', layer.name
-        layername = layer.name
+
         print '#' * 40
-        # '[{0}/{1}] Deleting {2}'.format(count, total, layer.name)
-        # try:
-        #     gs_style = cat.get_style(layer.name)
-        #     cat.delete(gs_style)
-        # except Exception:
-        #     print 'No geoserver style'
-        #     pass
-        # try:
-        #     gs_layer = cat.get_layer(layer.name)
-        #     cat.delete(gs_layer)
-        # except Exception:
-        #     print 'No geoserver layer'
-        #     pass
-        # try:
-        #     def_style = Style.objects.get(name=layer.name)
-        #     def_style.delete()
-        # except Exception:
-        #     print 'No geonode style'
-        #     pass
+        print 'LAYER ', layer.name
+        logging.info('LAYER %s', layer.name)
+
         try:
+            print 'Deleting Layer ... '
+            logging.info('Deleting Layer ... ')
             layer.delete()
         except Exception:
             print 'Cannot delete geonode layer'
+            logging.exception('Cannot delete geonode layer')
             pass
-    #     if layername != '':
-    #         query = 'DROP TABLE IF EXISTS ' + layername + ' CASCADE;'
-    #         print 'QUERY:', query
-    #         try:
-    #             cur.execute(query)
-    #             conn.commit()
-    #             print 'Deleted ' + layername + ' in pgsql database'
-    #         except Exception:
-    #             print layername + ' Not in pgsql database'
-    #             conn.rollback()
-    #     count += 1
-    # cur.close()
-    # conn.close()
-    # break
+        print '#' * 40
 
 
 def parse_arguments():
@@ -96,17 +96,20 @@ def parse_arguments():
     args = parser.parse_args()
     return args
 
-# if __name__ == '__main__':
-args = parse_arguments()
-for argType in args.type:
-    if argType == 'fhm':
-        keyword = '_fh'
-        delete_layer(keyword, args.layer)
-    elif argType == 'sar':
-        keyword = 'sar_'
-        delete_layer(keyword, args.layer)
-    elif argType == 'dem':
-        keyword = 'dem_'
-        delete_layer(keyword, args.layer)
-    else:
-        print 'NO KEYWORD SUPPLIED. EXITING...'
+if __name__ == '__main__':
+    args = parse_arguments()
+    for argType in args.type:
+        if argType == 'fhm':
+            keyword = '_fh'
+            delete_layer(keyword, args.layer)
+        elif argType == 'sar':
+            keyword = 'sar_'
+            delete_layer(keyword, args.layer)
+        elif argType == 'dem':
+            keyword = 'dem_'
+            delete_layer(keyword, args.layer)
+        elif argType == 'all':
+            keyword = 'all'
+            delete_layer(keyword, args.layer)
+        else:
+            print 'NO KEYWORD SUPPLIED. EXITING...'
