@@ -132,7 +132,9 @@ class AutomationJob(models.Model):
         max_length=20
     )
 
-    log = models.TextField(null=False, blank=True)
+    data_processing_log = models.TextField(null=False, blank=True)
+    ceph_upload_log = models.TextField(null=False, blank=True)
+    database_upload_log = models.TextField(null=False, blank=True)
 
     def __unicode__(self):
         return "{0} {1} {2}". \
