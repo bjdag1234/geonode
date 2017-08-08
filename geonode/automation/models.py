@@ -65,11 +65,12 @@ class AutomationJob(models.Model):
 
     STATUS_CHOICES = Choices(
         ('pending_process', _('Pending Job')),
-        # ('done_process', _('Processing Job')),
         ('done_process', _('Processed Job')),
-        # ('pending_ceph', _('Uploading in Ceph')),
         ('done_ceph', _('Uploaded in Ceph')),
         ('done', _('Uploaded in LiPAD')),
+
+        # ('done_process', _('Processing Job')),
+        # ('pending_ceph', _('Uploading in Ceph')),
         # (-1, 'error', _('Error')),
     )
 
