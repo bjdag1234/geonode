@@ -8,7 +8,7 @@ PAPER         =
 # SOURCEDIR     = .
 SOURCEDIR     = source
 # BUILDDIR      = _build/$(LANG)
-BUILDDIR      = ../../geonode-sphinx-docs
+BUILDDIR      = ../../documentation
 SPHINXOPTS    = -D language='$(LANG)' $(SOURCEDIR)
 
 # Internal variables.
