@@ -5,8 +5,10 @@
 LANG          = en
 SPHINXBUILD   = sphinx-build
 PAPER         =
-SOURCEDIR     = .
-BUILDDIR      = _build/$(LANG)
+# SOURCEDIR     = .
+SOURCEDIR     = source
+# BUILDDIR      = _build/$(LANG)
+BUILDDIR      = ../../geonode-sphinx-docs
 SPHINXOPTS    = -D language='$(LANG)' $(SOURCEDIR)
 
 # Internal variables.
@@ -38,7 +40,7 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
-	-rm -rf $(BUILDDIR)/*
+	-rm $(BUILDDIR)/
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
@@ -137,3 +139,6 @@ gettext:
 	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS)
 	@echo
 	@echo "Build finished."
+
+buildandcommithtml: html
+	cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages

@@ -11,30 +11,38 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys
+import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 DOC_PATH = os.path.dirname(__file__)
 PROJ_PATH = os.path.join(DOC_PATH, '../')
-sys.path.extend([DOC_PATH, PROJ_PATH])
+# sys.path.extend([DOC_PATH, PROJ_PATH])
+sys.path.insert(0, os.path.abspath('../../geonode/'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
-# -- General configuration -----------------------------------------------------
+# -- General configuration -----------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.todo',
+              'sphinxcontrib.napoleon', 'sphinx.ext.githubpages',
+              'sphinx.ext.intersphinx']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
 # The suffix of source filenames.
-source_suffix = '.txt'
+source_suffix = '.rst'
+# source_suffix = '.txt'
+
+# mock imports
+autodoc_mock_imports = ['arcpy', 'geoserver']
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -68,7 +76,7 @@ language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', "**/*.migrations.rst", ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -93,7 +101,7 @@ pygments_style = 'sphinx'
 locale_dirs = ['i18n/']
 gettext_compact = True
 
-# -- Options for HTML output ---------------------------------------------------
+# -- Options for HTML output ---------------------------------------------
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if not on_rtd:
@@ -177,7 +185,7 @@ if not on_rtd:
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'GeoNodedoc'
 
-# -- Options for LaTeX output --------------------------------------------------
+# -- Options for LaTeX output --------------------------------------------
 
 # The paper size ('letter' or 'a4').
 #latex_paper_size = 'letter'
@@ -188,8 +196,8 @@ htmlhelp_basename = 'GeoNodedoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'GeoNode.tex', u'GeoNode Documentation',
-   u'GeoNode Development Team', 'manual'),
+    ('index', 'GeoNode.tex', u'GeoNode Documentation',
+     u'GeoNode Development Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -216,7 +224,7 @@ latex_documents = [
 #latex_domain_indices = True
 
 
-# -- Options for manual page output --------------------------------------------
+# -- Options for manual page output --------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
@@ -226,7 +234,7 @@ man_pages = [
 ]
 
 
-# -- Options for Epub output ---------------------------------------------------
+# -- Options for Epub output ---------------------------------------------
 
 # Bibliographic Dublin Core info.
 epub_title = u'GeoNode'
@@ -265,6 +273,6 @@ epub_copyright = u'2015, GeoNode Development Team'
 # Allow duplicate toc entries.
 #epub_tocdup = True
 
-#def setup(app):
- #   from _ext import django_model_fields
-  #  app.connect('autodoc-process-docstring', django_model_fields.process_docstring)
+# def setup(app):
+#   from _ext import django_model_fields
+#  app.connect('autodoc-process-docstring', django_model_fields.process_docstring)
