@@ -35,6 +35,38 @@ from .base_request import BaseRequest, LipadOrgType
 
 
 class ProfileRequest(BaseRequest, StatusModel):
+    """
+
+    The profile request model which inherits from BaseRequest and StatusModel
+
+    Static Fields:
+        STATUS
+        REQUESTER_TYPE_CHOICES
+        REQUEST_LEVEL_CHOICES
+        REJECTION_REASON_CHOICES
+
+    Fields:
+        data_request - a mapping to the data request that was submitted along with this profile request, if any
+        username - the computed username for this profile request. Set only on approval
+        first_name
+        middle_name
+        last_name
+        organization
+        location
+        email
+        contact_number
+        organization_type - (deprecated) organization type of the profile requester
+        org_type - the more recent field used for the profile request organization type which makes use of the LipadOrgType model
+        organization_other - the reserved placeholder for "Other" organization type
+        request_level
+        funding source
+        is_consultant
+        verification_key - used for verifying the email address found on the profile request
+        key_created_date - a timestamped of when the verification key was created
+        verification_date - the date when the email address was verified
+        ftp_folder - the designated FTP folder for this profile requester on approval
+
+    """
 
     # Choices that will be used for fields
     LOCATION_CHOICES = Choices(
@@ -190,23 +222,50 @@ class ProfileRequest(BaseRequest, StatusModel):
 
     @property
     def has_verified_email(self):
+        """
+
+        Returns whether or not this profile request's email has been verified
+
+        """
         return self.verification_date is not None
 
     def get_absolute_url(self):
+        """
+
+        Returns a profile request object's absolute URL
+
+        """
         return reverse('datarequests:profile_request_detail', kwargs={'pk': self.pk})
 
     def set_verification_key(self):
+        """
+
+        Sets the verification_key
+
+        """
         self.verification_key = get_random_string(length=50)
         self.key_created_date = timezone.now()
         self.save()
 
     def set_status(self, status, administrator = None):
+        """
+
+        Sets the status of the profile request. If administrator is provided, the administrator field of the profile request is set to the the passed administrator
+
+        """
         self.status = status
         self.save()
         self.administrator = administrator
         self.save()
 
     def create_account(self):
+        """
+
+        Creates the sets the username field with the result of the create_login_credential function. The AD account and FTP folder (in the background) are also created based on the fields on the profile request. If the creation was successful, the function returns a tuple of (True, message) where True is the boolean True for python and message is a string indicating the status. Otherwise, it returns (False, message).
+
+        Additionally, if profile creation is successful, the profile is automatically added to the user group of data requesters and the profile request is mapped to the created profile.
+
+        """
         profile = None
         errors = []
         if not self.username:
@@ -265,6 +324,12 @@ class ProfileRequest(BaseRequest, StatusModel):
         return  (True, "Account creation successful")
 
     def join_requester_grp(self):
+        """
+
+        Adds the created profile to the requester user group
+
+
+        """
         # Add account to requesters group
         group_name = "Data Requesters"
         requesters_group, created = GroupProfile.objects.get_or_create(
@@ -283,16 +348,31 @@ class ProfileRequest(BaseRequest, StatusModel):
             #raise ValueError("Unable to add user to the group")
 
     def create_directory(self):
+        """
+
+        Triggers the creation of the FTP folder as a background process
+
+        """
         pprint("creating user folder for "+self.username)
         create_folder.delay(self.username)
         self.ftp_folder = "Others/"+self.username
         self.save()
 
     def get_organization_type(self):
+        """
+
+        A getter function for the organization_type field
+
+        """
         return self.org_type
         #return OrganizationType.get(getattr(self,'organization_type'))
 
     def to_values_list(self, fields=['id','name','email','contact_number', 'organization','org_type', 'created','status','has_data_request']):
+        """
+
+        Returns the values of the profile request as a list based on the passed fields variable
+
+        """
         out = []
         for f in fields:
             if f  is 'id':
@@ -349,6 +429,11 @@ class ProfileRequest(BaseRequest, StatusModel):
         return out
 
     def send_email(self, subj, msg, html_msg, recipient=settings.LIPAD_SUPPORT_MAIL):
+        """
+
+        Generic function for sending emails
+
+        """
         text_content = msg
 
         html_content = html_msg
@@ -365,6 +450,11 @@ class ProfileRequest(BaseRequest, StatusModel):
         msg.send()
 
     def send_new_request_notif_to_admins(self, request_type="Profile"):
+        """
+
+        Sends an email notification to the LiPAD email address about the arrival of this profile request
+
+        """
         text_content = email_utils.NEW_REQUEST_EMAIL_TEXT.format(
             request_type,
             settings.BASEURL + self.get_absolute_url()
@@ -380,6 +470,11 @@ class ProfileRequest(BaseRequest, StatusModel):
         self.send_email(email_subj,text_content,html_content)
 
     def send_verification_email(self):
+        """
+
+        Sets the verification key and sends the verification email to the email address indicated in the profile request
+
+        """
         self.set_verification_key()
         site = Site.objects.get_current()
         verification_url = (
@@ -408,6 +503,11 @@ class ProfileRequest(BaseRequest, StatusModel):
         self.send_email(email_subj,text_content,html_content, recipient=self.email)
 
     def send_approval_email(self):
+        """
+
+        Notifies the requester of his/her approved profile request
+
+        """
         site = Site.objects.get_current()
         profile_url = (
             str(site) +
@@ -434,6 +534,11 @@ class ProfileRequest(BaseRequest, StatusModel):
         self.send_email(email_subj,text_content,html_content, recipient=self.email)
 
     def send_rejection_email(self):
+        """
+
+        Notifies the requester of his/her rejected profile request
+
+        """
         additional_details = 'Additional Details: ' + str(self.additional_rejection_reason)
 
         text_content = email_utils.PROFILE_REJECTION_TEXT.format(

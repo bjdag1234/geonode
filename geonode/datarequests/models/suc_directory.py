@@ -22,19 +22,18 @@ class SUC_Contact(models.Model):
     position = models.CharField(_('Position'),max_length = 50)
     email_address = models.EmailField(_('Email Address'))
     salutation = models.CharField(_('Salutation (optional)'), max_length = 10, blank=True, null = True)
-    username = models.CharField(_('Username associated with this SUC contact'), max_length=50, null=False, blank=False)   
-    
+    username = models.CharField(_('Username associated with this SUC contact'), max_length=50, null=False, blank=False)
+
     class Meta:
         app_label = "datarequests"
         verbose_name = "SUC Contact"
-    
+
     def __unicode__(self):
         s = ""
-        
+
         if self.salutation:
             s += self.salutation
-            
+
         s += "{0}, {1} for {2}".format(self.name, self.position, self.institution_full)
-        
+
         return s
-    
