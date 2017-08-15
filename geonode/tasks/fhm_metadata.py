@@ -17,7 +17,7 @@ def update_fhm_metadata_task(pk, params):
     update_title(layer, params)
 
     #: Requires params['rb_field'] for db field intersection
-    update_tags(layer, mode, params)
+    # update_tags(layer, mode, params)
 
 # delete layer (geoserver, geonode+postgis), defeault style
 
