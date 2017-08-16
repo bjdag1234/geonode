@@ -1047,3 +1047,5 @@ if 'geonode.geoserver' in GEONODE_APPS:
 CEPHACCESS_HOST = FTP_HOST = 'root@ftp-nas.prd.dream.upd.edu.ph'
 CEPHACCESS_DL_SCRIPT = '~/ftp_scripts/download.py'
 FTP_SCRIPT = '/mnt/misc/scripts/sysad-tools/set-acls/createdir.sh'
+FABRIC_ENV_USER = 'geonode'
+FABRIC_ENV_KEY_FILENAME = '/home/geonode/.ssh/id_rsa'

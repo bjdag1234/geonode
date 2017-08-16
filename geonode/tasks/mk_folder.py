@@ -10,18 +10,23 @@ from django.core.mail import send_mail
 import geonode.settings as settings
 
 ROOT_DIRECTORY = ""
-
+env.user = settings.FABRIC_ENV_USER
+env.key_filename = settings.FABRIC_ENV_KEY_FILENAME
 
 @celery.task(name="geonode.tasks.mk_folder.create_folder", queue="mk_folder")
 def create_folder(username):
     try:
         pprint("hallo thar create_folder")
+        import getpass
+        print 'getpass.getuser(): ' + getpass.getuser()
+        print 'env.user: ' + env.user
+        print 'env.key_filename: ' + env.key_filename
         result = execute(fab_create_folder, username)
-        pprint(result)
+        print 'result:\n' + str(result)
         return result
     except Exception as e:
         mail_on_error(username,  traceback.format_exc())
-        pprint(traceback.format_exc())
+        traceback.print_exc()
         return e
 
 
