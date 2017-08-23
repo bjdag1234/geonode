@@ -232,7 +232,7 @@ def profile_request_reject(request, pk):
 def profile_request_reconfirm(request, pk):
     """Resending a confirmation email to a ProfileRequest object
 
-    This is the function which handles the resending of a confirmation email to a profile request’s email address.
+    This is the function which handles the resending of a confirmation email to a profile request's email address.
     Only superusers can reconfirm objects.
     This is activated by a "Resend Confirmation Email" button in profile_request_detail with Unconfirmed Email Status
 
@@ -263,7 +263,7 @@ def profile_request_reconfirm(request, pk):
 def profile_request_recreate_dir(request, pk):
     """Recreating FTP folder of a ProfileRequest object
 
-    This function which executes the creation of an approved account’s FTP folder should it fail.
+    This function which executes the creation of an approved account's FTP folder should it fail.
     Only superusers can reconfirm objects.
     This is activated by a "Create Directory" button in profile_request_detail with Approved Status
 
@@ -346,7 +346,7 @@ def profile_requests_csv(request):
         url(r'^profile_requests_csv/$', 'profile_requests_csv', name='profile_requests_csv'),
 
     Returns:
-        csv file: named profilerequests-<month><day><year>’.
+        csv file: named profilerequests-<month><day><year>.
             `fields`: First row content, and ProfileRequest keys to be placed on each column per object
 
     """

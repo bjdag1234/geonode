@@ -94,7 +94,7 @@ def requests_csv(request):
         url(r'^requests_csv/$','requests_csv',name='requests_csv'),
 
     Returns:
-        csv file: named ‘requests-<month><day><year>’.
+        csv file: named 'requests-<month><day><year>'.
             `header_fields`: First row content
             `profile_request_fields`: ProfileRequest keys to be placed on each column per object
             `data_request_fields`: DataRequest keys to be placed on each column per object
@@ -148,10 +148,10 @@ def old_requests_csv(request):
 
     Function:
         models/profile_request.py's to_values_list(`param1`): Returns a list which contains the values of the object with the argument(`param1) as keys
-        models/data_request.py’s to_values_list(`param1`): Returns a list which contains the values of the object with the argument(`param1) as keys
+        models/data_request.py's to_values_list(`param1`): Returns a list which contains the values of the object with the argument(`param1) as keys
 
     Returns:
-        csv file: named ‘oldrequests-<month><day><year>’
+        csv file: named 'oldrequests-<month><day><year>'
             `header_fields`: First row content, and keys to be placed on each column per object
 
     """

@@ -45,7 +45,7 @@ def data_requests_csv(request):
         url(r'^data/data_requests_csv/$', 'data_requests_csv', name='data_requests_csv'),
 
     Returns:
-        csv file: named datarequests-<month><day><year>’.
+        csv file: named datarequests-<month><day><year>.
             `fields`: First row content, and DataRequest keys to be placed on each column per object
 
     """
@@ -406,7 +406,7 @@ def data_request_compute_size_all(request):
 
 
 def data_request_compute_size(request, pk):
-    """
+    """Compute data size and area coverage of a single user
 
     Triggers the size computation (data size and area coverage) in the background for the data request with primary key pk
 
@@ -424,7 +424,7 @@ def data_request_compute_size(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc_all(request):
-    """
+    """Tags SUC
 
     Triggers tagging of all data requests by SUC/HEI
 
@@ -442,7 +442,7 @@ def data_request_tag_suc_all(request):
         return  HttpResponseRedirect('/forbidden/')
 
 def data_request_tag_suc(request,pk):
-    """
+    """Tags SUC of a single user
 
     Triggers tagging by SUC/HEI of data request with primary key pk
 
@@ -460,7 +460,7 @@ def data_request_tag_suc(request,pk):
         return  HttpResponseRedirect('/forbidden/')
 
 def data_request_notify_suc(request,pk):
-    """
+    """Notify SUC
 
     Triggers notification of SUC via email regarding request forwarding. Requires an approved data request. If multiple SUCs/HEIs are tagged, notification will be sent to UPD
 
@@ -478,7 +478,7 @@ def data_request_notify_suc(request,pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_notify_requester(request,pk):
-    """
+    """Notify Requester
 
     Triggers notification of data requester via email regarding request forwarding. Requires an approved data request
 
@@ -492,9 +492,9 @@ def data_request_notify_requester(request,pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_forward_request(request,pk):
-    """
+    """Forward Request
 
-    Triggers forwarding of data request’s shapefile to the tagged SUC/HEI. If multiple SUCs/HEIs are tagged, forwarding will be sent to UPD. Requires an approved data request and notified parties.
+    Triggers forwarding of data request's shapefile to the tagged SUC/HEI. If multiple SUCs/HEIs are tagged, forwarding will be sent to UPD. Requires an approved data request and notified parties.
 
     """
     if request.user.is_superuser and request.method=='POST':
@@ -507,7 +507,7 @@ def data_request_forward_request(request,pk):
 
 
 def data_request_reverse_geocode_all(request):
-    """
+    """Reverse Geocode of All users
 
     Triggers reverse geocoding for all data requests with a shapefile.
 
@@ -521,7 +521,7 @@ def data_request_reverse_geocode_all(request):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_reverse_geocode(request, pk):
-    """
+    """Reverse Geocode of one user
 
     Triggers reverse geocoding for a single data request with a shapefile
 
@@ -539,7 +539,7 @@ def data_request_reverse_geocode(request, pk):
         return HttpResponseRedirect('/forbidden/')
 
 def data_request_assign_gridrefs(request):
-    """
+    """Assign gridrefs for all
 
     Handle assignment of grid refs to users with approved data requests. Doing so will overwrite all existing grid refs assignment
 
