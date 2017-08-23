@@ -60,7 +60,7 @@ class FTPStatus(enum.Enum):
         DONE: 'Done',
         PENDING: 'Pending',
         ERROR:   'Error',
-        DUPLICATE: 'Duplicate', 
+        DUPLICATE: 'Duplicate',
         FORWARDED: 'Forwarded'}
 
 
@@ -78,7 +78,7 @@ class FTPRequest(models.Model):
     date_time = models.DateTimeField(default=datetime.now)
     user = models.ForeignKey(User, null=False, blank=False)
     status = enum.EnumField(FTPStatus, default=FTPStatus.PENDING)
-    size_in_bytes = models.IntegerField()
+    size_in_bytes = models.BigIntegerField()
     num_tiles = models.IntegerField()
 
     def __unicode__(self):
