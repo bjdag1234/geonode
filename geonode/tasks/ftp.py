@@ -19,7 +19,7 @@ from geonode.groups.models import GroupProfile
 from celery.worker.strategy import default
 
 logger = logging.getLogger("geonode.tasks.ftp")
-FTP_USERS_DIRS = {"test-ftp-user": "/mnt/FTP/PL1/testfolder", }
+FTP_USERS_DIRS = {"test-ftp-user": "/mnt/ftp_pool/FTP/PL1/testfolder", }
 env.skip_bad_hosts = True
 env.warn_only = True
 
@@ -237,7 +237,7 @@ like Filezilla, to ftpes://ftp.dream.upd.edu.ph. Your requested datasets
 will be in a new folder named [{0}] under the directory [DL/DAD/] and will be available for 30 days only due to infrastructure limitations.
 
 FTP Server: ftpes://ftp.dream.upd.edu.ph/
-Folder location: /mnt/FTP/Others/{1}/DL/DAD/lipad_requests/{0}
+Folder location: /mnt/ftp_pool/FTP/Others/{1}/DL/DAD/lipad_requests/{0}
 Encryption: Require explicit FTP over TLS
 Logon Type: Normal
 Username: {1}
@@ -332,24 +332,24 @@ def get_folders_for_user(user, request_name):
 
     for group in groups:
         if group.slug == u'phil-lidar-1-sucs':
-            return ("/mnt/FTP/PL1/{0}/".format(user.username),
+            return ("/mnt/ftp_pool/FTP/PL1/{0}/".format(user.username),
                     os.path.join(
-                        "/mnt/FTP/PL1/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
+                        "/mnt/ftp_pool/FTP/PL1/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
                     )
         elif group.slug == u'phil-lidar-2-sucs':
-            return ("/mnt/FTP/PL2/{0}/".format(user.username),
+            return ("/mnt/ftp_pool/FTP/PL2/{0}/".format(user.username),
                     os.path.join(
-                        "/mnt/FTP/PL2/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
+                        "/mnt/ftp_pool/FTP/PL2/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
                     )
         elif group.slug == u'other-data-requesters':
-            return ("/mnt/FTP/Others/{0}/".format(user.username),
+            return ("/mnt/ftp_pool/FTP/Others/{0}/".format(user.username),
                     os.path.join(
-                        "/mnt/FTP/Others/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
+                        "/mnt/ftp_pool/FTP/Others/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
                     )
         elif group.slug == u'data-requesters':
-            return ("/mnt/FTP/Others/{0}/".format(user.username),
+            return ("/mnt/ftp_pool/FTP/Others/{0}/".format(user.username),
                     os.path.join(
-                        "/mnt/FTP/Others/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
+                        "/mnt/ftp_pool/FTP/Others/{0}/DL/DAD/lipad_requests".format(user.username), request_name)
                     )
 
     raise CephAccessException(
