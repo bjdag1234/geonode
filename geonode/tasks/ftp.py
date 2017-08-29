@@ -22,6 +22,7 @@ logger = logging.getLogger("geonode.tasks.ftp")
 FTP_USERS_DIRS = {"test-ftp-user": "/mnt/ftp_pool/FTP/PL1/testfolder", }
 env.skip_bad_hosts = True
 env.warn_only = True
+env.shell = '/usr/local/bin/bash -l -c'
 
 
 class UserEmptyException(Exception):
