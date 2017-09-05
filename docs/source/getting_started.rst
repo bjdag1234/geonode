@@ -10,31 +10,45 @@ Getting started
 Installing your doc directory
 =============================
 
-You may already have sphinx `sphinx <http://sphinx.pocoo.org/>`_
+You may already have `sphinx <http://sphinx.pocoo.org/>`_
 installed -- you can check by doing::
 
-  python -c 'import sphinx'
+  > python -c 'import sphinx'
 
 If that fails grab the latest version of and install it with::
 
   > sudo easy_install -U Sphinx
 
-Now you are ready to build a template for your docs, using
-sphinx-quickstart::
+Now you are ready to check out the remote branch documentation, in your geonode folder::
 
-  > sphinx-quickstart
+  > git checkout -b documentation origin/documentation
 
-accepting most of the defaults.  I choose "sampledoc" as the name of my
-project.  cd into your new directory and check the contents::
+The rst files in docs/source/ and the Makefile in docs/ are the things to watch out.
+In the Makefile, BUILDDIR is where the documentation will be created::
 
-  home:~/tmp/sampledoc> ls
-  Makefile	_static		conf.py
-  _build		_templates	index.rst
+  BUILDDIR      = ../../documentation
 
-The index.rst is the master ReST for your project, but before adding
-anything, let's see if we can build some html::
+To prepare the repository for the publication online, we must have a branch named 'gh-pages', where it contains the html folder.
+So we should clone the existing git repository for the html files, but first we must create documentation/::
 
-  make html
+  > cd ..
+  > mkdir documentation
+  > git clone https://github.com/PhilLidar-DAD/documentation.git html
+  > cd html
+  > git checkout -b gh-pages origin/gh-pages
+
+Now going back to your geonode directory::
+
+  > cd ../../geonode/
+
+You can build build some html by::
+
+  > cd docs
+  > make html
+
+Or::
+
+  > make html -C docs
 
 If you now point your browser to :file:`_build/html/index.html`, you
 should see a basic sphinx site.
@@ -103,4 +117,3 @@ Next we'll customize the look and feel of our site to give it a logo,
 some custom css, and update the navigation panels to look more like
 the `sphinx <http://sphinx.pocoo.org/>`_ site itself -- see
 :ref:`custom_look`.
-
