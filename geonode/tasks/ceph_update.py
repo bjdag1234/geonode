@@ -17,6 +17,8 @@ from geonode.cephgeo.models import LidarCoverageBlock
 from celery.decorators import periodic_task
 from datetime import datetime
 import uuid
+from pyproj import transform, Proj
+from geonode.utils import bbox_to_wkt
 
 logger = get_task_logger("geonode.tasks.ceph_update")
 
@@ -116,6 +118,22 @@ def ceph_metadata_update(update_grid=True):
 
                 objects_updated += 1
             except ObjectDoesNotExist:
+                NEx0,NEy1 = [p*1000 for p in map(int,metadata_list[5][1:].split('N'))]
+                NEx1 = NEx0+1*1000
+                NEy0 = NEy1-1*1000
+                ### Converting to lat long and format for csw_wkt_geometry
+                bbox_latlong = { # Outputs string coordinates which are separated by a space, i.e. '<x0> <y0>'
+                    'x0y0' : " ".join([str(i) for i in transform(Proj(init='epsg:32651'), Proj(init='epsg:4326'), NEx0,NEy0)]),
+                    'x0y1' : " ".join([str(i) for i in transform(Proj(init='epsg:32651'), Proj(init='epsg:4326'), NEx0,NEy1)]),
+                    'x1y1' : " ".join([str(i) for i in transform(Proj(init='epsg:32651'), Proj(init='epsg:4326'), NEx1,NEy1)]),
+                    'x1y0' : " ".join([str(i) for i in transform(Proj(init='epsg:32651'), Proj(init='epsg:4326'), NEx1,NEy0)]),
+                }
+                ### Getting bounding box
+                bbox_x0 = min([value.split()[0] for key, value in bbox_latlong.iteritems() if 'x0' in key.lower()])
+                bbox_x1 = max([value.split()[0] for key, value in bbox_latlong.iteritems() if 'x1' in key.lower()])
+                bbox_y0 = min([value.split()[1] for key, value in bbox_latlong.iteritems() if 'y0' in key.lower()])
+                bbox_y1 = max([value.split()[1] for key, value in bbox_latlong.iteritems() if 'y1' in key.lower()])
+
                 ceph_obj = CephDataObjectResourceBase(name=metadata_list[0],
                                                       last_modified=metadata_list[1],
                                                       size_in_bytes=metadata_list[2],
@@ -128,8 +146,7 @@ def ceph_metadata_update(update_grid=True):
                     metadata_list[0]),
                     uuid=str(uuid.uuid1()),
                     title=metadata_list[0],
-                    abstract='''
-All LiDAR point cloud data were acquired and processed by the UP Training Center for Applied Geodesy and Photogrammetry (UP-TCAGP), through the DOST-GIA funded Disaster Risk and Exposure Assessment for Mitigation (DREAM) Program.
+                    abstract='''All LiDAR point cloud data were acquired and processed by the UP Training Center for Applied Geodesy and Photogrammetry (UP-TCAGP), through the DOST-GIA funded Disaster Risk and Exposure Assessment for Mitigation (DREAM) Program.
 
 The LiDAR point cloud data was acquired by an Optech ALTM Gemini and Pegasus LiDAR system. It was pre-processed using POSPac MMS and LMS software. The TerraScan software was used to classify the point cloud into ground, vegetation and building classes. LASTools was used to compress the classified LiDAR point cloud data (.las) in a completely lossless manner to the compressed LAZ format (.laz).
 
@@ -153,7 +170,12 @@ Please refer to the corresponding End-User License Agreement (EULA) for product 
 
 
 
-© All Rights Reserved, 2013''' % metadata_list[1]
+© All Rights Reserved, 2013''' % metadata_list[1],
+                    bbox_x0 = bbox_x0,
+                    bbox_x1 = bbox_x1,
+                    bbox_y0 = bbox_y0,
+                    bbox_y1 = bbox_y1,
+                    csw_wkt_geometry = bbox_to_wkt(bbox_x0, bbox_x1, bbox_y0, bbox_y1).split(';')[-1],
                     )
                 ceph_obj.save()
 
