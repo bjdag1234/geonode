@@ -2,6 +2,7 @@
 from changuito import models as cartmodels
 from changuito.proxy import ItemDoesNotExist, CartProxy
 from geonode.cephgeo.models import CephDataObject, DataClassification
+from geonode.automation.models import CephDataObjectResourceBase
 from django.contrib import messages
 import utils
 
@@ -23,25 +24,27 @@ def compute_price(data_class):
         raise KeyError("No valid pricing for geo-type [{0}]".format(data_class))
 
 def add_to_cart(request, ceph_obj_id, quantity=1):
-    product = CephDataObject.objects.get(id=ceph_obj_id)
-    cart = CartProxy(request) 
+    # product = CephDataObject.objects.get(id=ceph_obj_id)
+    product = CephDataObjectResourceBase.objects.get(id=ceph_obj_id)
+    cart = CartProxy(request)
     cart.add(product, compute_price(product.data_class), quantity)
 
 def add_to_cart_unique(request, ceph_obj_id):
-    product = CephDataObject.objects.get(id=ceph_obj_id)
-    cart = CartProxy(request) 
-    
+    # product = CephDataObject.objects.get(id=ceph_obj_id)
+    product = CephDataObjectResourceBase.objects.get(id=ceph_obj_id)
+    cart = CartProxy(request)
+
     if check_dup_cart_item(cart, ceph_obj_id):
         raise DuplicateCartItemException("Item [{0}] already in cart".format(product.name))
     else:
         cart.add(product, compute_price(product.data_class), 1)
-        
+
 def remove_from_cart(request, ceph_obj_id):
-    cart = CartProxy(request) 
+    cart = CartProxy(request)
     cart.remove_item(ceph_obj_id)
-    
+
 def remove_all_from_cart(request):
-    cart = CartProxy(request) 
+    cart = CartProxy(request)
     if request.user.is_authenticated():
         cart.delete_old_cart(request.user)
 

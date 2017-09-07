@@ -28,6 +28,7 @@ from geonode.documents.models import get_related_documents
 from geonode.registration.models import Province, Municipality
 from geonode.base.models import ResourceBase
 from geonode.groups.models import GroupProfile
+from geonode.automation.models import CephDataObjectResourceBase
 
 import geonode.settings as settings
 
@@ -110,7 +111,7 @@ def tiled_view(request, overlay=settings.TILED_SHAPEFILE, template="maptiles/map
         context_dict["laz"] = None
         context_dict["dsm"] = None
         context_dict["philgrid_sld"] = None
-        
+
     context_dict["geoserver_url"] = settings.OGC_SERVER['default']['PUBLIC_LOCATION']
     jurisdiction_object = None
 
@@ -236,7 +237,8 @@ def process_georefs(request):
                     filter_query = filter_query & ~Q(data_class=filtered_class)
 
                 # Execute query
-                objects = CephDataObject.objects.filter(filter_query)
+                # objects = CephDataObject.objects.filter(filter_query)
+                objects = CephDataObjectResourceBase.objects.filter(filter_query)
                 pprint("objects found for georef:" + georef)
 
                 # Count duplicates and empty references
@@ -295,6 +297,8 @@ def georefs_validation(request):
         print("[VALIDATION]")
         pprint(request.POST)
         georefs_list = filter(None, georefs.split(","))
+
+
         cart_total_size = get_cart_datasize(request)
 
         # Retrieve FTPRequests from the last 24 hours
@@ -311,7 +315,8 @@ def georefs_validation(request):
         pprint(requests_today)
         total_size = 0
         for georef in georefs_list:
-            objects = CephDataObject.objects.filter(name__startswith=georef)
+            objects = CephDataObjectResourceBase.objects.filter(name__startswith=georef)
+            # objects = CephDataObject.objects.filter(name__startswith=georef)
             for o in objects:
                 total_size += o.size_in_bytes
 
@@ -389,7 +394,9 @@ def georefs_datasize(request):
 
         for eachgeoref_clicked in georefs_clicked_list:
             # pprint(eachgeoref_clicked)
-            clicked_objects = CephDataObject.objects.filter(
+            # clicked_objects = CephDataObject.objects.filter(
+            clicked_objects = CephDataObjectResourceBase.objects.filter(
+
                 name__startswith=eachgeoref_clicked)
             for o in clicked_objects:
                 total_data_size_clicked += o.size_in_bytes

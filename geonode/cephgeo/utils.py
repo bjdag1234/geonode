@@ -4,6 +4,8 @@ import re
 from changuito.proxy import CartProxy
 from geonode.cephgeo.models import CephDataObject, DataClassification, MissionGridRef, SucToLayer, FTPRequestToObjectIndex, RIDF
 from geonode.datarequests.models import DataRequestProfile
+from geonode.automation.models import CephDataObjectResourceBase
+
 
 from osgeo import ogr
 import shapely
@@ -108,10 +110,16 @@ def ceph_object_ids_by_data_class(ceph_obj_list):
     return obj_name_dict
 
 def get_cart_datasize(request):
+    print '*' * 40
+    print 'request:', request
     cart = CartProxy(request)
+    print '*' * 40
+    print 'cart:', cart
     total_size = 0
     for item in cart:
-        obj = CephDataObject.objects.get(id=int(item.object_id))
+        print 'item:', item
+        obj = CephDataObjectResourceBase.objects.get(id=int(item.object_id))
+        # obj = CephDataObject.objects.get(id=int(item.object_id))
         total_size += obj.size_in_bytes
 
     return total_size
