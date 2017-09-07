@@ -48,41 +48,20 @@ _PERMISSION_GENERIC = _('You do not have permissions for this layer.')
 
 logger = logging.getLogger("geonode")
 
-
-def _resolve_layer(request, typename, permission='base.view_resourcebase',
-                   msg=_PERMISSION_GENERIC, **kwargs):
-    """
-    Resolve the layer by the provided typename (which may include service name) and check the optional permission.
-    """
-    service_typename = typename.split(":", 1)
-    service = Service.objects.filter(name=service_typename[0])
-
-    if service.count() > 0:
-        return resolve_object(request,
-                              Layer,
-                              {'service': service[0],
-                               'typename': service_typename[1] if service[0].method != "C" else typename},
-                              permission=permission,
-                              permission_msg=msg,
-                              **kwargs)
-    else:
-        return resolve_object(request,
-                              Layer,
-                              {'typename': typename,
-                               'service': None},
-                              permission=permission,
-                              permission_msg=msg,
-                              **kwargs)
-
-#
-# This function generates the layer configuration details required for the map view.
-# Returns the template with the configuration details as context
-#
-
-
 @login_required
 def tiled_view(request, overlay=settings.TILED_SHAPEFILE, template="maptiles/maptiles_map.html", test_mode=False, jurisdiction=None):
+    """Gives the configurations for the map in data tiles
 
+    This function generates the layer configuration details required for the map view.
+    Returns the template with the configuration details as context
+    For form details and page layout, see maptiles_geoext_map.html and maptiles_map.html
+
+    URLs:
+        url(r'^/?$', views.tiled_view, name='maptiles_main'),
+        url(r'^test/?$', views.tiled_view, { "overlay": settings.TILED_SHAPEFILE ,"test_mode":True} ),
+        url(r'^interest=(?P<interest>[^/]*)$', views.tiled_view, {"overlay": settings.TILED_SHAPEFILE_TEST}),
+
+    """
     context_dict = {}
     context_dict["grid"] = get_layer_config(
         request, overlay, "base.view_resourcebase", _PERMISSION_VIEW)
@@ -110,7 +89,7 @@ def tiled_view(request, overlay=settings.TILED_SHAPEFILE, template="maptiles/map
         context_dict["laz"] = None
         context_dict["dsm"] = None
         context_dict["philgrid_sld"] = None
-        
+
     context_dict["geoserver_url"] = settings.OGC_SERVER['default']['PUBLIC_LOCATION']
     jurisdiction_object = None
 
@@ -138,151 +117,128 @@ def tiled_view(request, overlay=settings.TILED_SHAPEFILE, template="maptiles/map
     context_dict["test_mode"] = test_mode
     context_dict["data_classes"] = DataClassification.labels.values()
 
-    #context_dict["projections"]= SRS.labels.values()
-
     return render_to_response(template, RequestContext(request, context_dict))
-
-
-def tiled_view2(request, overlay=settings.TILED_SHAPEFILE, template="maptiles/maptiles_map2.html", test_mode=False, jurisdiction=None):
-
-    context_dict = {}
-    context_dict["grid"] = get_layer_config(
-        request, overlay, "base.view_resourcebase", _PERMISSION_VIEW)
-
-    if jurisdiction is None:
-        try:
-            jurisdiction_object = UserJurisdiction.objects.get(
-                user=request.user)
-            jurisdiction_shapefile = jurisdiction_object.jurisdiction_shapefile
-            context_dict["jurisdiction"] = get_layer_config(
-                request, jurisdiction_object.jurisdiction_shapefile.typename, "base.view_resourcebase", _PERMISSION_VIEW)
-            context_dict[
-                "jurisdiction_name"] = jurisdiction_object.jurisdiction_shapefile.typename
-            context_dict["jurisdiction_yes"] = True
-        except Exception as e:
-            context_dict["jurisdiction_yes"] = False
-            print e
-    else:
-        context_dict["jurisdiction"] = get_layer_config(
-            request, jurisdiction, "base.view_resourcebase", _PERMISSION_VIEW)
-
-    context_dict["feature_municipality"] = settings.MUNICIPALITY_SHAPEFILE.split(":")[
-        1]
-    context_dict["feature_tiled"] = overlay.split(":")[1]
-    context_dict["test_mode"] = test_mode
-    context_dict["data_classes"] = DataClassification.labels.values()
-    #context_dict["projections"]= SRS.labels.values()
-
-    return render_to_response(template, RequestContext(request, context_dict))
-
-#
-# Function for processing the georefs submitted by the user
-#
-
 
 def process_georefs(request):
+    """Process the georefs submitted by the user, then redirect to cart
+
+    This function handles the checking of selected tiles, <submitted_georef_list>, if they are listed in the tiles within the user's jurisdiction, <jurisdiction_georefs>.
+        The intersection of the two mentioned list is stored to <georef_list>.
+        The tiles within the user's jurisdiction is listed in the Cephgeo.UserTiles model as gridref_list column.
+        If the user does not have a Cephgeo.UserTiles entry, this raises PermissionDenied
+    Then filters data classes depending on the selected data classes, by removing unselected data classes in Q
+    Then gets the filtered georef in CephDataObject.
+    Then it adds it to cart using cart_utils's add_to_cart_unique, which checks if it has a duplicate, then it doesnt add it, if no duplicate, then it adds it.
+    Then this also outputs a message of the status of the selected georefs; if with duplicates, empty georef, or succesful.
+
+    Triggers:
+        `georef_form` is submitted, also see maptiles_map.html and maptiles_geoext_map.html
+
+    URLs:
+        url(r'^addtocart/?$', views.process_georefs),
+
+    """
     if request.method == "POST":
         try:
-            # Get georef list filtered with georefs computed upon approval of
-            # registration
-            georef_area = request.POST['georef_area']
-            # georef_list = filter(None, georef_area.split(","))
-            # #pprint("Initial georef_list:" + str(georef_list))
-            # try:
-            #     georef_list = clean_georefs(request.user, georef_list)
-            # except ObjectDoesNotExist:
-            #     messages.info(request, "Due to a recent update, your selectable tiles are still under process. We apologize for the inconvenience.")
-            #     return redirect('geonode.cephgeo.views.get_cart')
-            # #pprint("Filtered georef_list:" + str(georef_list))
+            ### Get georef list filtered with georefs computed upon approval of registration
+            georef_area = request.POST['georef_area'] # Check maptiles_geoext_map.html for more details
             submitted_georef_list = filter(None, georef_area.split(","))
-            georef_list = []
-            jurisdiction_georefs = []
 
+            ### Get the tiles inside jurisdiciton
+            jurisdiction_georefs = []
             try:
-                jurisdiction_georefs = str(
-                    UserTiles.objects.get(user=request.user).gridref_list)
+                jurisdiction_georefs = str(UserTiles.objects.get(user=request.user).gridref_list)
             except ObjectDoesNotExist as e:
                 pprint("No jurisdiction tiles for this user")
                 raise PermissionDenied
 
+            ### New list <georef_list> is an intersection of <submitted_georef_list> and <jurisdiction_georefs>
+            georef_list = []
+            outside_jurisdiction = []
             for georef in submitted_georef_list:
                 if georef in jurisdiction_georefs:
                     georef_list.append(georef)
-
+                else:
+                    outside_jurisdiction.append(georef)
             pprint(georef_list)
 
-            # Get the requested dataclasses
+            ### Get the requested dataclasses
             data_classes = list()
             for data_class in DataClassification.labels.values():
                 if request.POST.get(slugify(data_class.decode('cp1252'))):
                     data_classes.append(data_class)
 
-            # Construct filter for excluding unselected data classes
+            ### Construct filter for excluding unselected data classes; this list will be removed in the query later
             dataclass_filter = DataClassification.labels.keys()
             for dataclass, label in DataClassification.labels.iteritems():
                 if label in data_classes:
                     dataclass_filter.remove(dataclass)
 
-            # Initialize variables for counting empty and duplicates
+            ### Initialize variables for counting empty georefs and duplicate objects
             count = 0
             empty_georefs = 0
             duplicates = []
 
-            for georef in georef_list:      # Process each georef in list
+            ### Process each georef in list
+            for georef in georef_list:
 
-                # Build filter query to exclude unselected data classes
+                ### Build filter query to exclude unselected data classes
                 filter_query = Q(name__startswith=georef)
                 for filtered_class in dataclass_filter:
-                    filter_query = filter_query & ~Q(data_class=filtered_class)
+                    filter_query = filter_query & ~Q(data_class=filtered_class) # intersection of the original Q <filter_query>, and the Q that is not '~' data_class=filtered_class
 
-                # Execute query
+                ### Execute query
                 objects = CephDataObject.objects.filter(filter_query)
                 pprint("objects found for georef:" + georef)
 
-                # Count duplicates and empty references
+                ### Count duplicates and empty references
                 count += len(objects)
                 if len(objects) > 0:
-                    for ceph_obj in objects:    # Add each Ceph object to cart
+                    for ceph_obj in objects:# Add each Ceph object to cart
                         try:
                             add_to_cart_unique(request, ceph_obj.id)
                             pprint("object " + ceph_obj.name + " added to cart")
-                        except DuplicateCartItemException:  # List each duplicate object
+                        except DuplicateCartItemException:# List each duplicate object
                             duplicates.append(ceph_obj.name)
                 else:
                     empty_georefs += 1
 
-            # if len(duplicates) > 0:         # Warn on duplicates
-            #    messages.warning(request, "WARNING: The following items are already in the cart and have not been added: \n{0}".format(str(duplicates)))
+            ### Inform user of the number of processed georefs and objects
+            message_string = "Processed [{0}] georef tiles. ".format(len(georef_list))
+            if len(outside_jurisdiction) > 0:
+                message_string += "[{0}] georef tiles found outside of user's jurisdiction have been skipped. ".format(len(outside_jurisdiction))
+            if len(duplicates) > 0:
+                message_string += "[{0}] duplicate objects found in cart have been skipped. A total of [{1}] objects have been added to cart. ".format(len(duplicates), (count - len(duplicates)))
+            else:
+                message_string += "A total of [{0}] objects have been added to cart. ".format(count - len(duplicates))
 
             if empty_georefs > 0:
                 messages.error(request, "ERROR: [{0}] out of selected [{1}] georef tiles have no data! A total of [{2}] objects have been added to cart. \n".format(
                     empty_georefs, len(georef_list), (count - len(duplicates))))
-            elif len(duplicates) > 0:  # Inform user of the number of processed georefs and objects
-                messages.info(request, "Processed [{0}] georefs tiles. [{2}] duplicate objects found in cart have been skipped. A total of [{1}] objects have been added to cart. ".format(
-                    len(georef_list), (count - len(duplicates)), len(duplicates)))
-            else:  # Inform user of the number of processed georefs and objects
-                messages.info(request, "Processed [{0}] georefs tiles. A total of [{1}] objects have been added to cart.".format(
-                    len(georef_list), (count - len(duplicates))))
+            else:
+                messages.info(request, message_string)
 
             return redirect('geonode.cephgeo.views.get_cart')
 
-        except ValidationError:             # Redirect and inform if an invalid georef is encountered
+        except ValidationError: # Redirect and inform if an invalid georef is encountered
             messages.error(request, "Invalid georefs list")
             return HttpResponseRedirect('/maptiles/')
-            # return redirect('geonode.maptiles.views.tiled_view')
 
-    else:   # Must process HTTP POST method from form
+    else: # Must process HTTP POST method from form
         raise Exception("HTTP method must be POST!")
-
-#
-# Validates if the total file size requested is less than the limit specified in local settings
-#
-
 
 @login_required
 def georefs_validation(request):
-    """
-    Note: does not check yet if tiles to be added are unique (or are not yet included in the cart)
+    """Check if user has exceeded the limit for downloads as specified in the local settings
+
+    This functions validates if the user's size to be added to cart <total_size> + cart's total size <cart_total_size> + FTPRequests since midnight <request_size_mn> exceeds the size limit <settings.SELECTION_LIMIT>
+
+    Triggers:
+        `georef_form` is submitted, also see maptiles_geoext_map.html
+
+    URLs:
+        url(r'^validate/?$', views.georefs_validation),
+
     """
     if request.method != 'POST':
         return HttpResponse(
@@ -295,37 +251,34 @@ def georefs_validation(request):
         print("[VALIDATION]")
         pprint(request.POST)
         georefs_list = filter(None, georefs.split(","))
+
+        ### Retrieve currect cart's total size; see cephgeo's utils.py
         cart_total_size = get_cart_datasize(request)
 
-        # Retrieve FTPRequests from the last 24 hours
-        #yesterday = datetime.now() -  timedelta(days=1)
-        #requests_last24h = FTPRequest.objects.filter(date_time__gt=yesterday, user=request.user)
-
-        # Retrieve FTPRequests since midnight
+        ### Retrieve FTPRequests since midnight
         today_min = datetime.combine(date.today(), time.min)
         today_max = datetime.combine(date.today(), time.max)
         requests_today = FTPRequest.objects.filter(
             user=request.user, date_time__range=(today_min, today_max))
-        #requests_today = FTPRequest.objects.filter(date_time__gt=today_min, user=request.user)
+        request_size_mn = 0
+        for r in requests_today:
+            request_size_mn += r.size_in_bytes
         print "PREVIOUS REQUESTS:  "
         pprint(requests_today)
+
+        ### Retrieve size of selection which will be added to the cart
         total_size = 0
         for georef in georefs_list:
             objects = CephDataObject.objects.filter(name__startswith=georef)
             for o in objects:
                 total_size += o.size_in_bytes
-
-        request_size_last24h = 0
         pprint('Total size:' + str(total_size))
 
-        # for r in requests_last24h:
-        for r in requests_today:
-            request_size_last24h += r.size_in_bytes
-
-        if total_size + cart_total_size + request_size_last24h > settings.SELECTION_LIMIT:
+        ### Proceed with error or success, see maptiles_geoext_map.html's display_message
+        if total_size + cart_total_size + request_size_mn > settings.SELECTION_LIMIT:
             return HttpResponse(
                 content=json.dumps({"response": False, "total_size": total_size,
-                                    "cart_size": cart_total_size, "recent_requests_size": request_size_last24h}),
+                                    "cart_size": cart_total_size, "recent_requests_size": request_size_mn}),
                 status=200,
                 # mimetype='text/plain'
                 content_type="application/json"
@@ -339,13 +292,17 @@ def georefs_validation(request):
                 content_type="application/json"
             )
 
-#
-# Function for looking up the municipalities within a province
-#
-
-
 @login_required
 def province_lookup(request, province=""):
+    """Function for looking up the municipalities within a province
+
+    NOTE DOES NOT WORK, needs to migrate registration models, questionable code (check the appends)
+
+    URLs:
+        url(r'^provinces/?$', views.province_lookup),
+        url(r'^provinces/(?P<province>[^/]*)$', views.province_lookup),
+
+    """
     if province == "":
         provinces = []
         for p in Province.objects.all():
@@ -368,13 +325,17 @@ def province_lookup(request, province=""):
             status=200,
             content_type="application/json",
         )
-#
-# Function for showing the data size of a georef
-#
-
 
 @login_required
 def georefs_datasize(request):
+    """Function for showing the data size of a georef
+
+    Function to retrieve data size of each georef, see maptiles_geoext_map.html
+
+    URLs:
+        url(r'^datasize/?$', views.georefs_datasize),
+
+    """
     if request.method != 'POST':
         return HttpResponse(
             content='no data received from HTTP POST',
@@ -388,13 +349,10 @@ def georefs_datasize(request):
         georefs_clicked_list = filter(None, georefs_clicked.split(","))
 
         for eachgeoref_clicked in georefs_clicked_list:
-            # pprint(eachgeoref_clicked)
             clicked_objects = CephDataObject.objects.filter(
                 name__startswith=eachgeoref_clicked)
             for o in clicked_objects:
                 total_data_size_clicked += o.size_in_bytes
-                # pprint(o.size_in_bytes)
-            # pprint(total_data_size_clicked)
         return HttpResponse(
             content=json.dumps(
                 {"total_data_size_clicked": total_data_size_clicked}),
