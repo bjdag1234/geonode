@@ -221,7 +221,12 @@ def data_input(request):
                 form.cleaned_data['data']).splitlines()
             update_grid = form.cleaned_data['update_grid']
 
-            ceph_metadata_update.delay(uploaded_objects_list, update_grid)
+            print '*' * 40
+            print 'uploaded_objects_list:', uploaded_objects_list
+            print 'update_grid:', update_grid
+            print '*' * 40
+
+            # ceph_metadata_update.delay(uploaded_objects_list, update_grid)
 
             ctx = {
                 'charsets': CHARSETS,
