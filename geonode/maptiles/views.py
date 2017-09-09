@@ -203,6 +203,7 @@ def process_georefs(request):
                 jurisdiction_georefs = str(
                     UserTiles.objects.get(user=request.user).gridref_list)
             except ObjectDoesNotExist as e:
+                print 'process_georefs'
                 pprint("No jurisdiction tiles for this user")
                 raise PermissionDenied
 
@@ -293,11 +294,13 @@ def georefs_validation(request):
             mimetype='text/plain'
         )
     else:
+        print 'request:', request
         georefs = request.POST["georefs"]
+        print 'georefs:', georefs
         print("[VALIDATION]")
         pprint(request.POST)
         georefs_list = filter(None, georefs.split(","))
-
+        print 'georefs_list:', georefs_list
 
         cart_total_size = get_cart_datasize(request)
 

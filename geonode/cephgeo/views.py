@@ -56,6 +56,7 @@ def tile_check(request):
     try:
         json_tiles = UserTiles.objects.get(user=user)
     except ObjectDoesNotExist as e:
+        print 'tile_check ObjectDoesNotExist'
         return HttpResponse(status=404)
 
     georefs = map(str, request.POST.get('georefs', ''))
@@ -308,6 +309,7 @@ def get_cart_json(request):
     obj_name_dict = [CephDataObjectResourceBase.objects.get(
     # obj_name_dict = [CephDataObjectResourceBase.objects.get(
         id=int(item.object_id)).name for item in cart]
+    print 'obj_name_dict:', obj_name_dict
     return HttpResponse(json.dumps(obj_name_dict), content_type="application/json")
 
 
