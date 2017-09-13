@@ -681,7 +681,8 @@ def layer_download_csv(request):
         firstname = unidecode(getprofile.first_name)
         lastname = unidecode(getprofile.last_name)
         email = getprofile.email
-        organization = getprofile.organization
+        organization = unidecode(
+            getprofile.organization) if getprofile.organization is not None else getprofile.organization
         orgtype = getprofile.org_type
         #area = get_area_coverage(auth.action_object.typename)
         area = 0
@@ -702,9 +703,11 @@ def layer_download_csv(request):
         email = anon.anon_email
         layername = anon.anon_layer
         docname = anon.anon_document
-        organization = anon.anon_organization
+        organization = unidecode(
+            anon.anon_organization) if anon.anon_organization is not None else anon.anon_organization
         orgtype = anon.anon_orgtype
-        purpose = anon.anon_purpose
+        purpose = unidecode(
+            anon.anon_purpose) if anon.anon_purpose is not None else anon.anon_purpose
         #area = get_area_coverage(auth.action_object.typename)
         area = 0
         if layername:
