@@ -19,7 +19,7 @@ from geonode.tasks.ceph_update import ceph_metadata_remove, ceph_metadata_update
 
 from geonode.cephgeo.cart_utils import *
 
-import client
+import ceph_s3_client
 import utils
 import cPickle
 import unicodedata
@@ -72,21 +72,25 @@ def file_list_ceph(request, sort=None):
     if sort not in utils.SORT_TYPES and sort != None:
         return HttpResponse(status=404)
 
-    cephclient = client.CephStorageClient(settings.CEPH_OGW['default']['USER'], settings.CEPH_OGW[
-                                          'default']['KEY'], settings.CEPH_OGW['default']['LOCATION'])
+    cephclient = ceph_s3_client.CephS3StorageClient(settings.CEPH_OGW['default']['USER'], 
+                                            settings.CEPH_OGW['default']['ACCESS_KEY'],
+                                            settings.CEPH_OGW['default']['SECRET_KEY'],
+                                            settings.CEPH_OGW['default']['LOCATION'])
     object_list = cephclient.list_files(
         container_name=settings.CEPH_OGW['default']['CONTAINER'])
     sorted_list = []
 
     for ceph_object in object_list:
-        ceph_object["type"] = utils.get_data_class_from_filename(ceph_object[
-                                                                 "name"])
+        ceph_object["type"] = utils.get_data_class_from_filename(ceph_object["name"])
         ceph_object["uploaddate"] = ceph_object["last_modified"]
 
     # sorting goes here
     if sort != None:
-        sorted_list = utils.sort_by(sort, object_list)
-        paginator = Paginator(sorted_list, 50)
+        if sort == 'default':
+            paginator = Paginator(object_list, 50)
+        else:
+            sorted_list = utils.sort_by(sort, object_list)
+            paginator = Paginator(sorted_list, 50)
     else:
         paginator = Paginator(object_list, 50)
 
@@ -104,6 +108,7 @@ def file_list_ceph(request, sort=None):
                    "file_types": utils.TYPE_TO_IDENTIFIER_DICT,
                    "sort_types": utils.SORT_TYPES,
                    "sort": sort})
+
 
 
 @login_required
@@ -152,6 +157,7 @@ def file_list_geonode(request, sort=None, grid_ref=None):
         paged_objects = paginator.page(1)
     except EmptyPage:
         paged_objects = paginator.page(paginator.num_pages)
+
 
     return render(request, "file_list_geonode.html",
                   {"file_list": paged_objects,

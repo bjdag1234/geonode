@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from celery.utils.log import get_task_logger
 import geonode.settings as settings
 from geonode.cephgeo.utils import get_data_class_from_filename
-from geonode.cephgeo import ceph_client
+from geonode.cephgeo import ceph_s3_client
 from swiftclient.exceptions import ClientException
 logger = get_task_logger("geonode.tasks.ceph_update")
 
@@ -102,9 +102,13 @@ def ceph_metadata_remove(uploaded_objects_list, update_grid=True, delete_from_ce
     logger.info("Removing {0} ceph data objects".format(len(uploaded_objects_list)))
     
     # Create ceph connection
-    cephclient = ceph_client.CephStorageClient(settings.CEPH_OGW['default']['USER'], settings.CEPH_OGW[
-                                          'default']['KEY'], settings.CEPH_OGW['default']['LOCATION'])
-    
+    # cephclient = ceph_s3_client.CephStorageClient(settings.CEPH_OGW['default']['USER'], settings.CEPH_OGW[
+    #                                      'default']['KEY'], settings.CEPH_OGW['default']['LOCATION'])
+    cephclient = ceph_s3_client.CephS3StorageClient(settings.CEPH_OGW['default']['USER'],
+                                                    settings.CEPH_OGW['default']['ACCESS_KEY'],
+                                                    settings.CEPH_OGW['default']['SECRET_KEY'],
+                                                    settings.CEPH_OGW['default']['LOCATION'])
+
     for ceph_obj_metadata in uploaded_objects_list:
         metadata_list = ceph_obj_metadata.split(csv_delimiter)
         logger.info("-> {0}".format(ceph_obj_metadata))
